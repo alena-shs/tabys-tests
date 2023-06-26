@@ -1,0 +1,2409 @@
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["main"],{
+
+/***/ "/yX7":
+/*!*******************************!*\
+  !*** ./src/model/MenuItem.ts ***!
+  \*******************************/
+/*! exports provided: MenuItem */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MenuItem", function() { return MenuItem; });
+class MenuItem {
+    static of({ label, routerLink, privileges, mandatoryPrivileges, group, expanded, icon }) {
+        const menuItem = new MenuItem();
+        menuItem.label = label;
+        menuItem.routerLink = routerLink;
+        // menuItem.group = group;
+        // menuItem.expanded = expanded;
+        // menuItem.privileges = privileges;
+        // menuItem.mandatoryPrivileges = mandatoryPrivileges;
+        menuItem.icon = icon;
+        return menuItem;
+    }
+}
+
+
+/***/ }),
+
+/***/ 0:
+/*!***************************!*\
+  !*** multi ./src/main.ts ***!
+  \***************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(/*! /builds/greetgo/kazpost/kazpost-frontend/src/main.ts */"zUnb");
+
+
+/***/ }),
+
+/***/ "2MiI":
+/*!*******************************************************!*\
+  !*** ./src/app/components/header/header.component.ts ***!
+  \*******************************************************/
+/*! exports provided: HeaderComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HeaderComponent", function() { return HeaderComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "fXoL");
+/* harmony import */ var _angular_flex_layout__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/flex-layout */ "YUcS");
+
+
+class HeaderComponent {
+    constructor() { }
+    ngOnInit() {
+    }
+}
+HeaderComponent.ɵfac = function HeaderComponent_Factory(t) { return new (t || HeaderComponent)(); };
+HeaderComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: HeaderComponent, selectors: [["app-header"]], decls: 6, vars: 2, consts: [[1, "header", 3, "fxLayout"], ["fxLayoutAlign", "start center", "fxLayoutGap", "8px", 3, "fxLayout"], ["href", "http://aix.kz/"], ["src", "/assets/img/aix-logo.svg", "alt", "", 1, "aix-logo"], ["src", "/assets/img/kazpost-logo.svg", "alt", "", 1, "kazpost-logo"]], template: function HeaderComponent_Template(rf, ctx) { if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "div", 1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "a", 2);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](3, "img", 3);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](4, "a", 2);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](5, "img", 4);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+    } if (rf & 2) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("fxLayout", "row");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("fxLayout", "row");
+    } }, directives: [_angular_flex_layout__WEBPACK_IMPORTED_MODULE_1__["DefaultLayoutDirective"], _angular_flex_layout__WEBPACK_IMPORTED_MODULE_1__["DefaultLayoutAlignDirective"], _angular_flex_layout__WEBPACK_IMPORTED_MODULE_1__["DefaultLayoutGapDirective"]], styles: [".header[_ngcontent-%COMP%] {\n  padding: 10px 25px;\n}\n.header[_ngcontent-%COMP%]   .aix-logo[_ngcontent-%COMP%] {\n  height: 40px;\n  width: 180px;\n}\n.header[_ngcontent-%COMP%]   .kazpost-logo[_ngcontent-%COMP%] {\n  height: 30px;\n  width: 300px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uL2hlYWRlci5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLGtCQUFBO0FBQ0Y7QUFDRTtFQUNFLFlBQUE7RUFDQSxZQUFBO0FBQ0o7QUFFRTtFQUNFLFlBQUE7RUFDQSxZQUFBO0FBQUoiLCJmaWxlIjoiaGVhZGVyLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmhlYWRlciB7XG4gIHBhZGRpbmc6IDEwcHggMjVweDtcblxuICAuYWl4LWxvZ28ge1xuICAgIGhlaWdodDogNDBweDtcbiAgICB3aWR0aDogMTgwcHg7XG4gIH1cblxuICAua2F6cG9zdC1sb2dvIHtcbiAgICBoZWlnaHQ6IDMwcHg7XG4gICAgd2lkdGg6IDMwMHB4O1xuICB9XG59XG4iXX0= */"] });
+
+
+/***/ }),
+
+/***/ "2l8/":
+/*!**************************************!*\
+  !*** ./src/model/ApplicationName.ts ***!
+  \**************************************/
+/*! exports provided: ApplicationName */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ApplicationName", function() { return ApplicationName; });
+var ApplicationName;
+(function (ApplicationName) {
+    ApplicationName["PIPO"] = "PIPO";
+})(ApplicationName || (ApplicationName = {}));
+
+
+/***/ }),
+
+/***/ "3szf":
+/*!*******************************************!*\
+  !*** ./src/app/core/role-menu.service.ts ***!
+  \*******************************************/
+/*! exports provided: RoleMenuService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RoleMenuService", function() { return RoleMenuService; });
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/router */ "tyNb");
+/* harmony import */ var _model_PrivilegeEnum__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../model/PrivilegeEnum */ "zPzX");
+/* harmony import */ var _model_MenuItem__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../model/MenuItem */ "/yX7");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "fXoL");
+/* harmony import */ var _authorization_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./authorization.service */ "FE47");
+
+
+
+
+
+
+class RoleMenuService {
+    constructor(router, authService) {
+        this.router = router;
+        this.authService = authService;
+        this.menuItems = [];
+        this.urlChange$ = this.router.events.subscribe(event => {
+            if (event instanceof _angular_router__WEBPACK_IMPORTED_MODULE_0__["NavigationEnd"]) {
+                this.updateMenu();
+            }
+        });
+    }
+    ngOnDestroy() {
+        this.urlChange$.unsubscribe();
+    }
+    updateMenu() {
+        this.menuItems.forEach(item => {
+            if (this.router.url.split('/')[2] === item.routerLink) {
+                item.expanded = true;
+            }
+        });
+    }
+    getSideAdminMenuItems() {
+        const menuItems = [
+            _model_MenuItem__WEBPACK_IMPORTED_MODULE_2__["MenuItem"].of({
+                label: 'Help',
+                routerLink: 'help',
+                privileges: [_model_PrivilegeEnum__WEBPACK_IMPORTED_MODULE_1__["PrivilegeEnum"].CAN_MANAGE_HELP],
+                expanded: false,
+                icon: 'assets/icon/sett.svg'
+            }),
+        ];
+        this.register(menuItems);
+        return menuItems;
+    }
+    register(items) {
+        items.forEach(item => this.menuItems.push(item));
+        this.updateMenu();
+    }
+}
+RoleMenuService.ɵfac = function RoleMenuService_Factory(t) { return new (t || RoleMenuService)(_angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵinject"](_angular_router__WEBPACK_IMPORTED_MODULE_0__["Router"]), _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵinject"](_authorization_service__WEBPACK_IMPORTED_MODULE_4__["AuthorizationService"])); };
+RoleMenuService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdefineInjectable"]({ token: RoleMenuService, factory: RoleMenuService.ɵfac, providedIn: 'root' });
+
+
+/***/ }),
+
+/***/ "4Ksz":
+/*!****************************************!*\
+  !*** ./src/app/core/loader.service.ts ***!
+  \****************************************/
+/*! exports provided: LoaderService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoaderService", function() { return LoaderService; });
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! rxjs */ "qCKp");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs/operators */ "kU1M");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "fXoL");
+
+
+
+class LoaderService {
+    constructor() {
+        this._inProgress = new Set();
+        this.progress = new rxjs__WEBPACK_IMPORTED_MODULE_0__["Subject"]();
+    }
+    addObservable(sub) {
+        this._inProgress.add(sub);
+        this.progress.next(this._inProgress.size);
+        return sub.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["finalize"])(() => this.completed(sub)));
+    }
+    addPromise(sub) {
+        const observable = Object(rxjs__WEBPACK_IMPORTED_MODULE_0__["from"])(sub);
+        this.addObservable(observable);
+        return sub;
+    }
+    getInProgressCount() {
+        return this._inProgress.size;
+    }
+    completed(sub) {
+        this._inProgress.delete(sub);
+        this.progress.next(this._inProgress.size);
+    }
+}
+LoaderService.ɵfac = function LoaderService_Factory(t) { return new (t || LoaderService)(); };
+LoaderService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdefineInjectable"]({ token: LoaderService, factory: LoaderService.ɵfac });
+
+
+/***/ }),
+
+/***/ "4ypk":
+/*!**************************************!*\
+  !*** ./src/app/core/http.service.ts ***!
+  \**************************************/
+/*! exports provided: HttpService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HttpService", function() { return HttpService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "tk/3");
+/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../environments/environment */ "AytR");
+/* harmony import */ var _model_ApplicationName__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../model/ApplicationName */ "2l8/");
+/* harmony import */ var _session_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./session.service */ "8FiN");
+/* harmony import */ var _language_language_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./language/language.service */ "lxcN");
+/* harmony import */ var _static__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./static */ "9d1Y");
+/* harmony import */ var print_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! print-js */ "rdXg");
+/* harmony import */ var print_js__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(print_js__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/core */ "fXoL");
+/* harmony import */ var _loader_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./loader.service */ "4Ksz");
+
+
+
+
+
+
+
+
+
+
+
+class OptionsBuilder {
+    constructor() {
+        this.appendingHeaders = [];
+        this.appendingParams = [];
+    }
+    appendHeader(key, value) {
+        if (value !== undefined) {
+            this.appendingHeaders.push({ key, value });
+        }
+    }
+    appendParams(key, value) {
+        if (value !== undefined) {
+            this.appendingParams.push({ key, value });
+        }
+    }
+    // tslint:disable-next-line:typedef
+    appendResponseType(responseType) {
+        this.responseType = responseType;
+    }
+    get headers() {
+        let ret = new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]();
+        this.appendingHeaders.forEach(h => {
+            ret = ret.append(h.key, h.value);
+        });
+        return ret;
+    }
+    get params() {
+        let ret = new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpParams"]();
+        this.appendingParams.forEach(h => {
+            ret = ret.append(h.key, h.value);
+        });
+        return ret;
+    }
+    getJson() {
+        return {
+            observe: 'response',
+            headers: this.headers,
+            params: this.params,
+            reportProgress: false,
+            withCredentials: true,
+            responseType: 'json'
+        };
+    }
+    getText() {
+        return {
+            observe: 'response',
+            headers: this.headers,
+            params: this.params,
+            reportProgress: false,
+            withCredentials: true,
+            responseType: 'text'
+        };
+    }
+    getBlob() {
+        return {
+            observe: 'response',
+            headers: this.headers,
+            params: this.params,
+            reportProgress: false,
+            withCredentials: true,
+            responseType: 'blob'
+        };
+    }
+}
+class RequestOptions {
+}
+class RequestOptionsJson extends RequestOptions {
+}
+class RequestOptionsText extends RequestOptions {
+}
+class RequestOptionsBlob extends RequestOptions {
+}
+class HttpService {
+    constructor(http, loaderService) {
+        this.http = http;
+        this.loaderService = loaderService;
+    }
+    prefix() {
+        return _environments_environment__WEBPACK_IMPORTED_MODULE_2__["environment"].urlPrefix;
+    }
+    url(urlSuffix) {
+        return this.prefix() + urlSuffix;
+    }
+    /**
+     * Обязательно нужно присвоить в локальный httpService объект который вернул этот метод
+     * @param controllerPrefix префикс контроллера на сервере
+     * @param prefix префикс контроллера на сервере
+     */
+    setControllerPrefix(controllerPrefix, prefix) {
+        const prefixHandler = {
+            get(target, name, receiver) {
+                if (name === 'url') {
+                    return (urlSuffix) => {
+                        if (!!prefix || prefix === '') {
+                            return prefix + controllerPrefix + urlSuffix;
+                        }
+                        else {
+                            return target.__proto__.prefix() + controllerPrefix + urlSuffix;
+                        }
+                    };
+                }
+                return Reflect.get(target, name, receiver);
+            }
+        };
+        return new Proxy(this, prefixHandler);
+    }
+    setPrefix(prefix, controllerPrefix) {
+        const prefixHandler = {
+            get: function (target, name, receiver) {
+                if (name === 'url') {
+                    return (urlSuffix) => {
+                        if (controllerPrefix) {
+                            return prefix + controllerPrefix + urlSuffix;
+                        }
+                        else {
+                            return prefix + urlSuffix;
+                        }
+                    };
+                }
+                return Reflect.get(target, name, receiver);
+            }
+        };
+        return new Proxy(this, prefixHandler);
+    }
+    get(urlSuffix, keyValue, responseType) {
+        const ob = this.newOptionsBuilder();
+        if (keyValue) {
+            for (const key of Object.keys(keyValue)) {
+                const value = keyValue[key];
+                if (value !== undefined && value !== null) {
+                    if (value instanceof Array) {
+                        for (const el of value) {
+                            ob.appendParams(key, el);
+                        }
+                    }
+                    else {
+                        ob.appendParams(key, value);
+                    }
+                }
+            }
+        }
+        switch (responseType) {
+            case 'text': {
+                return this.loaderService.addObservable(this.http.get(this.url(urlSuffix), ob.getText()));
+            }
+            default: {
+                return this.loaderService.addObservable(this.http.get(this.url(urlSuffix), ob.getJson()));
+            }
+        }
+    }
+    getResource(urlSuffix, keyValue) {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            const ob = this.newOptionsBuilder();
+            ob.appendHeader('Content-Type', 'application/x-www-form-urlencoded');
+            if (keyValue) {
+                for (const key of Object.keys(keyValue)) {
+                    const value = keyValue[key];
+                    if (value !== undefined && value !== null) {
+                        ob.appendParams(key, value);
+                    }
+                }
+            }
+            return yield this.http.get(this.url(urlSuffix), ob.getBlob()).toPromise();
+        });
+    }
+    post(urlSuffix, keyValue, responseType) {
+        const ob = this.newOptionsBuilder();
+        ob.appendHeader('Content-Type', 'application/x-www-form-urlencoded');
+        const data = new URLSearchParams();
+        for (const key in keyValue) {
+            const value = keyValue[key];
+            if (value !== undefined) {
+                data.append(key, value);
+            }
+        }
+        switch (responseType) {
+            case 'text': {
+                return this.loaderService.addObservable(this.http.post(this.url(urlSuffix), data.toString(), ob.getText()));
+            }
+            default: {
+                return this.loaderService.addObservable(this.http.post(this.url(urlSuffix), data.toString(), ob.getJson()));
+            }
+        }
+    }
+    postJson(urlSuffix, object, responseType) {
+        const ob = this.newOptionsBuilder();
+        ob.appendHeader('Content-Type', 'application/json');
+        switch (responseType) {
+            case 'text': {
+                return this.loaderService.addObservable(this.http.post(this.url(urlSuffix), JSON.stringify(object), ob.getText()));
+            }
+            default: {
+                return this.loaderService.addObservable(this.http.post(this.url(urlSuffix), JSON.stringify(object), ob.getJson()));
+            }
+        }
+    }
+    put(urlSuffix, keyValue, responseType) {
+        const ob = this.newOptionsBuilder();
+        ob.appendHeader('Content-Type', 'application/x-www-form-urlencoded');
+        const data = new URLSearchParams();
+        for (const key in keyValue) {
+            const value = keyValue[key];
+            if (value !== undefined) {
+                data.append(key, value);
+            }
+        }
+        switch (responseType) {
+            case 'text': {
+                return this.loaderService.addObservable(this.http.put(this.url(urlSuffix), data.toString(), ob.getText()));
+            }
+            default: {
+                return this.loaderService.addObservable(this.http.put(this.url(urlSuffix), data.toString(), ob.getJson()));
+            }
+        }
+    }
+    delete(urlSuffix, keyValue, responseType) {
+        const ob = this.newOptionsBuilder();
+        if (keyValue) {
+            for (const key in keyValue) {
+                const value = keyValue[key];
+                if (value !== undefined) {
+                    ob.appendParams(key, value);
+                }
+            }
+        }
+        switch (responseType) {
+            case 'text': {
+                return this.loaderService.addObservable(this.http.delete(this.url(urlSuffix), ob.getText()));
+            }
+            default: {
+                return this.loaderService.addObservable(this.http.delete(this.url(urlSuffix), ob.getJson()));
+            }
+        }
+    }
+    downloadResource(urlSuffix, keyValue) {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            const ob = this.newOptionsBuilder();
+            if (keyValue) {
+                for (const key in keyValue) {
+                    const value = keyValue[key];
+                    if (value !== undefined) {
+                        ob.appendParams(key, value);
+                    }
+                }
+            }
+            const response = yield this.loaderService.addObservable(this.http.get(this.url(urlSuffix), ob.getBlob()))
+                .toPromise();
+            const url = window.URL.createObjectURL(response.body);
+            const filename = decodeURIComponent(response.headers.get('Content-Disposition')
+                .split(';')[1]
+                .split('=')[1]
+                .replace(/["]/g, ''));
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = filename;
+            link.click();
+            window.URL.revokeObjectURL(url);
+            return response;
+        });
+    }
+    downloadResourceToPrint(urlSuffix, keyValue) {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            const ob = this.newOptionsBuilder();
+            if (keyValue) {
+                for (const key in keyValue) {
+                    const value = keyValue[key];
+                    if (value !== undefined) {
+                        ob.appendParams(key, value);
+                    }
+                }
+            }
+            const response = yield this.loaderService.addObservable(this.http.get(this.url(urlSuffix), ob.getBlob()))
+                .toPromise();
+            const url = window.URL.createObjectURL(response.body);
+            print_js__WEBPACK_IMPORTED_MODULE_7__(url);
+            return response;
+        });
+    }
+    get token() {
+        return localStorage.getItem('token') || null;
+    }
+    set token(value) {
+        localStorage.setItem('token', value || '');
+    }
+    newOptionsBuilder() {
+        const ob = new OptionsBuilder();
+        let languageCode = _language_language_service__WEBPACK_IMPORTED_MODULE_5__["DEFAULT_LANGUAGE_CODE"];
+        ob.appendHeader('application', _model_ApplicationName__WEBPACK_IMPORTED_MODULE_3__["ApplicationName"].PIPO);
+        if (!!localStorage.getItem(_session_service__WEBPACK_IMPORTED_MODULE_4__["SESSION_ID"])) {
+            ob.appendHeader('session_id', localStorage.getItem(_session_service__WEBPACK_IMPORTED_MODULE_4__["SESSION_ID"]));
+        }
+        if (!!localStorage.getItem(_session_service__WEBPACK_IMPORTED_MODULE_4__["SESSION_TOKEN"])) {
+            ob.appendHeader('gg_token', localStorage.getItem(_session_service__WEBPACK_IMPORTED_MODULE_4__["SESSION_TOKEN"]));
+        }
+        if (!!localStorage.getItem(_static__WEBPACK_IMPORTED_MODULE_6__["StorageLocalKeyEnum"].LANGUAGE_CODE)) {
+            languageCode = localStorage.getItem(_static__WEBPACK_IMPORTED_MODULE_6__["StorageLocalKeyEnum"].LANGUAGE_CODE).replace(/"/gi, '');
+            ob.appendHeader('language_code', languageCode);
+        }
+        return ob;
+    }
+}
+HttpService.ɵfac = function HttpService_Factory(t) { return new (t || HttpService)(_angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"]), _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵinject"](_loader_service__WEBPACK_IMPORTED_MODULE_9__["LoaderService"])); };
+HttpService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵdefineInjectable"]({ token: HttpService, factory: HttpService.ɵfac, providedIn: 'root' });
+
+
+/***/ }),
+
+/***/ "8FiN":
+/*!*****************************************!*\
+  !*** ./src/app/core/session.service.ts ***!
+  \*****************************************/
+/*! exports provided: SESSION_ID, SESSION_TOKEN, ACCOUNT_NUMBER, USER_IIN, KAZPOST_ID */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SESSION_ID", function() { return SESSION_ID; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SESSION_TOKEN", function() { return SESSION_TOKEN; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ACCOUNT_NUMBER", function() { return ACCOUNT_NUMBER; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "USER_IIN", function() { return USER_IIN; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "KAZPOST_ID", function() { return KAZPOST_ID; });
+const SESSION_ID = 'gg_session_id';
+const SESSION_TOKEN = 'gg_token';
+const ACCOUNT_NUMBER = 'account_number';
+const USER_IIN = 'user_iin';
+const KAZPOST_ID = 'kazpost_id';
+
+
+/***/ }),
+
+/***/ "9d1Y":
+/*!********************************!*\
+  !*** ./src/app/core/static.ts ***!
+  \********************************/
+/*! exports provided: IIN_REGEX, PROFILE_URL, LOGIN_URL, SUBSCRIPTION_URL, CURRENCY_KZT, CURRENCY_EUR, CURRENCY_USD, CURRENCY_CNY, CURRENCY_DEFAULT, CURRENCIES, StorageLocalKeyEnum */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "IIN_REGEX", function() { return IIN_REGEX; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PROFILE_URL", function() { return PROFILE_URL; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LOGIN_URL", function() { return LOGIN_URL; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SUBSCRIPTION_URL", function() { return SUBSCRIPTION_URL; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CURRENCY_KZT", function() { return CURRENCY_KZT; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CURRENCY_EUR", function() { return CURRENCY_EUR; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CURRENCY_USD", function() { return CURRENCY_USD; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CURRENCY_CNY", function() { return CURRENCY_CNY; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CURRENCY_DEFAULT", function() { return CURRENCY_DEFAULT; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CURRENCIES", function() { return CURRENCIES; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StorageLocalKeyEnum", function() { return StorageLocalKeyEnum; });
+const IIN_REGEX = /^[\d+]{12}$/;
+const PROFILE_URL = '/main/profile';
+const LOGIN_URL = '/login';
+const SUBSCRIPTION_URL = '/main/subscription';
+const CURRENCY_KZT = 'KZT';
+const CURRENCY_EUR = 'EUR';
+const CURRENCY_USD = 'USD';
+const CURRENCY_CNY = 'CNY';
+const CURRENCY_DEFAULT = { code: CURRENCY_KZT };
+const CURRENCIES = [
+    { 'code': CURRENCY_KZT },
+    { 'code': CURRENCY_EUR },
+    { 'code': CURRENCY_USD },
+    { 'code': CURRENCY_CNY }
+];
+var StorageLocalKeyEnum;
+(function (StorageLocalKeyEnum) {
+    StorageLocalKeyEnum["LANGUAGES"] = "LANGUAGES";
+    StorageLocalKeyEnum["LANGUAGE_CODE"] = "LANGUAGE_CODE";
+    StorageLocalKeyEnum["LANGUAGE_VERSION"] = "LANGUAGE_VERSION_";
+    StorageLocalKeyEnum["LANGUAGE_TRANSLATE"] = "TRANSLATE_";
+    StorageLocalKeyEnum["FIRST_INIT"] = "FIRST_INIT";
+})(StorageLocalKeyEnum || (StorageLocalKeyEnum = {}));
+
+
+/***/ }),
+
+/***/ "A5L2":
+/*!*******************************************************!*\
+  !*** ./src/app/core/language/ngx-language.service.ts ***!
+  \*******************************************************/
+/*! exports provided: NgxLanguageService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NgxLanguageService", function() { return NgxLanguageService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs/operators */ "kU1M");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "fXoL");
+/* harmony import */ var _storage_storage_local_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../storage/storage-local.service */ "E7tm");
+/* harmony import */ var _http_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../http.service */ "4ypk");
+
+
+
+
+
+class NgxLanguageService {
+    constructor(storageLocalService, localHttp) {
+        this.storageLocalService = storageLocalService;
+        this.localHttp = localHttp;
+        this.localHttp = this.localHttp.setControllerPrefix('', '');
+    }
+    updateLanguageFromNGXServerForCache(languageSuffix, translate) {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            if (!languageSuffix && !translate) {
+                return false;
+            }
+            this.setLanguageVersion(languageSuffix, translate.version);
+            this.setLanguageTranslateFromCache(languageSuffix, translate.translates);
+            return true;
+        });
+    }
+    setLanguageVersion(languageSuffix, value) {
+        this.storageLocalService.setLanguageVersion(languageSuffix, value);
+    }
+    setLanguageTranslateFromCache(languageSuffix, value) {
+        this.storageLocalService.setLanguageTranslate(languageSuffix, value);
+    }
+    getLanguageTranslateFromJSON(languageSuffix) {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            return yield this.localHttp.get('assets/i18n/' + languageSuffix + '.json')
+                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["map"])(res => {
+                return res.body;
+            }))
+                .toPromise()
+                .then(value => {
+                return value;
+            });
+        });
+    }
+    getLanguageTranslateFromCache(languageSuffix) {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            return this.storageLocalService.getLanguageTranslate(languageSuffix);
+        });
+    }
+}
+NgxLanguageService.ɵfac = function NgxLanguageService_Factory(t) { return new (t || NgxLanguageService)(_angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵinject"](_storage_storage_local_service__WEBPACK_IMPORTED_MODULE_3__["StorageLocalService"]), _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵinject"](_http_service__WEBPACK_IMPORTED_MODULE_4__["HttpService"])); };
+NgxLanguageService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdefineInjectable"]({ token: NgxLanguageService, factory: NgxLanguageService.ɵfac });
+
+
+/***/ }),
+
+/***/ "AbQJ":
+/*!**************************************!*\
+  !*** ./src/app/core/form.service.ts ***!
+  \**************************************/
+/*! exports provided: FormService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FormService", function() { return FormService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "fXoL");
+/* harmony import */ var _system_notification_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./system-notification.service */ "zHfp");
+
+
+class FormService {
+    constructor(systemNotificationService) {
+        this.systemNotificationService = systemNotificationService;
+    }
+    setErrors(error, form) {
+        if (!error) {
+            return;
+        }
+        try {
+            error.error.forEach(error => {
+                if (error.formArray) {
+                    const formArray = form.controls[error.formArray];
+                    formArray.controls[error.formGroupIndex].controls[error.id]
+                        .setErrors({ [error.code]: error.message });
+                }
+                else {
+                    form.controls[error.id].setErrors({ [error.code]: error.message });
+                }
+            });
+        }
+        catch (e) {
+            console.error(e);
+        }
+        this.systemNotificationService.error('saving_error_occur');
+    }
+}
+FormService.ɵfac = function FormService_Factory(t) { return new (t || FormService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_system_notification_service__WEBPACK_IMPORTED_MODULE_1__["SystemNotificationService"])); };
+FormService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjectable"]({ token: FormService, factory: FormService.ɵfac });
+
+
+/***/ }),
+
+/***/ "AytR":
+/*!*****************************************!*\
+  !*** ./src/environments/environment.ts ***!
+  \*****************************************/
+/*! exports provided: environment */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "environment", function() { return environment; });
+// This file can be replaced during build by using the `fileReplacements` array.
+// `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
+// The list of file replacements can be found in `angular.json`.
+const environment = {
+    production: false,
+    urlPrefix: `/api`,
+    // urlPrefix: `http://localhost:8686/api`,
+    defaultLanguage: 'ru'
+};
+/*
+ * For easier debugging in development mode, you can import the following file
+ * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.
+ *
+ * This import should be commented out in production mode because it will have a negative impact
+ * on performance if an error is thrown.
+ */
+// import 'zone.js/dist/zone-error';  // Included with Angular CLI.
+
+
+/***/ }),
+
+/***/ "C0z4":
+/*!*******************************!*\
+  !*** ./src/model/AuthInfo.ts ***!
+  \*******************************/
+/*! exports provided: AuthInfo */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AuthInfo", function() { return AuthInfo; });
+class AuthInfo {
+    constructor() {
+    }
+    static from(a) {
+        const ret = new AuthInfo();
+        ret.assign(a);
+        return ret;
+    }
+    assign(a) {
+        this.displayName = a.displayName;
+        this.personGuid = a.personGuid;
+        this.accountName = a.accountName;
+        this.role = a.role;
+        this.roleName = a.roleName;
+        this.privileges = a.privilegesList;
+        return this;
+    }
+}
+
+
+/***/ }),
+
+/***/ "E7tm":
+/*!*******************************************************!*\
+  !*** ./src/app/core/storage/storage-local.service.ts ***!
+  \*******************************************************/
+/*! exports provided: StorageLocalService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StorageLocalService", function() { return StorageLocalService; });
+/* harmony import */ var _static__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../static */ "9d1Y");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "fXoL");
+
+
+// TODO назар удалить и использовать обычный localStorage либо везде где используем localstorage переместить на localCacheService
+class StorageLocalService {
+    constructor() {
+        this.cache = new Map();
+    }
+    get(key) {
+        let fromCache = this.cache.get(key);
+        if (!!fromCache === false) {
+            const value = localStorage.getItem(key);
+            if (value == null) {
+                return null;
+            }
+            fromCache = JSON.parse(value);
+            this.cache.set(key, fromCache);
+        }
+        return fromCache;
+    }
+    set(key, value) {
+        this.cache.set(key, value);
+        localStorage.setItem(key, JSON.stringify(value));
+    }
+    remove(key) {
+        this.cache.delete(key);
+        localStorage.removeItem(key);
+    }
+    setFirstInit(value) {
+        this.set(_static__WEBPACK_IMPORTED_MODULE_0__["StorageLocalKeyEnum"].FIRST_INIT, value);
+    }
+    setLanguageCode(value) {
+        return this.set(_static__WEBPACK_IMPORTED_MODULE_0__["StorageLocalKeyEnum"].LANGUAGE_CODE, value);
+    }
+    setLanguageTranslate(languageSuffix, value) {
+        return this.set((_static__WEBPACK_IMPORTED_MODULE_0__["StorageLocalKeyEnum"].LANGUAGE_TRANSLATE + languageSuffix), value);
+    }
+    setLanguageVersion(languageSuffix, value) {
+        return this.set((_static__WEBPACK_IMPORTED_MODULE_0__["StorageLocalKeyEnum"].LANGUAGE_VERSION + languageSuffix), value);
+    }
+    getFirstInit() {
+        return this.get(_static__WEBPACK_IMPORTED_MODULE_0__["StorageLocalKeyEnum"].FIRST_INIT);
+    }
+    getLanguageCode() {
+        return this.get(_static__WEBPACK_IMPORTED_MODULE_0__["StorageLocalKeyEnum"].LANGUAGE_CODE);
+    }
+    getLanguageTranslate(languageSuffix) {
+        return this.get((_static__WEBPACK_IMPORTED_MODULE_0__["StorageLocalKeyEnum"].LANGUAGE_TRANSLATE + languageSuffix));
+    }
+    getLanguageVersion(languageSuffix) {
+        return this.get((_static__WEBPACK_IMPORTED_MODULE_0__["StorageLocalKeyEnum"].LANGUAGE_VERSION + languageSuffix));
+    }
+}
+StorageLocalService.ɵfac = function StorageLocalService_Factory(t) { return new (t || StorageLocalService)(); };
+StorageLocalService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjectable"]({ token: StorageLocalService, factory: StorageLocalService.ɵfac });
+
+
+/***/ }),
+
+/***/ "FE47":
+/*!***********************************************!*\
+  !*** ./src/app/core/authorization.service.ts ***!
+  \***********************************************/
+/*! exports provided: AuthorizationService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AuthorizationService", function() { return AuthorizationService; });
+/* harmony import */ var _model_AuthInfo__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../model/AuthInfo */ "C0z4");
+/* harmony import */ var _model_UserPasswordRestore__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../model/UserPasswordRestore */ "MYF/");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "qCKp");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "fXoL");
+/* harmony import */ var _http_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./http.service */ "4ypk");
+/* harmony import */ var _system_notification_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./system-notification.service */ "zHfp");
+
+
+
+
+
+
+// import {SESSION_TOKEN} from "./authorization.interceptor";
+const SESSION_TOKEN = 'gg_token';
+class AuthorizationService {
+    constructor(httpService, systemNotificationService) {
+        this.systemNotificationService = systemNotificationService;
+        this._authInfo = new _model_AuthInfo__WEBPACK_IMPORTED_MODULE_0__["AuthInfo"]();
+        this.onAuthInfoChange = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"](null);
+        this.ROLE_BROKER_FINANCIAL = 'BROKER_FINANCIAL';
+        this.ROLE_SBROKER_FINANCIAL = 'SBROKER_FINANCIAL';
+        this.CHATBOT_ADMIN = 'CHATBOT_ADMIN';
+        this.PTD = 'PTD';
+        this.httpService = httpService.setControllerPrefix('/auth');
+    }
+    login(phoneNumber) {
+        return this.httpService.post('/login', { login: phoneNumber }, 'json')
+            .toPromise()
+            .then((res) => {
+            return res.body;
+        });
+    }
+    generateSession(accountName, kazpostId, role) {
+        return this.httpService.post('/session/generate', { accountName, kazpostId, role }, 'json')
+            .toPromise()
+            .then((res) => {
+            return res;
+        });
+    }
+    addUser(phoneNumber, iin, code) {
+        return this.httpService.post('/user/add', { phoneNumber, iin, smsCode: code }, 'text')
+            .toPromise()
+            .then(res => {
+            return res;
+        });
+    }
+    getPhoneNumber(iin) {
+        return this.httpService.get('/user/phone-number', { iin }, 'text')
+            .toPromise()
+            .then(res => {
+            return res.body;
+        });
+    }
+    getUsernames(iin) {
+        return this.httpService.get('/user/usernames', { iin }, 'text')
+            .toPromise()
+            .then(res => {
+            return res.body;
+        });
+    }
+    getUserDetail(iin) {
+        return this.httpService.get('/user/detail', { iin }, 'json')
+            .toPromise()
+            .then(res => {
+            return res.body;
+        });
+    }
+    get currentMode() {
+        if (!this.isAuthenticated) {
+            return null;
+        }
+        if (this._authInfo.privileges.length === 1 && this._authInfo.privileges[0] === 'SELECT_ROLE') {
+            return 'select-role';
+        }
+        if (this._authInfo.role === this.ROLE_BROKER_FINANCIAL || this._authInfo.role === this.ROLE_SBROKER_FINANCIAL
+            || this._authInfo.role === this.CHATBOT_ADMIN || this._authInfo.role === this.PTD) {
+            this.redirectModule(this._authInfo.role).then()
+                .catch(() => this.systemNotificationService.error('error_while_loading_out_service'));
+        }
+        return 'admin';
+    }
+    sendRegistrationConfirmationCode(phoneNumber, languageCode) {
+        return this.httpService.post('/user/phone/send-sms', { languageCode, phoneNumber }, 'text')
+            .toPromise()
+            .then(res => {
+            return res;
+        });
+    }
+    confirmRegister(phoneNumber, code) {
+        return this.httpService.post('/user/phone/confirm', { code, phoneNumber }, 'text')
+            .toPromise()
+            .then(res => {
+            return res;
+        });
+    }
+    sendAuthVerificationCode(phoneNumber, languageCode) {
+        return this.httpService.post('/user/verification/send-code', {
+            languageCode,
+            phoneNumber
+        }, 'text')
+            .toPromise()
+            .then(res => {
+            return res;
+        });
+    }
+    confirmVerificationCode(phoneNumber, code) {
+        return this.httpService.post('/user/verification/confirm', { code, phoneNumber }, 'text')
+            .toPromise()
+            .then(res => {
+            return res;
+        });
+    }
+    logout() {
+        return this.httpService.get('/logout', null, 'text')
+            .toPromise().then(res => {
+            localStorage.removeItem(SESSION_TOKEN);
+            this.authInfo = null;
+            return res;
+        });
+    }
+    getAuthInfo() {
+        return this.httpService.get('/info').toPromise()
+            .then(res => {
+            const ret = _model_AuthInfo__WEBPACK_IMPORTED_MODULE_0__["AuthInfo"].from(res.body);
+            this.authInfo = ret;
+            return ret;
+        });
+    }
+    set authInfo(authInfo) {
+        this._authInfo = authInfo;
+        this.onAuthInfoChange.next(authInfo);
+    }
+    get isAuthenticated() {
+        return (this._authInfo !== null && this._authInfo.accountName != null);
+    }
+    hasToken() {
+        const item = localStorage.getItem(SESSION_TOKEN);
+        return !!item;
+    }
+    get displayName() {
+        return this._authInfo.displayName;
+    }
+    get accountName() {
+        return this._authInfo.accountName;
+    }
+    getAllRole() {
+        return this.httpService.get('/all-role').toPromise()
+            .then(res => {
+            return res.body;
+        });
+    }
+    canI(privilege) {
+        if (privilege) {
+            return this._authInfo.privileges.find(value => privilege === value);
+        }
+    }
+    getCommitId() {
+        return this.httpService.get('/system/info/commit')
+            .toPromise()
+            .then(response => response.body);
+    }
+    selectRole(code) {
+        return this.httpService.post('/select-role', { role: code }, 'text')
+            .toPromise()
+            .then(res => {
+            localStorage.setItem(SESSION_TOKEN, res.body);
+            return res.body;
+        });
+    }
+    getBrokerName() {
+        return this.httpService.get('/broker-info')
+            .toPromise()
+            .then(res => {
+            return res.body;
+        });
+    }
+    getBrokerApplication() {
+        return this.httpService.get('/broker-application')
+            .toPromise()
+            .then(res => {
+            return res.body;
+        });
+    }
+    getCanLoad(priv) {
+        return this.httpService.get('/can-load-page', { privileges: JSON.stringify(priv) })
+            .toPromise()
+            .then(response => response.body);
+    }
+    changePassword(userPasswordToChange) {
+        return this.httpService.post('/change-password', { toChange: JSON.stringify(userPasswordToChange) }, 'text')
+            .toPromise();
+    }
+    sendRestorePasswordCode(loginName) {
+        return this.httpService.post('/send-restore-password-code', {
+            accountName: loginName,
+            languageCode: 'en'
+        }).toPromise();
+    }
+    confirmRestorePassword(loginName, confirmCode) {
+        return this.httpService.post('/restore-password/confirm', {
+            accountName: loginName,
+            code: confirmCode
+        }).toPromise();
+    }
+    restorePassword(loginName, confirmCode, newPassword, repeatedPassword) {
+        return this.httpService.post('/restore-password', { restore: JSON.stringify(_model_UserPasswordRestore__WEBPACK_IMPORTED_MODULE_1__["UserPasswordRestore"].of(loginName, confirmCode, newPassword, repeatedPassword)) })
+            .toPromise();
+    }
+    redirectModule(name) {
+        return this.httpService.post('/redirect', { name }, 'text')
+            .toPromise()
+            .then(res => {
+            setTimeout(() => window.location = res.body, 500);
+        });
+    }
+}
+AuthorizationService.ɵfac = function AuthorizationService_Factory(t) { return new (t || AuthorizationService)(_angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵinject"](_http_service__WEBPACK_IMPORTED_MODULE_4__["HttpService"]), _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵinject"](_system_notification_service__WEBPACK_IMPORTED_MODULE_5__["SystemNotificationService"])); };
+AuthorizationService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdefineInjectable"]({ token: AuthorizationService, factory: AuthorizationService.ɵfac });
+
+
+/***/ }),
+
+/***/ "Fv9x":
+/*!****************************************************!*\
+  !*** ./src/app/core/rest-error-handler.service.ts ***!
+  \****************************************************/
+/*! exports provided: RestErrorHandlerService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RestErrorHandlerService", function() { return RestErrorHandlerService; });
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! rxjs */ "qCKp");
+/* harmony import */ var _util_UtilMethods__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../util/UtilMethods */ "PLe5");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "fXoL");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "tyNb");
+/* harmony import */ var _error_details_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./error-details.service */ "GKnk");
+/* harmony import */ var _system_notification_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./system-notification.service */ "zHfp");
+
+
+
+
+
+
+class RestErrorHandlerService {
+    constructor(router, errorDetailsService, notificationService) {
+        this.router = router;
+        this.errorDetailsService = errorDetailsService;
+        this.notificationService = notificationService;
+    }
+    handleError(error) {
+        error = (error && error.rejection) || error;
+        if (!!(error === null || error === void 0 ? void 0 : error.error)) {
+            error.error = Object(_util_UtilMethods__WEBPACK_IMPORTED_MODULE_1__["parseString"])(error.error);
+        }
+        const message = this.errorDetailsService.translateError(error);
+        this.notificationService.error(message);
+        return Object(rxjs__WEBPACK_IMPORTED_MODULE_0__["throwError"])(error);
+    }
+}
+RestErrorHandlerService.ɵfac = function RestErrorHandlerService_Factory(t) { return new (t || RestErrorHandlerService)(_angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵinject"](_angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]), _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵinject"](_error_details_service__WEBPACK_IMPORTED_MODULE_4__["ErrorDetailsService"]), _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵinject"](_system_notification_service__WEBPACK_IMPORTED_MODULE_5__["SystemNotificationService"])); };
+RestErrorHandlerService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdefineInjectable"]({ token: RestErrorHandlerService, factory: RestErrorHandlerService.ɵfac });
+
+
+/***/ }),
+
+/***/ "GKnk":
+/*!***********************************************!*\
+  !*** ./src/app/core/error-details.service.ts ***!
+  \***********************************************/
+/*! exports provided: ErrorDetailsService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ErrorDetailsService", function() { return ErrorDetailsService; });
+/* harmony import */ var _util_UtilMethods__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../util/UtilMethods */ "PLe5");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "fXoL");
+/* harmony import */ var _language_language_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./language/language.service */ "lxcN");
+
+
+
+class ErrorDetailsService {
+    constructor(languageService) {
+        this.languageService = languageService;
+        this.translateErrorMessage = _util_UtilMethods__WEBPACK_IMPORTED_MODULE_0__["translateErrorMessage"].bind(this, this.languageService);
+    }
+    translateError(error) {
+        return this.translateErrorMessage(error);
+    }
+    translate(code, values) {
+        return Object(_util_UtilMethods__WEBPACK_IMPORTED_MODULE_0__["translate"])(this.languageService, code, values);
+    }
+    getMessage(severity, message, values) {
+        return {
+            severity,
+            detail: this.translate(message, values)
+        };
+    }
+    getMessageError(severity, error) {
+        return {
+            severity,
+            detail: this.translateError(error)
+        };
+    }
+    getMessageSummary(severity, summary, message, values) {
+        return {
+            severity,
+            summary,
+            detail: this.translate(message, values)
+        };
+    }
+}
+ErrorDetailsService.ɵfac = function ErrorDetailsService_Factory(t) { return new (t || ErrorDetailsService)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"](_language_language_service__WEBPACK_IMPORTED_MODULE_2__["LanguageService"])); };
+ErrorDetailsService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjectable"]({ token: ErrorDetailsService, factory: ErrorDetailsService.ɵfac, providedIn: 'root' });
+
+
+/***/ }),
+
+/***/ "INed":
+/*!******************************************!*\
+  !*** ./src/app/core/app-load.service.ts ***!
+  \******************************************/
+/*! exports provided: AppLoadService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppLoadService", function() { return AppLoadService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "fXoL");
+/* harmony import */ var _authorization_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./authorization.service */ "FE47");
+/* harmony import */ var _system_notification_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./system-notification.service */ "zHfp");
+
+
+
+class AppLoadService {
+    constructor(authService, notificationService) {
+        this.authService = authService;
+        this.notificationService = notificationService;
+    }
+    initApp() {
+        if (this.authService.hasToken()) {
+            const authInfo = this.authService.getAuthInfo()
+                .catch(() => this.notificationService.error('an_error_occurred_while_loading_session'));
+            return Promise.all([authInfo]);
+        }
+    }
+}
+AppLoadService.ɵfac = function AppLoadService_Factory(t) { return new (t || AppLoadService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_authorization_service__WEBPACK_IMPORTED_MODULE_1__["AuthorizationService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_system_notification_service__WEBPACK_IMPORTED_MODULE_2__["SystemNotificationService"])); };
+AppLoadService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjectable"]({ token: AppLoadService, factory: AppLoadService.ɵfac });
+
+
+/***/ }),
+
+/***/ "IeCl":
+/*!**************************************!*\
+  !*** ./src/app/core/ping.service.ts ***!
+  \**************************************/
+/*! exports provided: PingService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PingService", function() { return PingService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "fXoL");
+/* harmony import */ var _http_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./http.service */ "4ypk");
+
+
+class PingService {
+    constructor(httpService) {
+        this.httpService = httpService.setControllerPrefix('/auth');
+    }
+    ping() {
+        const currentDate = new Date();
+        if (!this.lastPingTime || (currentDate.getTime() - this.lastPingTime.getTime() > 1000 * 60)) {
+            this.httpService.get('/ping')
+                .toPromise()
+                .then(() => this.lastPingTime = currentDate)
+                .catch(() => this.lastPingTime = currentDate);
+        }
+    }
+}
+PingService.ɵfac = function PingService_Factory(t) { return new (t || PingService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_http_service__WEBPACK_IMPORTED_MODULE_1__["HttpService"])); };
+PingService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjectable"]({ token: PingService, factory: PingService.ɵfac });
+
+
+/***/ }),
+
+/***/ "MYF/":
+/*!******************************************!*\
+  !*** ./src/model/UserPasswordRestore.ts ***!
+  \******************************************/
+/*! exports provided: UserPasswordRestore */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UserPasswordRestore", function() { return UserPasswordRestore; });
+class UserPasswordRestore {
+    static of(accountName, code, newPassword, repeatedPassword) {
+        const ret = new UserPasswordRestore();
+        ret.accountName = accountName;
+        ret.code = code;
+        ret.newPassword = newPassword;
+        ret.repeatedPassword = repeatedPassword;
+        return ret;
+    }
+}
+
+
+/***/ }),
+
+/***/ "PLe5":
+/*!*********************************!*\
+  !*** ./src/util/UtilMethods.ts ***!
+  \*********************************/
+/*! exports provided: addNullOption, addNullOptionWithTitle, addFirstOption, getOptionById, getOptionByTitle, getDate, unsubscribe, getIdIfExists, setIdIfExists, getValueOrNull, coalesce, getValueOrDefault, ternar, byOrderIndexField, filterChangedOrderIndex, isNumber, translate, parseString, getErrorMessage, translateErrorMessage, isJson, getExtentionImageFromBase64, toBase64, base64MimeType, hasImageFromResponse, to, getSizeFileFromBase64, calculationMathOfValue, multiplyMod10 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "addNullOption", function() { return addNullOption; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "addNullOptionWithTitle", function() { return addNullOptionWithTitle; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "addFirstOption", function() { return addFirstOption; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getOptionById", function() { return getOptionById; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getOptionByTitle", function() { return getOptionByTitle; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getDate", function() { return getDate; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "unsubscribe", function() { return unsubscribe; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getIdIfExists", function() { return getIdIfExists; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setIdIfExists", function() { return setIdIfExists; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getValueOrNull", function() { return getValueOrNull; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "coalesce", function() { return coalesce; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getValueOrDefault", function() { return getValueOrDefault; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ternar", function() { return ternar; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "byOrderIndexField", function() { return byOrderIndexField; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "filterChangedOrderIndex", function() { return filterChangedOrderIndex; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isNumber", function() { return isNumber; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "translate", function() { return translate; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "parseString", function() { return parseString; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getErrorMessage", function() { return getErrorMessage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "translateErrorMessage", function() { return translateErrorMessage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isJson", function() { return isJson; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getExtentionImageFromBase64", function() { return getExtentionImageFromBase64; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "toBase64", function() { return toBase64; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "base64MimeType", function() { return base64MimeType; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "hasImageFromResponse", function() { return hasImageFromResponse; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "to", function() { return to; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getSizeFileFromBase64", function() { return getSizeFileFromBase64; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "calculationMathOfValue", function() { return calculationMathOfValue; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "multiplyMod10", function() { return multiplyMod10; });
+/* harmony import */ var immutable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! immutable */ "Mpt7");
+
+function addNullOption(arr) {
+    this.addNullOptionWithTitle(arr, 'All');
+}
+function addNullOptionWithTitle(arr, title) {
+    if (!arr) {
+        return;
+    }
+    const nullOption = { id: null, title };
+    this.addFirstOption(arr, nullOption);
+}
+function addFirstOption(arr, option) {
+    if (!arr) {
+        if (arr instanceof Array) {
+            arr = [];
+        }
+        else if (arr instanceof immutable__WEBPACK_IMPORTED_MODULE_0__["List"]) {
+            arr = Object(immutable__WEBPACK_IMPORTED_MODULE_0__["List"])();
+        }
+    }
+    arr.splice(0, 0, option);
+}
+function getOptionById(id, options) {
+    if (!options) {
+        return null;
+    }
+    return options.filter(option => option.id === id)[0];
+}
+function getOptionByTitle(title, options) {
+    if (!options) {
+        return null;
+    }
+    return options.filter(option => option.title === title)[0];
+}
+function getDate(date) {
+    return date ? new Date(date) : new Date();
+}
+function unsubscribe(sub) {
+    if (sub) {
+        sub.unsubscribe();
+    }
+}
+function getIdIfExists(value) {
+    return value ? value.id : null;
+}
+function setIdIfExists(obj, key) {
+    if (obj[key]) {
+        obj[key] = obj[key].id;
+    }
+}
+function getValueOrNull(obj, key) {
+    try {
+        return obj[key];
+    }
+    catch (e) {
+        return null;
+    }
+}
+function coalesce(obj) {
+    try {
+        for (const any of obj) {
+            if (!!any) {
+                return any;
+            }
+        }
+        return null;
+    }
+    catch (e) {
+        return null;
+    }
+}
+function getValueOrDefault(obj, key, defaultValue) {
+    try {
+        return !!obj[key] ? obj[key] : defaultValue;
+    }
+    catch (e) {
+        return defaultValue;
+    }
+}
+function ternar(toReturn, onFail) {
+    return toReturn ? toReturn : onFail;
+}
+function byOrderIndexField(a, b) {
+    if (a && b) {
+        if (a.orderIndex === b.orderIndex) {
+            return 0;
+        }
+        return a.orderIndex > b.orderIndex ? 1 : -1;
+    }
+    return -1;
+}
+function filterChangedOrderIndex(value, index) {
+    if (value.orderIndex === index) {
+        return false;
+    }
+    value.orderIndex = index;
+    return true;
+}
+function isNumber(obj) {
+    return typeof obj === 'number';
+}
+function translate(languageService, code, values) {
+    if (!!code) {
+        code = code.replace(/\s+/g, ' ')
+            .trim();
+        code = languageService.get(code, values);
+    }
+    return code;
+}
+function parseString(str) {
+    if (typeof str === 'string') {
+        try {
+            str = JSON.parse(str);
+            return this.parseString(str);
+        }
+        catch (e) {
+            return str;
+        }
+    }
+    else {
+        return str;
+    }
+}
+function getErrorMessage(error) {
+    var _a, _b, _c, _d, _e, _f, _g;
+    if (!!(error === null || error === void 0 ? void 0 : error.error)) {
+        error.error = parseString(error.error);
+    }
+    if (!navigator.onLine) {
+        return ['no_internet_connection'];
+    }
+    else if ((error === null || error === void 0 ? void 0 : error.status) === 0) {
+        return ['no_internet_connection'];
+    }
+    else if ((error === null || error === void 0 ? void 0 : error.status) === 404) {
+        return ['try_again_later'];
+    }
+    else if (!!((_a = error === null || error === void 0 ? void 0 : error.error) === null || _a === void 0 ? void 0 : _a.errorMessage)) {
+        return [error.error.errorMessage];
+    }
+    else if (!!((_b = error === null || error === void 0 ? void 0 : error.error) === null || _b === void 0 ? void 0 : _b.code) && !!!((_c = error === null || error === void 0 ? void 0 : error.error) === null || _c === void 0 ? void 0 : _c.values)) {
+        return [error.error.code];
+    }
+    else if (!!!((_d = error === null || error === void 0 ? void 0 : error.error) === null || _d === void 0 ? void 0 : _d.errorMessage) && ((_e = error === null || error === void 0 ? void 0 : error.error) === null || _e === void 0 ? void 0 : _e.success) === false) {
+        return ['try_again_later'];
+    }
+    else if ((_f = error === null || error === void 0 ? void 0 : error.error) === null || _f === void 0 ? void 0 : _f.code) {
+        return [error.error.code, error.error.values];
+    }
+    else if (!!((_g = error === null || error === void 0 ? void 0 : error.error) === null || _g === void 0 ? void 0 : _g.message)) {
+        return [error.error.message];
+    }
+    else {
+        return ['try_again_later'];
+    }
+}
+function translateErrorMessage(languageService, error) {
+    const [code, values] = getErrorMessage(error);
+    return translate(languageService, code, values);
+}
+function isJson(item) {
+    item = typeof item !== 'string'
+        ? JSON.stringify(item)
+        : item;
+    try {
+        item = JSON.parse(item);
+    }
+    catch (e) {
+        return false;
+    }
+    return typeof item === 'object' && item !== null;
+}
+function getExtentionImageFromBase64(base64) {
+    return base64.substring('data/image:'.length, base64.indexOf(';base64'))
+        .split('.')[0];
+}
+function toBase64(file) {
+    return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = () => {
+            resolve(reader.result);
+        };
+        reader.onerror = error => reject(error);
+    });
+}
+function base64MimeType(encoded) {
+    let result = null;
+    if (typeof encoded !== 'string') {
+        return result;
+    }
+    const mime = encoded.match(/data:([a-zA-Z0-9]+\/[a-zA-Z0-9-.+]+).*,.*/);
+    if (mime && mime.length) {
+        result = mime[1];
+    }
+    return result;
+}
+function hasImageFromResponse(res) {
+    return !!res.body && !!res.body.size && (res.body.type === 'image/png' || res.body.type === 'image/jpeg');
+}
+function to(promise) {
+    //Use with async await method its simply
+    return promise.then(data => {
+        return [
+            null,
+            data
+        ];
+    })
+        .catch(err => [err]);
+}
+function getSizeFileFromBase64(base64File) {
+    const stringLength = base64File.length - 'data:image/png;base64,'.length;
+    const sizeInBytes = 4 * Math.ceil((stringLength / 3)) * 0.5624896334383812;
+    const sizeInKb = sizeInBytes / 1000;
+    return sizeInKb + 'kB';
+}
+function calculationMathOfValue(price, quantity) {
+    const afterDotLentth = x => ((x.toString()
+        .includes('.')) ? +(x.toString()
+        .split('.')
+        .pop().length) : (0));
+    const priceDotLength = afterDotLentth(price);
+    const quantityDotLength = afterDotLentth(quantity);
+    return ((multiplyMod10(price)) * (multiplyMod10(quantity))) / (Math.pow(10, priceDotLength) * Math.pow(10, quantityDotLength));
+}
+function multiplyMod10(val) {
+    return parseFloat(val.toString()
+        .split('.')
+        .join(''));
+}
+
+
+/***/ }),
+
+/***/ "Sy1n":
+/*!**********************************!*\
+  !*** ./src/app/app.component.ts ***!
+  \**********************************/
+/*! exports provided: AppComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppComponent", function() { return AppComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "fXoL");
+/* harmony import */ var _core_language_language_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./core/language/language.service */ "lxcN");
+/* harmony import */ var _components_header_header_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/header/header.component */ "2MiI");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "tyNb");
+/* harmony import */ var primeng_toast__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! primeng/toast */ "Gxio");
+
+
+
+
+
+class AppComponent {
+    constructor(languageService) {
+        this.languageService = languageService;
+    }
+    ngOnInit() {
+        this.languageService.setInitialAppLanguage();
+        console.error('error');
+    }
+}
+AppComponent.ɵfac = function AppComponent_Factory(t) { return new (t || AppComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_core_language_language_service__WEBPACK_IMPORTED_MODULE_1__["LanguageService"])); };
+AppComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: AppComponent, selectors: [["app-root"]], decls: 4, vars: 1, consts: [[1, "app-wrapper"], [3, "baseZIndex"]], template: function AppComponent_Template(rf, ctx) { if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "app-header");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "div", 0);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](2, "router-outlet");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](3, "p-toast", 1);
+    } if (rf & 2) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("baseZIndex", "99999");
+    } }, directives: [_components_header_header_component__WEBPACK_IMPORTED_MODULE_2__["HeaderComponent"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["RouterOutlet"], primeng_toast__WEBPACK_IMPORTED_MODULE_4__["Toast"]], styles: ["[_nghost-%COMP%] {\n  height: 100vh;\n  display: grid;\n  grid-auto-rows: max-content 1fr;\n}\n[_nghost-%COMP%]   .app-wrapper[_ngcontent-%COMP%] {\n  background-color: #F4F4F6;\n  padding: 55px 25px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uL2FwcC5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLGFBQUE7RUFDQSxhQUFBO0VBQ0EsK0JBQUE7QUFDRjtBQUNFO0VBQ0UseUJBQUE7RUFDQSxrQkFBQTtBQUNKIiwiZmlsZSI6ImFwcC5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIjpob3N0e1xuICBoZWlnaHQ6IDEwMHZoO1xuICBkaXNwbGF5OiBncmlkO1xuICBncmlkLWF1dG8tcm93czogbWF4LWNvbnRlbnQgMWZyO1xuXG4gIC5hcHAtd3JhcHBlciB7XG4gICAgYmFja2dyb3VuZC1jb2xvcjogI0Y0RjRGNjtcbiAgICBwYWRkaW5nOiA1NXB4IDI1cHg7XG4gIH1cbn1cbiJdfQ== */"] });
+
+
+/***/ }),
+
+/***/ "ZAI4":
+/*!*******************************!*\
+  !*** ./src/app/app.module.ts ***!
+  \*******************************/
+/*! exports provided: AppModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppModule", function() { return AppModule; });
+/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/platform-browser */ "jhN1");
+/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./app.component */ "Sy1n");
+/* harmony import */ var _core_core_module__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./core/core.module */ "pKmL");
+/* harmony import */ var _angular_flex_layout__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/flex-layout */ "YUcS");
+/* harmony import */ var _components_header_header_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/header/header.component */ "2MiI");
+/* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./app-routing.module */ "vY5A");
+/* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/platform-browser/animations */ "R1ws");
+/* harmony import */ var primeng_calendar__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! primeng/calendar */ "eO1q");
+/* harmony import */ var primeng_toast__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! primeng/toast */ "Gxio");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/core */ "fXoL");
+
+
+
+
+
+
+
+
+
+
+class AppModule {
+}
+AppModule.ɵfac = function AppModule_Factory(t) { return new (t || AppModule)(); };
+AppModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵdefineNgModule"]({ type: AppModule, bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_1__["AppComponent"]] });
+AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵdefineInjector"]({ providers: [], imports: [[
+            _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
+            _core_core_module__WEBPACK_IMPORTED_MODULE_2__["CoreModule"],
+            _app_routing_module__WEBPACK_IMPORTED_MODULE_5__["AppRoutingModule"],
+            _angular_flex_layout__WEBPACK_IMPORTED_MODULE_3__["FlexModule"],
+            _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_6__["BrowserAnimationsModule"],
+            primeng_calendar__WEBPACK_IMPORTED_MODULE_7__["CalendarModule"],
+            primeng_toast__WEBPACK_IMPORTED_MODULE_8__["ToastModule"],
+        ]] });
+(function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵsetNgModuleScope"](AppModule, { declarations: [_app_component__WEBPACK_IMPORTED_MODULE_1__["AppComponent"],
+        _components_header_header_component__WEBPACK_IMPORTED_MODULE_4__["HeaderComponent"]], imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
+        _core_core_module__WEBPACK_IMPORTED_MODULE_2__["CoreModule"],
+        _app_routing_module__WEBPACK_IMPORTED_MODULE_5__["AppRoutingModule"],
+        _angular_flex_layout__WEBPACK_IMPORTED_MODULE_3__["FlexModule"],
+        _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_6__["BrowserAnimationsModule"],
+        primeng_calendar__WEBPACK_IMPORTED_MODULE_7__["CalendarModule"],
+        primeng_toast__WEBPACK_IMPORTED_MODULE_8__["ToastModule"]] }); })();
+
+
+/***/ }),
+
+/***/ "j3Sx":
+/*!*****************************************************!*\
+  !*** ./src/app/core/language-controller.service.ts ***!
+  \*****************************************************/
+/*! exports provided: LanguageControllerService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LanguageControllerService", function() { return LanguageControllerService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "fXoL");
+/* harmony import */ var _http_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./http.service */ "4ypk");
+
+
+
+class LanguageControllerService {
+    constructor(http) {
+        this.http = http.setControllerPrefix('/language');
+    }
+    getLanguages() {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            if (this.languagesCache) {
+                return this.languagesCache;
+            }
+            this.languagesCache = yield this.http.get('').toPromise().then(value => value.body);
+            return this.languagesCache;
+        });
+    }
+}
+LanguageControllerService.ɵfac = function LanguageControllerService_Factory(t) { return new (t || LanguageControllerService)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"](_http_service__WEBPACK_IMPORTED_MODULE_2__["HttpService"])); };
+LanguageControllerService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjectable"]({ token: LanguageControllerService, factory: LanguageControllerService.ɵfac });
+
+
+/***/ }),
+
+/***/ "lxcN":
+/*!***************************************************!*\
+  !*** ./src/app/core/language/language.service.ts ***!
+  \***************************************************/
+/*! exports provided: NGX_TRANSLATE_LANGUAGE_HTTP_CONTROLLER_PREFIX, NGX_TRANSLATE_LANGUAGE_HTTP_URL_SUFFIX, NGX_CHECK_LANGUAGE_HTTP_URL_SUFFIX, DEFAULT_LANGUAGE_CODE, DEFAULT_LANGUAGE_VERSION, LanguageService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NGX_TRANSLATE_LANGUAGE_HTTP_CONTROLLER_PREFIX", function() { return NGX_TRANSLATE_LANGUAGE_HTTP_CONTROLLER_PREFIX; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NGX_TRANSLATE_LANGUAGE_HTTP_URL_SUFFIX", function() { return NGX_TRANSLATE_LANGUAGE_HTTP_URL_SUFFIX; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NGX_CHECK_LANGUAGE_HTTP_URL_SUFFIX", function() { return NGX_CHECK_LANGUAGE_HTTP_URL_SUFFIX; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DEFAULT_LANGUAGE_CODE", function() { return DEFAULT_LANGUAGE_CODE; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DEFAULT_LANGUAGE_VERSION", function() { return DEFAULT_LANGUAGE_VERSION; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LanguageService", function() { return LanguageService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs/operators */ "kU1M");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "qCKp");
+/* harmony import */ var _static__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../static */ "9d1Y");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/core */ "fXoL");
+/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ngx-translate/core */ "sYmb");
+/* harmony import */ var _storage_storage_local_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../storage/storage-local.service */ "E7tm");
+/* harmony import */ var _http_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../http.service */ "4ypk");
+
+
+
+
+
+
+
+
+const NGX_TRANSLATE_LANGUAGE_HTTP_CONTROLLER_PREFIX = '/backoffice';
+const NGX_TRANSLATE_LANGUAGE_HTTP_URL_SUFFIX = '/language/translate-map';
+const NGX_CHECK_LANGUAGE_HTTP_URL_SUFFIX = '/language/check';
+const DEFAULT_LANGUAGE_CODE = 'ru';
+const DEFAULT_LANGUAGE_VERSION = 1;
+class LanguageService {
+    constructor(translate, storageLocalService, http, acsHttp, localHttp) {
+        this.translate = translate;
+        this.storageLocalService = storageLocalService;
+        this.http = http;
+        this.acsHttp = acsHttp;
+        this.localHttp = localHttp;
+        this.selected = '';
+        this.languages = [
+            {
+                id: 'ru',
+                title: 'RU'
+            },
+            {
+                id: 'kk',
+                title: 'KZ'
+            }
+        ];
+        this.currentLanguageCode = '';
+        this.onLanguageChange = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"]('ru');
+        this.localHttp = this.http.setControllerPrefix('', '');
+        this.http = http.setControllerPrefix(NGX_TRANSLATE_LANGUAGE_HTTP_CONTROLLER_PREFIX);
+        this.acsHttp = http.setControllerPrefix('/acs');
+        translate.setDefaultLang(this.storageLocalService.getLanguageCode() || DEFAULT_LANGUAGE_CODE);
+        this.getLanguages();
+        translate.setDefaultLang(DEFAULT_LANGUAGE_CODE);
+    }
+    setInitialAppLanguage() {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            yield this.initFirstDefaultLanguageFromCache();
+            yield this.initDefaultLanguageFromCache();
+            yield this.initLanguageFromNgx();
+            return true;
+        });
+    }
+    initFirstDefaultLanguageFromCache() {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            let languageCode = yield this.getLanguageCode();
+            this.currentLanguageCode = languageCode;
+            if (languageCode) {
+                return;
+            }
+            else {
+                languageCode = DEFAULT_LANGUAGE_CODE;
+                this.currentLanguageCode = languageCode;
+                this.setLanguageCode(languageCode);
+                const languageTranslateFromJSON = yield this.getLanguageTranslateFromJSON(languageCode);
+                this.setLanguageTranslateFromCache(languageCode, languageTranslateFromJSON);
+                this.setLanguageVersion(languageCode, DEFAULT_LANGUAGE_VERSION);
+                this.onLanguageChange.next(languageCode);
+            }
+        });
+    }
+    initDefaultLanguageFromCache() {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            const languageCode = this.currentLanguageCode;
+            const languageVersion = yield this.getLanguageVersion(languageCode);
+            const languageTranslate = yield this.getLanguageTranslateFromCache(languageCode);
+            if (!languageTranslate || true) {
+                yield this.updateLanguageFromLanguageCode(languageCode);
+            }
+        });
+    }
+    initLanguageFromNgx() {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            const languageCode = this.currentLanguageCode;
+            this.translate.setDefaultLang(languageCode);
+            this.translate.reloadLang(languageCode)
+                .subscribe(() => {
+                this.translate.use(languageCode);
+                this.selected = languageCode;
+            });
+        });
+    }
+    updateLanguageFromLanguageCode(languageSuffix) {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            const translateServer = yield this.getTranslates(languageSuffix);
+            if (translateServer && translateServer.translates && translateServer.version) {
+                const languageVersion = translateServer.version;
+                const languageTranslate = translateServer.translates;
+                this.setLanguageVersion(languageSuffix, languageVersion);
+                this.setLanguageTranslateFromCache(languageSuffix, languageTranslate);
+            }
+            else if (translateServer && translateServer.translates && !translateServer.version) {
+                return;
+            }
+            else {
+                return false;
+            }
+        });
+    }
+    updateLanguageFromNgxTranslate(languageSuffix) {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            const languageTranslate = this.storageLocalService.getLanguageTranslate(languageSuffix);
+            this.translate.setTranslation(languageSuffix, languageTranslate, true);
+        });
+    }
+    checkLanguage(code, version) {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            if (!version) {
+                return true;
+            }
+            return yield this.http.get(NGX_CHECK_LANGUAGE_HTTP_URL_SUFFIX, {
+                languageCode: code,
+                version
+            })
+                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["map"])(v => v.body))
+                .toPromise()
+                .then(value => {
+                return value;
+            })
+                .catch(() => {
+                return true;
+            });
+        });
+    }
+    getLanguages() {
+        this.getCurrentLanguages();
+        return this.languages;
+    }
+    getCurrentLanguages() {
+        const currentLanguages = this.storageLocalService.get(_static__WEBPACK_IMPORTED_MODULE_3__["StorageLocalKeyEnum"].LANGUAGES);
+        if (!!currentLanguages) {
+            this.languages = currentLanguages;
+        }
+    }
+    setLanguages(languages) {
+        const currentLanguages = [];
+        languages.forEach((lang) => {
+            const language = {
+                id: lang.code,
+                title: lang.title
+            };
+            currentLanguages.push(language);
+        });
+        this.storageLocalService.set(_static__WEBPACK_IMPORTED_MODULE_3__["StorageLocalKeyEnum"].LANGUAGES, currentLanguages);
+        this.getCurrentLanguages();
+    }
+    setLanguage(lng) {
+        this.translate.reloadLang(lng)
+            .subscribe(() => {
+            this.translate.use(lng);
+            this.selected = lng;
+            this.setLanguageCode(lng);
+            this.currentLanguageCode = lng;
+            this.onLanguageChange.next(lng);
+        });
+    }
+    getTranslates(code) {
+        return this.http.get(NGX_TRANSLATE_LANGUAGE_HTTP_URL_SUFFIX, { languageCode: code })
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["map"])(v => v.body))
+            .toPromise()
+            .then(value => {
+            return value;
+        })
+            .catch(() => {
+            return this.getLanguageTranslateFromCache(code)
+                .then(valueOfCache => {
+                return {
+                    translates: valueOfCache,
+                    version: undefined,
+                };
+            });
+        });
+    }
+    getLanguageCode() {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            return this.storageLocalService.getLanguageCode();
+        });
+    }
+    setLanguageCode(language) {
+        this.storageLocalService.setLanguageCode(language);
+    }
+    getLanguageTranslateFromCache(languageSuffix) {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            return this.storageLocalService.getLanguageTranslate(languageSuffix);
+        });
+    }
+    setLanguageTranslateFromCache(languageSuffix, value) {
+        this.storageLocalService.setLanguageTranslate(languageSuffix, value);
+    }
+    getLanguageVersion(languageSuffix) {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            return this.storageLocalService.getLanguageVersion(languageSuffix);
+        });
+    }
+    setLanguageVersion(languageSuffix, value) {
+        this.storageLocalService.setLanguageVersion(languageSuffix, value);
+    }
+    getLanguageTranslateFromJSON(languageSuffix) {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            return this.localHttp.get('assets/i18n/' + languageSuffix + '.json')
+                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["map"])(res => {
+                return res.body;
+            }))
+                .toPromise();
+        });
+    }
+    getLanguageTranslateSuffix(languageSuffix) {
+        return _static__WEBPACK_IMPORTED_MODULE_3__["StorageLocalKeyEnum"].LANGUAGE_TRANSLATE + languageSuffix;
+    }
+    crashSetDefaultLanguage() {
+        const languageCode = _static__WEBPACK_IMPORTED_MODULE_3__["StorageLocalKeyEnum"].LANGUAGE_CODE + DEFAULT_LANGUAGE_CODE;
+        this.setLanguageCode(DEFAULT_LANGUAGE_CODE);
+        this.setLanguageVersion(languageCode, DEFAULT_LANGUAGE_VERSION);
+    }
+    changeLanguage(languageSuffix) {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            const languageCode = languageSuffix;
+            const languageVersion = yield this.getLanguageVersion(languageCode);
+            this.setLanguage(languageCode);
+            this.currentLanguageCode = languageCode;
+        });
+    }
+    /* get(keyOfLetter: string) {
+     const scope = this;
+     f(keyOfLetter);
+  
+     function f(asd: string) {
+     setTimeout(value => {
+     debugger
+     const letter = scope.translate.instant(asd);
+     const letter1 = letter;
+     }, 1000);
+     }
+  
+     return 'asdas';
+     }*/
+    /*get(keyOfLetter: string) {
+     const letter = this.translate.get(keyOfLetter).subscribe(res=>{
+     console.log("keyOfLetter:", res);
+     });
+     debugger;
+     return letter;
+     }*/
+    getValue(key) {
+        return this.translate.get(key);
+    }
+    get(key, values) {
+        let params = null;
+        if (!!values) {
+            params = {};
+            values.forEach((item, index) => {
+                params[`value${index + 1}`] = item;
+            });
+        }
+        return this.translate.instant(key, params);
+    }
+    setUserLanguage() {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            const params = {
+                languageCode: this.currentLanguageCode
+            };
+            this.acsHttp.post('/user/change-language', params)
+                .toPromise()
+                .then();
+        });
+    }
+}
+LanguageService.ɵfac = function LanguageService_Factory(t) { return new (t || LanguageService)(_angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵinject"](_ngx_translate_core__WEBPACK_IMPORTED_MODULE_5__["TranslateService"]), _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵinject"](_storage_storage_local_service__WEBPACK_IMPORTED_MODULE_6__["StorageLocalService"]), _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵinject"](_http_service__WEBPACK_IMPORTED_MODULE_7__["HttpService"]), _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵinject"](_http_service__WEBPACK_IMPORTED_MODULE_7__["HttpService"]), _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵinject"](_http_service__WEBPACK_IMPORTED_MODULE_7__["HttpService"])); };
+LanguageService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵdefineInjectable"]({ token: LanguageService, factory: LanguageService.ɵfac, providedIn: 'root' });
+
+
+/***/ }),
+
+/***/ "pKmL":
+/*!*************************************!*\
+  !*** ./src/app/core/core.module.ts ***!
+  \*************************************/
+/*! exports provided: initApp, createTranslateLoader, CoreModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "initApp", function() { return initApp; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createTranslateLoader", function() { return createTranslateLoader; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CoreModule", function() { return CoreModule; });
+/* harmony import */ var _app_load_service__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./app-load.service */ "INed");
+/* harmony import */ var _http_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./http.service */ "4ypk");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "ofXK");
+/* harmony import */ var _language_ngx_language_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./language/ngx-language.service */ "A5L2");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/common/http */ "tk/3");
+/* harmony import */ var _language_CachesTranslateHttpLoader__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./language/CachesTranslateHttpLoader */ "pNWs");
+/* harmony import */ var _system_notification_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./system-notification.service */ "zHfp");
+/* harmony import */ var primeng_api__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! primeng/api */ "7zfz");
+/* harmony import */ var _loader_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./loader.service */ "4Ksz");
+/* harmony import */ var _form_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./form.service */ "AbQJ");
+/* harmony import */ var _language_controller_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./language-controller.service */ "j3Sx");
+/* harmony import */ var _rest_error_handler_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./rest-error-handler.service */ "Fv9x");
+/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @ngx-translate/core */ "sYmb");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @angular/core */ "fXoL");
+/* harmony import */ var _authorization_service__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./authorization.service */ "FE47");
+/* harmony import */ var _storage_storage_local_service__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./storage/storage-local.service */ "E7tm");
+/* harmony import */ var _authorization_interceptor__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./authorization.interceptor */ "qT45");
+/* harmony import */ var _ping_service__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./ping.service */ "IeCl");
+/* harmony import */ var _role_menu_service__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./role-menu.service */ "3szf");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function initApp(appLoadService) {
+    return () => appLoadService.initApp();
+}
+function createTranslateLoader(ngxLanguageService, http, storageLocalService) {
+    return new _language_CachesTranslateHttpLoader__WEBPACK_IMPORTED_MODULE_5__["CachesTranslateHttpLoader"](ngxLanguageService, http, storageLocalService);
+}
+const services = [
+    _http_service__WEBPACK_IMPORTED_MODULE_1__["HttpService"],
+    _authorization_service__WEBPACK_IMPORTED_MODULE_14__["AuthorizationService"],
+    _role_menu_service__WEBPACK_IMPORTED_MODULE_18__["RoleMenuService"],
+    _system_notification_service__WEBPACK_IMPORTED_MODULE_6__["SystemNotificationService"],
+    _app_load_service__WEBPACK_IMPORTED_MODULE_0__["AppLoadService"],
+    primeng_api__WEBPACK_IMPORTED_MODULE_7__["MessageService"],
+    _ping_service__WEBPACK_IMPORTED_MODULE_17__["PingService"],
+    _loader_service__WEBPACK_IMPORTED_MODULE_8__["LoaderService"],
+    _form_service__WEBPACK_IMPORTED_MODULE_9__["FormService"],
+    _language_controller_service__WEBPACK_IMPORTED_MODULE_10__["LanguageControllerService"],
+    _rest_error_handler_service__WEBPACK_IMPORTED_MODULE_11__["RestErrorHandlerService"],
+    _language_ngx_language_service__WEBPACK_IMPORTED_MODULE_3__["NgxLanguageService"],
+    _storage_storage_local_service__WEBPACK_IMPORTED_MODULE_15__["StorageLocalService"],
+];
+class CoreModule {
+}
+CoreModule.ɵfac = function CoreModule_Factory(t) { return new (t || CoreModule)(); };
+CoreModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_13__["ɵɵdefineNgModule"]({ type: CoreModule });
+CoreModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_13__["ɵɵdefineInjector"]({ providers: [
+        services,
+        { provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HTTP_INTERCEPTORS"], useClass: _authorization_interceptor__WEBPACK_IMPORTED_MODULE_16__["AuthorizationInterceptor"], multi: true },
+        { provide: _angular_core__WEBPACK_IMPORTED_MODULE_13__["APP_INITIALIZER"], useFactory: initApp, deps: [_app_load_service__WEBPACK_IMPORTED_MODULE_0__["AppLoadService"]], multi: true }
+    ], imports: [[
+            _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
+            _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClientModule"],
+            _ngx_translate_core__WEBPACK_IMPORTED_MODULE_12__["TranslateModule"].forRoot({
+                loader: {
+                    provide: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_12__["TranslateLoader"],
+                    useFactory: (createTranslateLoader),
+                    deps: [
+                        _language_ngx_language_service__WEBPACK_IMPORTED_MODULE_3__["NgxLanguageService"],
+                        _http_service__WEBPACK_IMPORTED_MODULE_1__["HttpService"],
+                        _storage_storage_local_service__WEBPACK_IMPORTED_MODULE_15__["StorageLocalService"]
+                    ]
+                }
+            }),
+            _ngx_translate_core__WEBPACK_IMPORTED_MODULE_12__["TranslateModule"],
+        ]] });
+(function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_13__["ɵɵsetNgModuleScope"](CoreModule, { imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
+        _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClientModule"], _ngx_translate_core__WEBPACK_IMPORTED_MODULE_12__["TranslateModule"], _ngx_translate_core__WEBPACK_IMPORTED_MODULE_12__["TranslateModule"]] }); })();
+
+
+/***/ }),
+
+/***/ "pNWs":
+/*!************************************************************!*\
+  !*** ./src/app/core/language/CachesTranslateHttpLoader.ts ***!
+  \************************************************************/
+/*! exports provided: CachesTranslateHttpLoader */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CachesTranslateHttpLoader", function() { return CachesTranslateHttpLoader; });
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! rxjs */ "qCKp");
+/* harmony import */ var _language_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./language.service */ "lxcN");
+
+
+/**
+ * Created self ngx-translate for cached from server
+ */
+class CachesTranslateHttpLoader {
+    /**
+     * @ignore
+     */
+    constructor(ngxLanguageService, httpService, storageLocalService) {
+        this.ngxLanguageService = ngxLanguageService;
+        this.httpService = httpService;
+        this.storageLocalService = storageLocalService;
+        /**
+         * Subject if you want to know. when changed ngx-language
+         */
+        this.onTotalValueChange$ = new rxjs__WEBPACK_IMPORTED_MODULE_0__["Subject"]();
+        this.httpService = httpService.setControllerPrefix(_language_service__WEBPACK_IMPORTED_MODULE_1__["NGX_TRANSLATE_LANGUAGE_HTTP_CONTROLLER_PREFIX"]);
+    }
+    /**
+     * Gets the translations from the server
+     */
+    // method работает для ngx-translate , я ему даю схавать объект с переводами и дальше он сам в капоте начинает работать
+    // сначала смотрит есть ли в кэше если нет то идем берем с сервера если произошла ошибка на сервере
+    // то смотрим опять в кэше не появилось ли случайным образом так как все работает асинхронно,
+    // если нет то берем с json file английский язык,чтоб не сломалась язык.
+    // если будут проблемы с тем что показывает ключи языка а не значения, то проблема может оказаться здесь
+    /**
+     * Value of the last operation
+     */
+    // TODO переписать потом на switchMap (Observable)
+    /**
+     * @example
+     * Value-of the last operation
+     * @param {string} lang set Language Client
+     * @copyright dasasd as
+     * @
+     * @return {Observable<any>} is ngx return is setted language or not
+     */
+    getTranslation(lang) {
+        return Object(rxjs__WEBPACK_IMPORTED_MODULE_0__["from"])(this.ngxLanguageService.getLanguageTranslateFromCache(lang)
+            .then(valueOfCache => {
+            if (valueOfCache) {
+                return valueOfCache;
+            }
+            else if (!this.storageLocalService.getFirstInit()) {
+                this.storageLocalService.setFirstInit(true);
+                return this.ngxLanguageService.getLanguageTranslateFromJSON(_language_service__WEBPACK_IMPORTED_MODULE_1__["DEFAULT_LANGUAGE_CODE"]);
+            }
+            else {
+                return this.httpService.get(_language_service__WEBPACK_IMPORTED_MODULE_1__["NGX_TRANSLATE_LANGUAGE_HTTP_URL_SUFFIX"], { languageCode: lang })
+                    .toPromise()
+                    .then(valueOfServer => {
+                    const isUpdatedLanguageCache = this.ngxLanguageService.updateLanguageFromNGXServerForCache(lang, valueOfServer.body);
+                    if (!isUpdatedLanguageCache) {
+                        //TODO нужно дополнить логику с кэшом, до сюда доходим если нет ответа в кэше и сервер нам не
+                        // ответил и мы берем данные с локального JSON
+                        return this.ngxLanguageService.getLanguageTranslateFromJSON(_language_service__WEBPACK_IMPORTED_MODULE_1__["DEFAULT_LANGUAGE_CODE"]);
+                    }
+                    return valueOfServer.body.translates;
+                })
+                    .catch(value => {
+                    return this.ngxLanguageService.getLanguageTranslateFromCache(lang)
+                        .then(valueOfCacheCatch => {
+                        if (valueOfCacheCatch) {
+                            return valueOfCacheCatch;
+                        }
+                        return this.ngxLanguageService.getLanguageTranslateFromJSON(_language_service__WEBPACK_IMPORTED_MODULE_1__["DEFAULT_LANGUAGE_CODE"]);
+                    });
+                });
+            }
+        }));
+    }
+}
+
+
+/***/ }),
+
+/***/ "qT45":
+/*!***************************************************!*\
+  !*** ./src/app/core/authorization.interceptor.ts ***!
+  \***************************************************/
+/*! exports provided: AuthorizationInterceptor */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AuthorizationInterceptor", function() { return AuthorizationInterceptor; });
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! rxjs/operators */ "kU1M");
+/* harmony import */ var _session_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./session.service */ "8FiN");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "fXoL");
+/* harmony import */ var _rest_error_handler_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./rest-error-handler.service */ "Fv9x");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "tyNb");
+/* harmony import */ var _authorization_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./authorization.service */ "FE47");
+/* harmony import */ var _system_notification_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./system-notification.service */ "zHfp");
+
+
+
+
+
+
+
+class AuthorizationInterceptor {
+    constructor(restErrorHandlerService, router, authService, notificationService) {
+        this.restErrorHandlerService = restErrorHandlerService;
+        this.router = router;
+        this.authService = authService;
+        this.notificationService = notificationService;
+    }
+    intercept(req, next) {
+        const ggToken = localStorage.getItem(_session_service__WEBPACK_IMPORTED_MODULE_1__["SESSION_TOKEN"]);
+        if (ggToken) {
+            let headers = req.headers;
+            headers = headers.set(_session_service__WEBPACK_IMPORTED_MODULE_1__["SESSION_TOKEN"], ggToken);
+            req = req.clone({ headers });
+        }
+        return next.handle(req).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_0__["catchError"])((error) => {
+            this.sessionExpired(error);
+            return this.restErrorHandlerService.handleError(error);
+        }));
+    }
+    removeAllCookieWithOtherDomain() {
+        (function () {
+            const cookies = document.cookie.split('; ');
+            for (let c = 0; c < cookies.length; c++) {
+                const d = window.location.hostname.split('.');
+                while (d.length > 0) {
+                    const cookieBase = encodeURIComponent(cookies[c].split(';')[0].split('=')[0])
+                        + '=; expires=Thu, 01 Jan 1970 00:00:00 GMT; domain=' + d.join('.') + ' ;path=';
+                    const p = location.pathname.split('/');
+                    document.cookie = cookieBase + '/';
+                    while (p.length > 0) {
+                        document.cookie = cookieBase + p.join('/');
+                        p.pop();
+                    }
+                    d.shift();
+                }
+            }
+        })();
+    }
+    sessionExpired(error) {
+        if (error.status === 401) {
+            console.error('Left session: 401');
+            if (localStorage.getItem(_session_service__WEBPACK_IMPORTED_MODULE_1__["SESSION_TOKEN"])) {
+                this.notificationService.warn('session_expired');
+            }
+            localStorage.removeItem(_session_service__WEBPACK_IMPORTED_MODULE_1__["SESSION_TOKEN"]);
+            this.removeAllCookieWithOtherDomain();
+            this.authService.authInfo = null;
+            this.router.navigate(['/login']);
+        }
+    }
+}
+AuthorizationInterceptor.ɵfac = function AuthorizationInterceptor_Factory(t) { return new (t || AuthorizationInterceptor)(_angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵinject"](_rest_error_handler_service__WEBPACK_IMPORTED_MODULE_3__["RestErrorHandlerService"]), _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵinject"](_angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"]), _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵinject"](_authorization_service__WEBPACK_IMPORTED_MODULE_5__["AuthorizationService"]), _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵinject"](_system_notification_service__WEBPACK_IMPORTED_MODULE_6__["SystemNotificationService"])); };
+AuthorizationInterceptor.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdefineInjectable"]({ token: AuthorizationInterceptor, factory: AuthorizationInterceptor.ɵfac });
+
+
+/***/ }),
+
+/***/ "vY5A":
+/*!***************************************!*\
+  !*** ./src/app/app-routing.module.ts ***!
+  \***************************************/
+/*! exports provided: AppRoutingModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppRoutingModule", function() { return AppRoutingModule; });
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/router */ "tyNb");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "fXoL");
+
+
+
+const routes = [
+    { path: 'login', loadChildren: () => Promise.all(/*! import() | pages-login-login-module */[__webpack_require__.e("default~pages-login-login-module~pages-main-main-module"), __webpack_require__.e("default~pages-login-login-module~pages-profile-profile-module")]).then(__webpack_require__.bind(null, /*! ./pages/login/login.module */ "F4UR")).then(m => m.LoginModule) },
+    { path: '', redirectTo: 'login', pathMatch: 'full' },
+    { path: 'main', loadChildren: () => Promise.all(/*! import() | pages-main-main-module */[__webpack_require__.e("default~pages-login-login-module~pages-main-main-module"), __webpack_require__.e("pages-main-main-module")]).then(__webpack_require__.bind(null, /*! ./pages/main/main.module */ "82nU")).then(m => m.MainModule) }
+];
+class AppRoutingModule {
+}
+AppRoutingModule.ɵfac = function AppRoutingModule_Factory(t) { return new (t || AppRoutingModule)(); };
+AppRoutingModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineNgModule"]({ type: AppRoutingModule });
+AppRoutingModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjector"]({ imports: [[_angular_router__WEBPACK_IMPORTED_MODULE_0__["RouterModule"].forRoot(routes)], _angular_router__WEBPACK_IMPORTED_MODULE_0__["RouterModule"]] });
+(function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵsetNgModuleScope"](AppRoutingModule, { imports: [_angular_router__WEBPACK_IMPORTED_MODULE_0__["RouterModule"]], exports: [_angular_router__WEBPACK_IMPORTED_MODULE_0__["RouterModule"]] }); })();
+
+
+/***/ }),
+
+/***/ "zHfp":
+/*!*****************************************************!*\
+  !*** ./src/app/core/system-notification.service.ts ***!
+  \*****************************************************/
+/*! exports provided: SystemNotificationService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SystemNotificationService", function() { return SystemNotificationService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "fXoL");
+/* harmony import */ var primeng_api__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! primeng/api */ "7zfz");
+/* harmony import */ var _error_details_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./error-details.service */ "GKnk");
+
+
+
+class SystemNotificationService {
+    constructor(messageService, errorDetailsService) {
+        this.messageService = messageService;
+        this.errorDetailsService = errorDetailsService;
+    }
+    info(message, values) {
+        this.messageService.add(this.errorDetailsService.getMessage('info', message, values));
+    }
+    warn(message, values) {
+        this.messageService.add(this.errorDetailsService.getMessage('warn', message, values));
+    }
+    error(message, values) {
+        this.messageService.add(this.errorDetailsService.getMessage('error', message, values));
+    }
+    success(message, values) {
+        this.messageService.add(this.errorDetailsService.getMessage('success', message, values));
+    }
+}
+SystemNotificationService.ɵfac = function SystemNotificationService_Factory(t) { return new (t || SystemNotificationService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](primeng_api__WEBPACK_IMPORTED_MODULE_1__["MessageService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_error_details_service__WEBPACK_IMPORTED_MODULE_2__["ErrorDetailsService"])); };
+SystemNotificationService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjectable"]({ token: SystemNotificationService, factory: SystemNotificationService.ɵfac, providedIn: 'root' });
+
+
+/***/ }),
+
+/***/ "zPzX":
+/*!************************************!*\
+  !*** ./src/model/PrivilegeEnum.ts ***!
+  \************************************/
+/*! exports provided: PrivilegeEnum */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PrivilegeEnum", function() { return PrivilegeEnum; });
+var PrivilegeEnum;
+(function (PrivilegeEnum) {
+    PrivilegeEnum["CAN_MANAGE_HELP"] = "CAN_MANAGE_HELP";
+    PrivilegeEnum["SELECT_ROLE"] = "SELECT_ROLE";
+})(PrivilegeEnum || (PrivilegeEnum = {}));
+
+
+/***/ }),
+
+/***/ "zUnb":
+/*!*********************!*\
+  !*** ./src/main.ts ***!
+  \*********************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/platform-browser */ "jhN1");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "fXoL");
+/* harmony import */ var _app_app_module__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./app/app.module */ "ZAI4");
+/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./environments/environment */ "AytR");
+
+
+
+
+if (_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].production) {
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["enableProdMode"])();
+}
+_angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["platformBrowser"]().bootstrapModule(_app_app_module__WEBPACK_IMPORTED_MODULE_2__["AppModule"])
+    .catch(err => console.error(err));
+
+
+/***/ }),
+
+/***/ "zn8P":
+/*!******************************************************!*\
+  !*** ./$$_lazy_route_resource lazy namespace object ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+function webpackEmptyAsyncContext(req) {
+	// Here Promise.resolve().then() is used instead of new Promise() to prevent
+	// uncaught exception popping up in devtools
+	return Promise.resolve().then(function() {
+		var e = new Error("Cannot find module '" + req + "'");
+		e.code = 'MODULE_NOT_FOUND';
+		throw e;
+	});
+}
+webpackEmptyAsyncContext.keys = function() { return []; };
+webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
+module.exports = webpackEmptyAsyncContext;
+webpackEmptyAsyncContext.id = "zn8P";
+
+/***/ })
+
+},[[0,"runtime","vendor"]]]);
+//# sourceMappingURL=main.js.map
