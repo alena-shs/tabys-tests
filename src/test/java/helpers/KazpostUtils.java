@@ -1,0 +1,31 @@
+package helpers;
+
+import org.apache.commons.io.FileUtils;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.Base64;
+
+public class KazpostUtils {
+    public String formatMonth(String month){
+        if (month == "00") {
+            month = "12";
+        } else if (month == "13") {
+            month = "01";
+        };
+        return month;
+    }
+
+    public static String convertPhotoToSend(String src){
+        byte[] fileContent = new byte[0];
+        try {
+            fileContent = FileUtils.readFileToByteArray(new File(src));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        String encodedSrcFile = Base64.getEncoder().encodeToString(fileContent);
+        return encodedSrcFile;
+    }
+
+
+}

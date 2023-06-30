@@ -1,5 +1,6 @@
 package tests;
 
+import api.models.PhotoBody;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import config.ProjectConfiguration;
 import io.qameta.allure.selenide.AllureSelenide;
@@ -17,5 +18,6 @@ public class TestBase
 
     @BeforeEach
     void addListener() {
-        SelenideLogger.addListener("AllureSelenide", new AllureSelenide());}
+        SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
+    }
 }

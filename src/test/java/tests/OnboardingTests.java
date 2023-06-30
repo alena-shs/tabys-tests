@@ -1,9 +1,5 @@
 package tests;
 
-import org.junit.jupiter.api.Test;
-import objects.BackofficeCommon;
-import objects.BackofficeTabys;
-
 import static com.codeborne.selenide.Selenide.open;
 
 public class OnboardingTests extends TestBase {
