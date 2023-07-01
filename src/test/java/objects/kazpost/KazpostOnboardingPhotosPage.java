@@ -1,5 +1,7 @@
 package objects.kazpost;
 
+import api.models.PhotoBody;
+import api.specs.Specs;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
@@ -10,6 +12,11 @@ import static com.codeborne.selenide.Condition.exist;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.withText;
 import static com.codeborne.selenide.Selenide.*;
+import static helpers.CustomAllureListener.withCustomTemplates;
+import static io.qameta.allure.Allure.step;
+import static io.restassured.RestAssured.given;
+import static testdata.KazpostData.*;
+import static tests.KazpostTests.photoBody;
 
 public class KazpostOnboardingPhotosPage extends TestBase{
     private final SelenideElement activeMenuItem = $("[ng-reflect-ng-class='selected-button']");
@@ -32,13 +39,13 @@ public class KazpostOnboardingPhotosPage extends TestBase{
         return this;
     }
 
-    @Step("Send photo")
-    public KazpostOnboardingPhotosPage sendSelfie(String Gg_session, String Session_id) {
-        selfieField.click();
-        initiateCameraButton.click();
-//        step("Prepare a body for a selfie sending", () ->
-//                preparePhotoBody(selfieDocType, selfieDefaultEncoded, selfieTitle)
-//        );
+//    @Step("Send photo")
+//    public KazpostOnboardingPhotosPage sendSelfie(String Gg_session, String Session_id) {
+//        selfieField.click();
+//        initiateCameraButton.click();
+//        step("Prepare a body for a selfie sending", () -> {
+//            preparePhotoBody(selfieDocType, selfieDefaultEncoded, selfieTitle);
+//        });
 //
 //        step("Send a POST request to save selfie", () ->
 //                given()
@@ -49,6 +56,6 @@ public class KazpostOnboardingPhotosPage extends TestBase{
 //                        .post("/onboarding/file/save")
 //                        .then()
 //                        .spec(Specs.successResponseSpec));
-        return this;
-    }
+//        return this;
+//    }
 }

@@ -1,15 +1,35 @@
 package testdata;
 
+import com.google.gson.Gson;
 import helpers.KazpostUtils;
 
+import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import testdata.jsondatareader.KazpostUser;
+
+import java.io.InputStream;
+import java.io.InputStreamReader;
 
 public class KazpostData {
     // TODO: Put all data into a JSON file
+    private ClassLoader cl = KazpostData.class.getClassLoader();
     static DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd.MM.yyyy");
     static LocalDateTime now = LocalDateTime.now();
-    public static String phoneNumber = "+72220000913";
+
+//    static KazpostUser kazpostUser = gson.fromJson("src/test/resources/userdata/AlenaShomanova.json", KazpostUser.class);
+//    InputStream is = cl.getResourceAsStream("minun-pokemon.json");
+//    InputStreamReader isr = new InputStreamReader(is) {
+//        {
+//            try {
+//                kazpostUser = mapper.readValue(isr, KazpostUser.class);
+//            } catch (IOException e) {
+//                throw new RuntimeException(e);
+//            }
+//        }
+//    };
+
+    public static String phoneNumber = "+72220000916";
     public static String firstName = "АЛЕНА",
             lastName="ШОМАНОВА",
             iin = "980113450119",

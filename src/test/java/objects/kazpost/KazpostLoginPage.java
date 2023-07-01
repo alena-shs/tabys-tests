@@ -19,6 +19,7 @@ public class KazpostLoginPage {
     @Step("Register with a new number")
     public KazpostLoginPage registerWithNewNumber(String phoneNumber) {
         $(".p-button-label").click();
+        sleep(1000);
         $("input[name=telephone_num]").click();
         $("input[name=telephone_num]").setValue(phoneNumber.substring(2));
         $(byText("Зарегистрироваться")).click();

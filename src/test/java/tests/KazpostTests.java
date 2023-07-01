@@ -18,34 +18,49 @@ import static testdata.KazpostData.*;
         @Tag("onboarding-migration")})
 public class KazpostTests extends TestBase{
     KazpostLoginPage kazpostLoginPage = new KazpostLoginPage();
-    public PhotoBody photoBody = new PhotoBody();
+    public static PhotoBody photoBody = new PhotoBody();
     KazpostOnboardingPersonalDataPage kazpostOnboardingPersonalDataPage = new KazpostOnboardingPersonalDataPage();
     KazpostOnboardingPhotosPage kazpostOnboardingPhotosPage = new KazpostOnboardingPhotosPage();
     static AcsDatabaseConnections acsDatabase = new AcsDatabaseConnections();
 
     KazpostUtils dateUtils = new KazpostUtils();
 
-//    @Test
-//    @DisplayName("Onboarding for Kazpost with a new number")
-//    void onboardingKazpost() {
-//        kazpostLoginPage.openKazpostMainPage()
-//                .registerWithNewNumber(phoneNumber);
-//        String registrationCode = acsDatabase.PhoneNumberConfirmationCode(phoneNumber);
-//        System.out.println(registrationCode);
-//        kazpostLoginPage.sendRegistrationKazpostCode(registrationCode);
-//        kazpostOnboardingPage.enterAddress(city, address)
-//                .enterSourceOfIncome(sourceOfIncome)
-//                .enterPep(isPep);
-//    }
-
     @Test
-    @DisplayName("Enter data into an existing KazPost account")
+    @DisplayName("Onboarding for Kazpost with a new number")
     void onboardingKazpost() {
         kazpostLoginPage.openKazpostMainPage()
-                .loginWithExistingNumber(phoneNumber);
-        String registrationCode = acsDatabase.KazpostLoginCode(phoneNumber);
+                .registerWithNewNumber(phoneNumber);
+        String registrationCode = acsDatabase.PhoneNumberConfirmationCode(phoneNumber);
         System.out.println(registrationCode);
-        sessionIds = kazpostLoginPage.sendRegistrationKazpostCode(phoneNumber, registrationCode);
+        kazpostLoginPage.sendRegistrationKazpostCode(phoneNumber, registrationCode);
+        kazpostOnboardingPersonalDataPage.enterAddress(city, address)
+                .enterSourceOfIncome(sourceOfIncome)
+                .enterPep(isPep)
+                .checkBoxesAmericanAndAgreement()
+                .setIdNumber(defaultIdNum)
+                .setIdIssueDate(defaultIssueDay, defaultIssueYear)  // month == current month + 1 by default
+                .setIdExpirationDate(defaultExpirationDay, defaultExpirationYear);     // month == current month + 1 by default
+        kazpostOnboardingPersonalDataPage.verifyIinNameDobCountry(iin, firstName + " " + lastName, dateOfBirth, citizenship)
+                .verifyInputtedAddress(city, address)
+                .verifyInputtedSourceOfIncome(sourceOfIncome)
+                .verifyInputtedPep(isPep).verifyInputtedIdNo(defaultIdNum)
+                .verifyInputtedIssueDate(defaultIssueDay, defaultIssueMonth, defaultIssueYear)
+                .verifyInputtedExpirationDate(defaultExpirationDay, defaultExpirationMonth, defaultExpirationYear)
+                .pressSubmit();
+        System.out.println(sessionIds[0] + " " + sessionIds[1]);
+        kazpostOnboardingPhotosPage.verifyPageOpenedCorrectly()
+//                .sendSelfie(sessionIds[0], sessionIds[1])
+        ;
+    }
+
+//    @Test
+//    @DisplayName("Enter data into an existing KazPost account")
+//    void onboardingKazpost() {
+//        kazpostLoginPage.openKazpostMainPage()
+//                .loginWithExistingNumber(phoneNumber);
+//        String registrationCode = acsDatabase.KazpostLoginCode(phoneNumber);
+//        System.out.println(registrationCode);
+//        sessionIds = kazpostLoginPage.sendRegistrationKazpostCode(phoneNumber, registrationCode);
 //        kazpostOnboardingPersonalDataPage.enterAddress(city, address)
 //                .enterSourceOfIncome(sourceOfIncome)
 //                .enterPep(isPep)
@@ -60,18 +75,18 @@ public class KazpostTests extends TestBase{
 //                .verifyInputtedIssueDate(defaultIssueDay, defaultIssueMonth, defaultIssueYear)
 //                .verifyInputtedExpirationDate(defaultExpirationDay, defaultExpirationMonth, defaultExpirationYear)
 //                .pressSubmit();
-        System.out.println(sessionIds[0] + " " + sessionIds[1]);
-        kazpostOnboardingPhotosPage.verifyPageOpenedCorrectly()
-                .sendSelfie(sessionIds[0], sessionIds[1])
-        ;
-    }
-
-    public void preparePhotoBody(String documentType, String src, String title) {
-        photoBody.setDocumentType(documentType);
-        photoBody.setExtension("jpeg");
-        photoBody.setIsLast(true);
-        photoBody.setSrc(src);
-        photoBody.setTitle(title);
-        photoBody.setType("image/jpeg");
-    }
+//        System.out.println(sessionIds[0] + " " + sessionIds[1]);
+//        kazpostOnboardingPhotosPage.verifyPageOpenedCorrectly()
+//                .sendSelfie(sessionIds[0], sessionIds[1])
+//        ;
+//    }
+//
+//    public static void preparePhotoBody(String documentType, String src, String title) {
+//        photoBody.setDocumentType(documentType);
+//        photoBody.setExtension("jpeg");
+//        photoBody.setIsLast(true);
+//        photoBody.setSrc(src);
+//        photoBody.setTitle(title);
+//        photoBody.setType("image/jpeg");
+//    }
 }
