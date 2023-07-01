@@ -1,6 +1,7 @@
 plugins {
     id 'java'
     id 'io.qameta.allure' version '2.11.2'
+    id "io.freefair.lombok" version "6.0.0-m2"
 }
 
 group 'com.alenashomanova'
@@ -9,31 +10,42 @@ compileJava.options.encoding = 'UTF-8' // устанавливает кодир�
 javadoc.options.encoding = 'UTF-8' // устанавливает кодировку для генерируемой документации
 compileTestJava.options.encoding = 'UTF-8'
 
+repositories {
+    mavenCentral()
+}
+
+def selenideVersion = "6.13.0",
+    restAssuredVersion = "5.3.0",
+    allureVersion = "2.21.0",
+    slf4jVersion = "2.0.7"
+
 allure {
     report {
-        version.set("2.19.0")
+        version.set(allureVersion)
     }
     adapter { //отвечает за появление allure-results
         aspectjWeaver.set(true) //Обработка аннотации @Step
         frameworks {
             junit5 { //framework name
-                adapterVersion.set("2.19.0")
+                adapterVersion.set(allureVersion)
             }
         }
     }
 }
 
-repositories {
-    mavenCentral()
-}
-
 dependencies {
     testImplementation('org.junit.jupiter:junit-jupiter-api:5.8.1',     // JUnit5
-            'com.codeborne:selenide:6.12.2',                            // Selenide
-            'io.qameta.allure:allure-selenide:2.20.1',                  // Allure S  elenide
+            "io.rest-assured:rest-assured:$restAssuredVersion",
+            "io.rest-assured:json-schema-validator:$restAssuredVersion",
+            "com.codeborne:selenide:$selenideVersion",                  // Selenide
+            "io.qameta.allure:allure-selenide:$allureVersion",                  // Allure Selenide
+            "io.qameta.allure:allure-rest-assured:$allureVersion",
             'org.aeonbits.owner:owner:1.0.12',                          // Owner lib to make configs
             'org.assertj:assertj-core:3.23.1',                          // Assertions
-            'org.postgresql:postgresql:42.5.1'                          // To connect to a PostrgreSQL DB
+            'org.postgresql:postgresql:42.5.1',                          // To connect to a PostrgreSQL DB
+            "org.slf4j:slf4j-simple:$slf4jVersion",
+            'commons-io:commons-io:2.11.0',
+            'com.google.code.gson:gson:2.10.1'
     )
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'      // JUnit5
 }

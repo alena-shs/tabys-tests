@@ -1,6 +1,5 @@
 package database;
 import io.qameta.allure.Step;
-import org.junit.jupiter.api.Test;
 import tests.TestBase;
 
 import java.sql.*;
@@ -10,6 +9,8 @@ import static database.DatabaseData.*;
 public class AcsDatabaseConnections extends TestBase {
 
     private static final String SELECT_PHONE_NUMBER_CONFIRMATION_QUERY = "select * from phone_number_confirmation where phone_number=? order by expired_date desc limit 1";
+    private static final String SELECT_KAZPOST_LOGIN_CODE_QUERY = "select * from second_factor_confirmation where phone_number=? order by expired_date desc limit 1";
+    private static final String SELECT_KAZPOST_SESSION_IDS_QUERY = "select * from g_session where username=? order by created_at desc limit 1";
 
     @Step("Fetch phone number confirmation code (for registration)")
     public String PhoneNumberConfirmationCode(String phoneNumber) {
@@ -33,6 +34,53 @@ public class AcsDatabaseConnections extends TestBase {
             printSQLException(e);
         }
         return code;
+    }
+
+    @Step("Fetch phone number confirmation code (for registration)")
+    public String KazpostLoginCode(String phoneNumber) {
+        // Establishing a connection
+        String code = null;
+        try (Connection connection = DriverManager.getConnection(acsTestUrl, user, password);
+             PreparedStatement preparedStatement = connection.prepareStatement(SELECT_KAZPOST_LOGIN_CODE_QUERY);) {
+            preparedStatement.setString(1, phoneNumber); // first ? mark value = phoneNumber
+            System.out.println(preparedStatement);
+            ResultSet rs = preparedStatement.executeQuery();
+
+            // Process the ResultSet object
+            while (rs.next()) {
+                String phone_number = rs.getString("phone_number");
+                code = rs.getString("code");
+                boolean is_confirm = rs.getBoolean("is_confirm");
+                String expired_date = rs.getString("expired_date");
+                System.out.println(phone_number + "," + code + "," + is_confirm + "," + expired_date);
+            }
+        } catch (SQLException e) {
+            printSQLException(e);
+        }
+        return code;
+    }
+
+    @Step("Fetch phone number confirmation code (for registration)")
+    public static String[] KazpostSessionIds(String phoneNumber) {
+        // Establishing a connection
+        String Gg_token = null;
+        String Session_id = null;
+        try (Connection connection = DriverManager.getConnection(acsTestUrl, user, password);
+             PreparedStatement preparedStatement = connection.prepareStatement(SELECT_KAZPOST_SESSION_IDS_QUERY);) {
+            preparedStatement.setString(1, phoneNumber); // first ? mark value = phoneNumber
+            System.out.println(preparedStatement);
+            ResultSet rs = preparedStatement.executeQuery();
+
+            // Process the ResultSet object
+            while (rs.next()) {
+                Gg_token = rs.getString("token");
+                Session_id = rs.getString("id");
+                System.out.println(Gg_token + "," + Session_id);
+            }
+        } catch (SQLException e) {
+            printSQLException(e);
+        }
+        return new String[] {Gg_token, Session_id};
     }
 
     public static void printSQLException(SQLException ex) {
