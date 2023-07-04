@@ -1,0 +1,3 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"broken","Tue Jul 04 14:12:42 GMT 2023","Tue Jul 04 14:12:53 GMT 2023","10297","","tests.KazpostTests","","tests.KazpostTests","onboardingKazpost","Onboarding for Kazpost with a new number",""
+"failed","Tue Jul 04 14:12:53 GMT 2023","Tue Jul 04 14:13:01 GMT 2023","7945","","tests.OnboardingTests","","tests.OnboardingTests","acceptedEtnInvestorsCorrectView","acceptedEtnInvestorsCorrectView()",""

@@ -1,0 +1,1 @@
+{"total":2,"items":[{"uid":"4f93becdb8c4f61ba1ebcb74a6285ce8","name":"tests.OnboardingTests","statistic":{"failed":1,"broken":0,"skipped":0,"passed":0,"unknown":0,"total":1}},{"uid":"f494ffc7a80ae92551fe12fc098305e3","name":"tests.KazpostTests","statistic":{"failed":0,"broken":1,"skipped":0,"passed":0,"unknown":0,"total":1}}]}
