@@ -1,11 +1,10 @@
 package config;
 
 import com.codeborne.selenide.Configuration;
-import org.aeonbits.owner.ConfigFactory;
 import org.openqa.selenium.chrome.ChromeOptions;
 
 public class ProjectConfiguration {
-    static DatabaseConnectConfig databaseConnectConfig = ConfigFactory.create(DatabaseConnectConfig.class, System.getProperties());
+//    static DatabaseConnectConfig databaseConnectConfig = ConfigFactory.create(DatabaseConnectConfig.class, System.getProperties());
     public void configure() {
 //        Configuration.holdBrowserOpen = true;
         ChromeOptions chromeOptions = new ChromeOptions();

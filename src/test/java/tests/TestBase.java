@@ -1,7 +1,5 @@
 package tests;
 
-import api.models.PhotoBody;
-import api.utils.BodyConstructors;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import config.ProjectConfiguration;
 import io.qameta.allure.selenide.AllureSelenide;
@@ -14,7 +12,7 @@ import org.junit.jupiter.api.BeforeEach;
 public class TestBase
 {
     static ProjectConfiguration projectConfiguration = new ProjectConfiguration();
-    public static BodyConstructors bodyConstructors = new BodyConstructors();
+//    public static BodyConstructors bodyConstructors = new BodyConstructors();
     BackofficeCommon backofficeCommon = new BackofficeCommon();
     TabysMenuNavigation tabysMenuNavigation = new TabysMenuNavigation();
     InvestorPersonalPage investorPersonalPage = new InvestorPersonalPage();

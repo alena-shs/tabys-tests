@@ -1,7 +1,6 @@
 package objects.kazpost;
 
 import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.WebDriverRunner;
 import database.AcsDatabaseConnections;
 import io.qameta.allure.Step;
 
@@ -40,7 +39,6 @@ public class KazpostLoginPage {
     @Step("Send a confirmation code for Kazpost registration")
     public String[] sendRegistrationKazpostCode(String phoneNumber, String registrationCode){
         $("input[formcontrolname=smsCode]").setValue(registrationCode);
-        String ggToken = String.valueOf(WebDriverRunner.getWebDriver().manage().getCookieNamed("Gg_token"));
         $(byText("Отправить")).click();
         String[] sessionIds = AcsDatabaseConnections.kazpostSessionIds(phoneNumber);
         sleep(2000);

@@ -9,7 +9,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
-import helpers.KazpostUtils;
 
 import static helpers.OnboardingUtils.getNewPhoneNumber;
 import static testdata.KazpostData.*;
@@ -24,7 +23,7 @@ public class KazpostTests extends TestBase{
     KazpostOnboardingPhotosPage kazpostOnboardingPhotosPage = new KazpostOnboardingPhotosPage();
     static AcsDatabaseConnections acsDatabase = new AcsDatabaseConnections();
 
-    KazpostUtils dateUtils = new KazpostUtils();
+//    KazpostUtils dateUtils = new KazpostUtils();
 
     @Test
     @DisplayName("Onboarding for Kazpost with a new number")
@@ -49,7 +48,7 @@ public class KazpostTests extends TestBase{
                 .verifyInputtedIssueDate(defaultIssueDay, defaultIssueMonth, defaultIssueYear)
                 .verifyInputtedExpirationDate(defaultExpirationDay, defaultExpirationMonth, defaultExpirationYear)
                 .pressSubmit();
-        System.out.println(sessionIds[0] + " " + sessionIds[1]);
+//        System.out.println(sessionIds[0] + " " + sessionIds[1]);
         kazpostOnboardingPhotosPage.verifyPageOpenedCorrectly()
 //                .sendSelfie(sessionIds[0], sessionIds[1])
         ;
