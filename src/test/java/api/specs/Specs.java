@@ -8,7 +8,7 @@ import io.restassured.specification.ResponseSpecification;
 import static helpers.CustomAllureListener.withCustomTemplates;
 import static io.restassured.RestAssured.with;
 import static io.restassured.filter.log.LogDetail.STATUS;
-import static testdata.KazpostData.*;
+import static testdata.KazpostData.sessionIds;
 
 public class Specs {
     public static RequestSpecification kazpostRequestSpec = with()

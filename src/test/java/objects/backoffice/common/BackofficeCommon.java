@@ -3,7 +3,8 @@ package objects.backoffice.common;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
 import static testdata.BackofficeData.*;
 
 public class BackofficeCommon {

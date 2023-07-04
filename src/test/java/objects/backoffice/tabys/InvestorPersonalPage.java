@@ -11,7 +11,6 @@ import java.time.format.DateTimeFormatter;
 import static com.codeborne.selenide.CollectionCondition.size;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
-import static com.codeborne.selenide.Selenide.$$;
 
 public class InvestorPersonalPage {
     public static ElementsCollection allTimestamps = $$((".timestamp")),

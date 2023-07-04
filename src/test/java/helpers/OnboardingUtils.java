@@ -1,15 +1,8 @@
 package helpers;
 
 import database.AcsDatabaseConnections;
-import org.apache.commons.io.FileUtils;
-import org.junit.platform.commons.util.StringUtils;
-
-import java.io.File;
-import java.io.IOException;
-import java.util.Base64;
 
 import static org.apache.commons.lang3.StringUtils.length;
-import static testdata.KazpostData.*;
 
 public class OnboardingUtils {
     public static String getNewPhoneNumber(String phoneNumberTemplate){
