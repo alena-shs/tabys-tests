@@ -7,7 +7,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 public class ProjectConfiguration {
     static DatabaseConnectConfig databaseConnectConfig = ConfigFactory.create(DatabaseConnectConfig.class, System.getProperties());
     public void configure() {
-        Configuration.holdBrowserOpen = true;
+//        Configuration.holdBrowserOpen = true;
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.addArguments("--use-fake-ui-for-media-stream");
         chromeOptions.addArguments("--use-fake-device-for-media-stream");

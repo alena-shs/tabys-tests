@@ -8,12 +8,36 @@ import static database.DatabaseData.*;
 
 public class AcsDatabaseConnections extends TestBase {
 
-    private static final String SELECT_PHONE_NUMBER_CONFIRMATION_QUERY = "select * from phone_number_confirmation where phone_number=? order by expired_date desc limit 1";
-    private static final String SELECT_KAZPOST_LOGIN_CODE_QUERY = "select * from second_factor_confirmation where phone_number=? order by expired_date desc limit 1";
-    private static final String SELECT_KAZPOST_SESSION_IDS_QUERY = "select * from g_session where username=? order by created_at desc limit 1";
+    private static final String SELECT_PHONE_NUMBER_CONFIRMATION_QUERY = "select * from phone_number_confirmation where phone_number=? order by expired_date desc limit 1",
+            SELECT_LAST_REGISTERED_PHONE_NUMBER_QUERY = "select * from phone_number_confirmation where phone_number like ? and length(phone_number)=12 order by phone_number desc limit 1",
+            SELECT_KAZPOST_LOGIN_CODE_QUERY = "select * from second_factor_confirmation where phone_number=? order by expired_date desc limit 1",
+            SELECT_KAZPOST_SESSION_IDS_QUERY = "select * from g_session where username=? order by created_at desc limit 1";
+
+    @Step ("Fetch the last registered phone number")
+    public static String lastRegisteredPhoneNumber(String phoneNumberTemplate) {
+        String phone_number = null;
+        try (Connection connection = DriverManager.getConnection(acsTestUrl, user, password);
+             PreparedStatement preparedStatement = connection.prepareStatement(SELECT_LAST_REGISTERED_PHONE_NUMBER_QUERY);) {
+            preparedStatement.setString(1, phoneNumberTemplate+"%"); // first ? mark value = phoneNumberTemplate
+            System.out.println(preparedStatement);
+            ResultSet rs = preparedStatement.executeQuery();
+
+            // Process the ResultSet object
+            while (rs.next()) {
+                phone_number = rs.getString("phone_number");
+                String code = rs.getString("code");
+                boolean is_confirm = rs.getBoolean("is_confirm");
+                String expired_date = rs.getString("expired_date");
+                System.out.println(phone_number + "," + code + "," + is_confirm + "," + expired_date);
+            }
+        } catch (SQLException e) {
+            printSQLException(e);
+        }
+        return phone_number;
+    }
 
     @Step("Fetch phone number confirmation code (for registration)")
-    public String PhoneNumberConfirmationCode(String phoneNumber) {
+    public String phoneNumberConfirmationCode(String phoneNumber) {
         // Establishing a connection
         String code = null;
         try (Connection connection = DriverManager.getConnection(acsTestUrl, user, password);
@@ -37,7 +61,7 @@ public class AcsDatabaseConnections extends TestBase {
     }
 
     @Step("Fetch phone number confirmation code (for registration)")
-    public String KazpostLoginCode(String phoneNumber) {
+    public String kazpostLoginCode(String phoneNumber) {
         // Establishing a connection
         String code = null;
         try (Connection connection = DriverManager.getConnection(acsTestUrl, user, password);
@@ -61,7 +85,7 @@ public class AcsDatabaseConnections extends TestBase {
     }
 
     @Step("Fetch phone number confirmation code (for registration)")
-    public static String[] KazpostSessionIds(String phoneNumber) {
+    public static String[] kazpostSessionIds(String phoneNumber) {
         // Establishing a connection
         String Gg_token = null;
         String Session_id = null;

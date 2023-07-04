@@ -23,6 +23,7 @@ public class TestBase
     @BeforeAll
     static void beforeAll() {
         projectConfiguration.configure();
+
     }
 
     @BeforeEach

@@ -42,7 +42,7 @@ public class KazpostLoginPage {
         $("input[formcontrolname=smsCode]").setValue(registrationCode);
         String ggToken = String.valueOf(WebDriverRunner.getWebDriver().manage().getCookieNamed("Gg_token"));
         $(byText("Отправить")).click();
-        String[] sessionIds = AcsDatabaseConnections.KazpostSessionIds(phoneNumber);
+        String[] sessionIds = AcsDatabaseConnections.kazpostSessionIds(phoneNumber);
         sleep(2000);
 //        $(".selected-button").shouldHave(Condition.text(" Персональные данные "));
 //        Commented because I am developing the photo sending page

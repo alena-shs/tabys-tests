@@ -11,6 +11,7 @@ import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import helpers.KazpostUtils;
 
+import static helpers.OnboardingUtils.getNewPhoneNumber;
 import static testdata.KazpostData.*;
 
 @Tags({
@@ -28,9 +29,10 @@ public class KazpostTests extends TestBase{
     @Test
     @DisplayName("Onboarding for Kazpost with a new number")
     void onboardingKazpost() {
+        String phoneNumber = getNewPhoneNumber(phoneNumberTemplate);
         kazpostLoginPage.openKazpostMainPage()
                 .registerWithNewNumber(phoneNumber);
-        String registrationCode = acsDatabase.PhoneNumberConfirmationCode(phoneNumber);
+        String registrationCode = acsDatabase.phoneNumberConfirmationCode(phoneNumber);
         System.out.println(registrationCode);
         kazpostLoginPage.sendRegistrationKazpostCode(phoneNumber, registrationCode);
         kazpostOnboardingPersonalDataPage.enterAddress(city, address)

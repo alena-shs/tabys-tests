@@ -1,6 +1,7 @@
 package testdata;
 
 import com.google.gson.Gson;
+import database.AcsDatabaseConnections;
 import helpers.KazpostUtils;
 
 import java.io.IOException;
@@ -10,6 +11,8 @@ import testdata.jsondatareader.KazpostUser;
 
 import java.io.InputStream;
 import java.io.InputStreamReader;
+
+import static helpers.OnboardingUtils.getNewPhoneNumber;
 
 public class KazpostData {
     // TODO: Put all data into a JSON file
@@ -29,7 +32,7 @@ public class KazpostData {
 //        }
 //    };
 
-    public static String phoneNumber = "+72220000916";
+    public static String phoneNumberTemplate = "+72220";
     public static String firstName = "АЛЕНА",
             lastName="ШОМАНОВА",
             iin = "980113450119",
