@@ -1,0 +1,57 @@
+{
+  "base": {
+    "logo": "",
+    "project": "TABYS",
+    "environment": "test",
+    "comment": "",
+    "reportLink": "",
+    "language": "en",
+    "messenger": "telegram",
+    "allureFolder": "build/allure-report/",
+    "enableChart": true
+  },
+  "telegram": {
+    "token": "5918828714:AAF1ZVQaL9Gy-d4ANwKG71803u1IiCRcbpE",
+    "chat": "-1001784088799",
+    "replyTo": ""
+  },
+  "slack": {
+    "token": "",
+    "chat": "",
+    "replyTo": ""
+  },
+  "mattermost": {
+    "url": "",
+    "token": "",
+    "chat": ""
+  },
+  "skype": {
+    "appId": "",
+    "appSecret": "",
+    "serviceUrl": "",
+    "conversationId": "",
+    "botId": "",
+    "botName": ""
+  },
+  "mail": {
+    "host": "",
+    "port": "",
+    "username": "",
+    "password": "",
+    "securityProtocol": null,
+    "from": "",
+    "recipient": ""
+  },
+  "discord": {
+    "botToken": "",
+    "channelId": ""
+  },
+  "proxy": {
+    "host": "",
+    "port": 0,
+    "username": "",
+    "password": ""
+  }
+}
+//
+//java \ "-DconfigFile='notifications/config.json'" \ -jar allure-notifications-4.1.jar

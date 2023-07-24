@@ -45,10 +45,12 @@ dependencies {
             'org.postgresql:postgresql:42.5.1',                          // To connect to a PostrgreSQL DB
             "org.slf4j:slf4j-simple:$slf4jVersion",
             'commons-io:commons-io:2.11.0',
+            "io.appium:java-client:8.3.0",
             'com.google.code.gson:gson:2.10.1'
     )
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'      // JUnit5
 }
+
 
 test {
     useJUnitPlatform()
@@ -68,6 +70,45 @@ tasks.withType(Test) {
     }
 }
 
+
+task web_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("web")
+    }
+}
+
+task kazpost_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("kazpost")
+    }
+}
+
+task mobile_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("mobile")
+    }
+}
+
+task tabys_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("tabys")
+    }
+}
+
+task ipo_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("ipo")
+    }
+}
+
+task sample(type: Test) {
+    useJUnitPlatform {
+        includeTags("sample")
+    }
+}
+
+
 tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
 }
+
