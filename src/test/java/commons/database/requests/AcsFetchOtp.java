@@ -10,7 +10,6 @@ public class AcsFetchOtp extends TestBaseWeb {
 
     private static final String SELECT_PHONE_NUMBER_CONFIRMATION_QUERY = "select * from phone_number_confirmation where phone_number=? order by expired_date desc limit 1",
             SELECT_RESTORE_PASSWORD_QUERY = "select * from user_restore_password where receiver_number=? order by created_at desc limit 1",
-            SELECT_LAST_REGISTERED_PHONE_NUMBER_QUERY = "select * from person where person.accountname like ? and length(accountname)=12 order by accountname desc limit 1",
             SELECT_KAZPOST_LOGIN_CODE_QUERY = "select * from second_factor_confirmation where phone_number=? order by expired_date desc limit 1",
             SELECT_KAZPOST_SESSION_IDS_QUERY = "select * from g_session where username=? order by created_at desc limit 1";
 
@@ -21,7 +20,7 @@ public class AcsFetchOtp extends TestBaseWeb {
         // Establishing a connection
         String code = null;
         try (Connection connection = DriverManager.getConnection(acsTestUrl, user, password);
-             PreparedStatement preparedStatement = connection.prepareStatement(SELECT_PHONE_NUMBER_CONFIRMATION_QUERY);) {
+             PreparedStatement preparedStatement = connection.prepareStatement(SELECT_PHONE_NUMBER_CONFIRMATION_QUERY)) {
             preparedStatement.setString(1, phoneNumber); // first ? mark value = phoneNumber
             System.out.println(preparedStatement);
             ResultSet rs = preparedStatement.executeQuery();
@@ -45,7 +44,7 @@ public class AcsFetchOtp extends TestBaseWeb {
         // Establishing a connection
         String code = null;
         try (Connection connection = DriverManager.getConnection(acsTestUrl, user, password);
-             PreparedStatement preparedStatement = connection.prepareStatement(SELECT_KAZPOST_LOGIN_CODE_QUERY);) {
+             PreparedStatement preparedStatement = connection.prepareStatement(SELECT_KAZPOST_LOGIN_CODE_QUERY)) {
             preparedStatement.setString(1, phoneNumber); // first ? mark value = phoneNumber
             System.out.println(preparedStatement);
             ResultSet rs = preparedStatement.executeQuery();
@@ -70,7 +69,7 @@ public class AcsFetchOtp extends TestBaseWeb {
         String Gg_token = null;
         String Session_id = null;
         try (Connection connection = DriverManager.getConnection(acsTestUrl, user, password);
-             PreparedStatement preparedStatement = connection.prepareStatement(SELECT_KAZPOST_SESSION_IDS_QUERY);) {
+             PreparedStatement preparedStatement = connection.prepareStatement(SELECT_KAZPOST_SESSION_IDS_QUERY)) {
             preparedStatement.setString(1, phoneNumber); // first ? mark value = phoneNumber
             System.out.println(preparedStatement);
             ResultSet rs = preparedStatement.executeQuery();
@@ -92,7 +91,7 @@ public class AcsFetchOtp extends TestBaseWeb {
         // Establishing a connection
         String randomCode = null;
         try (Connection connection = DriverManager.getConnection(acsTestUrl, user, password);
-             PreparedStatement preparedStatement = connection.prepareStatement(SELECT_RESTORE_PASSWORD_QUERY);) {
+             PreparedStatement preparedStatement = connection.prepareStatement(SELECT_RESTORE_PASSWORD_QUERY)) {
             preparedStatement.setString(1, phoneNumber); // first ? mark value = phoneNumber
             System.out.println(preparedStatement);
             ResultSet rs = preparedStatement.executeQuery();

@@ -16,7 +16,6 @@ import static com.codeborne.selenide.Selenide.closeWebDriver;
 public class TestBaseWeb
 {
     static ProjectConfiguration projectConfiguration = new ProjectConfiguration();
-//    public static BodyConstructors bodyConstructors = new BodyConstructors();
     BackofficeCommon backofficeCommon = new BackofficeCommon();
     TabysMenuNavigation tabysMenuNavigation = new TabysMenuNavigation();
     InvestorPersonalPage investorPersonalPage = new InvestorPersonalPage();

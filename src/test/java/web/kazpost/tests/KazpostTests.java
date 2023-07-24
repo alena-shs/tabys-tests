@@ -52,7 +52,7 @@ public class KazpostTests extends TestBaseWeb {
 //        System.out.println(sessionIds[0] + " " + sessionIds[1]);
         String[] sessionIds = AcsFetchOtp.userSessionIds(phoneNumber);
         kazpostOnboardingPhotosPage.verifyPageOpenedCorrectly()
-//                .sendSelfie(sessionIds[0], sessionIds[1])
+                .sendSelfie(sessionIds[0], sessionIds[1])
         ;
     }
 

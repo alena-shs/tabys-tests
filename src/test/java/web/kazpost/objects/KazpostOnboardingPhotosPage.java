@@ -40,24 +40,24 @@ public class KazpostOnboardingPhotosPage extends TestBaseWeb {
         return this;
     }
 
-//    @Step("Send photo")
-//    public KazpostOnboardingPhotosPage sendSelfie(String Gg_session, String Session_id) {
-//        selfieField.click();
-//        initiateCameraButton.click();
-//        step("Prepare a body for a selfie sending", () -> {
-//            PhotoBody photoBody = new PhotoBody();
-//            preparePhotoBody(photoBody, selfieDocType, selfieDefaultEncoded, selfieTitle);
-//        });
-//
-//        step("Send a POST request to save selfie", () ->
-//                given()
-//                        .filter(withCustomTemplates())
-//                        .spec(Specs.kazpostRequestSpec)
-//                        .body(photoBody)
-//                        .when()
-//                        .post("/onboarding/file/save")
-//                        .then()
-//                        .spec(Specs.successResponseSpec));
-//        return this;
-//    }
+    @Step("Send photo")
+    public KazpostOnboardingPhotosPage sendSelfie(String Gg_session, String Session_id) {
+        selfieField.click();
+        initiateCameraButton.click();
+        step("Prepare a body for a selfie sending", () -> {
+            PhotoBody photoBody = new PhotoBody();
+            preparePhotoBody(photoBody, selfieDocType, selfieDefaultEncoded, selfieTitle);
+        });
+
+        step("Send a POST request to save selfie", () ->
+                given()
+                        .filter(withCustomTemplates())
+                        .spec(Specs.kazpostRequestSpec)
+                        .body(photoBody)
+                        .when()
+                        .post("/onboarding/file/save")
+                        .then()
+                        .spec(Specs.successResponseSpec));
+        return this;
+    }
 }

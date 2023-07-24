@@ -11,7 +11,6 @@ import org.openqa.selenium.NoAlertPresentException;
 
 import static com.codeborne.selenide.Selenide.sleep;
 import static commons.OnboardingUtils.*;
-import static commons.database.requests.AcsFetchOtp.userRestorePasswordCode;
 import static mobileapp.data.MobileTestData.*;
 
 public class MobileTests extends TestBaseMobile {
@@ -132,7 +131,6 @@ public class MobileTests extends TestBaseMobile {
             @Tag("mobile")
     })
     void etnMobileLogin(){
-        AndroidDriver mobileDriver = (AndroidDriver) WebDriverRunner.getWebDriver();
         startPage.clickImAlreadyRegistered();
 //        Get a new phone number for registration. All the numbers will be in the format: +74440xxxxxx. Each new number will increment the previous number by one.
         String phoneNumber = getNumberForLogin(phoneNumberTemplateMobile);

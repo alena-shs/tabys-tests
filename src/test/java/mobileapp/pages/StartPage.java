@@ -18,16 +18,15 @@ public class StartPage {
             availableButton = $(AppiumBy.className("android.widget.Button"));
 
     @Step("Click on 'Ready to start'")
-    public StartPage clickReadyToStart() {
+    public void clickReadyToStart() {
         AndroidDriver mobileDriver = (AndroidDriver) WebDriverRunner.getWebDriver();
         splashMessages.shouldHave(not(visible), Duration.ofSeconds(20));
         availableButton.shouldHave(Condition.visible, Duration.ofSeconds(20));
         MobileUtils.tapWithPercentages(mobileDriver, 0.5, 0.9, 400); //with duration 200ms
-        return this;
     }
 
     @Step("Click on 'I'm already registered'")
-    public StartPage clickImAlreadyRegistered() {
+    public void clickImAlreadyRegistered() {
 //        ElementsCollection buttons = $$(AppiumBy.className("android.widget.Button"));
 //        buttons.get(1).click();
 
@@ -35,7 +34,6 @@ public class StartPage {
         sleep(10000);
         MobileUtils.tapWithPercentages(mobileDriver, 0.5, 0.99, 400); //with duration 200ms
         MobileUtils.tapWithPercentages(mobileDriver, 0.5, 0.99, 400);
-        return this;
     }
 
 

@@ -55,7 +55,7 @@ public class KazpostOnboardingPersonalDataPage {
         pepDropdown.click();
         if (!(inputPep)) {
             pepOptionNegative.click();
-        } else if (inputPep) { // TODO: input position if it is a pep
+        } else { // TODO: input position if it is a pep
             pepOptionPositive.click();
         }
         pepOptionNegative.click();
@@ -67,7 +67,7 @@ public class KazpostOnboardingPersonalDataPage {
         noUsaCheckbox.click();
         agreementCheckbox.click();
         return this;
-    };
+    }
 
     @Step("Set ID number")
     public KazpostOnboardingPersonalDataPage setIdNumber(String idNumber) {
@@ -85,13 +85,12 @@ public class KazpostOnboardingPersonalDataPage {
     }
 
     @Step("Set ID expiration date: default day {day}, month - previous from current month, default year {year}")
-    public KazpostOnboardingPersonalDataPage setIdExpirationDate(String day, String year) {
+    public void setIdExpirationDate(String day, String year) {
         sleep(2000);
         expirationDateCalendarInput.click();
         calendarYear.selectOption(year);
         calendarNextMonth.click();
         calendarDayPickerArea.$(byText(day)).click();
-        return this;
     }
 
 
@@ -122,7 +121,7 @@ public class KazpostOnboardingPersonalDataPage {
     public KazpostOnboardingPersonalDataPage verifyInputtedPep(boolean inputPep) {
         if (!(inputPep)) {
             pepDropdown.shouldHave(text("Нет"));
-        } else if (inputPep) { // TODO: Verify the position of PEP when the feature is added
+        } else { // TODO: Verify the position of PEP when the feature is added
             pepDropdown.shouldHave(text("Да"));
         }
         return this;
@@ -149,10 +148,9 @@ public class KazpostOnboardingPersonalDataPage {
     }
 
     @Step("Submit data")
-    public KazpostOnboardingPersonalDataPage pressSubmit() {
+    public void pressSubmit() {
         submitButton.click();
         sleep(1000);
-        return this;
     }
 
 

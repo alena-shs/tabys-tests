@@ -17,7 +17,7 @@ public class AcsFetchNumber {
         String accountname = null;
         System.out.println(phoneNumberTemplate);
         try (Connection connection = DriverManager.getConnection(acsTestUrl, user, password);
-             PreparedStatement preparedStatement = connection.prepareStatement(SELECT_LAST_REGISTERED_PHONE_NUMBER_QUERY);) {
+             PreparedStatement preparedStatement = connection.prepareStatement(SELECT_LAST_REGISTERED_PHONE_NUMBER_QUERY)) {
             preparedStatement.setString(1, phoneNumberTemplate+"%"); // first ? mark value = phoneNumberTemplate
             System.out.println(preparedStatement);
             ResultSet rs = preparedStatement.executeQuery();
@@ -39,7 +39,7 @@ public class AcsFetchNumber {
     public static String lastUniquePhoneNumber(String projectName) {
         String account = null;
         try (Connection connection = DriverManager.getConnection(onboardingTestUrl, user, password);
-            PreparedStatement preparedStatement = connection.prepareStatement(SELECT_LAST_UNIQUE_NUMBER);) {
+            PreparedStatement preparedStatement = connection.prepareStatement(SELECT_LAST_UNIQUE_NUMBER)) {
             preparedStatement.setString(1, projectName); // first ? mark value = phoneNumberTemplate
             System.out.println(preparedStatement);
             ResultSet rs = preparedStatement.executeQuery();

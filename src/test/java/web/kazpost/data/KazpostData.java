@@ -11,18 +11,6 @@ public class KazpostData {
     static DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd.MM.yyyy");
     static LocalDateTime now = LocalDateTime.now();
 
-//    static KazpostUser kazpostUser = gson.fromJson("src/test/resources/userdata/AlenaShomanova.json", KazpostUser.class);
-//    InputStream is = cl.getResourceAsStream("minun-pokemon.json");
-//    InputStreamReader isr = new InputStreamReader(is) {
-//        {
-//            try {
-//                kazpostUser = mapper.readValue(isr, KazpostUser.class);
-//            } catch (IOException e) {
-//                throw new RuntimeException(e);
-//            }
-//        }
-//    };
-
     public static String phoneNumberTemplate = "+72220";
     public static String firstName = "АЛЕНА",
             lastName="ШОМАНОВА",
@@ -45,12 +33,12 @@ public class KazpostData {
     public static String selfieDocType = "SELFIE",
             selfieDefaultSrc = "src/test/resources/images/KazpostSelfie.jpg",
             selfieTitle = "Selfie_camera";
-    public static String idFrontDocType = "SELFIE",
-            idFrontDefaultSrc = "src/test/resources/images/KazpostSelfie.jpg",
-            idFrontTitle = "Selfie_camera";
-    public static String idBackDocType = "SELFIE",
-            idBackDefaultSrc = "src/test/resources/images/KazpostSelfie.jpg",
-            idBackTitle = "Selfie_camera";
+//    public static String idFrontDocType = "SELFIE",
+//            idFrontDefaultSrc = "src/test/resources/images/KazpostSelfie.jpg",
+//            idFrontTitle = "Selfie_camera";
+//    public static String idBackDocType = "SELFIE",
+//            idBackDefaultSrc = "src/test/resources/images/KazpostSelfie.jpg",
+//            idBackTitle = "Selfie_camera";
     static String[] sessionIds = new String[2];
     public static String ggToken = sessionIds[0], sessionId = sessionIds[1];
     public static String selfieDefaultEncoded = convertPhotoToSend(selfieDefaultSrc);

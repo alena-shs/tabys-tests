@@ -13,7 +13,7 @@ public class CommonUtils {
             month = "12";
         } else if (month == "13") {
             month = "01";
-        };
+        }
         return month;
     }
 
