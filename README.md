@@ -112,13 +112,13 @@ To change the other configurations, please change properties in the following fi
       test["test/java"]-->mobileapp;
       test["test/java"]-->web;
       web-->config;
-      web-->drivers;
+      web-->wdrivers[drivers];
       web-->backoffice;
       web-->kazpost;
       kazpost-->kdata[data] & kobj[objects] & ktests[tests];
       backoffice-->bdata[data] & objects & btests[tests] & bconfig[config];
-      mobileapp-->mdata[data] & drivers & helpers & pages & mtests[tests];
-      commons --> api & database & helpers;
+      mobileapp-->mdata[data] & mdrivers[drivers] & mhelpers[helpers] & pages & mtests[tests];
+      commons --> api & database & chelpers[helpers];
       api --> models & specs & utils;
       database --> dconfig[config] & ddata[data] & requests;
 ```
