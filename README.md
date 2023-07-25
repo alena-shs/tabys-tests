@@ -12,7 +12,7 @@ Configurations to run:
 - Mobile tests:
   - Remotely
   - Locally
-    - Emulator
+    - Emulator (browserstack closes the app automatically)
     - Physical device
 
 
@@ -26,7 +26,7 @@ Configurations to run:
 
 From the console, run the following script:
 
-> gradle clean test -Dwebenv='remote'
+> gradle clean test -Dtask='навзвание_таска' -Dwebenv='remote'
 
 ##### Configurations
 
@@ -76,7 +76,7 @@ To change the other configurations, please change properties in the following fi
 
 From the console, run the following script:
 
-> gradle clean test -Dmobileeenv='physicaldevice'
+> gradle clean test -Dtask='навзвание_таска' -Dmobileeenv='physicaldevice'
 
 ###### Configurations
 To change the other configurations, please change properties in the following file: src/test/resources/properties/mobile/physicaldevice.properties
@@ -93,7 +93,7 @@ To change the other configurations, please change properties in the following fi
 
 From the console, run the following script:
 
-> gradle clean test -Dmobileeenv='emulator'
+> gradle clean test -Dtask='навзвание_таска' -Dmobileeenv='emulator'
 
 ###### Configurations
 To change the other configurations, please change properties in the following file: src/test/resources/properties/mobile/emulator.properties
@@ -105,6 +105,47 @@ To change the other configurations, please change properties in the following fi
 - platformVersion - check the version on Android Studio device manager
 
 ## Project structure
+
+```mermaid
+  graph TD;
+      'test/java'-->commons;
+      'test/java'-->mobileapp;
+      'test/java'-->web;
+      web-->config;
+      web-->drivers;
+      web-->backoffice;
+      web-->kazpost;
+      kazpost-->data;
+      kazpost-->objects;
+      kazpost-->tests;
+      backoffice-->data;
+      backoffice-->objects;
+      backoffice-->tests;
+      backoffice-->config;
+      'mobileapp'-->data;
+      'mobileapp'-->drivers;
+      'mobileapp'-->helpers;
+      'mobileapp'-->pages;
+      'mobileapp'-->tests;
+      commons-->api;
+      commons-->database;
+      commons--helpers;
+      api-->models;
+      api-->specs;
+      api-->utils;
+      database-->config;
+      database-->data;
+      database-->requests;
+```
+
+## How to change test data
+
+All the test data are in the separate files in the following directory:
+
+> src > test > java > mobileapp/commons/web > if you chose web, choose folder backoffice/kazpost > data
+
+Please make sure to change these data once in a while to avoid pesticide effect.
+In the future, these data might be reformatted to csv/json format.
 
 ## Troubleshooting
 
