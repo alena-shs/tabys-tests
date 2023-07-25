@@ -115,12 +115,12 @@ To change the other configurations, please change properties in the following fi
       web-->drivers;
       web-->backoffice;
       web-->kazpost;
-      kazpost-->data & objects & tests;
-      backoffice-->data & objects & tests & config;
-      mobileapp-->data & drivers & helpers & pages & tests;
+      kazpost-->kdata[data] & kobj[objects] & ktests[tests];
+      backoffice-->bdata[data] & objects & btests[tests] & bconfig[config];
+      mobileapp-->mdata[data] & drivers & helpers & pages & mtests[tests];
       commons --> api & database & helpers;
       api --> models & specs & utils;
-      database --> config & data & requests;
+      database --> dconfig[config] & ddata[data] & requests;
 ```
 
 ## How to change test data
