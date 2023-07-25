@@ -107,35 +107,20 @@ To change the other configurations, please change properties in the following fi
 ## Project structure
 
 ```mermaid
-  graph TD;
-      'test/java'-->commons;
-      'test/java'-->mobileapp;
-      'test/java'-->web;
+  graph LR;
+      test["test/java"]-->commons;
+      test["test/java"]-->mobileapp;
+      test["test/java"]-->web;
       web-->config;
       web-->drivers;
       web-->backoffice;
       web-->kazpost;
-      kazpost-->data;
-      kazpost-->objects;
-      kazpost-->tests;
-      backoffice-->data;
-      backoffice-->objects;
-      backoffice-->tests;
-      backoffice-->config;
-      'mobileapp'-->data;
-      'mobileapp'-->drivers;
-      'mobileapp'-->helpers;
-      'mobileapp'-->pages;
-      'mobileapp'-->tests;
-      commons-->api;
-      commons-->database;
-      commons--helpers;
-      api-->models;
-      api-->specs;
-      api-->utils;
-      database-->config;
-      database-->data;
-      database-->requests;
+      kazpost-->data & objects & tests;
+      backoffice-->data & objects & tests & config;
+      mobileapp-->data & drivers & helpers & pages & tests;
+      commons --> api & database & helpers;
+      api --> models & specs & utils;
+      database --> config & data & requests;
 ```
 
 ## How to change test data
