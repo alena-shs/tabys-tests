@@ -1,4 +1,4 @@
-package mobileapp.pages;
+package mobileapp.objects;
 
 import commons.api.specs.Specs;
 import io.qameta.allure.Step;

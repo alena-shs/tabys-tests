@@ -1,4 +1,4 @@
-package mobileapp.pages;
+package mobileapp.objects;
 
 import com.codeborne.selenide.CollectionCondition;
 import com.codeborne.selenide.ElementsCollection;
@@ -7,7 +7,6 @@ import io.qameta.allure.Step;
 
 import java.time.Duration;
 
-import static com.codeborne.selenide.Condition.exist;
 import static com.codeborne.selenide.Condition.interactable;
 import static com.codeborne.selenide.Selenide.$$;
 import static com.codeborne.selenide.Selenide.sleep;

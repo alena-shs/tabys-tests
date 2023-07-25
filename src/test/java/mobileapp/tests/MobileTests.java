@@ -3,7 +3,7 @@ package mobileapp.tests;
 import com.codeborne.selenide.WebDriverRunner;
 import commons.database.requests.AcsFetchOtp;
 import io.appium.java_client.android.AndroidDriver;
-import mobileapp.pages.*;
+import mobileapp.objects.*;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;

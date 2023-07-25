@@ -1,20 +1,15 @@
-package mobileapp.pages;
+package mobileapp.objects;
 
 import com.codeborne.selenide.CollectionCondition;
-import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import io.appium.java_client.AppiumBy;
-import io.appium.java_client.AppiumDriver;
 import io.qameta.allure.Step;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 
 import java.time.Duration;
 
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
-import static mobileapp.data.MobileTestData.*;
 
 public class EtnIpoOnboarding {
     private SelenideElement availableButton = $(AppiumBy.className("android.widget.Button")),

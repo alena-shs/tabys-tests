@@ -1,11 +1,10 @@
-package mobileapp.pages;
+package mobileapp.objects;
 
 import commons.database.requests.AcsFetchOtp;
 import io.appium.java_client.AppiumBy;
 import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.sleep;
 import static commons.database.requests.AcsFetchOtp.userRestorePasswordCode;
 
 public class OtpPage {

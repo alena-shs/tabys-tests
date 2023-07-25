@@ -1,9 +1,7 @@
-package mobileapp.pages;
+package mobileapp.objects;
 
 import com.codeborne.selenide.ElementsCollection;
-import com.codeborne.selenide.WebDriverRunner;
 import io.appium.java_client.AppiumBy;
-import io.appium.java_client.android.AndroidDriver;
 import io.qameta.allure.Step;
 
 import java.time.Duration;

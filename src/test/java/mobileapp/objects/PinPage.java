@@ -1,4 +1,4 @@
-package mobileapp.pages;
+package mobileapp.objects;
 
 import io.appium.java_client.AppiumBy;
 import io.qameta.allure.Step;
