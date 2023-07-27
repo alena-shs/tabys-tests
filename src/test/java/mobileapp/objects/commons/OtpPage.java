@@ -1,4 +1,4 @@
-package mobileapp.objects;
+package mobileapp.objects.commons;
 
 import commons.database.requests.AcsFetchOtp;
 import io.appium.java_client.AppiumBy;

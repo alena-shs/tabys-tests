@@ -1,4 +1,4 @@
-package mobileapp.objects;
+package mobileapp.objects.commons;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
@@ -9,11 +9,11 @@ import java.time.Duration;
 
 import static com.codeborne.selenide.Selenide.$;
 
-public class PasswordRecoveryPage {
+public class RegisterNumberPage {
     private final SelenideElement inputField = $(AppiumBy.className("android.widget.EditText")),
             button = $(AppiumBy.className("android.widget.Button"));
     @Step("Proceed from Register page")
-    public PasswordRecoveryPage enterPhoneNumber(String phoneNumber) {
+    public RegisterNumberPage enterPhoneNumber(String phoneNumber) {
         inputField.shouldHave(Condition.appear, Duration.ofSeconds(10)).click();
         inputField.sendKeys(phoneNumber.substring(1));
         return this;

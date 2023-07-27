@@ -3,7 +3,6 @@ package mobileapp.tests;
 import com.codeborne.selenide.WebDriverRunner;
 import commons.database.requests.AcsFetchOtp;
 import io.appium.java_client.android.AndroidDriver;
-import mobileapp.objects.*;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
@@ -14,18 +13,6 @@ import static commons.OnboardingUtils.*;
 import static mobileapp.data.MobileTestData.*;
 
 public class MobileTests extends TestBaseMobile {
-    MainPage mainPage = new MainPage();
-    RegisterNumberPage registerNumberPage = new RegisterNumberPage();
-    OtpPage otpPage = new OtpPage();
-    PasswordSetupPage passwordSetupPage = new PasswordSetupPage();
-    EtnIpoOnboarding etnIpoOnboarding = new EtnIpoOnboarding();
-    PhotoPage photoPage = new PhotoPage();
-    StartPage startPage = new StartPage();
-    LoginNumberPage loginNumberPage = new LoginNumberPage();
-    PinPage pinPage = new PinPage();
-    PasswordRecoveryPage passwordRecoveryPage = new PasswordRecoveryPage();
-    OnboardingMigrationPage onboardingMigrationPage = new OnboardingMigrationPage();
-
     @Test
     @Tags({
             @Tag("tabys"),
@@ -36,7 +23,7 @@ public class MobileTests extends TestBaseMobile {
         startPage.clickReadyToStart();
             mainPage.etnRegistrationButtonClick()
                     .proceedFromInvestorSteps();
-//        Get a new phone number for registration. All the numbers will be in the format: +74440xxxxxx. Each new number will increment the previous number by one.
+//        Get a new phone number for registration. All the numbers will be in the format: +74440xxxxxx. Each new number will increment the previous number by on e.
         String phoneNumber = getNewPhoneNumber("+74440");
         registerNumberPage.enterPhoneNumber(phoneNumber)
                 .initiateRegistrationOtp();
@@ -140,7 +127,6 @@ public class MobileTests extends TestBaseMobile {
         pinPage.setUpPin("1111");
         mainPage.etnRegistrationButtonClick()
                 .proceedFromInvestorSteps();
-
 //        Billie - selfie page
         etnIpoOnboarding.pressOnAvailableButton()
                 .pressOnAvailableButton()
@@ -169,20 +155,35 @@ public class MobileTests extends TestBaseMobile {
 //        Get a last unique number for the given project
 //        Unique - means that it only exists in the given project
         String phoneNumber = getLastUniqueNumber("TABYS_IPO");
-        startPage.clickImAlreadyRegistered();
-        loginNumberPage.tapForgotPassword();
-        passwordRecoveryPage.enterPhoneNumber(phoneNumber)
+        startPage
+                .clickImAlreadyRegistered();
+        loginNumberPage
+                .tapForgotPassword();
+        passwordRecoveryPage
+                .enterPhoneNumber(phoneNumber)
                 .initiateRegistrationOtp();
-        System.out.println();
-        otpPage.enterResorePasswordOtpCode(phoneNumber);
-        passwordSetupPage.setPasswordNewAccount();
-        etnIpoOnboarding.pressOnAvailableButton();
-        pinPage.setUpPin("1111")
+        otpPage
+                .enterResorePasswordOtpCode(phoneNumber);
+        passwordSetupPage
+                .setPasswordNewAccount();
+        etnIpoOnboarding
+                .pressOnAvailableButton();
+        pinPage
                 .setUpPin("1111");
-        mainPage.etnRegistrationButtonClick();
-        onboardingMigrationPage.agreeToMigrate();
-        sleep(100000);
+        mainPage
+                .etnRegistrationButtonClick();
+        onboardingMigrationPage
+                .agreeToMigrate();
+        // proceed form "Add bank card"
+        etnIpoOnboarding
+                .verifyAddBankCardScreen()
+                .pressOnAvailableButton()
+                // proceed from "name card"
+                .pressOnAvailableButton()
+                .chooseCnpCard();
+        // TODO modal windows don't show up??? and we can't add card manually or with API
     }
+
 
     @Test
     @Tags({
@@ -194,19 +195,30 @@ public class MobileTests extends TestBaseMobile {
 //        Get a last unique number for the given project
 //        Unique - means that it only exists in the given project
         String phoneNumber = getLastUniqueNumber("TABYS");
-        startPage.clickImAlreadyRegistered();
-        loginNumberPage.tapForgotPassword();
-        passwordRecoveryPage.enterPhoneNumber(phoneNumber)
+        startPage
+                .clickImAlreadyRegistered();
+        loginNumberPage
+                .tapForgotPassword();
+        passwordRecoveryPage
+                .enterPhoneNumber(phoneNumber)
                 .initiateRegistrationOtp();
-        System.out.println();
-        otpPage.enterResorePasswordOtpCode(phoneNumber);
-        passwordSetupPage.setPasswordNewAccount();
-        etnIpoOnboarding.pressOnAvailableButton();
-        pinPage.setUpPin("1111")
+        otpPage
+                .enterResorePasswordOtpCode(phoneNumber);
+        passwordSetupPage
+                .setPasswordNewAccount();
+        etnIpoOnboarding
+                .pressOnAvailableButton();
+        pinPage
                 .setUpPin("1111");
         mainPage.ipoBannerClick();
-        onboardingMigrationPage.agreeToMigrate();
-        sleep(100000);
+        onboardingMigrationPage
+                .agreeToMigrate();
+        etnIpoOnboarding
+                .verifyAddBankCardScreen()
+                .pressOnAvailableButton()
+                // proceed from "name card"
+                .pressOnAvailableButton()
+                .chooseCnpCard();
     }
 
     @Test
@@ -219,19 +231,69 @@ public class MobileTests extends TestBaseMobile {
 //        Get a last unique number for the given project
 //        Unique - means that it only exists in the given project
         String phoneNumber = getLastUniqueNumber("KAZPOST");
-        startPage.clickImAlreadyRegistered();
-        loginNumberPage.tapForgotPassword();
-        passwordRecoveryPage.enterPhoneNumber(phoneNumber)
+        startPage
+                .clickImAlreadyRegistered();
+        loginNumberPage
+                .tapForgotPassword();
+        passwordRecoveryPage
+                .enterPhoneNumber(phoneNumber)
                 .initiateRegistrationOtp();
-        System.out.println();
-        otpPage.enterResorePasswordOtpCode(phoneNumber);
-        passwordSetupPage.setPasswordNewAccount();
-        etnIpoOnboarding.pressOnAvailableButton();
-        pinPage.setUpPin("1111")
+        otpPage
+                .enterResorePasswordOtpCode(phoneNumber);
+        passwordSetupPage
+                .setPasswordNewAccount();
+        etnIpoOnboarding
+                .pressOnAvailableButton();
+        pinPage
                 .setUpPin("1111");
-        mainPage.etnRegistrationButtonClick();
-        onboardingMigrationPage.agreeToMigrate();
+        mainPage
+                .etnRegistrationButtonClick();
+//        onboardingMigrationPage.agreeToMigrate();
+        onboardingMigrationPage
+                .agreeToMigrate();
+        // proceed form "Add bank card"
+        etnIpoOnboarding
+                .verifyAddBankCardScreen()
+                .pressOnAvailableButton()
+                // proceed from "name card"
+                .pressOnAvailableButton()
+                .chooseCnpCard();
         sleep(100000);
     }
 
+    @Test
+    @Tags({
+            @Tag("ipo"),
+            @Tag("kazpost"),
+            @Tag("migration")
+    })
+    void migrationKazpostToIpo() {
+//        Get a last unique number for the given project
+//        Unique - means that it only exists in the given project
+        String phoneNumber = getLastUniqueNumber("KAZPOST");
+        startPage
+                .clickImAlreadyRegistered();
+        loginNumberPage
+                .tapForgotPassword();
+        passwordRecoveryPage
+                .enterPhoneNumber(phoneNumber)
+                .initiateRegistrationOtp();
+        otpPage
+                .enterResorePasswordOtpCode(phoneNumber);
+        passwordSetupPage
+                .setPasswordNewAccount();
+        etnIpoOnboarding
+                .pressOnAvailableButton();
+        pinPage
+                .setUpPin("1111");
+        mainPage.verifyMainPage()
+                .ipoBannerClick();
+        myBondsSharesMainPage
+                .verifyMainPageLoaded()
+                .myProfileTap();
+
+        // TODO: Add a card steps
+
+        sleep(100000);
+    }
 }

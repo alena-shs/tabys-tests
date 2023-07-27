@@ -1,4 +1,4 @@
-package mobileapp.objects;
+package mobileapp.objects.commons;
 
 import com.codeborne.selenide.ElementsCollection;
 import io.appium.java_client.AppiumBy;

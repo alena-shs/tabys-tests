@@ -5,6 +5,8 @@ The majority of the mobile tests are written using xPath. That means that they a
 - Short term solution: use AppiumInspector and change the problematic selector's xPath
 - Long term solution: Refactor the app and add good accessibility selectors
 
+!!! Modal windows do not show up for appium. That's one of the reasons why we can't add a card/emulate a camera.
+
 Configurations to run:
 - Web tests:
   - Remotely
@@ -15,11 +17,38 @@ Configurations to run:
     - Emulator (browserstack closes the app automatically)
     - Physical device
 
+## Major blockers
+
+- Can't add a photo
+- Can't add a card
+
+
 ## Tests included
 
+### By purpose:
 
 - Onboarding tests
-- 
+  - Kazpost onboarding (up to the photo upload step)
+  - Tabys onboarding (up to the photo upload step)
+  - IPO onboarding (up to the photo upload step)
+- Migration tests
+  - Tabys -> IPO migration (up to the card upload step)
+  - IPO -> Tabys migration (up to the card upload step)
+  - Kazpost -> Tabys migration (up to the card upload step)
+  - Kazpost -> IPO migration (up to the card upload step)
+
+### By environment
+
+- Mobile tests
+  - Tabys onboarding (up to the photo upload step)
+  - IPO onboarding (up to the photo upload step)
+  - Tabys -> IPO migration (up to the card upload step)
+  - IPO -> Tabys migration (up to the card upload step)
+  - Kazpost -> Tabys migration (up to the card upload step)
+  - Kazpost -> IPO migration (up to the card upload step)
+- Web tests
+  - Kazpost onboarding (up to the photo upload step)
+
 
 ## How to run and configure these tests
 
@@ -121,12 +150,11 @@ To change the other configurations, please change properties in the following fi
       web-->backoffice;
       web-->kazpost;
       kazpost-->kdata[data] & kobj[objects] & ktests[tests];
-      backoffice-->bdata[data]:::data & objects & btests[tests] & bconfig[config];
-      mobileapp-->mconfig[config] & mdata[data]:::data & mdrivers[drivers] & mhelpers[helpers] & mobjects[objects] & mtests[tests];
+      backoffice-->bdata[data] & objects & btests[tests] & bconfig[config];
+      mobileapp-->mconfig[config] & mdata[data] & mdrivers[drivers] & mhelpers[helpers] & mobjects[objects] & mtests[tests];
       commons --> api & database & chelpers[helpers];
       api --> models & specs & utils;
-      database --> dconfig[config] & ddata[data]:::data & requests;
-      classDef data fill:#f96
+      database --> dconfig[config] & ddata[data] & requests;
 ```
 
 The project contains web tests, mobile tests, and the common block.
@@ -156,4 +184,19 @@ In the future, these data might be reformatted to csv/json format.
 
 Many of these locators were not written properly due to the lack of good attributes. Therefore, a lot of these tests might fail if any of the onboarding processes are changed.
 
+### If the test failed with the error "Element not found":
+- Step 1: run the test locally on the physical device or emulator.
+- Step 2: check if locators are still correct, as they might need an update.
+  - Find the corresponding method in the "object" directory. Use error log or your IDE's debug mode.
+  - In that method, find the problematic locator (the element that doesn't exist, or one of the previous element that caused malfunction)
+  - Fix the problematic locator - see Appium documentation to see how to do it. To inspect the elements, I highly recommend to use Appium GUI together with Appium Inspector.
+- Step 3. Check of there are unexpectedly long waiting time in one of the steps that is causing the test fail. In that case, I recommend to use Duration.ofSeconds in conditions of that element, or add Selenide.sleep.
+
+
 ## Further automation plan
+
+- Fix modals issues and finish the already started tests.
+- Refresh user's data in three processes (Can implement it)
+- ETN purchase (Can implement it)
+- IPO paper orders (Warning: there should be available IPO papers)
+- Account deletion with a fresh account (blocked because registration can't be completed)
