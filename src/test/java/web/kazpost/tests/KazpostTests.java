@@ -4,7 +4,6 @@ import commons.api.models.PhotoBody;
 import commons.database.requests.AcsFetchOtp;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import web.TestBaseWeb;
 import web.kazpost.objects.KazpostLoginPage;
 import web.kazpost.objects.KazpostOnboardingPersonalDataPage;
 import web.kazpost.objects.KazpostOnboardingPhotosPage;

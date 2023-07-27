@@ -152,6 +152,7 @@ To change the other configurations, please change properties in the following fi
       kazpost-->kdata[data] & kobj[objects] & ktests[tests];
       backoffice-->bdata[data] & objects & btests[tests] & bconfig[config];
       mobileapp-->mconfig[config] & mdata[data] & mdrivers[drivers] & mhelpers[helpers] & mobjects[objects] & mtests[tests];
+      mobjects[objects]-->mcommons[commons] & mipo[ipo]
       commons --> api & database & chelpers[helpers];
       api --> models & specs & utils;
       database --> dconfig[config] & ddata[data] & requests;
@@ -160,13 +161,19 @@ To change the other configurations, please change properties in the following fi
 The project contains web tests, mobile tests, and the common block.
 
 "common" block has necessary elements that are used in both web and mobile tests.
-- **api** block has everything you need to refer to API: **models** (describing fields for API request body), **specs** (specifications for API requests and responses), and **utils** (contains API request body constructors - we will call these methods to make a body for API)
-- **database** block is used to connect to project's databases. While **config** folder is temporarily not used, **data** block contains data to make a connection (security warning!!!), and **requests** methods describe connections themselves.
+- **api** directory has everything you need to refer to API: **models** (describing fields for API request body), **specs** (specifications for API requests and responses), and **utils** (contains API request body constructors - we will call these methods to make a body for API)
+- **database** directory is used to connect to project's databases. While **config** folder is temporarily not used, **data** block contains data to make a connection (security warning!!!), and **requests** methods describe connections themselves.
 - **helpers** directory contains the files for report, and it isn't recommended to edit them
 - Additionally, there are other utils classes in this folder that couldn't be connected to exclusively for web or mobile. For example, **OnboardingUtils.java** is in the **commons** folder, because these methods are used in both mobile onboarding and kazpost onboarding.
 
-Each of the web and mobileapp directories have the same structure (web folder has some differences, which we will discuss below):
-- .
+Both web and mobileapp directories have the same structure (web folder has some differences, which we will discuss below):
+- **config** directory contains configurations for remote tests
+- **drivers** directory contains driver configurations for remote tests
+- **helpers** directory util methods AND helper methods. It is not advised to edit helper methods.
+The following directories exist normally in mobileapp, but in web directory they are different for kazpost and backoffice.
+- **data** directory contains test data. Change this data from time to time to avoid pesticide effect.
+- **objects** directory has test steps and variables that are divided into separate classes according to the page. For example, *./objects/MainPage.java* will contain the steps can be performed on the main page and variables with elements that belong to the main page.
+- **tests** directory contains the main java test file + TestBase.java - this class calls all the methods that should be called before and after tests.
 
 
 ## How to change test data

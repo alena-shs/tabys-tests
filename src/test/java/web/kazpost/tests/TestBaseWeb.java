@@ -1,4 +1,4 @@
-package web;
+package web.kazpost.tests;
 
 import com.codeborne.selenide.logevents.SelenideLogger;
 import web.config.ProjectConfiguration;

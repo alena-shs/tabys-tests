@@ -16,35 +16,26 @@ public class MyBondsSharesMainPage {
             myBalanceButton = $(AppiumBy.xpath("//android.widget.TextView[@text='My balance']")),
             cashAccountButton = $(AppiumBy.xpath("//android.widget.TextView[@text='Cash account']")),
             offeringsVotingsButton = $(AppiumBy.xpath("//android.widget.Button[@text='Offerings / Votings']")),
-            myProfileButton = $(AppiumBy.xpath("//android.view.View[@text='My profile']")),
+            myProfileButton = $(AppiumBy.xpath("//android.widget.TextView[@text='My profile']")),
             ordersButton = $(AppiumBy.xpath("//android.widget.TextView[@text='Orders']")),
             messagesButton = $(AppiumBy.xpath("//android.widget.TextView[@text='Messages']"));
-    private SelenideElement navigationPanelHome = $(AppiumBy.xpath("//android.view.View[@resource-id='tab-button-home-tab']")),
-            navigationPanelPortfolio = $(AppiumBy.xpath("//android.view.View[@resource-id='tab-button-goal-tab']")),
-            navigationPanelShop = $(AppiumBy.xpath("//android.view.View[@resource-id='tab-button-shop-tab']")),
-            navigationPanelMessages = $(AppiumBy.xpath("//android.view.View[@resource-id='tab-button-message-tab']")),
-            navigationPanelProfile = $(AppiumBy.xpath("//android.view.View[@resource-id='tab-button-profile-tab']"));
+
 
     private SelenideElement myCardsAddNew = $(AppiumBy.xpath("//android.widget.TextView[@text='Register new card']"));
 
-    @Step("Verify that the page is opened correctly")
+    @Step("Verify that 'My bonds/Shares' page is opened correctly")
     public MyBondsSharesMainPage verifyMainPageLoaded() {
-        mainPageHeader.shouldHave(exist, Duration.ofSeconds(25)).click();
-        myBalanceButton.shouldHave(exist, Duration.ofSeconds(25)).click();
-        cashAccountButton.shouldHave(exist, Duration.ofSeconds(25)).click();
-        offeringsVotingsButton.shouldHave(exist, Duration.ofSeconds(25)).click();
-        myProfileButton.shouldHave(exist, Duration.ofSeconds(25)).click();
-        ordersButton.shouldHave(exist, Duration.ofSeconds(25)).click();
-        messagesButton.shouldHave(exist, Duration.ofSeconds(25)).click();
-        navigationPanelHome.shouldHave(exist, Duration.ofSeconds(25)).click();
-        navigationPanelPortfolio.shouldHave(exist, Duration.ofSeconds(25)).click();
-        navigationPanelShop.shouldHave(exist, Duration.ofSeconds(25)).click();
-        navigationPanelMessages.shouldHave(exist, Duration.ofSeconds(25)).click();
-        navigationPanelProfile.shouldHave(exist, Duration.ofSeconds(25)).click();
+        mainPageHeader.shouldHave(exist, Duration.ofSeconds(25));
+        myBalanceButton.shouldHave(exist, Duration.ofSeconds(25));
+        cashAccountButton.shouldHave(exist, Duration.ofSeconds(25));
+        offeringsVotingsButton.shouldHave(exist, Duration.ofSeconds(25));
+        myProfileButton.shouldHave(exist, Duration.ofSeconds(25));
+        ordersButton.shouldHave(exist, Duration.ofSeconds(25));
+        messagesButton.shouldHave(exist, Duration.ofSeconds(25));
         return this;
     }
 
-    @Step("Verify that the 'Add bank card' screen is open")
+    @Step("Go to 'My profile' section")
     public MyBondsSharesMainPage myProfileTap() {
         myProfileButton.shouldHave(interactable, Duration.ofSeconds(25)).click();
         return this;

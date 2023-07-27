@@ -1,5 +1,6 @@
 package commons;
 
+import com.codeborne.selenide.SelenideElement;
 import commons.api.models.PhotoBody;
 import org.apache.commons.io.FileUtils;
 

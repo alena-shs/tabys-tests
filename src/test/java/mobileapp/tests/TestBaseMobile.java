@@ -10,6 +10,9 @@ import commons.helpers.Attach;
 import io.qameta.allure.selenide.AllureSelenide;
 import mobileapp.objects.commons.*;
 import mobileapp.objects.ipo.MyBondsSharesMainPage;
+import mobileapp.objects.ipo.MyCardsPage;
+import mobileapp.objects.ipo.MyProfileDocuments;
+import mobileapp.objects.ipo.MyProfileInformation;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -35,6 +38,9 @@ public class TestBaseMobile {
     PasswordRecoveryPage passwordRecoveryPage = new PasswordRecoveryPage();
     OnboardingMigrationPage onboardingMigrationPage = new OnboardingMigrationPage();
     MyBondsSharesMainPage myBondsSharesMainPage = new MyBondsSharesMainPage();
+    MyProfileInformation myProfileInformation = new MyProfileInformation();
+    MyProfileDocuments myProfileDocuments = new MyProfileDocuments();
+    MyCardsPage myCardsPage = new MyCardsPage();
 
 
     @BeforeAll

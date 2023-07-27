@@ -18,6 +18,11 @@ public class MainPage {
             investedCounter = $(AppiumBy.xpath("//android.widget.TextView[@text='Invested']")),
             incomeCounter = $(AppiumBy.xpath("//android.widget.TextView[@text='Income']")),
             goalsCounter = $(AppiumBy.xpath("//android.widget.TextView[@text='Goals']"));
+    private SelenideElement navigationPanelHome = $(AppiumBy.xpath("//android.view.View[@resource-id='tab-button-home-tab']")),
+            navigationPanelPortfolio = $(AppiumBy.xpath("//android.view.View[@resource-id='tab-button-goal-tab']")),
+            navigationPanelShop = $(AppiumBy.xpath("//android.view.View[@resource-id='tab-button-shop-tab']")),
+            navigationPanelMessages = $(AppiumBy.xpath("//android.view.View[@resource-id='tab-button-message-tab']")),
+            navigationPanelProfile = $(AppiumBy.xpath("//android.view.View[@resource-id='tab-button-profile-tab']"));
 
     @Step("Press on ETN Registration button")
     public MainPage etnRegistrationButtonClick() {
@@ -41,10 +46,15 @@ public class MainPage {
 
     @Step("Verify that main page is open")
     public MainPage verifyMainPage() {
-        investedCounter.shouldHave(exist, Duration.ofSeconds(10)).click();
-        incomeCounter.shouldHave(exist, Duration.ofSeconds(10)).click();
-        goalsCounter.shouldHave(exist, Duration.ofSeconds(10)).click();
-        theLastInvestmentText.shouldHave(exist, Duration.ofSeconds(10)).click();
+        investedCounter.shouldHave(exist, Duration.ofSeconds(10));
+        incomeCounter.shouldHave(exist, Duration.ofSeconds(10));
+        goalsCounter.shouldHave(exist, Duration.ofSeconds(10));
+        theLastInvestmentText.shouldHave(exist, Duration.ofSeconds(10));
+        navigationPanelHome.shouldHave(exist, Duration.ofSeconds(25));
+        navigationPanelPortfolio.shouldHave(exist, Duration.ofSeconds(25));
+        navigationPanelShop.shouldHave(exist, Duration.ofSeconds(25));
+        navigationPanelMessages.shouldHave(exist, Duration.ofSeconds(25));
+        navigationPanelProfile.shouldHave(exist, Duration.ofSeconds(25));
         return this;
     }
 }

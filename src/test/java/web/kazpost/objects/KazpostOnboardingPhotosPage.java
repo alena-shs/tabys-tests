@@ -5,7 +5,7 @@ import com.codeborne.selenide.SelenideElement;
 import commons.api.models.PhotoBody;
 import commons.api.specs.Specs;
 import io.qameta.allure.Step;
-import web.TestBaseWeb;
+import web.kazpost.tests.TestBaseWeb;
 
 import static com.codeborne.selenide.CollectionCondition.size;
 import static com.codeborne.selenide.Condition.exist;

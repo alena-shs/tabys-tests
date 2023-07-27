@@ -2,7 +2,7 @@ package web.backoffice.tests;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
-import web.TestBaseWeb;
+import web.kazpost.tests.TestBaseWeb;
 
 import static com.codeborne.selenide.Selenide.open;
 

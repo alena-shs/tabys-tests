@@ -1,6 +1,6 @@
 package commons.database.requests;
 import io.qameta.allure.Step;
-import web.TestBaseWeb;
+import web.kazpost.tests.TestBaseWeb;
 
 import java.sql.*;
 
