@@ -52,6 +52,22 @@ Configurations to run:
 
 ## How to run and configure these tests
 
+### Run configurations
+
+#### By environment
+##### Web
+- To run all the web tests remotely: gradle clean web-remote -Dtask=____
+- To run all the web tests locally: gradle clean web-local -Dtask=____
+##### Mobile
+- To run all the web tests remotely: gradle clean web-remote -Dtask=____
+
+#### By purpose
+##### Web
+
+##### Mobile
+
+
+
 ### Web tests
 
 #### Remotely
@@ -60,7 +76,7 @@ Configurations to run:
 
 From the console, run the following script:
 
-> gradle clean test -Dtask='навзвание_таска' -Dwebenv='remote'
+> gradle clean _____ -Dwebenv='remote'
 
 ##### Configurations
 
@@ -85,7 +101,7 @@ To change the other configurations, please change properties in the following fi
 
 From the console, run the following script:
 
-> gradle clean test -Dwebenv='local'
+> gradle clean _____ -Dwebenv='local'
 
 ##### Configurations
 
@@ -110,7 +126,7 @@ To change the other configurations, please change properties in the following fi
 
 From the console, run the following script:
 
-> gradle clean test -Dtask='навзвание_таска' -Dmobileeenv='physicaldevice'
+> gradle clean _____ -Dtask='навзвание_таска' -Dmobileeenv='physicaldevice'
 
 ###### Configurations
 To change the other configurations, please change properties in the following file: src/test/resources/properties/mobile/physicaldevice.properties
@@ -127,7 +143,7 @@ To change the other configurations, please change properties in the following fi
 
 From the console, run the following script:
 
-> gradle clean test -Dtask='навзвание_таска' -Dmobileeenv='emulator'
+> gradle clean _____ -Dmobileeenv='emulator'
 
 ###### Configurations
 To change the other configurations, please change properties in the following file: src/test/resources/properties/mobile/emulator.properties
