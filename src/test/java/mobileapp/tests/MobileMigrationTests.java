@@ -91,7 +91,6 @@ public class MobileMigrationTests extends TestBaseMobile{
     @Tags({
             @Tag("mobile"),
             @Tag("tabys"),
-            @Tag("kazpost"),
             @Tag("migration")
     })
     void migrationKazpostToEtn() {
@@ -132,7 +131,6 @@ public class MobileMigrationTests extends TestBaseMobile{
     @Tags({
             @Tag("mobile"),
             @Tag("ipo"),
-            @Tag("kazpost"),
             @Tag("migration")
     })
     void migrationKazpostToIpo() {

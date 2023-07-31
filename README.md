@@ -230,6 +230,7 @@ In the future, these data might be reformatted to csv/json format.
 Many of these locators were not written properly due to the lack of good attributes. Therefore, a lot of these tests might fail if any of the onboarding processes are changed.
 
 ### If the test failed with the error "Element not found":
+
 - Step 1: run the test locally on the physical device or emulator.
 - Step 2: check if locators are still correct, as they might need an update.
   - Find the corresponding method in the "object" directory. Use error log or your IDE's debug mode.
