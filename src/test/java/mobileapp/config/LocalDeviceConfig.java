@@ -3,8 +3,7 @@ package mobileapp.config;
 import org.aeonbits.owner.Config;
 
 @Config.Sources(
-//        "classpath:properties/${mobileenv}.properties"
-        "classpath:properties/mobile/emulator.properties"
+        "classpath:properties/env/${env}.properties"
 )
 
 public interface LocalDeviceConfig extends Config {

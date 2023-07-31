@@ -71,31 +71,31 @@ tasks.withType(Test) {
 }
 
 
-task web_test(type: Test) {
+task web(type: Test) {
     useJUnitPlatform {
         includeTags("web")
     }
 }
 
-task kazpost_test(type: Test) {
+task kazpost(type: Test) {
     useJUnitPlatform {
         includeTags("kazpost")
     }
 }
 
-task mobile_test(type: Test) {
+task mobile(type: Test) {
     useJUnitPlatform {
         includeTags("mobile")
     }
 }
 
-task tabys_test(type: Test) {
+task tabys(type: Test) {
     useJUnitPlatform {
         includeTags("tabys")
     }
 }
 
-task ipo_test(type: Test) {
+task ipo(type: Test) {
     useJUnitPlatform {
         includeTags("ipo")
     }
@@ -104,6 +104,12 @@ task ipo_test(type: Test) {
 task sample(type: Test) {
     useJUnitPlatform {
         includeTags("sample")
+    }
+}
+
+task migration(type: Test) {
+    useJUnitPlatform {
+        includeTags("migration")
     }
 }
 

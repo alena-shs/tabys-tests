@@ -3,7 +3,7 @@ package mobileapp.config;
 import org.aeonbits.owner.Config;
 
 @Config.Sources(
-        "classpath:properties/mobile/browserstack-test.properties"
+        "classpath:properties/env/mobile-browserstack.properties"
 )
 public interface BrowserstackConfig extends Config {
 

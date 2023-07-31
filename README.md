@@ -56,16 +56,38 @@ Configurations to run:
 
 #### By environment
 ##### Web
-- To run all the web tests remotely: gradle clean web-remote -Dtask=____
-- To run all the web tests locally: gradle clean web-local -Dtask=____
+- To run the web tests with ____ task remotely (see tasks description in a section below): gradle clean ____ -Denv=web-remote
+- To run the web tests with ____ task locally (see tasks description in a section below): gradle clean ____ -Denv=web-local
 ##### Mobile
-- To run all the web tests remotely: gradle clean web-remote -Dtask=____
+- To run the mobile tests with ____ task remotely on browserstack (see tasks description in a section below): gradle clean ____ -Denv=mobile-browserstack
+- To run the mobile tests with ____ task locally on emulator (see tasks description in a section below): gradle clean ____ -Denv=mobile-emulator
+- To run the mobile tests with ____ task locally on physical device (see tasks description in a section below): gradle clean ____ -Denv=mobile-physicaldevice
+
 
 #### By purpose
-##### Web
+##### All the web tests
+- To run all the web tests remotely: gradle clean web -Denv=web-remote
+- To run all the web tests locally: gradle clean web -Denv=web-local
+##### Kazpost
+- To run kazpost tests remotely: gradle clean kazpost -Denv=web-remote
+- To run kazpost tests remotely: gradle clean kazpost -Denv=web-local
 
-##### Mobile
-
+##### All the mobile tests
+- To run all the mobile tests in browserstack: gradle clean mobile -Denv=mobile-browserstack
+- To run all the mobile tests locally on emulator: gradle clean mobile -Denv=mobile-emulator
+- To run all the mobile tests locally on physical device: gradle clean mobile -Denv=mobile-physicaldevice
+##### Onboarding
+- To run onboarding tests in browserstack: gradle clean onboarding -Denv=mobile-browserstack
+- To run onboarding locally on emulator: gradle clean onboarding -Denv=mobile-emulator
+- To run onboarding locally on physical device: gradle clean onboarding -Denv=mobile-physicaldevice
+##### Migration
+- To run migration tests in browserstack: gradle clean migration -Denv=mobile-browserstack
+- To run migration locally on emulator: gradle clean migration -Denv=mobile-emulator
+- To run migration locally on physical device: gradle clean migration -Denv=mobile-physicaldevice
+##### Tabys
+- To run tabys tests in browserstack: gradle clean tabys -Denv=mobile-browserstack
+- To run tabys locally on emulator: gradle clean tabys -Denv=mobile-emulator
+- To run tabys locally on physical device: gradle clean tabys -Denv=mobile-physicaldevice
 
 
 ### Web tests
