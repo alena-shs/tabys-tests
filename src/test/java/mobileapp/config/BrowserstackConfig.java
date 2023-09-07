@@ -11,9 +11,9 @@ public interface BrowserstackConfig extends Config {
     @DefaultValue("bs://8fee4233524a635f1d72124f4ad4f6ec6117f765")
     String getApp();
 
-    @Key("platformName")
-    @DefaultValue("android")
-    String getPlatformName();
+//    @Key("platformName")
+//    @DefaultValue("android")
+//    String getPlatformName();
 
     @Key("device")
     @DefaultValue("Samsung Galaxy S22 Ultra")

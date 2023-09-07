@@ -10,7 +10,7 @@ import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 
 public class MyProfileDocuments {
-    private SelenideElement myCardsButton = $(AppiumBy.xpath("//android.widget.TextView[@text='My cards']")),
+    private final SelenideElement myCardsButton = $(AppiumBy.xpath("//android.widget.TextView[@text='My cards']")),
             myAccountButton = $(AppiumBy.xpath("//android.widget.TextView[@text='My account']")),
             termsOfServiceButton = $(AppiumBy.xpath("//android.widget.TextView[@text='Terms of service']")),
             privacyPolicyButton = $(AppiumBy.xpath("//android.widget.TextView[@text='Privacy policy']")),
@@ -27,9 +27,8 @@ public class MyProfileDocuments {
     }
 
     @Step("Go to 'My cards' section")
-    public MyProfileDocuments myCardsTap() {
+    public void myCardsTap() {
         myCardsButton.click();
         myCardsButton.click();
-        return this;
     }
 }

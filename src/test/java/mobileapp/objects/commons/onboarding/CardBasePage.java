@@ -8,6 +8,7 @@ import java.time.Duration;
 
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.$;
+import static mobileapp.data.MobileTestData.defaultWaitingOfSeconds;
 
 public class CardBasePage {
     SelenideElement
@@ -17,14 +18,13 @@ public class CardBasePage {
             cnpButtonNoCard = $(AppiumBy.xpath("//android.widget.Button[@text='Add another card']"));
     SelenideElement
             modalChooseKaspiButton = $(AppiumBy.xpath("//android.widget.Button[@text='Add Kaspi card']")),
-            modalChooseCnpButton = $(AppiumBy.xpath("//android.widget.Button[@text='Add another bank card']")),
-            modalViewFeesLink = $(AppiumBy.xpath("//*[@text='View bank fees']"));
+            modalChooseCnpButton = $(AppiumBy.xpath("//android.widget.Button[@text='Add another bank card']"));
 
     @Step("Verify that the cards main page is fully loaded and has all the necessary elements")
     public CardBasePage verifyPageLoaded(){
-        header.shouldHave(visible, Duration.ofSeconds(25));
-        kaspiCardIcon.shouldHave(visible, Duration.ofSeconds(25));
-        cnpCardIcon.shouldHave(visible, Duration.ofSeconds(25));
+        header.shouldHave(visible, Duration.ofSeconds(defaultWaitingOfSeconds));
+        kaspiCardIcon.shouldHave(visible, Duration.ofSeconds(defaultWaitingOfSeconds));
+        cnpCardIcon.shouldHave(visible, Duration.ofSeconds(defaultWaitingOfSeconds));
         return this;
     }
 
@@ -36,19 +36,13 @@ public class CardBasePage {
 
     @Step("Verify that the CNP fees modal is open")
     public CardBasePage verifyFeeModalOpened() {
-        modalChooseKaspiButton.shouldHave(visible, Duration.ofSeconds(25));
-        modalChooseCnpButton.shouldHave(visible, Duration.ofSeconds(25));
+        modalChooseKaspiButton.shouldHave(visible, Duration.ofSeconds(defaultWaitingOfSeconds));
+        modalChooseCnpButton.shouldHave(visible, Duration.ofSeconds(defaultWaitingOfSeconds));
         return this;
     }
 
     @Step("Choose a CNP card")
-    public CardBasePage confirmChooseCnpCard() {
+    public void confirmChooseCnpCard() {
         modalChooseCnpButton.click();
-        return this;
     }
-
-//    @Step("Submit the cards main page and go to the next page (new registration)")
-//    public void proceedNewCard() {
-//        nextButton.shouldHave(interactable, Duration.ofSeconds(25)).click();
-//    }
 }

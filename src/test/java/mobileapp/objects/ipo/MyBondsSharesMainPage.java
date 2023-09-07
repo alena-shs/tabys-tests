@@ -11,16 +11,13 @@ import static com.codeborne.selenide.Condition.interactable;
 import static com.codeborne.selenide.Selenide.$;
 
 public class MyBondsSharesMainPage {
-    private SelenideElement mainPageHeader = $(AppiumBy.xpath("//*[@text='My Bonds/Shares']")),
+    private final SelenideElement mainPageHeader = $(AppiumBy.xpath("//*[@text='My Bonds/Shares']")),
             myBalanceButton = $(AppiumBy.xpath("//*[@text='My balance']")),
             cashAccountButton = $(AppiumBy.xpath("//*[@text='Cash account']")),
             offeringsVotingsButton = $(AppiumBy.xpath("//*[@text='Offerings / Votings']")),
             myProfileButton = $(AppiumBy.xpath("//*[@text='My profile']")),
             ordersButton = $(AppiumBy.xpath("//*[@text='Orders']")),
             messagesButton = $(AppiumBy.xpath("//*[@text='Messages']"));
-
-
-    private SelenideElement myCardsAddNew = $(AppiumBy.xpath("//android.widget.TextView[@text='Register new card']"));
 
     @Step("Verify that 'My bonds/Shares' page is opened correctly")
     public MyBondsSharesMainPage verifyPageLoaded() {
@@ -35,9 +32,8 @@ public class MyBondsSharesMainPage {
     }
 
     @Step("Go to 'My profile' section")
-    public MyBondsSharesMainPage myProfileTap() {
+    public void myProfileTap() {
         myProfileButton.shouldHave(interactable, Duration.ofSeconds(25)).click();
-        return this;
     }
 
 }

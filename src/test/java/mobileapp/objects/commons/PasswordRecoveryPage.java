@@ -9,6 +9,7 @@ import java.time.Duration;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.sleep;
+import static mobileapp.data.MobileTestData.defaultWaitingOfSeconds;
 
 public class PasswordRecoveryPage {
     private final SelenideElement
@@ -18,8 +19,8 @@ public class PasswordRecoveryPage {
     @Step("Proceed from Register page")
     public PasswordRecoveryPage enterPhoneNumber(String phoneNumber) {
         sleep(2000);
-        header.shouldHave(Condition.visible, Duration.ofSeconds(10));
-        inputField.shouldHave(Condition.appear, Duration.ofSeconds(10)).click();
+        header.shouldHave(Condition.visible, Duration.ofSeconds(defaultWaitingOfSeconds));
+        inputField.shouldHave(Condition.appear, Duration.ofSeconds(defaultWaitingOfSeconds)).click();
         sleep(1000);
         inputField.sendKeys(phoneNumber.substring(1));
         return this;

@@ -12,20 +12,21 @@ import static com.codeborne.selenide.Condition.not;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
+import static mobileapp.data.MobileTestData.defaultWaitingOfSeconds;
 
 public class IinPage {
-    private SelenideElement availableInput = $(AppiumBy.className("android.widget.EditText")),
+    private final SelenideElement availableInput = $(AppiumBy.className("android.widget.EditText")),
             header = $(AppiumBy.xpath("//*[@text='Personal information']")),
             countryFoundText =  $(AppiumBy.xpath("//*[@text='Kazakhstan']")),
             nextButton = $(AppiumBy.xpath("//*[@resource-id='dynamic-forms-next-button']")),
     citizenOfKazakhstanButton = $(AppiumBy.xpath("//*[@text='I am a citizen of Kazakhstan']"));
-    private ElementsCollection inputFields = $$(AppiumBy.className("android.widget.EditText"));
+    private final ElementsCollection inputFields = $$(AppiumBy.className("android.widget.EditText"));
 
     @Step("Verify that the IIN input page is fully loaded and has all the necessary elements")
     public IinPage verifyPageLoaded() {
-        inputFields.shouldHave(CollectionCondition.size(1), Duration.ofSeconds(25));
-        header.shouldHave(visible, Duration.ofSeconds(25));
-        nextButton.shouldHave(visible, Duration.ofSeconds(25));
+        inputFields.shouldHave(CollectionCondition.size(1), Duration.ofSeconds(defaultWaitingOfSeconds));
+        header.shouldHave(visible, Duration.ofSeconds(defaultWaitingOfSeconds));
+        nextButton.shouldHave(visible, Duration.ofSeconds(defaultWaitingOfSeconds));
         return this;
     }
 
@@ -36,14 +37,8 @@ public class IinPage {
     }
 
     @Step("Verify that IIN is found")
-    public IinPage verifyIinFound() {
-        countryFoundText.shouldHave(visible, Duration.ofSeconds(25));
-        citizenOfKazakhstanButton.shouldHave(not(visible), Duration.ofSeconds(25));
-        return this;
+    public void verifyIinFound() {
+        countryFoundText.shouldHave(visible, Duration.ofSeconds(defaultWaitingOfSeconds));
+        citizenOfKazakhstanButton.shouldHave(not(visible), Duration.ofSeconds(defaultWaitingOfSeconds));
     }
-
-//    @Step("Submit the IIN input page and go to the next page")
-//    public void proceed() {
-//        nextButton.shouldHave(exist, Duration.ofSeconds(25)).click();
-//    }
 }

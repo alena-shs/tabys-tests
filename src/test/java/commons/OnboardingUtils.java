@@ -22,18 +22,15 @@ public class OnboardingUtils {
     }
 
     public static String getNumberForLogin(String phoneNumberTemplate){
-        String lastPhoneNumber = AcsFetchNumber.lastRegisteredPhoneNumber(phoneNumberTemplate);
-        return lastPhoneNumber;
+        return AcsFetchNumber.lastRegisteredPhoneNumber(phoneNumberTemplate);
     }
 
     public static String getLastUniqueNumber(String projectName){
-        String lastUniqueNumber = AcsFetchNumber.lastUniquePhoneNumber(projectName);
-        return lastUniqueNumber;
+        return AcsFetchNumber.lastUniquePhoneNumber(projectName);
     }
 
     public static String getTabysNumber(){
-        String lastTabysNumber = AcsFetchNumber.lastTabysApprovedPhoneNumber();
-        return lastTabysNumber;
+        return AcsFetchNumber.lastTabysApprovedPhoneNumber();
     }
 
     public static String getCsdNumberWithoutOrders(String projectName) {

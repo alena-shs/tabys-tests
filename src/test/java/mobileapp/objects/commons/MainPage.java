@@ -10,6 +10,7 @@ import java.time.Duration;
 import static com.codeborne.selenide.Condition.exist;
 import static com.codeborne.selenide.Condition.interactable;
 import static com.codeborne.selenide.Selenide.$;
+import static mobileapp.data.MobileTestData.defaultWaitingOfSeconds;
 
 public class MainPage {
     private SelenideElement availableButton = $(AppiumBy.className("android.widget.Button")),
@@ -26,35 +27,35 @@ public class MainPage {
 
     @Step("Press on ETN Registration button")
     public MainPage etnRegistrationButtonClick() {
-        availableButton.shouldHave(Condition.exist, Duration.ofSeconds(5));
+        availableButton.shouldHave(Condition.exist, Duration.ofSeconds(defaultWaitingOfSeconds));
         availableButton.click();
         return this;
     }
 
     @Step("Proceed to registration from the investor steps modal")
     public MainPage proceedFromInvestorSteps(){
-        availableButton.shouldHave(exist, Duration.ofSeconds(5));
+        availableButton.shouldHave(exist, Duration.ofSeconds(defaultWaitingOfSeconds));
         availableButton.click();
         return this;
     }
 
     @Step("Press on My bonds/shares button")
     public MainPage ipoBannerClick() {
-        ipoBanner.shouldHave(interactable, Duration.ofSeconds(10)).click();
+        ipoBanner.shouldHave(interactable, Duration.ofSeconds(defaultWaitingOfSeconds)).click();
         return this;
     }
 
     @Step("Verify that main page is open")
     public MainPage verifyMainPage() {
-        investedCounter.shouldHave(exist, Duration.ofSeconds(10));
-        incomeCounter.shouldHave(exist, Duration.ofSeconds(10));
-        goalsCounter.shouldHave(exist, Duration.ofSeconds(10));
-        theLastInvestmentText.shouldHave(exist, Duration.ofSeconds(10));
-        navigationPanelHome.shouldHave(exist, Duration.ofSeconds(25));
-        navigationPanelPortfolio.shouldHave(exist, Duration.ofSeconds(25));
-        navigationPanelShop.shouldHave(exist, Duration.ofSeconds(25));
-        navigationPanelMessages.shouldHave(exist, Duration.ofSeconds(25));
-        navigationPanelProfile.shouldHave(exist, Duration.ofSeconds(25));
+        investedCounter.shouldHave(exist, Duration.ofSeconds(defaultWaitingOfSeconds));
+        incomeCounter.shouldHave(exist, Duration.ofSeconds(defaultWaitingOfSeconds));
+        goalsCounter.shouldHave(exist, Duration.ofSeconds(defaultWaitingOfSeconds));
+        theLastInvestmentText.shouldHave(exist, Duration.ofSeconds(defaultWaitingOfSeconds));
+        navigationPanelHome.shouldHave(exist, Duration.ofSeconds(defaultWaitingOfSeconds));
+        navigationPanelPortfolio.shouldHave(exist, Duration.ofSeconds(defaultWaitingOfSeconds));
+        navigationPanelShop.shouldHave(exist, Duration.ofSeconds(defaultWaitingOfSeconds));
+        navigationPanelMessages.shouldHave(exist, Duration.ofSeconds(defaultWaitingOfSeconds));
+        navigationPanelProfile.shouldHave(exist, Duration.ofSeconds(defaultWaitingOfSeconds));
         return this;
     }
 }

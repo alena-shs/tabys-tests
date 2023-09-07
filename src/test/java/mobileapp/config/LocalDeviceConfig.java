@@ -15,9 +15,9 @@ public interface LocalDeviceConfig extends Config {
     @Config.DefaultValue("11.0")
     String getPlatformVersion();
 
-    @Config.Key("appium:settings[waitForIdleTimeout]")
-    @Config.DefaultValue("0")
-    Integer getIdleTimeout();
+//    @Config.Key("appium:settings[waitForIdleTimeout]")
+//    @Config.DefaultValue("0")
+//    Integer getIdleTimeout();
 
     @Config.Key("appPackage")
     @Config.DefaultValue("kz.tabys.test")

@@ -8,12 +8,13 @@ import java.time.Duration;
 
 import static com.codeborne.selenide.CollectionCondition.size;
 import static com.codeborne.selenide.Selenide.$$;
+import static mobileapp.data.MobileTestData.defaultWaitingOfSeconds;
 
 public class MigrationPage{
-        private ElementsCollection availableButtons = $$(AppiumBy.className("android.widget.Button"));
-    @Step("")
+        private final ElementsCollection availableButtons = $$(AppiumBy.className("android.widget.Button"));
+    @Step("Assert that the migration page opened correctly")
     public MigrationPage assertMigrationPageStructure(){
-        availableButtons.shouldHave(size(2), Duration.ofSeconds(5));
+        availableButtons.shouldHave(size(2), Duration.ofSeconds(defaultWaitingOfSeconds));
 
         return this;
     }

@@ -10,7 +10,7 @@ import java.time.Duration;
 import static com.codeborne.selenide.Selenide.$;
 
 public class ProfileTab {
-    private SelenideElement personalInformation = $(AppiumBy.xpath("//android.widget.TextView[@text='Personal information']"));
+    private final SelenideElement personalInformation = $(AppiumBy.xpath("//android.widget.TextView[@text='Personal information']"));
     @Step("Open the 'Personal information' screen")
     public void clickPersonalInformation() {
         personalInformation.shouldHave(Condition.visible, Duration.ofSeconds(25)).click();

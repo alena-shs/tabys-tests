@@ -27,8 +27,7 @@ public class KazpostOnboardingPhotosPage extends TestBaseWeb {
             idInstructionText = $(withText("Пожалуйста, сделайте фото удостоверения личности, наведя камеру, чтобы получить зеленую окантовку вокруг изображения. При этом медленно перемещайте камеру, удаляя и приближая ее, пока камера зафиксирует лучшее изображение автоматически.")),
             idTitleText = $(withText("Фото удостоверения личности"));
     private final SelenideElement selfieField = selfieTitleText.parent().sibling(0).$("[src='assets/img/photo.svg']"),
-            initiateCameraButton = $("[ng-reflect-label='Сделать снимок']"),
-            takePhotoButton = $("]ng-reflect-label='Сделать фото']");
+            initiateCameraButton = $("[ng-reflect-label='Сделать снимок']");
     private final ElementsCollection photoFields = $$("app-dynamic-form img");
     @Step("Verify that the selfie page was opened correctly after submitting data and has content: correct texts and 3 photo fields")
     public KazpostOnboardingPhotosPage verifyPageOpenedCorrectly() {
@@ -42,7 +41,8 @@ public class KazpostOnboardingPhotosPage extends TestBaseWeb {
     }
 
     @Step("Send photo")
-    public KazpostOnboardingPhotosPage sendSelfie(String Gg_session, String Session_id) {
+    public void sendSelfie() {
+
         selfieField.click();
         initiateCameraButton.click();
         step("Prepare a body for a selfie sending", () -> {
@@ -59,6 +59,5 @@ public class KazpostOnboardingPhotosPage extends TestBaseWeb {
                         .post("/onboarding/file/save")
                         .then()
                         .spec(Specs.successResponseSpec));
-        return this;
     }
 }

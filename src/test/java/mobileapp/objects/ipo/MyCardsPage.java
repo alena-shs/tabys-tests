@@ -10,8 +10,8 @@ import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 
 public class MyCardsPage {
-    private SelenideElement title = $(AppiumBy.xpath("//android.view.View[@text='My cards']")) ;
-    private SelenideElement registerNewCardButton = $(AppiumBy.xpath("//android.widget.TextView[@text='Register new card']"));
+    private final SelenideElement title = $(AppiumBy.xpath("//android.view.View[@text='My cards']")) ;
+    private final SelenideElement registerNewCardButton = $(AppiumBy.xpath("//android.widget.TextView[@text='Register new card']"));
 
     @Step("Verify that 'My profile' page is opened correctly")
     public MyCardsPage verifyPageLoaded() {
@@ -21,11 +21,10 @@ public class MyCardsPage {
     }
 
     @Step("Choose to Register new card")
-    public MyCardsPage registerNewCardsTap() {
+    public void registerNewCardsTap() {
         registerNewCardButton.click();
         registerNewCardButton.click();
         registerNewCardButton.click();
-        return this;
     }
 }
 

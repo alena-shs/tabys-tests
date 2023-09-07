@@ -11,17 +11,16 @@ import static com.codeborne.selenide.Condition.exist;
 import static com.codeborne.selenide.Selenide.$;
 
 public class MyProfileInformation {
-    private SelenideElement firstNameField = $(AppiumBy.xpath("//android.widget.TextView[@text='Name']")),
+    private final SelenideElement firstNameField = $(AppiumBy.xpath("//android.widget.TextView[@text='Name']")),
             firstNameValue = $(AppiumBy.xpath("//android.widget.TextView[@text='Name']/following-sibling::android.widget.TextView"));
-    private SelenideElement lastNameField = $(AppiumBy.xpath("//android.widget.TextView[@text='Surname']")),
+    private final SelenideElement lastNameField = $(AppiumBy.xpath("//android.widget.TextView[@text='Surname']")),
             lastNameValue = $(AppiumBy.xpath("//android.widget.TextView[@text='Surname']/following-sibling::android.widget.TextView"));
-    private SelenideElement phoneNumberField = $(AppiumBy.xpath("//android.widget.TextView[@text='Phone number']")),
+    private final SelenideElement phoneNumberField = $(AppiumBy.xpath("//android.widget.TextView[@text='Phone number']")),
             phoneNumberValue = $(AppiumBy.xpath("//android.widget.TextView[@text[starts-with(., '+')]]"));
-    private SelenideElement emailField = $(AppiumBy.xpath("//android.widget.TextView[@text='Email']"));
-    private SelenideElement updateDataButton = $(AppiumBy.xpath("//android.widget.TextView[@text='Update data']")),
-            accessCodeButton = $(AppiumBy.xpath("//android.widget.TextView[@text='Access code']")),
+    private final SelenideElement emailField = $(AppiumBy.xpath("//android.widget.TextView[@text='Email']"));
+    private final SelenideElement updateDataButton = $(AppiumBy.xpath("//android.widget.TextView[@text='Update data']")),
             deleteAccountButton = $(AppiumBy.xpath("//android.widget.TextView[@text='Delete the account']"));
-    private SelenideElement informationTab = $(AppiumBy.xpath("//*[@text='INFORMATION']")),
+    private final SelenideElement informationTab = $(AppiumBy.xpath("//*[@text='INFORMATION']")),
             documentsTab = $(AppiumBy.xpath("//*[@text='DOCUMENTS']"));
     @Step("Verify that 'My profile' information tab page is fully loaded and has all the necessary elements")
     public MyProfileInformation verifyPageLoaded(){
@@ -41,9 +40,8 @@ public class MyProfileInformation {
     }
 
     @Step("Go to 'My profile' page's Documents tab")
-    public MyProfileInformation selectDocumentsTab(){
+    public void selectDocumentsTab(){
         documentsTab.click();
-        return this;
     }
 
     @Step("Click on 'Update data' button")

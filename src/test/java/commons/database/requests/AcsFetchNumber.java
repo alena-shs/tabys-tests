@@ -61,27 +61,27 @@ public class AcsFetchNumber {
         return account;
     }
 
-    @Step("Fetch the unique phone number of the given project")
-    public static String lastCsdAutoApprovedPhoneNumber(String projectName) {
-        String account = null;
-        try (Connection connection = DriverManager.getConnection(onboardingTestUrl, user, password);
-             PreparedStatement preparedStatement = connection.prepareStatement(SELECT_LAST_AUTOAPPROVE_NUMBER)) {
-//            preparedStatement.setString(1, projectName); // first ? mark value = phoneNumberTemplate
-            System.out.println(preparedStatement);
-            ResultSet rs = preparedStatement.executeQuery();
-
-            // Process the ResultSet object
-            while (rs.next()) {
-                account = rs.getString("account");
-                String modifiedAt = rs.getString("modified_at");
-                String score = rs.getString("score");
-                System.out.println(account + "," + modifiedAt + ","+ score);
-            }
-        } catch (SQLException e) {
-            printSQLException(e);
-        }
-        return account;
-    }
+//    @Step("Fetch the unique phone number of the given project")
+//    public static String lastCsdAutoApprovedPhoneNumber(String projectName) {
+//        String account = null;
+//        try (Connection connection = DriverManager.getConnection(onboardingTestUrl, user, password);
+//             PreparedStatement preparedStatement = connection.prepareStatement(SELECT_LAST_AUTOAPPROVE_NUMBER)) {
+////            preparedStatement.setString(1, projectName); // first ? mark value = phoneNumberTemplate
+//            System.out.println(preparedStatement);
+//            ResultSet rs = preparedStatement.executeQuery();
+//
+//            // Process the ResultSet object
+//            while (rs.next()) {
+//                account = rs.getString("account");
+//                String modifiedAt = rs.getString("modified_at");
+//                String score = rs.getString("score");
+//                System.out.println(account + "," + modifiedAt + ","+ score);
+//            }
+//        } catch (SQLException e) {
+//            printSQLException(e);
+//        }
+//        return account;
+//    }
 
     @Step("Fetch the unique phone number of the given project")
     public static String lastTabysApprovedPhoneNumber() {

@@ -9,12 +9,13 @@ import java.time.Duration;
 import static com.codeborne.selenide.Condition.exist;
 import static com.codeborne.selenide.Selenide.$$;
 import static com.codeborne.selenide.Selenide.sleep;
+import static mobileapp.data.MobileTestData.defaultWaitingOfSeconds;
 
 public class OnboardingMigrationPage {
-    private ElementsCollection availableButtons = $$(AppiumBy.className("android.widget.Button"));
+    private final ElementsCollection availableButtons = $$(AppiumBy.className("android.widget.Button"));
     @Step("Proceed (with the only button on the screen)")
     public void agreeToMigrate() {
-        availableButtons.get(1).shouldHave(exist, Duration.ofSeconds(25)).click();
+        availableButtons.get(1).shouldHave(exist, Duration.ofSeconds(defaultWaitingOfSeconds)).click();
         sleep(10000);
     }
 }

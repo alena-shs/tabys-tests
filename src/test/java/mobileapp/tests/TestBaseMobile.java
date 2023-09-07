@@ -11,6 +11,7 @@ import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.remote.AndroidMobileCapabilityType;
 import io.qameta.allure.selenide.AllureSelenide;
 import mobileapp.config.AuthBrowserstackConfig;
+import mobileapp.drivers.MobileDriverBrowserstackAndroid;
 import mobileapp.drivers.MobileDriverLocal;
 import mobileapp.objects.commons.*;
 import mobileapp.objects.commons.onboarding.InvestorSteps;
@@ -140,14 +141,7 @@ public class TestBaseMobile {
                 break;
             case "browserstack-ios":
             case "browserstack-android":
-//                Configuration.browser = MobileDriverBrowserstackAndroid.class.getName();
-
-                DesiredCapabilities capsIOS = new DesiredCapabilities();
-                capsIOS.setCapability("os_version", "14");
-                capsIOS.setCapability("device", "iPhone 12");
-                capsIOS.setCapability("realMobile", "true");
-
-                IOSDriver driverIOS = new IOSDriver(new URL("https://" + authConfig.getUser() + ":" + authConfig.getKey() +"@hub-cloud.browserstack.com/wd/hub"), capsIOS);
+                Configuration.browser = MobileDriverBrowserstackAndroid.class.getName();
                 break;
         }
         Configuration.browserSize = null;

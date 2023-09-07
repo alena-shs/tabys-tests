@@ -8,7 +8,7 @@ import web.config.WebConfig;
 
 import java.util.Map;
 
-public class WebDriver {
+public class ProjectConfiguration {
     static WebConfig webConfig = ConfigFactory.create(WebConfig.class, System.getProperties());
     static AuthWebConfig authconfig = ConfigFactory.create(AuthWebConfig.class, System.getProperties());
 
@@ -28,5 +28,4 @@ public class WebDriver {
             Configuration.browserCapabilities = capabilities;
         }
     }
-
 }

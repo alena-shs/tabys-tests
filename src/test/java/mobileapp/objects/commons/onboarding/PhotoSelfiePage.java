@@ -18,47 +18,44 @@ import static mobileapp.data.MobileTestData.*;
 import static mobileapp.tests.TestBaseMobile.photoBodyTabys;
 
 public class PhotoSelfiePage {
-    private SelenideElement
+    private final SelenideElement
             addSelfieButton = $(AppiumBy.xpath("//android.widget.Button[@text='Add selfie']")),
             photoField = $(AppiumBy.xpath("//android.view.View[@resource-id='photo-clickable']")),
             nextButton = $(AppiumBy.xpath("//android.widget.Button[@text='Continue']"));
 
     @Step("Verify that the selfie page is fully loaded and has all the necessary elements")
     public PhotoSelfiePage verifyPageLoaded() {
-        addSelfieButton.shouldHave(visible, Duration.ofSeconds(25));
-        photoField.shouldHave(visible, Duration.ofSeconds(25));
-        nextButton.shouldHave(visible, Duration.ofSeconds(25));
+        addSelfieButton.shouldHave(visible, Duration.ofSeconds(defaultWaitingOfSeconds));
+        photoField.shouldHave(visible, Duration.ofSeconds(defaultWaitingOfSeconds));
+        nextButton.shouldHave(visible, Duration.ofSeconds(defaultWaitingOfSeconds));
         return this;
     }
 
     @Step("Submit and go to the next page")
-    public PhotoSelfiePage initiateSelfie() {
-        addSelfieButton.shouldHave(interactable, Duration.ofSeconds(25)).click();
-        return this;
+    public void initiateSelfie() {
+        addSelfieButton.shouldHave(interactable, Duration.ofSeconds(defaultWaitingOfSeconds)).click();
     }
 
-    @Step("Send photo")
-    public PhotoSelfiePage sendSelfie(String Gg_session, String Session_id) {
-        step("Prepare a body for a selfie sending", () -> {
-            preparePhotoBody(photoBodyTabys, selfieDocType, selfieDefaultEncoded, selfieTitle);
-        });
 
-        System.out.println(photoBodyTabys);
+//    An attempt to send photo via API. Returns 200, but useless in the test. You can use it for reference.
 
-        step("Send a POST request to save selfie", () ->
-                given()
-                        .filter(withCustomTemplates())
-                        .spec(Specs.tabysRequestSpec)
-                        .body(photoBodyTabys)
-                        .when()
-                        .post("/onboarding/file/save")
-                        .then()
-                        .spec(Specs.successResponseSpec));
-        return this;
-    }
-
-//    @Step("Submit the selfie page and go to the next page")
-//    public void proceed() {
-//        nextButton.shouldHave(interactable, Duration.ofSeconds(25)).click();
+//    @Step("Send photo")
+//    public PhotoSelfiePage sendSelfie(String Gg_session, String Session_id) {
+//        step("Prepare a body for a selfie sending", () -> {
+//            preparePhotoBody(photoBodyTabys, selfieDocType, selfieDefaultEncoded, selfieTitle);
+//        });
+//
+//        System.out.println(photoBodyTabys);
+//
+//        step("Send a POST request to save selfie", () ->
+//                given()
+//                        .filter(withCustomTemplates())
+//                        .spec(Specs.tabysRequestSpec)
+//                        .body(photoBodyTabys)
+//                        .when()
+//                        .post("/onboarding/file/save")
+//                        .then()
+//                        .spec(Specs.successResponseSpec));
+//        return this;
 //    }
 }

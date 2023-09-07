@@ -12,7 +12,7 @@ import static mobileapp.tests.TestBaseMobile.photoBodyTabys;
 
 public class PhotoPage {
     @Step("Send photo")
-    public PhotoPage sendSelfie(String Gg_session, String Session_id) {
+    public PhotoPage sendSelfie() {
         step("Prepare a body for a selfie sending", () -> {
             preparePhotoBody(photoBodyTabys, selfieDocType, selfieDefaultEncoded, selfieTitle);
         });

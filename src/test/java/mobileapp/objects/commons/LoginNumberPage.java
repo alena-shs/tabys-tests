@@ -8,6 +8,7 @@ import java.time.Duration;
 
 import static com.codeborne.selenide.Condition.interactable;
 import static com.codeborne.selenide.Selenide.*;
+import static mobileapp.data.MobileTestData.defaultWaitingOfSeconds;
 
 public class LoginNumberPage {
     ElementsCollection inputFields = $$(AppiumBy.className("android.widget.EditText"));
@@ -26,6 +27,6 @@ public class LoginNumberPage {
 
     @Step("Tap on Forgot Password")
     public void tapForgotPassword() {
-        $(AppiumBy.xpath("//*[@text='Forgot password?']")).shouldHave(interactable, Duration.ofSeconds(10)).click();
+        $(AppiumBy.xpath("//*[@text='Forgot password?']")).shouldHave(interactable, Duration.ofSeconds(defaultWaitingOfSeconds)).click();
     }
 }

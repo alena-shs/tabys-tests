@@ -12,15 +12,16 @@ import static com.codeborne.selenide.Condition.interactable;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
+import static mobileapp.data.MobileTestData.defaultWaitingOfSeconds;
 
 public class IpoConsentPage {
-    private SelenideElement openButton = $(AppiumBy.xpath("//android.widget.Button[@text[starts-with(., 'Open')]]"));
-    private ElementsCollection images = $$(AppiumBy.className("android.widget.Image"));
+    private final SelenideElement openButton = $(AppiumBy.xpath("//android.widget.Button[@text[starts-with(., 'Open')]]"));
+    private final ElementsCollection images = $$(AppiumBy.className("android.widget.Image"));
 
     @Step("Verify that the IPO 'Open account' page is fully loaded and has all the necessary elements (new onboarding)")
     public IpoConsentPage verifyPageLoaded() {
-        openButton.shouldHave(visible, Duration.ofSeconds(25));
-        images.shouldHave(CollectionCondition.size(3), Duration.ofSeconds(25));
+        openButton.shouldHave(visible, Duration.ofSeconds(defaultWaitingOfSeconds));
+        images.shouldHave(CollectionCondition.size(3), Duration.ofSeconds(defaultWaitingOfSeconds));
         return this;
     }
 

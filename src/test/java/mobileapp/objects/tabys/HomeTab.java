@@ -12,7 +12,7 @@ import static com.codeborne.selenide.Condition.interactable;
 import static com.codeborne.selenide.Selenide.$;
 
 public class HomeTab {
-    private SelenideElement availableButton = $(AppiumBy.className("android.widget.Button")),
+    private final SelenideElement availableButton = $(AppiumBy.className("android.widget.Button")),
             ipoBanner = $(AppiumBy.xpath("//*[@text='My Bonds/Shares']")),
             theLastInvestmentText = $(AppiumBy.xpath("//*[@text='The last investment']")),
             investedCounter = $(AppiumBy.xpath("//*[@text='Invested']")),
@@ -30,15 +30,13 @@ public class HomeTab {
     }
 
     @Step("Press on ETN Registration button")
-    public HomeTab etnRegistrationButtonClick() {
+    public void etnRegistrationButtonClick() {
         availableButton.shouldHave(Condition.exist, Duration.ofSeconds(25));
         availableButton.click();
-        return this;
     }
 
     @Step("Press on My bonds/shares button")
-    public HomeTab ipoBannerClick() {
+    public void ipoBannerClick() {
         ipoBanner.shouldHave(interactable, Duration.ofSeconds(25)).click();
-        return this;
     }
 }

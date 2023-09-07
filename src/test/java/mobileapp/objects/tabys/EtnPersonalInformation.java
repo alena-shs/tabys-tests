@@ -11,14 +11,14 @@ import static com.codeborne.selenide.Condition.exist;
 import static com.codeborne.selenide.Selenide.$;
 
 public class EtnPersonalInformation {
-    private SelenideElement firstNameField = $(AppiumBy.xpath("//android.widget.TextView[@text='Name']")),
+    private final SelenideElement firstNameField = $(AppiumBy.xpath("//android.widget.TextView[@text='Name']")),
             firstNameValue = $(AppiumBy.xpath("//android.widget.TextView[@text='Name']/following-sibling::android.widget.TextView"));
-    private SelenideElement lastNameField = $(AppiumBy.xpath("//android.widget.TextView[@text='Surname']")),
+    private final SelenideElement lastNameField = $(AppiumBy.xpath("//android.widget.TextView[@text='Surname']")),
             lastNameValue = $(AppiumBy.xpath("//android.widget.TextView[@text='Surname']/following-sibling::android.widget.TextView"));
-    private SelenideElement phoneNumberValue = $(AppiumBy.xpath("//android.widget.TextView[@text[starts-with(., '+')]]"));
-    private SelenideElement emailField = $(AppiumBy.xpath("//android.widget.TextView[@text='Email']"));
-    private SelenideElement investorSinceValue = $(AppiumBy.xpath("//android.widget.TextView[@text[contains(., 'year')]]"));
-    private SelenideElement updateDataButton = $(AppiumBy.xpath("//android.widget.TextView[@text='Update data']")),
+    private final SelenideElement phoneNumberValue = $(AppiumBy.xpath("//android.widget.TextView[@text[starts-with(., '+')]]"));
+    private final SelenideElement emailField = $(AppiumBy.xpath("//android.widget.TextView[@text='Email']"));
+    private final SelenideElement investorSinceValue = $(AppiumBy.xpath("//android.widget.TextView[@text[contains(., 'year')]]"));
+    private final SelenideElement updateDataButton = $(AppiumBy.xpath("//android.widget.TextView[@text='Update data']")),
             deleteAccountButton = $(AppiumBy.xpath("//android.widget.TextView[@text='Delete the account']"));
 
     @Step("Verify that 'My profile' information tab page is fully loaded and has all the necessary elements")

@@ -9,7 +9,7 @@ import org.junit.jupiter.api.BeforeEach;
 import web.backoffice.objects.common.BackofficeCommon;
 import web.backoffice.objects.tabys.InvestorPersonalPage;
 import web.backoffice.objects.tabys.TabysMenuNavigation;
-import web.config.ProjectConfiguration;
+import web.drivers.ProjectConfiguration;
 
 import static com.codeborne.selenide.Selenide.closeWebDriver;
 

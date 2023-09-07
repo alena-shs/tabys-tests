@@ -8,7 +8,6 @@ import web.kazpost.tests.TestBaseWeb;
 import java.util.List;
 
 import static com.codeborne.selenide.Selenide.open;
-import static commons.OnboardingUtils.getLastUniqueNumber;
 
 public class SampleTests  extends TestBaseWeb {
     @Test

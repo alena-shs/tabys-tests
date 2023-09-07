@@ -6,12 +6,13 @@ import org.apache.commons.io.FileUtils;
 import java.io.File;
 import java.io.IOException;
 import java.util.Base64;
+import java.util.Objects;
 
 public class CommonUtils {
     public String formatMonth(String month){
-        if (month == "00") {
+        if (Objects.equals(month, "00")) {
             month = "12";
-        } else if (month == "13") {
+        } else if (Objects.equals(month, "13")) {
             month = "01";
         }
         return month;
@@ -24,8 +25,7 @@ public class CommonUtils {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        String encodedSrcFile = Base64.getEncoder().encodeToString(fileContent);
-        return encodedSrcFile;
+        return Base64.getEncoder().encodeToString(fileContent);
     }
 
     public static void preparePhotoBody(PhotoBody photoBody, String documentType, String src, String title) {
