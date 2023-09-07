@@ -14,14 +14,16 @@ public class MyCardsPage {
     private SelenideElement registerNewCardButton = $(AppiumBy.xpath("//android.widget.TextView[@text='Register new card']"));
 
     @Step("Verify that 'My profile' page is opened correctly")
-    public MyCardsPage profileDocumentsTabLoaded() {
+    public MyCardsPage verifyPageLoaded() {
         title.shouldHave(visible, Duration.ofSeconds(25));
         registerNewCardButton.shouldHave(visible, Duration.ofSeconds(25));
         return this;
     }
 
-    @Step("Verify that 'My profile' page is opened correctly")
+    @Step("Choose to Register new card")
     public MyCardsPage registerNewCardsTap() {
+        registerNewCardButton.click();
+        registerNewCardButton.click();
         registerNewCardButton.click();
         return this;
     }

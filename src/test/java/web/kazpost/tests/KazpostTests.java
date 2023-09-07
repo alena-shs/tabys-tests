@@ -3,12 +3,12 @@ package web.kazpost.tests;
 import commons.api.models.PhotoBody;
 import commons.database.requests.AcsFetchOtp;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 import web.kazpost.objects.KazpostLoginPage;
 import web.kazpost.objects.KazpostOnboardingPersonalDataPage;
 import web.kazpost.objects.KazpostOnboardingPhotosPage;
-import org.junit.jupiter.api.Tag;
-import org.junit.jupiter.api.Tags;
 
 import static commons.OnboardingUtils.getNewPhoneNumber;
 import static web.kazpost.data.KazpostData.*;

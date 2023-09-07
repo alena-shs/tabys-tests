@@ -9,11 +9,14 @@ import io.restassured.specification.ResponseSpecification;
 import static commons.helpers.CustomAllureListener.withCustomTemplates;
 import static io.restassured.RestAssured.with;
 import static io.restassured.filter.log.LogDetail.STATUS;
-import static web.kazpost.data.KazpostData.*;
-import static mobileapp.data.MobileTestData.*;
+import static mobileapp.data.MobileTestData.ggTokenMobile;
+import static mobileapp.data.MobileTestData.sessionIdMobile;
+import static web.kazpost.data.KazpostData.ggToken;
+import static web.kazpost.data.KazpostData.sessionId;
 public class Specs {
-//    Thece specifications are created to send images via API
+//    Theыe specifications are created to send images via API
     public static RequestSpecification kazpostRequestSpec = with()
+        // CHANGE HERE IF YOU WANT TO SWITCH THE STAND
             .baseUri("https://public-ipo-test.aixkz.com/api")
             .filter(withCustomTemplates())
             .header("Gg_token", ggToken)

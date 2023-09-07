@@ -6,25 +6,24 @@ import io.qameta.allure.Step;
 
 import java.time.Duration;
 
-
 import static com.codeborne.selenide.Condition.exist;
 import static com.codeborne.selenide.Condition.interactable;
 import static com.codeborne.selenide.Selenide.$;
 
 public class MyBondsSharesMainPage {
-    private SelenideElement mainPageHeader = $(AppiumBy.xpath("//android.view.View[@text='My Bonds/Shares']")),
-            myBalanceButton = $(AppiumBy.xpath("//android.widget.TextView[@text='My balance']")),
-            cashAccountButton = $(AppiumBy.xpath("//android.widget.TextView[@text='Cash account']")),
-            offeringsVotingsButton = $(AppiumBy.xpath("//android.widget.Button[@text='Offerings / Votings']")),
-            myProfileButton = $(AppiumBy.xpath("//android.widget.TextView[@text='My profile']")),
-            ordersButton = $(AppiumBy.xpath("//android.widget.TextView[@text='Orders']")),
-            messagesButton = $(AppiumBy.xpath("//android.widget.TextView[@text='Messages']"));
+    private SelenideElement mainPageHeader = $(AppiumBy.xpath("//*[@text='My Bonds/Shares']")),
+            myBalanceButton = $(AppiumBy.xpath("//*[@text='My balance']")),
+            cashAccountButton = $(AppiumBy.xpath("//*[@text='Cash account']")),
+            offeringsVotingsButton = $(AppiumBy.xpath("//*[@text='Offerings / Votings']")),
+            myProfileButton = $(AppiumBy.xpath("//*[@text='My profile']")),
+            ordersButton = $(AppiumBy.xpath("//*[@text='Orders']")),
+            messagesButton = $(AppiumBy.xpath("//*[@text='Messages']"));
 
 
     private SelenideElement myCardsAddNew = $(AppiumBy.xpath("//android.widget.TextView[@text='Register new card']"));
 
     @Step("Verify that 'My bonds/Shares' page is opened correctly")
-    public MyBondsSharesMainPage verifyMainPageLoaded() {
+    public MyBondsSharesMainPage verifyPageLoaded() {
         mainPageHeader.shouldHave(exist, Duration.ofSeconds(25));
         myBalanceButton.shouldHave(exist, Duration.ofSeconds(25));
         cashAccountButton.shouldHave(exist, Duration.ofSeconds(25));

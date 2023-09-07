@@ -4,8 +4,6 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import web.kazpost.tests.TestBaseWeb;
 
-import static com.codeborne.selenide.Selenide.open;
-
 @Tags({
         @Tag("backoffice "),
         @Tag("onboarding-migration")})

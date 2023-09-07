@@ -3,7 +3,7 @@ package mobileapp.config;
 import org.aeonbits.owner.Config;
 
 @Config.Sources(
-        "classpath:properties/env/${env}.properties"
+        "classpath:properties/env/${mobileenv}.properties"
 )
 
 public interface LocalDeviceConfig extends Config {
@@ -14,6 +14,10 @@ public interface LocalDeviceConfig extends Config {
     @Config.Key("platformVersion")
     @Config.DefaultValue("11.0")
     String getPlatformVersion();
+
+    @Config.Key("appium:settings[waitForIdleTimeout]")
+    @Config.DefaultValue("0")
+    Integer getIdleTimeout();
 
     @Config.Key("appPackage")
     @Config.DefaultValue("kz.tabys.test")

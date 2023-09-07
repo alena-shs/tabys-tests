@@ -1,10 +1,10 @@
 package web.drivers;
 
 import com.codeborne.selenide.Configuration;
-import web.config.AuthWebConfig;
-import web.config.WebConfig;
 import org.aeonbits.owner.ConfigFactory;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import web.config.AuthWebConfig;
+import web.config.WebConfig;
 
 import java.util.Map;
 

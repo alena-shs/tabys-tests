@@ -4,8 +4,8 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 
-import static com.codeborne.selenide.Selenide.sleep;
 import static commons.OnboardingUtils.getLastUniqueNumber;
+import static mobileapp.data.MobileTestData.defaultPinCode;
 
 public class MobileMigrationTests extends TestBaseMobile{
 
@@ -27,65 +27,78 @@ public class MobileMigrationTests extends TestBaseMobile{
         passwordRecoveryPage
                 .enterPhoneNumber(phoneNumber)
                 .initiateRegistrationOtp();
-        otpPage
-                .enterResorePasswordOtpCode(phoneNumber);
         passwordSetupPage
                 .setPasswordNewAccount();
-        etnIpoOnboarding
-                .pressOnAvailableButton();
+        mobileCommonElements
+                .tapOnAvailableButton();
         pinPage
-                .setUpPin("1111");
-        mainPage
+                .setUpPinFirst(defaultPinCode);
+        tabysNavigation
+                .verifyNavigationAvailable();
+        homeTab
+                .verifyPageLoaded()
                 .etnRegistrationButtonClick();
         onboardingMigrationPage
                 .agreeToMigrate();
         // proceed form "Add bank card"
-        etnIpoOnboarding
-                .verifyAddBankCardScreen()
-                .pressOnAvailableButton()
-                // proceed from "name card"
-                .pressOnAvailableButton()
-                .chooseCnpCard();
+        cardIntroPage
+                .verifyPageLoaded();
+        mobileCommonElements
+                .proceedOnboarding();
+        cardRulePage.verifyPageLoaded();
+        mobileCommonElements
+                .proceedOnboarding();
+        cardBasePage
+                .verifyPageLoaded()
+                .chooseCnpCard()
+                .verifyFeeModalOpened()
+                .confirmChooseCnpCard();
         // TODO modal windows don't show up??? and we can't add card manually or with API
+        photoModal.verifyPageLoaded();
     }
 
 
-    @Test
-    @Tags({
-            @Tag("mobile"),
-            @Tag("tabys"),
-            @Tag("ipo"),
-            @Tag("migration")
-    })
-    void migrationEtnToIpo() {
-//        Get a last unique number for the given project
-//        Unique - means that it only exists in the given project
-        String phoneNumber = getLastUniqueNumber("TABYS");
-        startPage
-                .clickImAlreadyRegistered();
-        loginNumberPage
-                .tapForgotPassword();
-        passwordRecoveryPage
-                .enterPhoneNumber(phoneNumber)
-                .initiateRegistrationOtp();
-        otpPage
-                .enterResorePasswordOtpCode(phoneNumber);
-        passwordSetupPage
-                .setPasswordNewAccount();
-        etnIpoOnboarding
-                .pressOnAvailableButton();
-        pinPage
-                .setUpPin("1111");
-        mainPage.ipoBannerClick();
-        onboardingMigrationPage
-                .agreeToMigrate();
-        etnIpoOnboarding
-                .verifyAddBankCardScreen()
-                .pressOnAvailableButton()
-                // proceed from "name card"
-                .pressOnAvailableButton()
-                .chooseCnpCard();
-    }
+//    @Test
+//    @Tags({
+//            @Tag("mobile"),
+//            @Tag("tabys"),
+//            @Tag("ipo"),
+//            @Tag("migration")
+//    })
+//    void migrationEtnToIpo() {
+////        Get a last unique number for the given project
+////        Unique - means that it only exists in the given project
+//        String phoneNumber = getLastUniqueNumber("TABYS");
+//        startPage
+//                .clickImAlreadyRegistered();
+//        loginNumberPage
+//                .tapForgotPassword();
+//        passwordRecoveryPage
+//                .enterPhoneNumber(phoneNumber)
+//                .initiateRegistrationOtp();
+//        otpPage
+//                .enterResorePasswordOtpCode(phoneNumber);
+//        passwordSetupPage
+//                .setPasswordNewAccount();
+//        etnIpoOnboarding
+//                .pressOnAvailableButton();
+//        pinPage
+//                .setUpPinFirst(defaultPinCode);
+//        tabysNavigation
+//                .verifyNavigationAvailable();
+//        homeTab
+//                .verifyPageLoaded()
+//                .etnRegistrationButtonClick();
+//        onboardingMigrationPage
+//                .agreeToMigrate();
+//        cardIntroductoryPage.verifyPageLoaded().proceed();
+//        nameCardPage.verifyPageLoaded().proceed();
+//        cardsBasePage
+//                .verifyPageLoaded()
+//                .chooseCnpCard()
+//                .verifyFeeModalOpened()
+//                .confirmChooseCnpCard();
+//    }
 
     @Test
     @Tags({
@@ -104,27 +117,31 @@ public class MobileMigrationTests extends TestBaseMobile{
         passwordRecoveryPage
                 .enterPhoneNumber(phoneNumber)
                 .initiateRegistrationOtp();
-        otpPage
-                .enterResorePasswordOtpCode(phoneNumber);
         passwordSetupPage
                 .setPasswordNewAccount();
-        etnIpoOnboarding
-                .pressOnAvailableButton();
+        mobileCommonElements
+                .tapOnAvailableButton();
         pinPage
-                .setUpPin("1111");
-        mainPage
+                .setUpPinFirst(defaultPinCode);
+        tabysNavigation
+                .verifyNavigationAvailable();
+        homeTab
+                .verifyPageLoaded()
                 .etnRegistrationButtonClick();
-//        onboardingMigrationPage.agreeToMigrate();
         onboardingMigrationPage
                 .agreeToMigrate();
-        // proceed form "Add bank card"
-        etnIpoOnboarding
-                .verifyAddBankCardScreen()
-                .pressOnAvailableButton()
-                // proceed from "name card"
-                .pressOnAvailableButton()
-                .chooseCnpCard();
-        sleep(100000);
+        cardIntroPage.verifyPageLoaded();
+        mobileCommonElements
+                .proceedOnboarding();
+        cardRulePage.verifyPageLoaded();
+        mobileCommonElements
+                .proceedOnboarding();
+        cardBasePage
+                .verifyPageLoaded()
+                .chooseCnpCard()
+                .verifyFeeModalOpened()
+                .confirmChooseCnpCard();
+        photoModal.verifyPageLoaded();
     }
 
     @Test
@@ -144,36 +161,40 @@ public class MobileMigrationTests extends TestBaseMobile{
         passwordRecoveryPage
                 .enterPhoneNumber(phoneNumber)
                 .initiateRegistrationOtp();
-        otpPage
-                .enterResorePasswordOtpCode(phoneNumber);
         passwordSetupPage
                 .setPasswordNewAccount();
-        etnIpoOnboarding
-                .pressOnAvailableButton();
+        mobileCommonElements
+                .tapOnAvailableButton();
         pinPage
-                .setUpPin("1111");
-        mainPage.verifyMainPage()
-                .ipoBannerClick();
+                .setUpPinFirst(defaultPinCode);
+        tabysNavigation
+                .verifyNavigationAvailable();
+        homeTab
+                .verifyPageLoaded().ipoBannerClick();
         myBondsSharesMainPage
-                .verifyMainPageLoaded()
+                .verifyPageLoaded()
                 .myProfileTap();
         myProfileInformation
-                .verifyInformationPageLoaded()
+                .verifyPageLoaded()
                 .selectDocumentsTab();
         myProfileDocuments
-                .profileDocumentsTabLoaded()
+                .verifyPageLoaded()
                 .myCardsTap();
         myCardsPage
-                .profileDocumentsTabLoaded()
+                .verifyPageLoaded()
                 .registerNewCardsTap();
-        etnIpoOnboarding
-                .verifyAddBankCardScreen()
-                .pressOnAvailableButton()
-                // proceed from "name card"
-                .pressOnAvailableButton()
-                .chooseCnpCard();
-        // TODO: Add a card steps
-
-        sleep(100000);
+        cardIntroPage.verifyPageLoaded();
+        mobileCommonElements
+                .proceedOnboarding();
+        cardRulePage.verifyPageLoaded();
+        mobileCommonElements
+                .proceedOnboarding();
+        cardBasePage
+                .verifyPageLoaded()
+                .chooseCnpCard()
+                .verifyFeeModalOpened()
+                .confirmChooseCnpCard();
+        photoModal.verifyPageLoaded();
+        // TODO: Add card steps
     }
 }

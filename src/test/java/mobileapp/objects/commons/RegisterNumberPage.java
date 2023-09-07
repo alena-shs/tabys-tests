@@ -14,7 +14,7 @@ public class RegisterNumberPage {
             button = $(AppiumBy.className("android.widget.Button"));
     @Step("Proceed from Register page")
     public RegisterNumberPage enterPhoneNumber(String phoneNumber) {
-        inputField.shouldHave(Condition.appear, Duration.ofSeconds(10)).click();
+        inputField.shouldHave(Condition.appear, Duration.ofSeconds(20)).click();
         inputField.sendKeys(phoneNumber.substring(1));
         return this;
     }

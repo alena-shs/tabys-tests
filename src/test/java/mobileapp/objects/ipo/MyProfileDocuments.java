@@ -6,7 +6,7 @@ import io.qameta.allure.Step;
 
 import java.time.Duration;
 
-import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 
 public class MyProfileDocuments {
@@ -17,7 +17,7 @@ public class MyProfileDocuments {
             agreementCsdButton = $(AppiumBy.xpath("//android.widget.TextView[@text='Agreement with AIX CSD']"));
 
     @Step("Verify that 'My profile' page is opened correctly")
-    public MyProfileDocuments profileDocumentsTabLoaded() {
+    public MyProfileDocuments verifyPageLoaded() {
         myCardsButton.shouldHave(visible, Duration.ofSeconds(25));
         myAccountButton.shouldHave(visible, Duration.ofSeconds(25));
         termsOfServiceButton.shouldHave(visible, Duration.ofSeconds(25));
@@ -28,6 +28,7 @@ public class MyProfileDocuments {
 
     @Step("Go to 'My cards' section")
     public MyProfileDocuments myCardsTap() {
+        myCardsButton.click();
         myCardsButton.click();
         return this;
     }

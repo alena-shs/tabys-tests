@@ -1,7 +1,9 @@
 package commons;
 
 import commons.database.requests.AcsFetchNumber;
-import commons.database.requests.AcsFetchOtp;
+import commons.database.requests.CashCheckNumber;
+
+import java.util.List;
 
 import static org.apache.commons.lang3.StringUtils.length;
 
@@ -27,5 +29,19 @@ public class OnboardingUtils {
     public static String getLastUniqueNumber(String projectName){
         String lastUniqueNumber = AcsFetchNumber.lastUniquePhoneNumber(projectName);
         return lastUniqueNumber;
+    }
+
+    public static String getTabysNumber(){
+        String lastTabysNumber = AcsFetchNumber.lastTabysApprovedPhoneNumber();
+        return lastTabysNumber;
+    }
+
+    public static String getCsdNumberWithoutOrders(String projectName) {
+//        List<String> numbersWithIpoOrders = CashCheckNumber.allNumbersWithIpoOrders(),
+//                numbersWithWithdrawal = CashCheckNumber.allNumbersWithWithdrawalOrders();
+        List<String> numbersWithCsdOrders = CashCheckNumber.allNumbersWithCsdOrders();
+        String csdNumberWithoutOrders = AcsFetchNumber.lastCsdPhoneNumberWithoutOrders(numbersWithCsdOrders, projectName);
+        System.out.println(csdNumberWithoutOrders);
+        return csdNumberWithoutOrders;
     }
 }

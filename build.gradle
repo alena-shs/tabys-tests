@@ -46,7 +46,8 @@ dependencies {
             "org.slf4j:slf4j-simple:$slf4jVersion",
             'commons-io:commons-io:2.11.0',
             "io.appium:java-client:8.3.0",
-            'com.google.code.gson:gson:2.10.1'
+            'com.google.code.gson:gson:2.10.1',
+            'com.browserstack:browserstack-local-java:1.1.0'
     )
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'      // JUnit5
 }
@@ -71,31 +72,31 @@ tasks.withType(Test) {
 }
 
 
-task web(type: Test) {
+task web_test(type: Test) {
     useJUnitPlatform {
         includeTags("web")
     }
 }
 
-task kazpost(type: Test) {
+task kazpost_test(type: Test) {
     useJUnitPlatform {
         includeTags("kazpost")
     }
 }
 
-task mobile(type: Test) {
+task mobile_test(type: Test) {
     useJUnitPlatform {
         includeTags("mobile")
     }
 }
 
-task tabys(type: Test) {
+task tabys_test(type: Test) {
     useJUnitPlatform {
         includeTags("tabys")
     }
 }
 
-task ipo(type: Test) {
+task ipo_test(type: Test) {
     useJUnitPlatform {
         includeTags("ipo")
     }
@@ -104,12 +105,6 @@ task ipo(type: Test) {
 task sample(type: Test) {
     useJUnitPlatform {
         includeTags("sample")
-    }
-}
-
-task migration(type: Test) {
-    useJUnitPlatform {
-        includeTags("migration")
     }
 }
 

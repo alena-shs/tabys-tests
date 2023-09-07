@@ -26,6 +26,6 @@ public class LoginNumberPage {
 
     @Step("Tap on Forgot Password")
     public void tapForgotPassword() {
-        $(AppiumBy.xpath("//android.view.View[@text='Forgot password?']")).shouldHave(interactable, Duration.ofSeconds(10)).click();
+        $(AppiumBy.xpath("//*[@text='Forgot password?']")).shouldHave(interactable, Duration.ofSeconds(10)).click();
     }
 }

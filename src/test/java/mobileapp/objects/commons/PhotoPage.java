@@ -8,7 +8,7 @@ import static commons.helpers.CustomAllureListener.withCustomTemplates;
 import static io.qameta.allure.Allure.step;
 import static io.restassured.RestAssured.given;
 import static mobileapp.data.MobileTestData.*;
-import static mobileapp.tests.TestBaseMobile.*;
+import static mobileapp.tests.TestBaseMobile.photoBodyTabys;
 
 public class PhotoPage {
     @Step("Send photo")

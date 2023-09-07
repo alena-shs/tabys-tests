@@ -52,44 +52,6 @@ Configurations to run:
 
 ## How to run and configure these tests
 
-### Run configurations
-
-#### By environment
-##### Web
-- To run the web tests with ____ task remotely (see tasks description in a section below): gradle clean ____ -Denv=web-remote
-- To run the web tests with ____ task locally (see tasks description in a section below): gradle clean ____ -Denv=web-local
-##### Mobile
-- To run the mobile tests with ____ task remotely on browserstack (see tasks description in a section below): gradle clean ____ -Denv=mobile-browserstack
-- To run the mobile tests with ____ task locally on emulator (see tasks description in a section below): gradle clean ____ -Denv=mobile-emulator
-- To run the mobile tests with ____ task locally on physical device (see tasks description in a section below): gradle clean ____ -Denv=mobile-physicaldevice
-
-
-#### By purpose
-##### All the web tests
-- To run all the web tests remotely: gradle clean web -Denv=web-remote
-- To run all the web tests locally: gradle clean web -Denv=web-local
-##### Kazpost
-- To run kazpost tests remotely: gradle clean kazpost -Denv=web-remote
-- To run kazpost tests remotely: gradle clean kazpost -Denv=web-local
-
-##### All the mobile tests
-- To run all the mobile tests in browserstack: gradle clean mobile -Denv=mobile-browserstack
-- To run all the mobile tests locally on emulator: gradle clean mobile -Denv=mobile-emulator
-- To run all the mobile tests locally on physical device: gradle clean mobile -Denv=mobile-physicaldevice
-##### Onboarding
-- To run onboarding tests in browserstack: gradle clean onboarding -Denv=mobile-browserstack
-- To run onboarding locally on emulator: gradle clean onboarding -Denv=mobile-emulator
-- To run onboarding locally on physical device: gradle clean onboarding -Denv=mobile-physicaldevice
-##### Migration
-- To run migration tests in browserstack: gradle clean migration -Denv=mobile-browserstack
-- To run migration locally on emulator: gradle clean migration -Denv=mobile-emulator
-- To run migration locally on physical device: gradle clean migration -Denv=mobile-physicaldevice
-##### Tabys
-- To run tabys tests in browserstack: gradle clean tabys -Denv=mobile-browserstack
-- To run tabys locally on emulator: gradle clean tabys -Denv=mobile-emulator
-- To run tabys locally on physical device: gradle clean tabys -Denv=mobile-physicaldevice
-
-
 ### Web tests
 
 #### Remotely
@@ -98,7 +60,7 @@ Configurations to run:
 
 From the console, run the following script:
 
-> gradle clean _____ -Dwebenv='remote'
+> gradle clean test -Dtask='навзвание_таска' -Dwebenv='remote'
 
 ##### Configurations
 
@@ -123,7 +85,7 @@ To change the other configurations, please change properties in the following fi
 
 From the console, run the following script:
 
-> gradle clean _____ -Dwebenv='local'
+> gradle clean test -Dwebenv='local'
 
 ##### Configurations
 
@@ -148,7 +110,7 @@ To change the other configurations, please change properties in the following fi
 
 From the console, run the following script:
 
-> gradle clean _____ -Dtask='навзвание_таска' -Dmobileeenv='physicaldevice'
+> gradle clean test -Dtask='навзвание_таска' -Dmobileeenv='physicaldevice'
 
 ###### Configurations
 To change the other configurations, please change properties in the following file: src/test/resources/properties/mobile/physicaldevice.properties
@@ -165,7 +127,7 @@ To change the other configurations, please change properties in the following fi
 
 From the console, run the following script:
 
-> gradle clean _____ -Dmobileeenv='emulator'
+> gradle clean test -Dtask='навзвание_таска' -Dmobileeenv='emulator'
 
 ###### Configurations
 To change the other configurations, please change properties in the following file: src/test/resources/properties/mobile/emulator.properties
@@ -230,7 +192,6 @@ In the future, these data might be reformatted to csv/json format.
 Many of these locators were not written properly due to the lack of good attributes. Therefore, a lot of these tests might fail if any of the onboarding processes are changed.
 
 ### If the test failed with the error "Element not found":
-
 - Step 1: run the test locally on the physical device or emulator.
 - Step 2: check if locators are still correct, as they might need an update.
   - Find the corresponding method in the "object" directory. Use error log or your IDE's debug mode.
