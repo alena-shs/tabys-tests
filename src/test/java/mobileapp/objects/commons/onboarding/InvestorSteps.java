@@ -13,13 +13,14 @@ import static mobileapp.data.MobileTestData.defaultWaitingOfSeconds;
 public class InvestorSteps {
     //TODO Investor steps for Tabys and IPO
     SelenideElement
-            header = $(AppiumBy.xpath("//android.view.View[@text='Your investor status']")),
-            stepInstallTabys = $(AppiumBy.xpath("//android.view.View[@text='Install Tabys']")),
-            stepLogin = $(AppiumBy.xpath("//android.view.View[@text='Login to the application']"));
+            header = $(AppiumBy.xpath("//*[@text='Your investor status']")),
+            stepInstallTabys = $(AppiumBy.xpath("//*[@text='Install Tabys']")),
+            stepLogin = $(AppiumBy.xpath("//*[@text='Login to the application']"));
     SelenideElement nextButton = $(AppiumBy.xpath("//android.widget.Button[@text='Continue']"));
 
     @Step("Verify that all ETN investor steps are showing correct steps")
     public InvestorSteps  verifyOnboardingStepsPage() {
+
         header.shouldHave(visible, Duration.ofSeconds(defaultWaitingOfSeconds)).click();
         stepInstallTabys.shouldHave(visible, Duration.ofSeconds(defaultWaitingOfSeconds)).click();
         stepLogin.shouldHave(visible, Duration.ofSeconds(defaultWaitingOfSeconds)).click();

@@ -16,7 +16,7 @@ public class MobileOnboardingTests extends TestBaseMobile {
             @Tag("onboarding")
     })
     void etnMobileOnboarding(){
-        startPage.clickReadyToStart();
+        startPage.clickReadyToStart(driver);
         tabysNavigation
                 .verifyNavigationAvailable();
         homeTab
@@ -31,44 +31,49 @@ public class MobileOnboardingTests extends TestBaseMobile {
                 .enterPhoneNumber(phoneNumber)
                 .initiateRegistrationOtp();
         otpPage
-                .enterRegistrationOtpCode(phoneNumber);
+                .enterRegistrationOtpCode(driver, phoneNumber);
+        confirmIdentityPage.verifyPageLoaded(driver);
+        mobileCommonElements.tapOnAvailableButton(driver);
         mobileCommonElements
-                .tapOnAvailableButton()
-                .enterEmail()
-                .tapOnAvailableButton();
+                .tapOnAvailableButton(driver)
+                .enterEmail(driver)
+                .tapOnAvailableButton(driver);
         passwordSetupPage
-                .setPasswordNewAccount();
-        mobileCommonElements
-                .tapOnAvailableButton();
-        pinPage.setUpPinFirst(defaultPinCode)
-                .repeatPin(defaultPinCode);
-                // Personal information
-        iinPage
-                .verifyPageLoaded()
-                .setIin(defaultIin)
-                .verifyIinFound();
-        mobileCommonElements
-                .proceedOnboarding();
-                // Income source
-        incomePage
-                .verifyPageLoaded()
-                .setIncomeSource(defaultIncomeSource);
-        mobileCommonElements
-                .proceedOnboarding();
-        userConsentPage
-                .verifyPageLoaded();
-        mobileCommonElements
-                .proceedOnboarding();
-        photoIntroPage
-                .verifyPageLoaded();
-        mobileCommonElements
-                .proceedOnboarding();
-        photoSelfieRulePage
-                .verifyPageLoaded();
-        mobileCommonElements
-                .proceedOnboarding();
-        photoSelfiePage.initiateSelfie();
-        photoModal.verifyPageLoaded();
+                .setPasswordNewAccount(driver);
+//        mobileCommonElements
+//                .tapOnAvailableButton(driver);
+//        pinPage.setUpPinFirst(defaultPinCode)
+//                .repeatPin(defaultPinCode);
+//                // Personal information
+//        iinPage
+//                .verifyPageLoaded()
+//                .setIin(defaultIin)
+//                .verifyIinFound();
+//        mobileCommonElements
+//                .proceedOnboarding(driver);
+//                // Income source
+//        incomePage
+//                .verifyPageLoaded()
+//                .setIncomeSource(defaultIncomeSource);
+//        mobileCommonElements
+//                .proceedOnboarding(driver);
+//        userConsentPage
+//                .verifyPageLoaded();
+//        mobileCommonElements
+//                .proceedOnboarding(driver);
+//        photoIntroPage
+//                .verifyPageLoaded();
+//        mobileCommonElements
+//                .proceedOnboarding(driver);
+//        photoSelfieRulePage
+//                .verifyPageLoaded();
+//        mobileCommonElements
+//                .proceedOnboarding(driver);
+//        photoSelfiePage.initiateSelfie();
+//        photoModal.verifyPageLoaded();
+
+
+
 //        etnIpoOnboarding
 //                // Identification of the person (Start identification)
 //                .pressOnAvailableButton()
@@ -91,7 +96,7 @@ public class MobileOnboardingTests extends TestBaseMobile {
     })
     void ipoMobileOnboarding(){
         startPage
-                .clickReadyToStart();
+                .clickReadyToStart(driver);
         tabysNavigation
                 .verifyNavigationAvailable();
         homeTab
@@ -105,44 +110,49 @@ public class MobileOnboardingTests extends TestBaseMobile {
         registerNumberPage
                 .enterPhoneNumber(phoneNumber)
                 .initiateRegistrationOtp();
-        otpPage.enterRegistrationOtpCode(phoneNumber);
+        otpPage.enterRegistrationOtpCode(driver, phoneNumber);
+        confirmIdentityPage.verifyPageLoaded(driver);
+        mobileCommonElements.tapOnAvailableButton(driver);
         mobileCommonElements
-                .tapOnAvailableButton()
-                .enterEmail()
-                .tapOnAvailableButton();
+                .tapOnAvailableButton(driver)
+                .enterEmail(driver)
+                .tapOnAvailableButton(driver);
         passwordSetupPage
-                .setPasswordNewAccount();
-        mobileCommonElements
-                .tapOnAvailableButton();
-        pinPage
-                .setUpPinFirst(defaultPinCode)
-                .repeatPin(defaultPinCode);
-        // Personal information
-        iinPage
-                .verifyPageLoaded()
-                .setIin(defaultIin)
-                .verifyIinFound();
-        mobileCommonElements
-                .proceedOnboarding();
-        incomePage
-                .verifyPageLoaded()
-                .setIncomeSource(defaultIncomeSource);
-        mobileCommonElements
-                .proceedOnboarding();
-        userConsentPage
-                .verifyPageLoaded();
-        mobileCommonElements
-                .proceedOnboarding();
-        photoIntroPage
-                .verifyPageLoaded();
-        mobileCommonElements
-                .proceedOnboarding();
-        photoSelfieRulePage
-                .verifyPageLoaded();
-        mobileCommonElements
-                .proceedOnboarding();
-        photoSelfiePage.initiateSelfie();
-        photoModal.verifyPageLoaded();
+                .setPasswordNewAccount(driver);
+//        mobileCommonElements
+//                .tapOnAvailableButton(driver);
+//        pinPage
+//                .setUpPinFirst(defaultPinCode)
+//                .repeatPin(defaultPinCode);
+//        // Personal information
+//        iinPage
+//                .verifyPageLoaded()
+//                .setIin(defaultIin)
+//                .verifyIinFound();
+//        mobileCommonElements
+//                .proceedOnboarding(driver);
+//        incomePage
+//                .verifyPageLoaded()
+//                .setIncomeSource(defaultIncomeSource);
+//        mobileCommonElements
+//                .proceedOnboarding(driver);
+//        userConsentPage
+//                .verifyPageLoaded();
+//        mobileCommonElements
+//                .proceedOnboarding(driver);
+//        photoIntroPage
+//                .verifyPageLoaded();
+//        mobileCommonElements
+//                .proceedOnboarding(driver);
+//        photoSelfieRulePage
+//                .verifyPageLoaded();
+//        mobileCommonElements
+//                .proceedOnboarding(driver);
+//        photoSelfiePage.initiateSelfie();
+//        photoModal.verifyPageLoaded();
+
+
+
 //        etnIpoOnboarding
 //                // Identification of the person (Start identification)
 //                .pressOnAvailableButton()
@@ -165,12 +175,12 @@ public class MobileOnboardingTests extends TestBaseMobile {
     })
     void etnMobileLogin(){
         startPage
-                .clickImAlreadyRegistered();
+                .clickImAlreadyRegistered(driver);
 //        Get a new phone number for registration. All the numbers will be in the format: +74440xxxxxx. Each new number will increment the previous number by one.
         String phoneNumber = getNumberForLogin(phoneNumberTemplateMobile);
 //        System.out.println(phoneNumber.substring(1));
-        loginNumberPage.enterPhoneNumber(phoneNumber, defaultPassword)
-                .proceed();
+        loginNumberPage.enterPhoneNumber(driver, phoneNumber, defaultPassword)
+                .proceed(driver);
         pinPage
                 .setUpPinFirst(defaultPinCode)
                 .repeatPin(defaultPinCode);

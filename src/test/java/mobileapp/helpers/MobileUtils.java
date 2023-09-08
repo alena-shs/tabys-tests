@@ -1,5 +1,6 @@
 package mobileapp.helpers;
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.remote.SupportsContextSwitching;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.interactions.Pause;
@@ -7,6 +8,7 @@ import org.openqa.selenium.interactions.PointerInput;
 import org.openqa.selenium.interactions.Sequence;
 
 import java.util.Arrays;
+import java.util.Set;
 
 import static java.time.Duration.ofMillis;
 import static org.openqa.selenium.interactions.PointerInput.Kind.TOUCH;
@@ -45,4 +47,22 @@ public class MobileUtils {
         driver.perform(Arrays.asList(tap));
         System.out.println("Tap performed with height:" + point.getY() + " and width:" + point.getX());
     }
+
+    public static void changeDriverContextToWeb(AppiumDriver driver) {
+        Set<String> contextNames = ((SupportsContextSwitching) driver).getContextHandles();
+        for (String contextName : contextNames) {
+            if (contextName.contains("WEBVIEW"))
+                ((SupportsContextSwitching) driver).context(contextName);
+        }
+    }
+
+    public static void changeDriverContextToNative(AppiumDriver driver) {
+        Set<String> contextNames = ((SupportsContextSwitching) driver).getContextHandles();
+        for (String contextName : contextNames) {
+            if (contextName.contains("NATIVE"))
+                ((SupportsContextSwitching)  driver).context(contextName);
+        }
+    }
+
+
 }

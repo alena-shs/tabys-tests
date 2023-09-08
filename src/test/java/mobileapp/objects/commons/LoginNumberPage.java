@@ -1,32 +1,75 @@
 package mobileapp.objects.commons;
 
-import com.codeborne.selenide.ElementsCollection;
 import io.appium.java_client.AppiumBy;
+import io.appium.java_client.AppiumDriver;
 import io.qameta.allure.Step;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.List;
+import java.util.Objects;
 
-import static com.codeborne.selenide.Condition.interactable;
-import static com.codeborne.selenide.Selenide.*;
-import static mobileapp.data.MobileTestData.defaultWaitingOfSeconds;
+import static com.codeborne.selenide.Selenide.sleep;
+import static mobileapp.tests.TestBaseMobile.mobileenv;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class LoginNumberPage {
-    ElementsCollection inputFields = $$(AppiumBy.className("android.widget.EditText"));
     @Step("Enter credentials")
-    public LoginNumberPage enterPhoneNumber(String phoneNumber, String password) {
-        inputFields.get(0).sendKeys(phoneNumber.substring(1));
-        inputFields.get(1).sendKeys(password);
+    public LoginNumberPage enterPhoneNumber(AppiumDriver driver, String phoneNumber, String password) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+
+        if (Objects.equals(mobileenv, "browserstack-ios")) {
+            System.out.println("MACBOOK REQUIRED TO WRITE THE SCRIPT");
+        } else {
+
+            List<WebElement> inputFields = wait.until
+                    (ExpectedConditions.visibilityOfAllElementsLocatedBy(
+                            AppiumBy.className("android.widget.EditText")));
+            assertEquals(2, inputFields.size());
+
+            inputFields.get(0).sendKeys(phoneNumber.substring(1));
+            inputFields.get(1).sendKeys(password);
+        }
         return this;
     }
 
     @Step("Proceed to the next page with credentials")
-    public void proceed() {
-        $(AppiumBy.className("android.widget.Button")).click();
-        sleep(5000);
+    public void proceed(AppiumDriver driver) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+
+        if (Objects.equals(mobileenv, "browserstack-ios")){
+
+            System.out.println("MACBOOK REQUIRED TO WRITE THE SCRIPT");
+        } else {
+
+            WebElement proceedButton = wait.until(
+                    ExpectedConditions.visibilityOfElementLocated
+                            (AppiumBy.className("android.widget.Button")));
+            assertTrue(proceedButton.isEnabled());
+
+            proceedButton.click();
+
+            sleep(5000);
+        }
     }
 
     @Step("Tap on Forgot Password")
-    public void tapForgotPassword() {
-        $(AppiumBy.xpath("//*[@text='Forgot password?']")).shouldHave(interactable, Duration.ofSeconds(defaultWaitingOfSeconds)).click();
+    public void tapForgotPassword(AppiumDriver driver) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+
+        if (Objects.equals(mobileenv, "browserstack-ios")){
+            System.out.println("MACBOOK REQUIRED TO WRITE THE SCRIPT");
+        } else {
+
+            WebElement forgotPasswordButton = wait.until
+                    (ExpectedConditions.visibilityOfElementLocated(
+                            AppiumBy.xpath("//*[@text='Forgot password?']")));
+            assertTrue(forgotPasswordButton.isEnabled());
+
+            forgotPasswordButton.click();
+        }
     }
 }

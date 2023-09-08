@@ -1,41 +1,72 @@
 package mobileapp.objects.commons;
 
-import com.codeborne.selenide.CollectionCondition;
-import com.codeborne.selenide.ElementsCollection;
-import com.codeborne.selenide.SelenideElement;
 import io.appium.java_client.AppiumBy;
+import io.appium.java_client.AppiumDriver;
 import io.qameta.allure.Step;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.List;
+import java.util.Objects;
 
-import static com.codeborne.selenide.Condition.exist;
-import static com.codeborne.selenide.Condition.interactable;
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.sleep;
 import static mobileapp.data.MobileTestData.defaultEmail;
-import static mobileapp.data.MobileTestData.defaultWaitingOfSeconds;
+import static mobileapp.tests.TestBaseMobile.mobileenv;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class MobileCommonElements {
-    private final SelenideElement availableButton = $(AppiumBy.className("android.widget.Button")),
-            onboardingNextButton = $(AppiumBy.xpath("//*[@resource-id='dynamic-forms-next-button']"));
-    private final ElementsCollection inputFields = $$(AppiumBy.className("android.widget.EditText"));
-
     @Step("Proceed (with the only button on the screen)")
-    public MobileCommonElements tapOnAvailableButton() {
-        availableButton.shouldHave(exist, Duration.ofSeconds(defaultWaitingOfSeconds)).click();
+    public MobileCommonElements tapOnAvailableButton(AppiumDriver driver) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+
+        if (Objects.equals(mobileenv, "browserstack-ios")){
+            System.out.println("MACBOOK REQUIRED TO WRITE THE SCRIPT");
+        } else {
+            WebElement availableButton = wait.until
+                    (ExpectedConditions.visibilityOfElementLocated(
+                            AppiumBy.className("android.widget.Button")));
+            assertTrue(availableButton.isEnabled());
+            availableButton.click();
+        }
         return this;
     }
 
     @Step("Proceed with onboarding")
-    public void proceedOnboarding() {
-        sleep(1000);
-        onboardingNextButton.shouldHave(interactable, Duration.ofSeconds(defaultWaitingOfSeconds)).click();
+    public void proceedOnboarding(AppiumDriver driver) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+
+        if (Objects.equals(mobileenv, "browserstack-ios")){
+            System.out.println("MACBOOK REQUIRED TO WRITE THE SCRIPT");
+        } else {
+            sleep(1000);
+            WebElement onboardingNextButton = wait.until
+                    (ExpectedConditions.visibilityOfElementLocated(
+                            AppiumBy.xpath("//*[@resource-id='dynamic-forms-next-button']")));
+            assertTrue(onboardingNextButton.isEnabled());
+            onboardingNextButton.click();
+        }
     }
 
     @Step("Enter in both emails")
-    public MobileCommonElements enterEmail(){
-        ElementsCollection emailInputFields = inputFields.shouldHave(CollectionCondition.size(2), Duration.ofSeconds(defaultWaitingOfSeconds));
-        emailInputFields.get(0).shouldHave(interactable, Duration.ofSeconds(defaultWaitingOfSeconds)).sendKeys(defaultEmail);
-        emailInputFields.get(1).shouldHave(interactable, Duration.ofSeconds(defaultWaitingOfSeconds)).sendKeys(defaultEmail);
+    public MobileCommonElements enterEmail(AppiumDriver driver){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+
+        if (Objects.equals(mobileenv, "browserstack-ios")){
+            System.out.println("MACBOOK REQUIRED TO WRITE THE SCRIPT");
+        } else {
+            List<WebElement> availableButtons = wait.until
+                    (ExpectedConditions.visibilityOfAllElementsLocatedBy(
+                            AppiumBy.className("android.widget.EditText")));
+            assertEquals(2, availableButtons.size());
+            assertTrue(availableButtons.get(0).isEnabled());
+            assertTrue(availableButtons.get(1).isEnabled());
+
+            availableButtons.get(0).sendKeys(defaultEmail);
+            availableButtons.get(1).sendKeys(defaultEmail);
+        }
         return this;
     }
 }

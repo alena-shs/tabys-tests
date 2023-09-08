@@ -1,26 +1,41 @@
 package mobileapp.objects.commons;
 
-import com.codeborne.selenide.CollectionCondition;
-import com.codeborne.selenide.ElementsCollection;
 import io.appium.java_client.AppiumBy;
+import io.appium.java_client.AppiumDriver;
 import io.qameta.allure.Step;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.List;
 
-import static com.codeborne.selenide.Condition.interactable;
-import static com.codeborne.selenide.Selenide.$$;
 import static com.codeborne.selenide.Selenide.sleep;
 import static mobileapp.data.MobileTestData.defaultPassword;
-import static mobileapp.data.MobileTestData.defaultWaitingOfSeconds;
+import static mobileapp.tests.TestBaseMobile.mobileenv;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class PasswordSetupPage {
     @Step("Enter in password and confirm it")
-    public PasswordSetupPage setPasswordNewAccount() {
-        sleep(2000);
-        ElementsCollection passwordFields = $$(AppiumBy.className("android.widget.EditText"));
-        passwordFields.shouldHave(CollectionCondition.size(2), Duration.ofSeconds(defaultWaitingOfSeconds));
-        passwordFields.get(0).shouldHave(interactable, Duration.ofSeconds(defaultWaitingOfSeconds)).sendKeys(defaultPassword);
-        passwordFields.get(1).shouldHave(interactable, Duration.ofSeconds(defaultWaitingOfSeconds)).sendKeys(defaultPassword);
+    public PasswordSetupPage setPasswordNewAccount(AppiumDriver driver) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+
+        if (mobileenv=="browserstack-ios"){
+            System.out.println("MACBOOK REQUIRED TO WRITE THE SCRIPT");
+        } else {
+            sleep(2000);
+
+            List<WebElement> passwordFields = wait.until
+                    (ExpectedConditions.visibilityOfAllElementsLocatedBy(
+                            AppiumBy.className("android.widget.EditText")));
+            assertTrue(passwordFields.get(0).isEnabled());
+            assertTrue(passwordFields.get(1).isEnabled());
+            assertEquals(2, passwordFields.size());
+
+            passwordFields.get(0).sendKeys(defaultPassword);
+            passwordFields.get(1).sendKeys(defaultPassword);
+        }
         return this;
     }
 }

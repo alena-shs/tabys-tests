@@ -1,18 +1,20 @@
 package mobileapp.tests;
 
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.WebDriverRunner;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import commons.api.models.PhotoBody;
 import commons.helpers.Attach;
+import io.appium.java_client.AppiumBy;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.Setting;
 import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.remote.AndroidMobileCapabilityType;
 import io.qameta.allure.selenide.AllureSelenide;
 import mobileapp.config.AuthBrowserstackConfig;
-import mobileapp.drivers.MobileDriverBrowserstackAndroid;
 import mobileapp.drivers.MobileDriverLocal;
+import mobileapp.drivers.NewBrowserstackDriver;
 import mobileapp.objects.commons.*;
 import mobileapp.objects.commons.onboarding.InvestorSteps;
 import mobileapp.objects.commons.onboarding.OnboardingMigrationPage;
@@ -31,13 +33,14 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
-import java.net.MalformedURLException;
-import java.net.URL;
-
 import static com.codeborne.selenide.Selenide.*;
+import static mobileapp.drivers.NewBrowserstackDriver.getAppiumServerUrl;
+import static mobileapp.helpers.MobileUtils.changeDriverContextToNative;
+import static mobileapp.helpers.MobileUtils.changeDriverContextToWeb;
 
 public class TestBaseMobile {
-    static DesiredCapabilities cap = new DesiredCapabilities();
+    public AppiumDriver driver;
+    static DesiredCapabilities capabilities = new DesiredCapabilities();
     public static String mobileenv = System.getProperty("mobileenv", "emulator");
     public static PhotoBody photoBodyTabys = new PhotoBody();
 
@@ -58,6 +61,7 @@ public class TestBaseMobile {
 
     RegisterNumberPage registerNumberPage = new RegisterNumberPage();
     OtpPage otpPage = new OtpPage();
+    ConfirmIdentityPage confirmIdentityPage = new ConfirmIdentityPage();
     PasswordSetupPage passwordSetupPage = new PasswordSetupPage();
 
     PasswordRecoveryPage passwordRecoveryPage = new PasswordRecoveryPage();
@@ -132,42 +136,83 @@ public class TestBaseMobile {
             System.getProperties());
 
     @BeforeAll
-    public static void setup() throws MalformedURLException {
+    public static void setup() {
         switch (mobileenv) {
             case "emulator":
             case "physicaldevice":
                 Configuration.browser = MobileDriverLocal.class.getName();
-                cap.setCapability(AndroidMobileCapabilityType.AUTO_GRANT_PERMISSIONS,true);
+                Configuration.browserSize = null;
+                break;
+        }
+    }
+
+
+    // TODO: Separate to BeforeAll
+    @BeforeEach
+    public void createConnection() {
+        SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
+        switch (mobileenv) {
+            case "browserstack-android":
+                capabilities = new DesiredCapabilities();
+                NewBrowserstackDriver.setCapabilities(capabilities);
+                driver = new AppiumDriver(getAppiumServerUrl(), capabilities);
                 break;
             case "browserstack-ios":
-            case "browserstack-android":
-                Configuration.browser = MobileDriverBrowserstackAndroid.class.getName();
-                break;
-        }
-        Configuration.browserSize = null;
-//        cap.setCapability(AndroidMobileCapabilityType.DISABLE_WINDOW_ANIMATION, true);
-    }
+                capabilities = new DesiredCapabilities();
+                NewBrowserstackDriver.setCapabilities(capabilities);
+                driver = new IOSDriver(getAppiumServerUrl(), capabilities);
 
-    @BeforeEach
-    void addListener() {
-        SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
-        open();
-        switch (mobileenv) {
-            case "browserstack-ios":{
-                System.out.println("Attention! iOS tests require a MacBook!");
-            }
+                changeDriverContextToNative(driver);
+                driver.findElement(AppiumBy.name("Allow")).click();
+                changeDriverContextToWeb(driver);
+                break;
             case "emulator":
             case "physicaldevice":
-                AppiumDriver driver = (AppiumDriver) WebDriverRunner.getWebDriver();
-                driver.setSetting(Setting.WAIT_FOR_IDLE_TIMEOUT, 0);
+                Selenide.open();
+                driver = (AppiumDriver) WebDriverRunner.getWebDriver();
+                capabilities.setCapability(AndroidMobileCapabilityType.AUTO_GRANT_PERMISSIONS,true);
                 break;
-
         }
-//        AppiumDriver driver = (AppiumDriver) WebDriverRunner.getWebDriver();
-//        driver.setSetting(Setting.WAIT_FOR_IDLE_TIMEOUT, 0);
-//        $(AppiumBy.className("android.widget.TextView")).click();
-
+        driver.setSetting(Setting.WAIT_FOR_IDLE_TIMEOUT, 0);
     }
+
+//    @BeforeAll
+//    public static void setup() throws MalformedURLException {
+//        switch (mobileenv) {
+//            case "emulator":
+//            case "physicaldevice":
+//                Configuration.browser = MobileDriverLocal.class.getName();
+//                cap.setCapability(AndroidMobileCapabilityType.AUTO_GRANT_PERMISSIONS,true);
+//                break;
+//            case "browserstack-ios":
+//            case "browserstack-android":
+//                Configuration.browser = MobileDriverBrowserstack.class.getName();
+//                break;
+//        }
+//        Configuration.browserSize = null;
+////        cap.setCapability(AndroidMobileCapabilityType.DISABLE_WINDOW_ANIMATION, true);
+//    }
+
+//    @BeforeEach
+//    void addListener() {
+//        SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
+//        open();
+//        switch (mobileenv) {
+//            case "browserstack-ios":{
+//                System.out.println("Attention! iOS tests require a MacBook!");
+//            }
+//            case "emulator":
+//            case "physicaldevice":
+//                AppiumDriver driver = (AppiumDriver) WebDriverRunner.getWebDriver();
+//                driver.setSetting(Setting.WAIT_FOR_IDLE_TIMEOUT, 0);
+//                break;
+//
+//        }
+////        AppiumDriver driver = (AppiumDriver) WebDriverRunner.getWebDriver();
+////        driver.setSetting(Setting.WAIT_FOR_IDLE_TIMEOUT, 0);
+////        $(AppiumBy.className("android.widget.TextView")).click();
+//
+//    }
 
     @AfterEach
     void afterEach() {
