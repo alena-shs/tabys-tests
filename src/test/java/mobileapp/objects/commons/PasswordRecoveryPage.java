@@ -8,6 +8,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.Objects;
 
 import static mobileapp.tests.TestBaseMobile.mobileenv;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -17,7 +18,7 @@ public class PasswordRecoveryPage {
     public PasswordRecoveryPage enterPhoneNumber(AppiumDriver driver, String phoneNumber) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 
-        if (mobileenv=="browserstack-ios"){
+        if (Objects.equals(mobileenv, "browserstack-ios")){
             System.out.println("MACBOOK REQUIRED TO WRITE THE SCRIPT");
         } else {
 
@@ -42,7 +43,7 @@ public class PasswordRecoveryPage {
     public void initiateRegistrationOtp(AppiumDriver driver) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 
-        if (mobileenv=="browserstack-ios"){
+        if (Objects.equals(mobileenv, "browserstack-ios")){
             System.out.println("MACBOOK REQUIRED TO WRITE THE SCRIPT");
         } else {
 

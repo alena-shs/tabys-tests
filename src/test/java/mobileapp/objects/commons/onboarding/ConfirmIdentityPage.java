@@ -21,8 +21,8 @@ public class ConfirmIdentityPage {
             System.out.println("MACBOOK REQUIRED TO WRITE THE SCRIPT");
         } else {
 
-            WebElement header = wait.until
-                    (ExpectedConditions.visibilityOfElementLocated(
+            wait.until(
+                    ExpectedConditions.visibilityOfElementLocated(
                             AppiumBy.xpath("//*[@text='Confirm identity']")));
         }
     }

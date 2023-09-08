@@ -9,6 +9,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 import java.util.List;
+import java.util.Objects;
 
 import static com.codeborne.selenide.Selenide.sleep;
 import static mobileapp.data.MobileTestData.defaultPassword;
@@ -18,10 +19,10 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class PasswordSetupPage {
     @Step("Enter in password and confirm it")
-    public PasswordSetupPage setPasswordNewAccount(AppiumDriver driver) {
+    public void setPasswordNewAccount(AppiumDriver driver) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 
-        if (mobileenv=="browserstack-ios"){
+        if (Objects.equals(mobileenv, "browserstack-ios")){
             System.out.println("MACBOOK REQUIRED TO WRITE THE SCRIPT");
         } else {
             sleep(2000);
@@ -36,6 +37,5 @@ public class PasswordSetupPage {
             passwordFields.get(0).sendKeys(defaultPassword);
             passwordFields.get(1).sendKeys(defaultPassword);
         }
-        return this;
     }
 }

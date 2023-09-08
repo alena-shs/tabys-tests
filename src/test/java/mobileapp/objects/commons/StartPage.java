@@ -30,7 +30,7 @@ public class StartPage {
         } else {
 
             sleep(10000);
-            WebElement background = wait.until
+            wait.until
                     (ExpectedConditions.visibilityOfElementLocated(
                             AppiumBy.xpath("//*[@resource-id='background-content']")));
 
@@ -54,7 +54,7 @@ public class StartPage {
         } else {
 
             sleep(10000);
-            WebElement background = wait.until
+            wait.until
                     (ExpectedConditions.visibilityOfElementLocated(
                             AppiumBy.xpath("//*[@resource-id='background-content']")));
 

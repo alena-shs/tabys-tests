@@ -20,7 +20,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class OtpPage {
     AcsFetchOtp acsDatabaseConnections = new AcsFetchOtp();
     @Step("Enter registration OTP Code")
-    public OtpPage enterRegistrationOtpCode(AppiumDriver driver, String phoneNumber){
+    public void enterRegistrationOtpCode(AppiumDriver driver, String phoneNumber){
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 
         if (Objects.equals(mobileenv, "browserstack-ios")){
@@ -41,11 +41,10 @@ public class OtpPage {
 
             otp.get(0).sendKeys(registrationCode);
         }
-        return this;
     }
 
     @Step("Enter password restoring OTP code")
-    public OtpPage enterRestorePasswordOtpCode(AppiumDriver driver, String phoneNumber){
+    public void enterRestorePasswordOtpCode(AppiumDriver driver, String phoneNumber){
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 
         if (Objects.equals(mobileenv, "browserstack-ios")){
@@ -66,6 +65,5 @@ public class OtpPage {
 
             otp.get(0).sendKeys(restorePasswordOtp);
         }
-        return this;
     }
 }
