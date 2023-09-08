@@ -27,6 +27,7 @@ public class MobileMigrationTests extends TestBaseMobile{
         passwordRecoveryPage
                 .enterPhoneNumber(phoneNumber)
                 .initiateRegistrationOtp();
+        otpPage.enterRestorePasswordOtpCode(phoneNumber);
         passwordSetupPage
                 .setPasswordNewAccount();
         mobileCommonElements
@@ -117,6 +118,7 @@ public class MobileMigrationTests extends TestBaseMobile{
         passwordRecoveryPage
                 .enterPhoneNumber(phoneNumber)
                 .initiateRegistrationOtp();
+        otpPage.enterRestorePasswordOtpCode(phoneNumber);
         passwordSetupPage
                 .setPasswordNewAccount();
         mobileCommonElements
@@ -161,6 +163,7 @@ public class MobileMigrationTests extends TestBaseMobile{
         passwordRecoveryPage
                 .enterPhoneNumber(phoneNumber)
                 .initiateRegistrationOtp();
+        otpPage.enterRestorePasswordOtpCode(phoneNumber);
         passwordSetupPage
                 .setPasswordNewAccount();
         mobileCommonElements

@@ -26,7 +26,7 @@ public class MobileUpdateDataTest extends TestBaseMobile {
                 .enterPhoneNumber(phoneNumber)
                 .initiateRegistrationOtp();
         otpPage
-                .enterResorePasswordOtpCode(phoneNumber);
+                .enterRestorePasswordOtpCode(phoneNumber);
         passwordSetupPage
                 .setPasswordNewAccount();
         mobileCommonElements
@@ -130,7 +130,7 @@ public class MobileUpdateDataTest extends TestBaseMobile {
                 .enterPhoneNumber(phoneNumber)
                 .initiateRegistrationOtp();
         otpPage
-                .enterResorePasswordOtpCode(phoneNumber);
+                .enterRestorePasswordOtpCode(phoneNumber);
         passwordSetupPage
                 .setPasswordNewAccount();
         mobileCommonElements
