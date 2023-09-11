@@ -1,42 +1,75 @@
 package mobileapp.objects.tabys;
 
-import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.SelenideElement;
 import io.appium.java_client.AppiumBy;
+import io.appium.java_client.AppiumDriver;
 import io.qameta.allure.Step;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.time.Duration;
+import java.util.Objects;
 
-import static com.codeborne.selenide.Condition.exist;
-import static com.codeborne.selenide.Condition.interactable;
-import static com.codeborne.selenide.Selenide.$;
+import static mobileapp.tests.TestBaseMobile.mobileenv;
 
 public class HomeTab {
-    private final SelenideElement availableButton = $(AppiumBy.className("android.widget.Button")),
-            ipoBanner = $(AppiumBy.xpath("//*[@text='My Bonds/Shares']")),
-            theLastInvestmentText = $(AppiumBy.xpath("//*[@text='The last investment']")),
-            investedCounter = $(AppiumBy.xpath("//*[@text='Invested']")),
-            incomeCounter = $(AppiumBy.xpath("//*[@text='Income']")),
-            goalsCounter = $(AppiumBy.xpath("//*[@text='Goals']"));
-
+    private final static Logger logger = LoggerFactory.getLogger(HomeTab.class);
 
     @Step("Verify that tabys home page is open")
-    public HomeTab verifyPageLoaded() {
-        investedCounter.shouldHave(exist, Duration.ofSeconds(25));
-        incomeCounter.shouldHave(exist, Duration.ofSeconds(25));
-        goalsCounter.shouldHave(exist, Duration.ofSeconds(25));
-        theLastInvestmentText.shouldHave(exist, Duration.ofSeconds(25));
+    public HomeTab verifyPageLoaded(AppiumDriver driver) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+
+        if (Objects.equals(mobileenv, "browserstack-ios")){
+            logger.info("MACBOOK REQUIRED TO WRITE THE SCRIPT");
+        } else {
+            wait.until
+                    (ExpectedConditions.visibilityOfElementLocated(
+                            AppiumBy.xpath("//*[@text='Invested']")));
+
+            wait.until
+                    (ExpectedConditions.visibilityOfElementLocated(
+                            AppiumBy.xpath("//*[@text='Income']")));
+
+            wait.until
+                    (ExpectedConditions.visibilityOfElementLocated(
+                            AppiumBy.xpath("//*[@text='Goals']")));
+
+            wait.until
+                    (ExpectedConditions.visibilityOfElementLocated(
+                            AppiumBy.xpath("//*[@text='The last investment']")));
+        }
         return this;
     }
 
     @Step("Press on ETN Registration button")
-    public void etnRegistrationButtonClick() {
-        availableButton.shouldHave(Condition.exist, Duration.ofSeconds(25));
-        availableButton.click();
+    public void etnRegistrationButtonClick(AppiumDriver driver) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+
+        if (Objects.equals(mobileenv, "browserstack-ios")){
+            logger.info("MACBOOK REQUIRED TO WRITE THE SCRIPT");
+        } else {
+            WebElement availableButton = wait.until
+                    (ExpectedConditions.visibilityOfElementLocated(
+                            AppiumBy.className("android.widget.Button")));
+            availableButton.isEnabled();
+            availableButton.click();
+        }
     }
 
     @Step("Press on My bonds/shares button")
-    public void ipoBannerClick() {
-        ipoBanner.shouldHave(interactable, Duration.ofSeconds(25)).click();
+    public void ipoBannerClick(AppiumDriver driver) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+
+        if (Objects.equals(mobileenv, "browserstack-ios")){
+            logger.info("MACBOOK REQUIRED TO WRITE THE SCRIPT");
+        } else {
+            WebElement ipoBanner = wait.until
+                    (ExpectedConditions.visibilityOfElementLocated(
+                            AppiumBy.className("//*[@text='My Bonds/Shares']")));
+            ipoBanner.isEnabled();
+            ipoBanner.click();
+        }
     }
 }

@@ -6,24 +6,26 @@ import io.qameta.allure.Step;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.time.Duration;
 import java.util.List;
 import java.util.Objects;
 
-import static com.codeborne.selenide.Selenide.sleep;
 import static mobileapp.data.MobileTestData.defaultEmail;
 import static mobileapp.tests.TestBaseMobile.mobileenv;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class MobileCommonElements {
+    private final static Logger logger = LoggerFactory.getLogger(MobileCommonElements.class);
     @Step("Proceed (with the only button on the screen)")
     public MobileCommonElements tapOnAvailableButton(AppiumDriver driver) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 
         if (Objects.equals(mobileenv, "browserstack-ios")){
-            System.out.println("MACBOOK REQUIRED TO WRITE THE SCRIPT");
+            logger.info("MACBOOK REQUIRED TO WRITE THE SCRIPT");
         } else {
             WebElement availableButton = wait.until
                     (ExpectedConditions.visibilityOfElementLocated(
@@ -36,12 +38,11 @@ public class MobileCommonElements {
 
     @Step("Proceed with onboarding")
     public void proceedOnboarding(AppiumDriver driver) {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
         if (Objects.equals(mobileenv, "browserstack-ios")){
-            System.out.println("MACBOOK REQUIRED TO WRITE THE SCRIPT");
+            logger.info("MACBOOK REQUIRED TO WRITE THE SCRIPT");
         } else {
-            sleep(1000);
             WebElement onboardingNextButton = wait.until
                     (ExpectedConditions.visibilityOfElementLocated(
                             AppiumBy.xpath("//*[@resource-id='dynamic-forms-next-button']")));
@@ -55,7 +56,7 @@ public class MobileCommonElements {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 
         if (Objects.equals(mobileenv, "browserstack-ios")){
-            System.out.println("MACBOOK REQUIRED TO WRITE THE SCRIPT");
+            logger.info("MACBOOK REQUIRED TO WRITE THE SCRIPT");
         } else {
             List<WebElement> availableButtons = wait.until
                     (ExpectedConditions.visibilityOfAllElementsLocatedBy(

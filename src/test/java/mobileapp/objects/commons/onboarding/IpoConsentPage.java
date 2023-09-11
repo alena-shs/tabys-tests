@@ -1,31 +1,51 @@
 package mobileapp.objects.commons.onboarding;
 
-import com.codeborne.selenide.CollectionCondition;
-import com.codeborne.selenide.ElementsCollection;
-import com.codeborne.selenide.SelenideElement;
 import io.appium.java_client.AppiumBy;
+import io.appium.java_client.AppiumDriver;
 import io.qameta.allure.Step;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.time.Duration;
+import java.util.List;
+import java.util.Objects;
 
-import static com.codeborne.selenide.Condition.interactable;
-import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$$;
-import static mobileapp.data.MobileTestData.defaultWaitingOfSeconds;
+import static mobileapp.tests.TestBaseMobile.mobileenv;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class IpoConsentPage {
-    private final SelenideElement openButton = $(AppiumBy.xpath("//android.widget.Button[@text[starts-with(., 'Open')]]"));
-    private final ElementsCollection images = $$(AppiumBy.className("android.widget.Image"));
+    private final static Logger logger = LoggerFactory.getLogger(IpoConsentPage.class);
 
     @Step("Verify that the IPO 'Open account' page is fully loaded and has all the necessary elements (new onboarding)")
-    public IpoConsentPage verifyPageLoaded() {
-        openButton.shouldHave(visible, Duration.ofSeconds(defaultWaitingOfSeconds));
-        images.shouldHave(CollectionCondition.size(3), Duration.ofSeconds(defaultWaitingOfSeconds));
+    public IpoConsentPage verifyPageLoaded(AppiumDriver driver) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+
+        if (Objects.equals(mobileenv, "browserstack-ios")){
+            logger.info("MACBOOK REQUIRED TO WRITE THE SCRIPT");
+        } else {
+            List<WebElement> openButton = wait.until
+                    (ExpectedConditions.visibilityOfAllElementsLocatedBy(
+                            AppiumBy.xpath("//android.widget.Button[@text[starts-with(., 'Open')]]")));
+            assertEquals(1, openButton.size());
+
+            List<WebElement> images = wait.until
+                    (ExpectedConditions.visibilityOfAllElementsLocatedBy(
+                            AppiumBy.className("android.widget.Image")));
+            assertEquals(3, images.size());
+        }
         return this;
     }
 
     @Step("Submit the IPO 'Open account' page and go to the next page")
-    public void proceed() {
-        openButton.shouldHave(interactable, Duration.ofSeconds(25)).click();}
+    public void proceed(AppiumDriver driver) {
+
+        if (Objects.equals(mobileenv, "browserstack-ios")) {
+            logger.info("MACBOOK REQUIRED TO WRITE THE SCRIPT");
+        } else {
+            driver.findElement(AppiumBy.xpath("//android.widget.Button[@text[starts-with(., 'Open')]]")).click();
+        }
+    }
 }

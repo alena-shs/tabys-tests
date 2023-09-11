@@ -1,33 +1,56 @@
 package mobileapp.objects.commons.onboarding;
 
-import com.codeborne.selenide.CollectionCondition;
-import com.codeborne.selenide.ElementsCollection;
-import com.codeborne.selenide.SelenideElement;
 import io.appium.java_client.AppiumBy;
+import io.appium.java_client.AppiumDriver;
 import io.qameta.allure.Step;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.time.Duration;
+import java.util.List;
+import java.util.Objects;
 
-import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$$;
-import static mobileapp.data.MobileTestData.defaultWaitingOfSeconds;
+import static mobileapp.tests.TestBaseMobile.mobileenv;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class IncomeSourcePage {
-    private final SelenideElement
-            nextButton = $(AppiumBy.xpath("//android.widget.Button[@text='That is right, continue']"));
-    private final ElementsCollection availableButtons = $$(AppiumBy.className("android.widget.Button"));
-
+    private final static Logger logger = LoggerFactory.getLogger(IncomeSourcePage.class);
 
     @Step("Verify that the page is fully loaded and has all the necessary elements")
-    public IncomeSourcePage verifyPageLoaded() {
-        availableButtons.shouldHave(CollectionCondition.size(5), Duration.ofSeconds(defaultWaitingOfSeconds));
-        nextButton.shouldHave(visible, Duration.ofSeconds(defaultWaitingOfSeconds));
+    public IncomeSourcePage verifyPageLoaded(AppiumDriver driver) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+
+        if (Objects.equals(mobileenv, "browserstack-ios")){
+            logger.info("MACBOOK REQUIRED TO WRITE THE SCRIPT");
+        } else {
+            List<WebElement> availableButtons = wait.until
+                    (ExpectedConditions.visibilityOfAllElementsLocatedBy(
+                            AppiumBy.xpath("android.widget.Button")));
+            assertEquals(5, availableButtons.size());
+            for (int elementNumber = 0; elementNumber < availableButtons.size(); elementNumber++) {
+                assertTrue(availableButtons.get(elementNumber).isEnabled());
+            }
+
+
+        }
         return this;
     }
     @Step("Enter in the income source and get the result")
-    public void setIncomeSource(String incomeSource) {
-        SelenideElement incomeSourceButton = $(AppiumBy.xpath("//android.widget.Button[@text='"+ incomeSource +"']"));
-        incomeSourceButton.click();
+    public void setIncomeSource(AppiumDriver driver, String incomeSource) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(2));
+
+        if (Objects.equals(mobileenv, "browserstack-ios")){
+            logger.info("MACBOOK REQUIRED TO WRITE THE SCRIPT");
+        } else {
+            WebElement incomeSourceButton = wait.until
+                    (ExpectedConditions.visibilityOfElementLocated(
+                            AppiumBy.xpath("//android.widget.Button[@text='"+ incomeSource +"']")));
+            assertTrue(incomeSourceButton.isEnabled());
+            incomeSourceButton.click();
+        }
     }
 }

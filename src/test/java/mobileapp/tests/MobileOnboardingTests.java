@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 
 import static commons.OnboardingUtils.getNewPhoneNumber;
-import static commons.OnboardingUtils.getNumberForLogin;
 import static mobileapp.data.MobileTestData.*;
 
 public class MobileOnboardingTests extends TestBaseMobile {
@@ -18,18 +17,18 @@ public class MobileOnboardingTests extends TestBaseMobile {
     void etnMobileOnboarding(){
         startPage.clickReadyToStart(driver);
         tabysNavigation
-                .verifyNavigationAvailable();
+                .verifyNavigationAvailable(driver);
         homeTab
-                .verifyPageLoaded()
-                .etnRegistrationButtonClick();
+                .verifyPageLoaded(driver)
+                .etnRegistrationButtonClick(driver);
         investorSteps
-                .verifyOnboardingStepsPage()
-                .proceed();
+                .verifyOnboardingStepsPage(driver)
+                .proceed(driver);
 //        Get a new phone number for registration. All the numbers will be in the format: +74440xxxxxx. Each new number will increment the previous number by on e.
         String phoneNumber = getNewPhoneNumber(phoneNumberTemplateMobile);
         registerNumberPage
-                .enterPhoneNumber(phoneNumber)
-                .initiateRegistrationOtp();
+                .enterPhoneNumber(driver, phoneNumber)
+                .initiateRegistrationOtp(driver);
         otpPage
                 .enterRegistrationOtpCode(driver, phoneNumber);
         confirmIdentityPage.verifyPageLoaded(driver);
@@ -40,52 +39,37 @@ public class MobileOnboardingTests extends TestBaseMobile {
                 .tapOnAvailableButton(driver);
         passwordSetupPage
                 .setPasswordNewAccount(driver);
-//        mobileCommonElements
-//                .tapOnAvailableButton(driver);
-//        pinPage.setUpPinFirst(defaultPinCode)
-//                .repeatPin(defaultPinCode);
+        mobileCommonElements
+                .tapOnAvailableButton(driver);
+        pinPage.setUpPinFirst(driver, defaultPinCode)
+                .repeatPin(driver, defaultPinCode);
 //                // Personal information
-//        iinPage
-//                .verifyPageLoaded()
-//                .setIin(defaultIin)
-//                .verifyIinFound();
-//        mobileCommonElements
-//                .proceedOnboarding(driver);
-//                // Income source
-//        incomePage
-//                .verifyPageLoaded()
-//                .setIncomeSource(defaultIncomeSource);
-//        mobileCommonElements
-//                .proceedOnboarding(driver);
-//        userConsentPage
-//                .verifyPageLoaded();
-//        mobileCommonElements
-//                .proceedOnboarding(driver);
-//        photoIntroPage
-//                .verifyPageLoaded();
-//        mobileCommonElements
-//                .proceedOnboarding(driver);
-//        photoSelfieRulePage
-//                .verifyPageLoaded();
-//        mobileCommonElements
-//                .proceedOnboarding(driver);
-//        photoSelfiePage.initiateSelfie();
-//        photoModal.verifyPageLoaded();
-
-
-
-//        etnIpoOnboarding
-//                // Identification of the person (Start identification)
-//                .pressOnAvailableButton()
-//                // Selfie (selfie tips page)
-//                .pressOnAvailableButton()
-//                // Selfie (Take a photo - Initiate modal)
-//                .pressOnAvailableButton();
-//        String[] sessionIds = AcsFetchOtp.userSessionIds(phoneNumber);
-//        ggTokenMobile = sessionIds[0];
-//        sessionIdMobile = sessionIds[1];
-//        System.out.println("Gg token:" + ggTokenMobile + " / Session ID: " +sessionIdMobile);
-//        selfiePage.sendSelfie(ggTokenMobile, sessionIdMobile);
+        iinPage
+                .verifyPageLoaded(driver)
+                .setIin(driver, defaultIin)
+                .verifyIinFound(driver);
+        mobileCommonElements
+                .proceedOnboarding(driver);
+                // Income source
+        incomePage
+                .verifyPageLoaded(driver)
+                .setIncomeSource(driver, defaultIncomeSource);
+        mobileCommonElements
+                .proceedOnboarding(driver);
+        userConsentPage
+                .verifyPageLoaded(driver);
+        mobileCommonElements
+                .proceedOnboarding(driver);
+        photoIntroPage
+                .verifyPageLoaded(driver);
+        mobileCommonElements
+                .proceedOnboarding(driver);
+        photoSelfieRulePage
+                .verifyPageLoaded(driver);
+        mobileCommonElements
+                .proceedOnboarding(driver);
+        photoSelfiePage.verifyPageLoaded(driver).initiateSelfie(driver);
+        photoModal.verifyPageLoaded(driver);
     }
 
     @Test
@@ -98,18 +82,18 @@ public class MobileOnboardingTests extends TestBaseMobile {
         startPage
                 .clickReadyToStart(driver);
         tabysNavigation
-                .verifyNavigationAvailable();
+                .verifyNavigationAvailable(driver);
         homeTab
-                .verifyPageLoaded()
-                .ipoBannerClick();
+                .verifyPageLoaded(driver)
+                .ipoBannerClick(driver);
         investorSteps
-                .verifyOnboardingStepsPage()
-                .proceed();
+                .verifyOnboardingStepsPage(driver)
+                .proceed(driver);
 //        Get a new phone number for registration. All the numbers will be in the format: +74440xxxxxx. Each new number will increment the previous number by one.
         String phoneNumber = getNewPhoneNumber(phoneNumberTemplateMobile);
         registerNumberPage
-                .enterPhoneNumber(phoneNumber)
-                .initiateRegistrationOtp();
+                .enterPhoneNumber(driver, phoneNumber)
+                .initiateRegistrationOtp(driver);
         otpPage.enterRegistrationOtpCode(driver, phoneNumber);
         confirmIdentityPage.verifyPageLoaded(driver);
         mobileCommonElements.tapOnAvailableButton(driver);
@@ -119,93 +103,37 @@ public class MobileOnboardingTests extends TestBaseMobile {
                 .tapOnAvailableButton(driver);
         passwordSetupPage
                 .setPasswordNewAccount(driver);
-//        mobileCommonElements
-//                .tapOnAvailableButton(driver);
-//        pinPage
-//                .setUpPinFirst(defaultPinCode)
-//                .repeatPin(defaultPinCode);
-//        // Personal information
-//        iinPage
-//                .verifyPageLoaded()
-//                .setIin(defaultIin)
-//                .verifyIinFound();
-//        mobileCommonElements
-//                .proceedOnboarding(driver);
-//        incomePage
-//                .verifyPageLoaded()
-//                .setIncomeSource(defaultIncomeSource);
-//        mobileCommonElements
-//                .proceedOnboarding(driver);
-//        userConsentPage
-//                .verifyPageLoaded();
-//        mobileCommonElements
-//                .proceedOnboarding(driver);
-//        photoIntroPage
-//                .verifyPageLoaded();
-//        mobileCommonElements
-//                .proceedOnboarding(driver);
-//        photoSelfieRulePage
-//                .verifyPageLoaded();
-//        mobileCommonElements
-//                .proceedOnboarding(driver);
-//        photoSelfiePage.initiateSelfie();
-//        photoModal.verifyPageLoaded();
-
-
-
-//        etnIpoOnboarding
-//                // Identification of the person (Start identification)
-//                .pressOnAvailableButton()
-//                // Selfie (selfie tips page)
-//                .pressOnAvailableButton()
-//                // Selfie (Take a photo - Initiate modal)
-//                .pressOnAvailableButton();
-//        String[] sessionIds = AcsFetchOtp.userSessionIds(phoneNumber);
-//        ggTokenMobile = sessionIds[0];
-//        sessionIdMobile = sessionIds[1];
-//        System.out.println("Gg token:" + ggTokenMobile + " / Session ID: " +sessionIdMobile);
-//        selfiePage.sendSelfie(ggTokenMobile, sessionIdMobile);
-    }
-
-    @Test
-    @Tags({
-            @Tag("mobile"),
-            @Tag("tabys"),
-            @Tag("mobile")
-    })
-    void etnMobileLogin(){
-        startPage
-                .clickImAlreadyRegistered(driver);
-//        Get a new phone number for registration. All the numbers will be in the format: +74440xxxxxx. Each new number will increment the previous number by one.
-        String phoneNumber = getNumberForLogin(phoneNumberTemplateMobile);
-//        System.out.println(phoneNumber.substring(1));
-        loginNumberPage.enterPhoneNumber(driver, phoneNumber, defaultPassword)
-                .proceed(driver);
+        mobileCommonElements
+                .tapOnAvailableButton(driver);
         pinPage
-                .setUpPinFirst(defaultPinCode)
-                .repeatPin(defaultPinCode);
-//        mainPage
-//                .etnRegistrationButtonClick();
-//        investorSteps
-//                .verifyOnboardingStepsPage()
-//                .proceed();
-////        Billie - selfie page
-//        etnIpoOnboarding
-//                .pressOnAvailableButton()
-//                .pressOnAvailableButton()
-////                Selfie requirements page
-//                .pressOnAvailableButton()
-////                Take a selfie button
-//                .pressOnAvailableButton();
-//        String[] sessionIds = AcsFetchOtp.userSessionIds(phoneNumber);
-//        ggTokenMobile = sessionIds[0];
-//        sessionIdMobile = sessionIds[1];
-//        System.out.println("Gg token:" + ggTokenMobile + " / Session ID: " +sessionIdMobile);
-//        photoPage.sendSelfie(ggTokenMobile, sessionIdMobile);
-
-        // TODO: startCamera?
-        // TODO: Why modals are not visible?
-
+                .setUpPinFirst(driver, defaultPinCode)
+                .repeatPin(driver, defaultPinCode);
+//        // Personal information
+        iinPage
+                .verifyPageLoaded(driver)
+                .setIin(driver, defaultIin)
+                .verifyIinFound(driver);
+        mobileCommonElements
+                .proceedOnboarding(driver);
+        incomePage
+                .verifyPageLoaded(driver)
+                .setIncomeSource(driver, defaultIncomeSource);
+        mobileCommonElements
+                .proceedOnboarding(driver);
+        userConsentPage
+                .verifyPageLoaded(driver);
+        mobileCommonElements
+                .proceedOnboarding(driver);
+        photoIntroPage
+                .verifyPageLoaded(driver);
+        mobileCommonElements
+                .proceedOnboarding(driver);
+        photoSelfieRulePage
+                .verifyPageLoaded(driver);
+        mobileCommonElements
+                .proceedOnboarding(driver);
+        photoSelfiePage.verifyPageLoaded(driver).initiateSelfie(driver);
+        photoModal.verifyPageLoaded(driver);
     }
 
 }

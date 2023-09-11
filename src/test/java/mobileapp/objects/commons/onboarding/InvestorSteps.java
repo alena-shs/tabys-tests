@@ -1,34 +1,60 @@
 package mobileapp.objects.commons.onboarding;
 
-import com.codeborne.selenide.SelenideElement;
 import io.appium.java_client.AppiumBy;
+import io.appium.java_client.AppiumDriver;
 import io.qameta.allure.Step;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.time.Duration;
+import java.util.List;
+import java.util.Objects;
 
-import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selenide.$;
-import static mobileapp.data.MobileTestData.defaultWaitingOfSeconds;
+import static mobileapp.tests.TestBaseMobile.mobileenv;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class InvestorSteps {
     //TODO Investor steps for Tabys and IPO
-    SelenideElement
-            header = $(AppiumBy.xpath("//*[@text='Your investor status']")),
-            stepInstallTabys = $(AppiumBy.xpath("//*[@text='Install Tabys']")),
-            stepLogin = $(AppiumBy.xpath("//*[@text='Login to the application']"));
-    SelenideElement nextButton = $(AppiumBy.xpath("//android.widget.Button[@text='Continue']"));
+    private final static Logger logger = LoggerFactory.getLogger(InvestorSteps.class);
 
     @Step("Verify that all ETN investor steps are showing correct steps")
-    public InvestorSteps  verifyOnboardingStepsPage() {
+    public InvestorSteps  verifyOnboardingStepsPage(AppiumDriver driver) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 
-        header.shouldHave(visible, Duration.ofSeconds(defaultWaitingOfSeconds)).click();
-        stepInstallTabys.shouldHave(visible, Duration.ofSeconds(defaultWaitingOfSeconds)).click();
-        stepLogin.shouldHave(visible, Duration.ofSeconds(defaultWaitingOfSeconds)).click();
+        if (Objects.equals(mobileenv, "browserstack-ios")){
+            logger.info("MACBOOK REQUIRED TO WRITE THE SCRIPT");
+        } else {
+            wait.until
+                    (ExpectedConditions.visibilityOfElementLocated(
+                            AppiumBy.xpath("//*[@text='Your investor status']")));
+            wait.until
+                    (ExpectedConditions.visibilityOfElementLocated(
+                            AppiumBy.xpath("//*[@text='Install Tabys']")));
+            wait.until
+                    (ExpectedConditions.visibilityOfElementLocated(
+                            AppiumBy.xpath("//*[@text='Login to the application']")));
+        }
         return this;
     }
 
     @Step("Proceed to the onboarding")
-    public void proceed(){
-        nextButton.click();
+    public void proceed(AppiumDriver driver){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+
+        if (Objects.equals(mobileenv, "browserstack-ios")){
+            logger.info("MACBOOK REQUIRED TO WRITE THE SCRIPT");
+        } else {
+            List<WebElement> buttons = wait.until
+                    (ExpectedConditions.visibilityOfAllElementsLocatedBy(
+                            AppiumBy.xpath("android.widget.Button")));
+            assertEquals(1, buttons.size());
+            assertTrue(buttons.get(0).isEnabled());
+
+            buttons.get(0).click();
+        }
     }
 }

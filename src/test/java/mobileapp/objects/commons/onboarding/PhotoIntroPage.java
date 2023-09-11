@@ -1,22 +1,41 @@
 package mobileapp.objects.commons.onboarding;
 
-import com.codeborne.selenide.SelenideElement;
 import io.appium.java_client.AppiumBy;
+import io.appium.java_client.AppiumDriver;
 import io.qameta.allure.Step;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.time.Duration;
+import java.util.List;
+import java.util.Objects;
 
-import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selenide.$;
-import static mobileapp.data.MobileTestData.defaultWaitingOfSeconds;
+import static mobileapp.tests.TestBaseMobile.mobileenv;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class PhotoIntroPage {
-    private final SelenideElement header = $(AppiumBy.xpath("//*[@text='Identification of the person']")),
-            nextButton = $(AppiumBy.xpath("//android.widget.Button[@text='Start identification']"));
+    private final static Logger logger = LoggerFactory.getLogger(PhotoIntroPage.class);
     @Step("Verify that the photo section introduction page is fully loaded and has all the necessary elements")
-    public PhotoIntroPage verifyPageLoaded() {
-        header.shouldHave(visible, Duration.ofSeconds(defaultWaitingOfSeconds));
-        nextButton.shouldHave(visible, Duration.ofSeconds(defaultWaitingOfSeconds));
-        return this;
+    public void verifyPageLoaded(AppiumDriver driver) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+
+        if (Objects.equals(mobileenv, "browserstack-ios")){
+            logger.info("MACBOOK REQUIRED TO WRITE THE SCRIPT");
+        } else {
+            List<WebElement> header = wait.until
+                    (ExpectedConditions.visibilityOfAllElementsLocatedBy(
+                            AppiumBy.xpath("//*[@text='Identification of the person']")));
+            assertEquals(1, header.size());
+
+            List<WebElement> button = wait.until
+                    (ExpectedConditions.visibilityOfAllElementsLocatedBy(
+                            AppiumBy.xpath("//android.widget.Button[@text='Start identification']")));
+            assertEquals(1, button.size());
+            assertTrue(button.get(0).isEnabled());
+        }
     }
 }

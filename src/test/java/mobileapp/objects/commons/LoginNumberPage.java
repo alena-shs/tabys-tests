@@ -6,6 +6,8 @@ import io.qameta.allure.Step;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.time.Duration;
 import java.util.List;
@@ -17,12 +19,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class LoginNumberPage {
+    private final static Logger logger = LoggerFactory.getLogger(LoginNumberPage.class);
     @Step("Enter credentials")
     public LoginNumberPage enterPhoneNumber(AppiumDriver driver, String phoneNumber, String password) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 
-        if (Objects.equals(mobileenv, "browserstack-ios")) {
-            System.out.println("MACBOOK REQUIRED TO WRITE THE SCRIPT");
+        if (Objects.equals(mobileenv, "browserstack-ios")){
+            logger.info("MACBOOK REQUIRED TO WRITE THE SCRIPT");
         } else {
 
             List<WebElement> inputFields = wait.until
@@ -41,9 +44,15 @@ public class LoginNumberPage {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 
         if (Objects.equals(mobileenv, "browserstack-ios")){
-
-            System.out.println("MACBOOK REQUIRED TO WRITE THE SCRIPT");
+            logger.info("MACBOOK REQUIRED TO WRITE THE SCRIPT");
         } else {
+            List<WebElement> buttons = wait.until
+                    (ExpectedConditions.visibilityOfAllElementsLocatedBy(
+                            AppiumBy.xpath("android.widget.Button")));
+            assertEquals(1, buttons.size());
+            assertTrue(buttons.get(0).isEnabled());
+
+            buttons.get(0).click();
 
             WebElement proceedButton = wait.until(
                     ExpectedConditions.visibilityOfElementLocated
@@ -61,7 +70,7 @@ public class LoginNumberPage {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 
         if (Objects.equals(mobileenv, "browserstack-ios")){
-            System.out.println("MACBOOK REQUIRED TO WRITE THE SCRIPT");
+            logger.info("MACBOOK REQUIRED TO WRITE THE SCRIPT");
         } else {
 
             WebElement forgotPasswordButton = wait.until

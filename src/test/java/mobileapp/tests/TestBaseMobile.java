@@ -17,7 +17,6 @@ import mobileapp.drivers.MobileDriverLocal;
 import mobileapp.drivers.NewBrowserstackDriver;
 import mobileapp.objects.commons.*;
 import mobileapp.objects.commons.onboarding.InvestorSteps;
-import mobileapp.objects.commons.onboarding.OnboardingMigrationPage;
 import mobileapp.objects.commons.onboarding.*;
 import mobileapp.objects.ipo.MyBondsSharesMainPage;
 import mobileapp.objects.ipo.MyCardsPage;
@@ -33,7 +32,8 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.closeWebDriver;
+import static com.codeborne.selenide.Selenide.sessionId;
 import static mobileapp.drivers.NewBrowserstackDriver.getAppiumServerUrl;
 import static mobileapp.helpers.MobileUtils.changeDriverContextToNative;
 import static mobileapp.helpers.MobileUtils.changeDriverContextToWeb;
@@ -83,7 +83,6 @@ public class TestBaseMobile {
     ////////////////////// ONBOARDING IPO AND ETN
     //////////////////////////////////////////////////////////////////
     InvestorSteps investorSteps = new InvestorSteps();
-    OnboardingMigrationPage onboardingMigrationPage = new OnboardingMigrationPage();
 
     IinPage iinPage = new IinPage();
     IncomeSourcePage incomePage = new IncomeSourcePage();
@@ -131,9 +130,6 @@ public class TestBaseMobile {
     //////////////////////////////////////////////////////////////////
 
     EtnPersonalInformation etnPersonalInformation = new EtnPersonalInformation();
-
-    public static AuthBrowserstackConfig authConfig = ConfigFactory.create(AuthBrowserstackConfig.class,
-            System.getProperties());
 
     @BeforeAll
     public static void setup() {

@@ -1,31 +1,51 @@
 package mobileapp.objects.commons.onboarding;
 
-import com.codeborne.selenide.SelenideElement;
 import io.appium.java_client.AppiumBy;
+import io.appium.java_client.AppiumDriver;
 import io.qameta.allure.Step;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.time.Duration;
+import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.Objects;
 
-import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selenide.$;
-import static mobileapp.data.MobileTestData.defaultWaitingOfSeconds;
+import static mobileapp.tests.TestBaseMobile.mobileenv;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class PhotoFinishedPage {
-    private final SelenideElement header = $(AppiumBy.xpath("//*[@text='Identification completed']")),
-            nextButton = $(AppiumBy.xpath("//android.widget.Button[@text='Continue registration']")),
-            doneButton = $(AppiumBy.xpath("//android.widget.Button[@text='Done']"));
+    private final static Logger logger = LoggerFactory.getLogger(PhotoFinishedPage.class);
     @Step("Verify that the 'Identification completed' page is fully loaded and has all the necessary elements")
-    public PhotoFinishedPage verifyPageLoaded() {
-        header.shouldHave(visible, Duration.ofSeconds(defaultWaitingOfSeconds));
-        nextButton.shouldHave(visible, Duration.ofSeconds(defaultWaitingOfSeconds));
+    public PhotoFinishedPage verifyPageLoaded(AppiumDriver driver) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+        if (Objects.equals(mobileenv, "browserstack-ios")){
+            logger.info("MACBOOK REQUIRED TO WRITE THE SCRIPT");
+        } else {
+            List<WebElement> header = wait.until
+                    (ExpectedConditions.visibilityOfAllElementsLocatedBy(
+                            AppiumBy.xpath("//*[@text='Identification completed']")));
+            assertEquals(1, header.size());
+
+            List<WebElement> nextButton = wait.until
+                    (ExpectedConditions.visibilityOfAllElementsLocatedBy(
+                            AppiumBy.xpath("//android.widget.Button[@text='Start identification']")));
+            assertEquals(1, nextButton.size());
+            assertTrue(nextButton.get(0).isEnabled());
+
+        }
         return this;
     }
     @Step("Check if onboarding is stuck. If YES, keep pressing on 'Done' button. WARNING: This is a bug that verification gets stuck sometimes. Please remove this step once the bug is fixed")
-    public void checkOnboardingStuck() {
+    public void checkOnboardingStuck(AppiumDriver driver) {
         try {
-            while (doneButton.exists()) {
-                doneButton.click();
+            while (driver.findElements(AppiumBy.xpath("//android.widget.Button[@text='Done']")).size() != 0) {
+                driver.findElements(AppiumBy.xpath("//android.widget.Button[@text='Done']")).get(0).click();
             }
         } catch (NoSuchElementException e){
             System.out.println(e.getMessage());

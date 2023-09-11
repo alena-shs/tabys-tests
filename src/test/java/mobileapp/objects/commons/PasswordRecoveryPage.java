@@ -6,24 +6,28 @@ import io.qameta.allure.Step;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.time.Duration;
+import java.util.List;
 import java.util.Objects;
 
 import static mobileapp.tests.TestBaseMobile.mobileenv;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class PasswordRecoveryPage {
+    private final static Logger logger = LoggerFactory.getLogger(PasswordRecoveryPage.class);
     @Step("Enter in the phone number for recovery")
     public PasswordRecoveryPage enterPhoneNumber(AppiumDriver driver, String phoneNumber) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 
         if (Objects.equals(mobileenv, "browserstack-ios")){
-            System.out.println("MACBOOK REQUIRED TO WRITE THE SCRIPT");
+            logger.info("MACBOOK REQUIRED TO WRITE THE SCRIPT");
         } else {
 
-            WebElement header = wait.until(
-                    ExpectedConditions.visibilityOfElementLocated(
+            wait.until(ExpectedConditions.visibilityOfElementLocated(
                             AppiumBy.xpath("//*[@text='Phone number']")));
 
             WebElement inputField = wait.until(
@@ -44,14 +48,15 @@ public class PasswordRecoveryPage {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 
         if (Objects.equals(mobileenv, "browserstack-ios")){
-            System.out.println("MACBOOK REQUIRED TO WRITE THE SCRIPT");
+            logger.info("MACBOOK REQUIRED TO WRITE THE SCRIPT");
         } else {
+            List<WebElement> buttons = wait.until
+                    (ExpectedConditions.visibilityOfAllElementsLocatedBy(
+                            AppiumBy.xpath("android.widget.Button")));
+            assertEquals(1, buttons.size());
+            assertTrue(buttons.get(0).isEnabled());
 
-            WebElement button = wait.until
-                    (ExpectedConditions.visibilityOfElementLocated(
-                            AppiumBy.className("android.widget.Button")));
-            assertTrue(button.isEnabled());
-            button.click();
+            buttons.get(0).click();
         }
     }
 }

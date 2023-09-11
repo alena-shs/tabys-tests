@@ -1,44 +1,75 @@
 package mobileapp.objects.commons.onboarding;
 
-import com.codeborne.selenide.CollectionCondition;
-import com.codeborne.selenide.ElementsCollection;
-import com.codeborne.selenide.SelenideElement;
 import io.appium.java_client.AppiumBy;
+import io.appium.java_client.AppiumDriver;
 import io.qameta.allure.Step;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.time.Duration;
+import java.util.List;
+import java.util.Objects;
 
-import static com.codeborne.selenide.Condition.not;
-import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$$;
-import static mobileapp.data.MobileTestData.defaultWaitingOfSeconds;
+import static mobileapp.tests.TestBaseMobile.mobileenv;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class IinPage {
-    private final SelenideElement availableInput = $(AppiumBy.className("android.widget.EditText")),
-            header = $(AppiumBy.xpath("//*[@text='Personal information']")),
-            countryFoundText =  $(AppiumBy.xpath("//*[@text='Kazakhstan']")),
-            nextButton = $(AppiumBy.xpath("//*[@resource-id='dynamic-forms-next-button']")),
-    citizenOfKazakhstanButton = $(AppiumBy.xpath("//*[@text='I am a citizen of Kazakhstan']"));
-    private final ElementsCollection inputFields = $$(AppiumBy.className("android.widget.EditText"));
+    private final static Logger logger = LoggerFactory.getLogger(IinPage.class);
 
     @Step("Verify that the IIN input page is fully loaded and has all the necessary elements")
-    public IinPage verifyPageLoaded() {
-        inputFields.shouldHave(CollectionCondition.size(1), Duration.ofSeconds(defaultWaitingOfSeconds));
-        header.shouldHave(visible, Duration.ofSeconds(defaultWaitingOfSeconds));
-        nextButton.shouldHave(visible, Duration.ofSeconds(defaultWaitingOfSeconds));
+    public IinPage verifyPageLoaded(AppiumDriver driver) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+
+        if (Objects.equals(mobileenv, "browserstack-ios")){
+            logger.info("MACBOOK REQUIRED TO WRITE THE SCRIPT");
+        } else {
+            wait.until
+                    (ExpectedConditions.visibilityOfElementLocated(
+                            AppiumBy.xpath("//*[@text='Personal information']")));
+
+            List<WebElement> inputFields = wait.until
+                    (ExpectedConditions.visibilityOfAllElementsLocatedBy(
+                            AppiumBy.xpath("android.widget.Button")));
+            assertEquals(1, inputFields.size());
+            assertTrue(inputFields.get(0).isEnabled());
+
+            List<WebElement> buttons = wait.until
+                    (ExpectedConditions.visibilityOfAllElementsLocatedBy(
+                            AppiumBy.xpath("android.widget.EditText")));
+            assertEquals(1, buttons.size());
+            assertTrue(buttons.get(0).isEnabled());
+
+            buttons.get(0).click();
+        }
         return this;
     }
 
     @Step("Enter in the IIN")
-    public IinPage setIin(String iin) {
-        availableInput.sendKeys(iin);
+    public IinPage setIin(AppiumDriver driver, String iin) {
+        if (Objects.equals(mobileenv, "browserstack-ios")){
+            logger.info("MACBOOK REQUIRED TO WRITE THE SCRIPT");
+        } else {
+            driver.findElement(AppiumBy.xpath("android.widget.EditText")).sendKeys(iin);
+        }
         return this;
     }
 
     @Step("Verify that IIN is found")
-    public void verifyIinFound() {
-        countryFoundText.shouldHave(visible, Duration.ofSeconds(defaultWaitingOfSeconds));
-        citizenOfKazakhstanButton.shouldHave(not(visible), Duration.ofSeconds(defaultWaitingOfSeconds));
+    public void verifyIinFound(AppiumDriver driver) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        if (Objects.equals(mobileenv, "browserstack-ios")){
+            logger.info("MACBOOK REQUIRED TO WRITE THE SCRIPT");
+        } else {
+            wait.until
+                    (ExpectedConditions.invisibilityOfAllElements(driver.findElement(
+                            AppiumBy.xpath("//*[@text='I am a citizen of Kazakhstan']"))));
+            wait.until
+                    (ExpectedConditions.visibilityOfElementLocated(
+                            AppiumBy.xpath("//*[@text='Kazakhstan']")));
+        }
     }
 }

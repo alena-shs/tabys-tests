@@ -1,43 +1,64 @@
 package mobileapp.objects.commons.onboarding;
 
-import com.codeborne.selenide.SelenideElement;
-import commons.api.specs.Specs;
 import io.appium.java_client.AppiumBy;
+import io.appium.java_client.AppiumDriver;
 import io.qameta.allure.Step;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.time.Duration;
+import java.util.List;
+import java.util.Objects;
 
-import static com.codeborne.selenide.Condition.interactable;
-import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selenide.$;
-import static commons.CommonUtils.preparePhotoBody;
-import static commons.helpers.CustomAllureListener.withCustomTemplates;
-import static io.qameta.allure.Allure.step;
-import static io.restassured.RestAssured.given;
-import static mobileapp.data.MobileTestData.*;
-import static mobileapp.tests.TestBaseMobile.photoBodyTabys;
+import static mobileapp.tests.TestBaseMobile.mobileenv;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class PhotoSelfiePage {
-    private final SelenideElement
-            addSelfieButton = $(AppiumBy.xpath("//android.widget.Button[@text='Add selfie']")),
-            photoField = $(AppiumBy.xpath("//android.view.View[@resource-id='photo-clickable']")),
-            nextButton = $(AppiumBy.xpath("//android.widget.Button[@text='Continue']"));
+    private final static Logger logger = LoggerFactory.getLogger(PhotoSelfiePage.class);
 
     @Step("Verify that the selfie page is fully loaded and has all the necessary elements")
-    public PhotoSelfiePage verifyPageLoaded() {
-        addSelfieButton.shouldHave(visible, Duration.ofSeconds(defaultWaitingOfSeconds));
-        photoField.shouldHave(visible, Duration.ofSeconds(defaultWaitingOfSeconds));
-        nextButton.shouldHave(visible, Duration.ofSeconds(defaultWaitingOfSeconds));
+    public PhotoSelfiePage verifyPageLoaded(AppiumDriver driver) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+        if (Objects.equals(mobileenv, "browserstack-ios")){
+            logger.info("MACBOOK REQUIRED TO WRITE THE SCRIPT");
+        } else {
+            List<WebElement> addSelfieButton = wait.until
+                    (ExpectedConditions.visibilityOfAllElementsLocatedBy(
+                            AppiumBy.xpath("//android.widget.Button[@text='Add selfie']")));
+            assertEquals(1, addSelfieButton.size());
+            assertTrue(addSelfieButton.get(0).isEnabled());
+
+            List<WebElement> photoField = wait.until
+                    (ExpectedConditions.visibilityOfAllElementsLocatedBy(
+                            AppiumBy.xpath("//android.view.View[@resource-id='photo-clickable']")));
+            assertEquals(1, photoField.size());
+
+            List<WebElement> nextButton = wait.until
+                    (ExpectedConditions.visibilityOfAllElementsLocatedBy(
+                            AppiumBy.xpath("//android.widget.Button[@text='Continue']")));
+            assertEquals(1, nextButton.size());
+            assertTrue(nextButton.get(0).isEnabled());
+        }
         return this;
     }
 
     @Step("Submit and go to the next page")
-    public void initiateSelfie() {
-        addSelfieButton.shouldHave(interactable, Duration.ofSeconds(defaultWaitingOfSeconds)).click();
+    public void initiateSelfie(AppiumDriver driver) {
+
+        if (Objects.equals(mobileenv, "browserstack-ios")){
+            logger.info("MACBOOK REQUIRED TO WRITE THE SCRIPT");
+        } else {
+            driver.findElement(AppiumBy.xpath("//android.widget.Button[@text='Add selfie']")).click();
+        }
     }
 
 
-//    An attempt to send photo via API. Returns 200, but useless in the test. You can use it for reference.
+//    An attempt to send photo via API. Returns 200, but useless in the test. Not deleting this chunk of code as you can use it for reference.
 
 //    @Step("Send photo")
 //    public PhotoSelfiePage sendSelfie(String Gg_session, String Session_id) {
