@@ -24,7 +24,7 @@ public class StartPage {
         background.shouldHave(visible, Duration.ofSeconds(defaultWaitingOfSeconds));
         availableButtons.shouldHave(size(2), Duration.ofSeconds(defaultWaitingOfSeconds));
         while (availableButtons.size()==2){
-            availableButtons.get(1).click();
+            availableButtons.get(0).click();
         }
     }
 
