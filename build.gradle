@@ -96,19 +96,19 @@ tasks.register('tabys_test', Test) {
     }
 }
 
-tasks.register('ipo_test', Test) {
+task ipo_test(type: Test) {
     useJUnitPlatform {
         includeTags("ipo")
     }
 }
 
-tasks.register('sample_web', Test) {
+task sample_web(type: Test) {
     useJUnitPlatform {
         includeTags("sample")
     }
 }
 
-tasks.register('sample_mobile', Test) {
+task sample_mobile(type: Test) {
     useJUnitPlatform {
         includeTags("sample-mobile")
     }
