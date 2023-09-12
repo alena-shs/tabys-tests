@@ -13,6 +13,7 @@ import java.time.Duration;
 import java.util.List;
 import java.util.Objects;
 
+import static com.codeborne.selenide.Selenide.sleep;
 import static mobileapp.tests.TestBaseMobile.mobileenv;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -30,12 +31,14 @@ public class PasswordRecoveryPage {
             wait.until(ExpectedConditions.visibilityOfElementLocated(
                             AppiumBy.xpath("//*[@text='Phone number']")));
 
-            WebElement inputField = wait.until(
-                    ExpectedConditions.visibilityOfElementLocated(
+            sleep(1000);
+            wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(
                             AppiumBy.className("android.widget.EditText")));
-            assertTrue(inputField.isEnabled());
+            assertEquals(1, driver.findElements(AppiumBy.className("android.widget.EditText")).size());
+            assertTrue(driver.findElement(AppiumBy.className("android.widget.EditText")).isEnabled());
 
-            inputField.click();
+            driver.findElement(AppiumBy.className("android.widget.EditText")).click();
+            sleep(2000);
             wait.until(ExpectedConditions.visibilityOfElementLocated(
                     AppiumBy.className("android.widget.EditText")))
                     .sendKeys(phoneNumber.substring(1));
@@ -52,7 +55,7 @@ public class PasswordRecoveryPage {
         } else {
             List<WebElement> buttons = wait.until
                     (ExpectedConditions.visibilityOfAllElementsLocatedBy(
-                            AppiumBy.xpath("android.widget.Button")));
+                            AppiumBy.className("android.widget.Button")));
             assertEquals(1, buttons.size());
             assertTrue(buttons.get(0).isEnabled());
 

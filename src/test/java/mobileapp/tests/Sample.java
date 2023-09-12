@@ -2,6 +2,7 @@ package mobileapp.tests;
 
 import commons.database.config.DatabaseConnectConfig;
 import org.aeonbits.owner.ConfigFactory;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,6 +14,7 @@ public class Sample extends TestBaseMobile {
     public static DatabaseConnectConfig databaseConnectConfig = ConfigFactory.create(DatabaseConnectConfig.class,
             System.getProperties());
 
+    @Tag("mobile")
     @Test
     public void sampleTest(){
         System.out.println("Acs test URL: " + databaseConnectConfig.acsTestUrl());

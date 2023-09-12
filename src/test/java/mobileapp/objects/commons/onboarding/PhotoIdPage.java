@@ -41,7 +41,7 @@ public class PhotoIdPage {
 
             List<WebElement> availablePhotoFields = wait.until
                     (ExpectedConditions.visibilityOfAllElementsLocatedBy(
-                            AppiumBy.xpath("///android.view.View[@resource-id='photo-clickable']")));
+                            AppiumBy.xpath("//android.view.View[@resource-id='photo-clickable']")));
             assertEquals(2, availablePhotoFields.size());
         }
     }

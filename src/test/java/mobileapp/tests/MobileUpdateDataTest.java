@@ -125,6 +125,7 @@ public class MobileUpdateDataTest extends TestBaseMobile {
         String phoneNumber = OnboardingUtils.getTabysNumber();
         startPage
                 .clickImAlreadyRegistered(driver);
+        //
         loginNumberPage
                 .tapForgotPassword(driver);
         passwordRecoveryPage
@@ -134,10 +135,13 @@ public class MobileUpdateDataTest extends TestBaseMobile {
                 .enterRestorePasswordOtpCode(driver, phoneNumber);
         passwordSetupPage
                 .setPasswordNewAccount(driver);
+        //
         mobileCommonElements
                 .tapOnAvailableButton(driver);
+        //
         pinPage
                 .setUpPinFirst(driver, defaultPinCode);
+        //
         homeTab
                 .verifyPageLoaded(driver);
         tabysNavigation
@@ -148,6 +152,7 @@ public class MobileUpdateDataTest extends TestBaseMobile {
         etnPersonalInformation
                 .verifyPageLoaded(driver)
                 .tapUpdateData(driver);
+        //
         iinPage
                 .verifyPageLoaded(driver)
                 .verifyIinFound(driver);
@@ -169,14 +174,17 @@ public class MobileUpdateDataTest extends TestBaseMobile {
                 .verifyPageLoaded(driver);
         mobileCommonElements
                 .proceedOnboarding(driver);
+        //
         photoSelfiePage
                 .verifyPageLoaded(driver);
+        //
         mobileCommonElements
                 .proceedOnboarding(driver);
         photoIdPage
                 .verifyPageLoaded(driver);
         mobileCommonElements
                 .proceedOnboarding(driver);
+        //
         mobileCommonElements
                 .tapOnAvailableButton(driver);
         photoFinishedPage
@@ -184,6 +192,7 @@ public class MobileUpdateDataTest extends TestBaseMobile {
                 .checkOnboardingStuck(driver);
         mobileCommonElements
                 .tapOnAvailableButton(driver);
+        //
         cardIntroPage
                 .verifyPageLoaded(driver);
         mobileCommonElements
@@ -192,6 +201,7 @@ public class MobileUpdateDataTest extends TestBaseMobile {
                 .verifyPageLoaded(driver);
         mobileCommonElements
                 .proceedOnboarding(driver);
+        //
         cardBasePage
                 .verifyPageLoaded(driver);
         mobileCommonElements

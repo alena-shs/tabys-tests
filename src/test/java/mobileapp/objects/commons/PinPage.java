@@ -32,6 +32,8 @@ public class PinPage {
                     (ExpectedConditions.visibilityOfElementLocated(
                             AppiumBy.xpath("//*[@text='Come up with 4 digit pin code to log in']")));
 
+            sleep(2000);
+
             List<WebElement> input = wait.until
                     (ExpectedConditions.visibilityOfAllElementsLocatedBy(
                             (AppiumBy.className("android.widget.EditText"))));

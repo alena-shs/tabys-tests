@@ -30,14 +30,14 @@ public class RegisterNumberPage {
 
             List<WebElement> inputFields = wait.until
                     (ExpectedConditions.visibilityOfAllElementsLocatedBy(
-                            AppiumBy.xpath("android.widget.EditText")));
+                            AppiumBy.className("android.widget.EditText")));
             assertEquals(1, inputFields.size());
             assertTrue(inputFields.get(0).isEnabled());
 
             inputFields.get(0).click();
             Selenide.sleep(2000);
 
-            driver.findElement(AppiumBy.xpath("android.widget.EditText"))
+            driver.findElement(AppiumBy.className("android.widget.EditText"))
                     .sendKeys(phoneNumber.substring(1));
         }
         return this;
@@ -53,7 +53,7 @@ public class RegisterNumberPage {
         } else {
             List<WebElement> buttons = wait.until
                     (ExpectedConditions.visibilityOfAllElementsLocatedBy(
-                            AppiumBy.xpath("android.widget.Button")));
+                            AppiumBy.className("android.widget.Button")));
             assertEquals(1, buttons.size());
             assertTrue(buttons.get(0).isEnabled());
 

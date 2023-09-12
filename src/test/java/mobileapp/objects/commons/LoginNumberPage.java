@@ -48,7 +48,7 @@ public class LoginNumberPage {
         } else {
             List<WebElement> buttons = wait.until
                     (ExpectedConditions.visibilityOfAllElementsLocatedBy(
-                            AppiumBy.xpath("android.widget.Button")));
+                            AppiumBy.className("android.widget.Button")));
             assertEquals(1, buttons.size());
             assertTrue(buttons.get(0).isEnabled());
 

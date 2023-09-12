@@ -3,7 +3,8 @@ package commons.database.config;
 import org.aeonbits.owner.Config;
 
 @Config.Sources({
-        "classpath:properties/test-database.properties"
+        "system:properties"
+//        "classpath:properties/test-database.properties"
 })
 public interface DatabaseConnectConfig extends Config {
     @Key("acsTestUrl")

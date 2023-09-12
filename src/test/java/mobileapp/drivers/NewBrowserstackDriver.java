@@ -8,6 +8,8 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+import static mobileapp.tests.TestBaseMobile.mobileenv;
+
 public class NewBrowserstackDriver {
     public static BrowserstackConfig browserstackConfig = ConfigFactory.create(BrowserstackConfig.class,
             System.getProperties());
@@ -31,6 +33,14 @@ public class NewBrowserstackDriver {
         capabilities.setCapability("build", "BrowserStack Build");
         capabilities.setCapability("name", "first_test");
         capabilities.setCapability("browserstack.debug", true);
+        switch (mobileenv) {
+            case "browserstack-ios":
+                capabilities.setCapability("autoAcceptAlerts", "true");
+                break;
+            case "browserstack-android":
+                capabilities.setCapability("autoGrantPermissions", "true");
+                break;
+        }
         String app = browserstackConfig.getApp();
         if (app != null && !app.isEmpty()) {
             capabilities.setCapability("app", app);

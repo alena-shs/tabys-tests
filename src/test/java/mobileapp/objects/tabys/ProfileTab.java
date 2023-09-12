@@ -25,7 +25,7 @@ public class ProfileTab {
         } else {
             WebElement personalInformation = wait.until
                     (ExpectedConditions.visibilityOfElementLocated(
-                            AppiumBy.className("//android.widget.TextView[@text='Personal information']")));
+                            AppiumBy.xpath("//android.widget.TextView[@text='Personal information']")));
             personalInformation.isEnabled();
             personalInformation.click();
         }

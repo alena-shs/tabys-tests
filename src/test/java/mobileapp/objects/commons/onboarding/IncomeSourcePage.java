@@ -29,7 +29,7 @@ public class IncomeSourcePage {
         } else {
             List<WebElement> availableButtons = wait.until
                     (ExpectedConditions.visibilityOfAllElementsLocatedBy(
-                            AppiumBy.xpath("android.widget.Button")));
+                            AppiumBy.className("android.widget.Button")));
             assertEquals(5, availableButtons.size());
             for (int elementNumber = 0; elementNumber < availableButtons.size(); elementNumber++) {
                 assertTrue(availableButtons.get(elementNumber).isEnabled());

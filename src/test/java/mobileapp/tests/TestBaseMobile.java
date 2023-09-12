@@ -6,13 +6,10 @@ import com.codeborne.selenide.WebDriverRunner;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import commons.api.models.PhotoBody;
 import commons.helpers.Attach;
-import io.appium.java_client.AppiumBy;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.Setting;
 import io.appium.java_client.ios.IOSDriver;
-import io.appium.java_client.remote.AndroidMobileCapabilityType;
 import io.qameta.allure.selenide.AllureSelenide;
-import mobileapp.config.AuthBrowserstackConfig;
 import mobileapp.drivers.MobileDriverLocal;
 import mobileapp.drivers.NewBrowserstackDriver;
 import mobileapp.objects.commons.*;
@@ -26,7 +23,6 @@ import mobileapp.objects.tabys.EtnPersonalInformation;
 import mobileapp.objects.tabys.HomeTab;
 import mobileapp.objects.tabys.ProfileTab;
 import mobileapp.objects.tabys.TabysNavigation;
-import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -35,8 +31,6 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import static com.codeborne.selenide.Selenide.closeWebDriver;
 import static com.codeborne.selenide.Selenide.sessionId;
 import static mobileapp.drivers.NewBrowserstackDriver.getAppiumServerUrl;
-import static mobileapp.helpers.MobileUtils.changeDriverContextToNative;
-import static mobileapp.helpers.MobileUtils.changeDriverContextToWeb;
 
 public class TestBaseMobile {
     public AppiumDriver driver;
@@ -143,7 +137,6 @@ public class TestBaseMobile {
     }
 
 
-    // TODO: Separate to BeforeAll
     @BeforeEach
     public void createConnection() {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
@@ -151,6 +144,7 @@ public class TestBaseMobile {
             case "browserstack-android":
                 capabilities = new DesiredCapabilities();
                 NewBrowserstackDriver.setCapabilities(capabilities);
+                System.out.println(getAppiumServerUrl());
                 driver = new AppiumDriver(getAppiumServerUrl(), capabilities);
                 break;
             case "browserstack-ios":
@@ -158,15 +152,16 @@ public class TestBaseMobile {
                 NewBrowserstackDriver.setCapabilities(capabilities);
                 driver = new IOSDriver(getAppiumServerUrl(), capabilities);
 
-                changeDriverContextToNative(driver);
-                driver.findElement(AppiumBy.name("Allow")).click();
-                changeDriverContextToWeb(driver);
+//                changeDriverContextToNative(driver);
+//                driver.findElement(AppiumBy.name("Allow")).click();
+//                changeDriverContextToWeb(driver);
                 break;
             case "emulator":
             case "physicaldevice":
                 Selenide.open();
                 driver = (AppiumDriver) WebDriverRunner.getWebDriver();
-                capabilities.setCapability(AndroidMobileCapabilityType.AUTO_GRANT_PERMISSIONS,true);
+                capabilities.setCapability("autoGrantPermissions", "true");
+//                capabilities.setCapability(AndroidMobileCapabilityType.AUTO_GRANT_PERMISSIONS,true);
                 break;
         }
         driver.setSetting(Setting.WAIT_FOR_IDLE_TIMEOUT, 0);
@@ -212,15 +207,24 @@ public class TestBaseMobile {
 
     @AfterEach
     void afterEach() {
-        String sessionId = sessionId().toString();
-        Attach.pageSource();
-
-        closeWebDriver();
+//        String sessionId = sessionId().toString();
+//        Attach.pageSource();
+//        closeWebDriver();
         switch (mobileenv) {
             case "browserstack-ios":
+                break;
             case "browserstack-android":
+                String sessionId = sessionId().toString();
+                Attach.pageSource();
+                closeWebDriver();
                 Attach.addVideoMobile(sessionId);
                 break;
+            case "physicaldevice":
+            case "emulator":
+                Attach.pageSource();
+                closeWebDriver();
+                break;
+
         }
     }
 

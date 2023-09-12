@@ -67,7 +67,7 @@ public class HomeTab {
         } else {
             WebElement ipoBanner = wait.until
                     (ExpectedConditions.visibilityOfElementLocated(
-                            AppiumBy.className("//*[@text='My Bonds/Shares']")));
+                            AppiumBy.xpath("//*[@text='My Bonds/Shares']")));
             ipoBanner.isEnabled();
             ipoBanner.click();
         }
