@@ -128,9 +128,6 @@ public class TestBaseMobile {
 
     EtnPersonalInformation etnPersonalInformation = new EtnPersonalInformation();
 
-    public static AuthBrowserstackConfig authConfig = ConfigFactory.create(AuthBrowserstackConfig.class,
-            System.getProperties());
-
     @BeforeAll
     public static void setup() throws MalformedURLException {
         switch (mobileenv) {
@@ -155,6 +152,7 @@ public class TestBaseMobile {
         switch (mobileenv) {
             case "browserstack-ios":{
                 System.out.println("Attention! iOS tests require a MacBook!");
+                break;
             }
             case "emulator":
             case "physicaldevice":

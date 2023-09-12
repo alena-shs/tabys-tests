@@ -12,6 +12,8 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+import static mobileapp.tests.TestBaseMobile.mobileenv;
+
 public class MobileDriverBrowserstackAndroid implements WebDriverProvider {
     public static BrowserstackConfig config = ConfigFactory.create(BrowserstackConfig.class,
             System.getProperties());
@@ -50,11 +52,14 @@ public class MobileDriverBrowserstackAndroid implements WebDriverProvider {
         mutableCapabilities.setCapability("build", "browserstack-build-1");
         mutableCapabilities.setCapability("name", "first_test");
 
-//        if (device.startsWith("iPhone")) {
-//            mutableCapabilities.setCapability("nativeWebTap", "true");
-//        } else {
-//            System.out.println("It's an Android");
-//        }
+        switch (mobileenv) {
+            case "browserstack-ios":
+                mutableCapabilities.setCapability("autoAcceptAlerts", "true");
+                break;
+            case "browserstack-android":
+                mutableCapabilities.setCapability("autoGrantPermissions", "true");
+                break;
+        }
 
         // Initialise the remote Webdriver using BrowserStack remote URL
         // and desired mutableCapabilities defined above
