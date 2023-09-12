@@ -19,7 +19,7 @@ public class OtpPage {
     }
 
     @Step("Enter password restoring OTP code")
-    public OtpPage enterResorePasswordOtpCode(String phoneNumber){
+    public OtpPage enterRestorePasswordOtpCode(String phoneNumber){
 
         String restorePasswordOtp = userRestorePasswordCode(phoneNumber);
         $(AppiumBy.className("android.widget.EditText"))
