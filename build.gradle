@@ -72,43 +72,43 @@ tasks.withType(Test) {
 }
 
 
-task web_test(type: Test) {
+tasks.register('web_test', Test) {
     useJUnitPlatform {
         includeTags("web")
     }
 }
 
-task kazpost_test(type: Test) {
+tasks.register('kazpost_test', Test) {
     useJUnitPlatform {
         includeTags("kazpost")
     }
 }
 
-task mobile_test(type: Test) {
+tasks.register('mobile_test', Test) {
     useJUnitPlatform {
         includeTags("mobile")
     }
 }
 
-task tabys_test(type: Test) {
+tasks.register('tabys_test', Test) {
     useJUnitPlatform {
         includeTags("tabys")
     }
 }
 
-task ipo_test(type: Test) {
+tasks.register('ipo_test', Test) {
     useJUnitPlatform {
         includeTags("ipo")
     }
 }
 
-task sample_web(type: Test) {
+tasks.register('sample_web', Test) {
     useJUnitPlatform {
         includeTags("sample")
     }
 }
 
-task sample_mobile(type: Test) {
+tasks.register('sample_mobile', Test) {
     useJUnitPlatform {
         includeTags("sample-mobile")
     }
