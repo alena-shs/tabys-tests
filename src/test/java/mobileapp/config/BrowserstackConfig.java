@@ -9,13 +9,10 @@ import org.aeonbits.owner.Config;
 })
 public interface BrowserstackConfig extends Config {
 
-    @Config.Key("app")
+//    @Config.Key("app")
     @DefaultValue("bs://8fee4233524a635f1d72124f4ad4f6ec6117f765")
-    String getApp();
+    String app();
 
-//    @Config.Key("platformName")
-//    @DefaultValue("android")
-//    String getPlatformName();
 
 //    @Config.Key("device")
     @DefaultValue("Samsung Galaxy S22 Ultra")
@@ -24,8 +21,4 @@ public interface BrowserstackConfig extends Config {
 //    @Config.Key("os_version")
     @DefaultValue("12.0")
     String osVersion();
-
-    @Config.Key("browserstack.enablePasscode")
-    @DefaultValue("true")
-    Boolean getEnablePasscode();
 }

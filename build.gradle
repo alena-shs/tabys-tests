@@ -102,6 +102,24 @@ task ipo_test(type: Test) {
     }
 }
 
+task updatedata(type: Test) {
+    useJUnitPlatform {
+        includeTags("updatedata")
+    }
+}
+
+task migration(type: Test) {
+    useJUnitPlatform {
+        includeTags("migration")
+    }
+}
+
+task onboarding(type: Test) {
+    useJUnitPlatform {
+        includeTags("onboarding")
+    }
+}
+
 task sample_web(type: Test) {
     useJUnitPlatform {
         includeTags("sample")

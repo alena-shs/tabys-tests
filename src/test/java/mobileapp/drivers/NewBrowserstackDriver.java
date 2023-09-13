@@ -28,7 +28,7 @@ public class NewBrowserstackDriver {
 
         capabilities.setCapability("deviceName", browserstackConfig.device());
         capabilities.setCapability("os_version", browserstackConfig.osVersion());
-        capabilities.setCapability("browserstack.enablePasscode", browserstackConfig.getEnablePasscode());
+        capabilities.setCapability("browserstack.enablePasscode", true);
 
         capabilities.setCapability("project", "JUnit Test Project");
         capabilities.setCapability("build", "BrowserStack Build");
@@ -42,7 +42,7 @@ public class NewBrowserstackDriver {
                 capabilities.setCapability("autoGrantPermissions", "true");
                 break;
         }
-        String app = browserstackConfig.getApp();
+        String app = browserstackConfig.app();
         if (app != null && !app.isEmpty()) {
             capabilities.setCapability("app", app);
         }
