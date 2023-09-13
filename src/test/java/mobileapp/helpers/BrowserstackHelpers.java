@@ -17,7 +17,7 @@ public class BrowserstackHelpers {
         return given()
                 .log().all()
                 .filter(withCustomTemplates())
-                .auth().basic(authConfig.getUser(), authConfig.getPassword())
+                .auth().preemptive().basic(authConfig.browserstackUser(), authConfig.browserstackPassword())
                 .when()
                 .get(url)
                 .then()

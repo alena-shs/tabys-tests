@@ -18,7 +18,7 @@ public class NewBrowserstackDriver {
 
     public static URL getAppiumServerUrl() {
         try {
-            return (new URL("http://" + authConfig.getUser() + ":" + authConfig.getKey() + "@" + authConfig.getRemoteUrl() + "/wd/hub"));
+            return (new URL("http://" + authConfig.browserstackUser() + ":" + authConfig.browserstackKey() + "@" + authConfig.getRemoteUrl() + "/wd/hub"));
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }
@@ -26,8 +26,8 @@ public class NewBrowserstackDriver {
 
     public static DesiredCapabilities setCapabilities(DesiredCapabilities capabilities) {
 
-        capabilities.setCapability("deviceName", browserstackConfig.getDevice());
-        capabilities.setCapability("os_version", browserstackConfig.getOsVersion());
+        capabilities.setCapability("deviceName", browserstackConfig.device());
+        capabilities.setCapability("os_version", browserstackConfig.osVersion());
         capabilities.setCapability("browserstack.enablePasscode", browserstackConfig.getEnablePasscode());
 
         capabilities.setCapability("project", "JUnit Test Project");

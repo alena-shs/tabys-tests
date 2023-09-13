@@ -2,23 +2,24 @@ package commons.database.config;
 
 import org.aeonbits.owner.Config;
 
+@Config.LoadPolicy(Config.LoadType.MERGE)
 @Config.Sources({
         "system:properties"
 //        "classpath:properties/test-database.properties"
 })
 public interface DatabaseConnectConfig extends Config {
-    @Key("acsTestUrl")
+//    @Key("acsTestUrl")
     String acsTestUrl();
 
-    @Key("onboardingTestUrl")
+//    @Key("onboardingTestUrl")
     String onboardingTestUrl();
 
-    @Key("cashTestUrl")
+//    @Key("cashTestUrl")
     String cashTestUrl();
 
-    @Key("user")
+//    @Key("user")
     String user();
 
-    @Key("password")
+//    @Key("password")
     String password();
 }
