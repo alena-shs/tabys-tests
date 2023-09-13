@@ -4,13 +4,8 @@ import commons.database.config.DatabaseConnectConfig;
 import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import java.util.Objects;
 
 public class Sample extends TestBaseMobile {
-    private final static Logger logger = LoggerFactory.getLogger(Sample.class);
     public static DatabaseConnectConfig databaseConnectConfig = ConfigFactory.create(DatabaseConnectConfig.class,
             System.getProperties());
 
@@ -23,13 +18,14 @@ public class Sample extends TestBaseMobile {
         System.out.println("Username: " + databaseConnectConfig.user());
         System.out.println("Password: " + databaseConnectConfig.password());
 
-        if (Objects.equals(mobileenv, "browserstack-ios")){
-            logger.info("MACBOOK REQUIRED TO WRITE THE SCRIPT");
-        } else {
-            startPage.clickReadyToStart(driver);
-            tabysNavigation
-                    .verifyNavigationAvailable(driver);
-        }
+        System.out.println("Device: " + databaseConnectConfig.acsTestUrl());
+        System.out.println("Platform version:" + databaseConnectConfig.onboardingTestUrl());
+        System.out.println("Browserstack user: " + databaseConnectConfig.cashTestUrl());
+        System.out.println("Browserstack key: " + databaseConnectConfig.user());
+
+        startPage.clickReadyToStart(driver);
+        tabysNavigation
+                .verifyNavigationAvailable(driver);
     }
 
 }

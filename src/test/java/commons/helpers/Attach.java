@@ -1,6 +1,7 @@
 package commons.helpers;
 
 import com.codeborne.selenide.Selenide;
+import io.appium.java_client.AppiumDriver;
 import io.qameta.allure.Attachment;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -26,6 +27,11 @@ public class Attach {
     @Attachment(value = "Page source", type = "text/plain")
     public static byte[] pageSource() {
         return getWebDriver().getPageSource().getBytes(StandardCharsets.UTF_8);
+    }
+
+    @Attachment(value = "Page source", type = "text/plain")
+    public static byte[] pageSourceMobile(AppiumDriver driver) {
+        return driver.getPageSource().getBytes(StandardCharsets.UTF_8);
     }
 
     @Attachment(value = "{attachName}", type = "text/plain")

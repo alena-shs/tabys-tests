@@ -28,6 +28,7 @@ public class NewBrowserstackDriver {
 
         capabilities.setCapability("deviceName", browserstackConfig.getDevice());
         capabilities.setCapability("os_version", browserstackConfig.getOsVersion());
+        capabilities.setCapability("browserstack.enablePasscode", browserstackConfig.getEnablePasscode());
 
         capabilities.setCapability("project", "JUnit Test Project");
         capabilities.setCapability("build", "BrowserStack Build");

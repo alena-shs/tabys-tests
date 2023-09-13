@@ -27,13 +27,15 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.SessionId;
 
 import static com.codeborne.selenide.Selenide.closeWebDriver;
-import static com.codeborne.selenide.Selenide.sessionId;
 import static mobileapp.drivers.NewBrowserstackDriver.getAppiumServerUrl;
 
 public class TestBaseMobile {
     public AppiumDriver driver;
+    private SessionId sessionId;
+    private String sessionIdValue;
     static DesiredCapabilities capabilities = new DesiredCapabilities();
     public static String mobileenv = System.getProperty("mobileenv", "emulator");
     public static PhotoBody photoBodyTabys = new PhotoBody();
@@ -146,11 +148,14 @@ public class TestBaseMobile {
                 NewBrowserstackDriver.setCapabilities(capabilities);
                 System.out.println(getAppiumServerUrl());
                 driver = new AppiumDriver(getAppiumServerUrl(), capabilities);
+                sessionId = driver.getSessionId();
+                System.out.println(sessionId.toString());
                 break;
             case "browserstack-ios":
                 capabilities = new DesiredCapabilities();
                 NewBrowserstackDriver.setCapabilities(capabilities);
                 driver = new IOSDriver(getAppiumServerUrl(), capabilities);
+                sessionId = driver.getSessionId();
 
 //                changeDriverContextToNative(driver);
 //                driver.findElement(AppiumBy.name("Allow")).click();
@@ -161,6 +166,7 @@ public class TestBaseMobile {
                 Selenide.open();
                 driver = (AppiumDriver) WebDriverRunner.getWebDriver();
                 capabilities.setCapability("autoGrantPermissions", "true");
+                sessionId = driver.getSessionId();
 //                capabilities.setCapability(AndroidMobileCapabilityType.AUTO_GRANT_PERMISSIONS,true);
                 break;
         }
@@ -212,15 +218,21 @@ public class TestBaseMobile {
 //        closeWebDriver();
         switch (mobileenv) {
             case "browserstack-ios":
+                driver.quit();
                 break;
             case "browserstack-android":
-                String sessionId = sessionId().toString();
-                Attach.pageSource();
-                closeWebDriver();
-                Attach.addVideoMobile(sessionId);
+                sessionIdValue = sessionId.toString();
+//                String sessionId = driver.getSessionId().toString();
+                System.out.println(sessionIdValue);
+//                Attach.pageSourceMobile(driver);
+                driver.quit();
+//                closeWebDriver();
+                Attach.addVideoMobile(sessionIdValue);
                 break;
             case "physicaldevice":
             case "emulator":
+                sessionIdValue = sessionId.toString();
+                System.out.println(sessionIdValue);
                 Attach.pageSource();
                 closeWebDriver();
                 break;
