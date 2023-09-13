@@ -102,9 +102,15 @@ task ipo_test(type: Test) {
     }
 }
 
-task sample(type: Test) {
+task sample_web(type: Test) {
     useJUnitPlatform {
         includeTags("sample")
+    }
+}
+
+task sample_mobile(type: Test) {
+    useJUnitPlatform {
+        includeTags("sample_mobile")
     }
 }
 

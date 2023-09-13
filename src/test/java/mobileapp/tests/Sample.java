@@ -5,6 +5,7 @@ import mobileapp.config.AuthBrowserstackConfig;
 import mobileapp.config.BrowserstackConfig;
 import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;
@@ -20,7 +21,9 @@ public class Sample extends TestBaseMobile {
             System.getProperties());
 
 
-    @Tag("mobile")
+    @Tags({
+            @Tag("mobile"),
+            @Tag("sample_mobile")})
     @Test
     public void sampleTest(){
         System.out.println("Acs test URL: " + databaseConnectConfig.acsTestUrl());
@@ -39,6 +42,7 @@ public class Sample extends TestBaseMobile {
         tabysNavigation
                 .verifyNavigationAvailable(driver);
 //        :mobile_test --tests "mobileapp.tests.Sample.sampleTest" -Dmobileenv="browserstack-android" -Duser="greetgo" -Dpassword="z26NPdWj2tFN2S7p" -DacsTestUrl="jdbc:postgresql://test-acs-db.caofc8wjrwkc.eu-central-1.rds.amazonaws.com/acs" -DonboardingTestUrl="jdbc:postgresql://test-onboarding-db.caofc8wjrwkc.eu-central-1.rds.amazonaws.com/onboarding" -DcashTestUrl="jdbc:postgresql://test-cash-db.caofc8wjrwkc.eu-central-1.rds.amazonaws.com/cash" -DbrowserstackUser="alena_Dh1v83" -DbrowserstackKey="fRfkP2sEQxwv6RRd4xWA" -DbrowserstackPassword="Test123" -Ddevice="Samsung Galaxy S22 Ultra" -DosVersion="12.0"
+//        gradle clean sample_mobile -Dmobileenv=browserstack-android -Duser=greetgo -Dpassword=z26NPdWj2tFN2S7p -DacsTestUrl=jdbc:postgresql://test-acs-db.caofc8wjrwkc.eu-central-1.rds.amazonaws.com/acs -DonboardingTestUrl=jdbc:postgresql://test-onboarding-db.caofc8wjrwkc.eu-central-1.rds.amazonaws.com/onboarding -DcashTestUrl=jdbc:postgresql://test-cash-db.caofc8wjrwkc.eu-central-1.rds.amazonaws.com/cash -DbrowserstackUser=alena_Dh1v83 -DbrowserstackKey=fRfkP2sEQxwv6RRd4xWA -DbrowserstackPassword=Test123 "-Ddevice=Samsung Galaxy S22 Ultra" -DosVersion=12.0
     }
 
 }
