@@ -13,16 +13,16 @@ public interface BrowserstackConfig extends Config {
     @DefaultValue("bs://8fee4233524a635f1d72124f4ad4f6ec6117f765")
     String getApp();
 
-    @Config.Key("platformName")
-    @DefaultValue("android")
-    String getPlatformName();
+//    @Config.Key("platformName")
+//    @DefaultValue("android")
+//    String getPlatformName();
 
 //    @Config.Key("device")
-//    @DefaultValue("Samsung Galaxy S22 Ultra")
+    @DefaultValue("Samsung Galaxy S22 Ultra")
     String device();
 
 //    @Config.Key("os_version")
-//    @DefaultValue("12.0")
+    @DefaultValue("12.0")
     String osVersion();
 
     @Config.Key("browserstack.enablePasscode")
