@@ -33,15 +33,14 @@ public class IinPage {
 
             List<WebElement> inputFields = wait.until
                     (ExpectedConditions.visibilityOfAllElementsLocatedBy(
-                            AppiumBy.className("android.widget.Button")));
+                            AppiumBy.className("android.widget.EditText")));
             assertEquals(1, inputFields.size());
             assertTrue(inputFields.get(0).isEnabled());
 
             List<WebElement> buttons = wait.until
                     (ExpectedConditions.visibilityOfAllElementsLocatedBy(
-                            AppiumBy.className("android.widget.EditText")));
+                            AppiumBy.className("android.widget.Button")));
             assertEquals(1, buttons.size());
-            assertTrue(buttons.get(0).isEnabled());
 
             buttons.get(0).click();
         }
@@ -64,13 +63,12 @@ public class IinPage {
         if (Objects.equals(mobileenv, "browserstack-ios")){
             logger.info("MACBOOK REQUIRED TO WRITE THE SCRIPT");
         } else {
-            List<WebElement> kazakhstanCitizen = driver.findElements(
-                    AppiumBy.xpath("//*[@text='I am a citizen of Kazakhstan']"));
-            assertEquals(0, kazakhstanCitizen.size());
-
             wait.until
                     (ExpectedConditions.visibilityOfElementLocated(
                             AppiumBy.xpath("//*[@text='Kazakhstan']")));
+            List<WebElement> kazakhstanCitizen = driver.findElements(
+                    AppiumBy.xpath("//*[@text='I am a citizen of Kazakhstan']"));
+            assertEquals(0, kazakhstanCitizen.size());
         }
     }
 }

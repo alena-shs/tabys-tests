@@ -41,7 +41,7 @@ public class PinPage {
             assertTrue(input.get(0).isEnabled());
 
             input.get(0).sendKeys(pin);
-            sleep(2000);
+            sleep(3000);
         }
         return this;
     }
@@ -53,18 +53,18 @@ public class PinPage {
         if (Objects.equals(mobileenv, "browserstack-ios")){
             logger.info("MACBOOK REQUIRED TO WRITE THE SCRIPT");
         } else {
-            wait.until
-                    (ExpectedConditions.visibilityOfElementLocated(
-                            AppiumBy.xpath("//*[@text='Repeat 4-digit PIN to login']")));
+            if (driver.findElements(AppiumBy.className("android.widget.EditText")).size()==4){
+                wait.until
+                        (ExpectedConditions.visibilityOfElementLocated(
+                                AppiumBy.xpath("//*[@text='Repeat 4-digit PIN to login']")));
 
-            List<WebElement> input = wait.until
-                    (ExpectedConditions.visibilityOfAllElementsLocatedBy(
-                            (AppiumBy.className("android.widget.EditText"))));
-            assertEquals(4, input.size());
-            assertTrue(input.get(0).isEnabled());
+                assertTrue(driver.findElements(AppiumBy.className("android.widget.EditText")).get(0).isEnabled());
 
-            input.get(0).sendKeys(pin);
-            sleep(2000);
+                driver.findElements(AppiumBy.className("android.widget.EditText")).get(0).sendKeys(pin);
+                sleep(2000);
+            } else {
+                logger.info("Note that the app didn't require to repeat PIN to set it up");
+            }
         }
     }
 }

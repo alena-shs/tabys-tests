@@ -12,6 +12,7 @@ import io.appium.java_client.ios.IOSDriver;
 import io.qameta.allure.selenide.AllureSelenide;
 import mobileapp.drivers.MobileDriverLocal;
 import mobileapp.drivers.NewBrowserstackDriver;
+import mobileapp.objects.EmailPage;
 import mobileapp.objects.commons.*;
 import mobileapp.objects.commons.onboarding.InvestorSteps;
 import mobileapp.objects.commons.onboarding.*;
@@ -57,6 +58,7 @@ public class TestBaseMobile {
 
     RegisterNumberPage registerNumberPage = new RegisterNumberPage();
     OtpPage otpPage = new OtpPage();
+    EmailPage emailPage = new EmailPage();
     ConfirmIdentityPage confirmIdentityPage = new ConfirmIdentityPage();
     PasswordSetupPage passwordSetupPage = new PasswordSetupPage();
 

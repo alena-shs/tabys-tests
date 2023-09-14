@@ -23,6 +23,10 @@ public class IncomeSourcePage {
     @Step("Verify that the page is fully loaded and has all the necessary elements")
     public IncomeSourcePage verifyPageLoaded(AppiumDriver driver) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        List<WebElement> header = wait.until
+                (ExpectedConditions.visibilityOfAllElementsLocatedBy(
+                        AppiumBy.xpath("//*[contains(@text, 'ncome')]")));
+        assertEquals(1, header.size());
 
         if (Objects.equals(mobileenv, "browserstack-ios")){
             logger.info("MACBOOK REQUIRED TO WRITE THE SCRIPT");

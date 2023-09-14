@@ -22,15 +22,17 @@ public class MobileCommonElements {
     private final static Logger logger = LoggerFactory.getLogger(MobileCommonElements.class);
     @Step("Proceed (with the only button on the screen)")
     public MobileCommonElements tapOnAvailableButton(AppiumDriver driver) {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
 
         if (Objects.equals(mobileenv, "browserstack-ios")){
             logger.info("MACBOOK REQUIRED TO WRITE THE SCRIPT");
         } else {
-            WebElement availableButton = wait.until
+            wait.until
                     (ExpectedConditions.visibilityOfElementLocated(
                             AppiumBy.className("android.widget.Button")));
-            assertTrue(availableButton.isEnabled());
+            WebElement availableButton = wait.until
+                    (ExpectedConditions.elementToBeClickable(
+                            AppiumBy.className("android.widget.Button")));
             availableButton.click();
         }
         return this;
@@ -43,10 +45,12 @@ public class MobileCommonElements {
         if (Objects.equals(mobileenv, "browserstack-ios")){
             logger.info("MACBOOK REQUIRED TO WRITE THE SCRIPT");
         } else {
-            WebElement onboardingNextButton = wait.until
+            wait.until
                     (ExpectedConditions.visibilityOfElementLocated(
                             AppiumBy.xpath("//*[@resource-id='dynamic-forms-next-button']")));
-            assertTrue(onboardingNextButton.isEnabled());
+            WebElement onboardingNextButton = wait.until
+                    (ExpectedConditions.elementToBeClickable(
+                            AppiumBy.xpath("//*[@resource-id='dynamic-forms-next-button']")));
             onboardingNextButton.click();
         }
     }

@@ -29,6 +29,10 @@ public class PasswordSetupPage {
             logger.info("MACBOOK REQUIRED TO WRITE THE SCRIPT");
         } else {
             sleep(2000);
+            List<WebElement> header = wait.until
+                    (ExpectedConditions.visibilityOfAllElementsLocatedBy(
+                            AppiumBy.xpath("//*[@text='Password']")));
+            assertEquals(1, header.size());
 
             List<WebElement> passwordFields = wait.until
                     (ExpectedConditions.visibilityOfAllElementsLocatedBy(
