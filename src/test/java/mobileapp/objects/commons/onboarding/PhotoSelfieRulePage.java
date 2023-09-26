@@ -13,6 +13,7 @@ import java.time.Duration;
 import java.util.List;
 import java.util.Objects;
 
+import static java.lang.Thread.sleep;
 import static mobileapp.tests.TestBaseMobile.mobileenv;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -20,8 +21,8 @@ public class PhotoSelfieRulePage {
     private final static Logger logger = LoggerFactory.getLogger(PhotoSelfieRulePage.class);
 
     @Step("Verify that the selfie rule page is fully loaded and has all the necessary elements (new onboarding)")
-    public void verifyPageLoaded(AppiumDriver driver) {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+    public void verifyPageLoaded(AppiumDriver driver) throws InterruptedException {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
 
         if (Objects.equals(mobileenv, "browserstack-ios")){
             logger.info("MACBOOK REQUIRED TO WRITE THE SCRIPT");
@@ -35,6 +36,8 @@ public class PhotoSelfieRulePage {
                     (ExpectedConditions.visibilityOfAllElementsLocatedBy(
                             AppiumBy.xpath("//*[@text='Stand in a lighted place']")));
             assertEquals(1, firstRule.size());
+
+            sleep(2000);
         }
     }
 }

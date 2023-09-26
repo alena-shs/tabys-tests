@@ -13,9 +13,9 @@ import java.time.Duration;
 import java.util.List;
 import java.util.Objects;
 
-import static mobileapp.data.MobileTestData.defaultEmail;
+import static mobileapp.drivers.DriverUtils.*;
+import static java.lang.Thread.sleep;
 import static mobileapp.tests.TestBaseMobile.mobileenv;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class MobileCommonElements {
@@ -39,39 +39,22 @@ public class MobileCommonElements {
     }
 
     @Step("Proceed with onboarding")
-    public void proceedOnboarding(AppiumDriver driver) {
+    public void proceedOnboarding(AppiumDriver driver) throws InterruptedException {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
         if (Objects.equals(mobileenv, "browserstack-ios")){
             logger.info("MACBOOK REQUIRED TO WRITE THE SCRIPT");
         } else {
-            wait.until
-                    (ExpectedConditions.visibilityOfElementLocated(
-                            AppiumBy.xpath("//*[@resource-id='dynamic-forms-next-button']")));
-            WebElement onboardingNextButton = wait.until
-                    (ExpectedConditions.elementToBeClickable(
-                            AppiumBy.xpath("//*[@resource-id='dynamic-forms-next-button']")));
-            onboardingNextButton.click();
+            sleep(500);
+            List<WebElement> onboardingNextButton = wait.until
+                    (visibilityOfNElementsLocatedBy(
+                            AppiumBy.xpath("//*[@resource-id='dynamic-forms-next-button']"),1));
+//            List<WebElement> onboardingNextButton = wait.until
+//                    (ExpectedConditions.visibilityOfAllElementsLocatedBy(
+//                            AppiumBy.xpath("//*[@resource-id='dynamic-forms-next-button']")));
+//            assertEquals(1, onboardingNextButton.size());
+            assertTrue(onboardingNextButton.get(0).isEnabled());
+            onboardingNextButton.get(0).click();
         }
-    }
-
-    @Step("Enter in both emails")
-    public MobileCommonElements enterEmail(AppiumDriver driver){
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
-
-        if (Objects.equals(mobileenv, "browserstack-ios")){
-            logger.info("MACBOOK REQUIRED TO WRITE THE SCRIPT");
-        } else {
-            List<WebElement> availableButtons = wait.until
-                    (ExpectedConditions.visibilityOfAllElementsLocatedBy(
-                            AppiumBy.className("android.widget.EditText")));
-            assertEquals(2, availableButtons.size());
-            assertTrue(availableButtons.get(0).isEnabled());
-            assertTrue(availableButtons.get(1).isEnabled());
-
-            availableButtons.get(0).sendKeys(defaultEmail);
-            availableButtons.get(1).sendKeys(defaultEmail);
-        }
-        return this;
     }
 }

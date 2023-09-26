@@ -1,5 +1,6 @@
 package mobileapp.tests;
 
+import io.qameta.allure.*;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
@@ -9,12 +10,18 @@ import static mobileapp.data.MobileTestData.*;
 
 public class MobileOnboardingTests extends TestBaseMobile {
     @Test
+    @Epic("Onboarding")
+    @Feature("Onboarding - mobile")
+    @Story("Updating data on Tabys")
+    @Owner("Alena Shomanova")
+    @Severity(SeverityLevel.CRITICAL)
+    @Description("Test that verifies that Tabys onboarding with a new number can go without errors")
     @Tags({
             @Tag("mobile"),
             @Tag("tabys"),
             @Tag("onboarding")
     })
-    void etnMobileOnboarding(){
+    void etnMobileOnboarding() throws InterruptedException {
         startPage.clickReadyToStart(driver);
         tabysNavigation
                 .verifyNavigationAvailable(driver);
@@ -69,17 +76,23 @@ public class MobileOnboardingTests extends TestBaseMobile {
                 .verifyPageLoaded(driver);
         mobileCommonElements
                 .proceedOnboarding(driver);
-        photoSelfiePage.verifyPageLoaded(driver).initiateSelfie(driver);
+        photoSelfiePage.verifyPageLoadedNew(driver).initiateSelfie(driver);
         photoModal.verifyPageLoaded(driver);
     }
 
     @Test
+    @Epic("Onboarding")
+    @Feature("Onboarding - mobile")
+    @Story("Updating data on IPO")
+    @Owner("Alena Shomanova")
+    @Severity(SeverityLevel.CRITICAL)
+    @Description("Test that verifies that IPO onboarding with a new number can go without errors")
     @Tags({
             @Tag("mobile"),
             @Tag("ipo"),
             @Tag("onboarding")
     })
-    void ipoMobileOnboarding(){
+    void ipoMobileOnboarding() throws InterruptedException {
         startPage
                 .clickReadyToStart(driver);
         tabysNavigation
@@ -134,7 +147,7 @@ public class MobileOnboardingTests extends TestBaseMobile {
                 .verifyPageLoaded(driver);
         mobileCommonElements
                 .proceedOnboarding(driver);
-        photoSelfiePage.verifyPageLoaded(driver).initiateSelfie(driver);
+        photoSelfiePage.verifyPageLoadedNew(driver).initiateSelfie(driver);
         photoModal.verifyPageLoaded(driver);
     }
 

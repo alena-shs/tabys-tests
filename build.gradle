@@ -13,8 +13,8 @@ compileTestJava.options.encoding = 'UTF-8'
 repositories {
     mavenCentral()
 }
-
-def selenideVersion = "6.13.0",
+// prev. 6.13.0 - stable for allure reports
+def selenideVersion = "6.17.0",
     restAssuredVersion = "5.3.0",
     allureVersion = "2.21.0",
     slf4jVersion = "2.0.7"

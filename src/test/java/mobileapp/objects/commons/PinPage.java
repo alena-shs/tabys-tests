@@ -14,8 +14,8 @@ import java.util.List;
 import java.util.Objects;
 
 import static com.codeborne.selenide.Selenide.sleep;
+import static mobileapp.drivers.DriverUtils.visibilityOfNElementsLocatedBy;
 import static mobileapp.tests.TestBaseMobile.mobileenv;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class PinPage {
@@ -32,15 +32,16 @@ public class PinPage {
                     (ExpectedConditions.visibilityOfElementLocated(
                             AppiumBy.xpath("//*[@text='Come up with 4 digit pin code to log in']")));
 
-            sleep(2000);
+            List<WebElement> input = wait.until(visibilityOfNElementsLocatedBy(
+                    AppiumBy.className("android.widget.EditText"), 4));
+            for(WebElement element : driver.findElements(AppiumBy.className("android.widget.EditText"))){
+                assertTrue(element.isEnabled());
+            }
 
-            List<WebElement> input = wait.until
-                    (ExpectedConditions.visibilityOfAllElementsLocatedBy(
-                            (AppiumBy.className("android.widget.EditText"))));
-            assertEquals(4, input.size());
-            assertTrue(input.get(0).isEnabled());
+//            assertTrue(input.get(0).isEnabled());
 
-            input.get(0).sendKeys(pin);
+            driver.findElement(AppiumBy.className("android.widget.EditText")).sendKeys(pin);
+            // Give some time for the pin code to get processed
             sleep(3000);
         }
         return this;
@@ -60,10 +61,11 @@ public class PinPage {
 
                 assertTrue(driver.findElements(AppiumBy.className("android.widget.EditText")).get(0).isEnabled());
 
-                driver.findElements(AppiumBy.className("android.widget.EditText")).get(0).sendKeys(pin);
+                driver.findElement(AppiumBy.className("android.widget.EditText")).sendKeys(pin);
+                // Give some time for the pin code to get processed
                 sleep(2000);
             } else {
-                logger.info("Note that the app didn't require to repeat PIN to set it up");
+                logger.info("Note that the app didn't require to repeat PIN code");
             }
         }
     }

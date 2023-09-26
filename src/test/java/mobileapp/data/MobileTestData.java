@@ -19,7 +19,6 @@ public class MobileTestData {
 //    public static String idBackDocType = "SELFIE",
 //            idBackDefaultSrc = "src/test/resources/images/KazpostSelfie.jpg",
 //            idBackTitle = "Selfie_camera";
-    public static Integer defaultWaitingOfSeconds = 25;
     static String[] sessionIds = new String[2];
     public static String ggTokenMobile = sessionIds[0], sessionIdMobile = sessionIds[1];
 }

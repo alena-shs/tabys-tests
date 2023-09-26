@@ -23,6 +23,6 @@ public interface WebConfig extends Config {
     boolean isRemote();
 
     @Key("baseUrl")
-    @DefaultValue("https://luxoft.com")
+    @DefaultValue("https://google.com/")
     String baseUrl();
 }

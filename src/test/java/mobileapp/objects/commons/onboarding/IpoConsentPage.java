@@ -21,7 +21,7 @@ public class IpoConsentPage {
 
     @Step("Verify that the IPO 'Open account' page is fully loaded and has all the necessary elements (new onboarding)")
     public IpoConsentPage verifyPageLoaded(AppiumDriver driver) {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 
         if (Objects.equals(mobileenv, "browserstack-ios")){
             logger.info("MACBOOK REQUIRED TO WRITE THE SCRIPT");

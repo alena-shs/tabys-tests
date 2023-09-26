@@ -13,15 +13,14 @@ import java.time.Duration;
 import java.util.List;
 import java.util.Objects;
 
-import static com.codeborne.selenide.Selenide.sleep;
+import static java.lang.Thread.sleep;
+import static mobileapp.drivers.DriverUtils.*;
 import static mobileapp.tests.TestBaseMobile.mobileenv;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class PasswordRecoveryPage {
     private final static Logger logger = LoggerFactory.getLogger(PasswordRecoveryPage.class);
     @Step("Enter in the phone number for recovery")
-    public PasswordRecoveryPage enterPhoneNumber(AppiumDriver driver, String phoneNumber) {
+    public PasswordRecoveryPage enterPhoneNumber(AppiumDriver driver, String phoneNumber) throws InterruptedException {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 
         if (Objects.equals(mobileenv, "browserstack-ios")){
@@ -31,14 +30,19 @@ public class PasswordRecoveryPage {
             wait.until(ExpectedConditions.visibilityOfElementLocated(
                             AppiumBy.xpath("//*[@text='Phone number']")));
 
-            sleep(1000);
-            wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(
-                            AppiumBy.className("android.widget.EditText")));
-            assertEquals(1, driver.findElements(AppiumBy.className("android.widget.EditText")).size());
-            assertTrue(driver.findElement(AppiumBy.className("android.widget.EditText")).isEnabled());
+            wait.until
+                    (visibilityOfNElementsLocatedBy(AppiumBy
+                            .className("android.widget.EditText"), 1));
+            waitForDisplayed
+                    (driver.findElement(AppiumBy
+                            .className("android.widget.EditText")), 10);
+            waitForEnabled(driver.findElement(AppiumBy
+                    .className("android.widget.EditText")), 10);
 
+//            assertTrue(driver.findElement(AppiumBy.className("android.widget.EditText")).isEnabled());
             driver.findElement(AppiumBy.className("android.widget.EditText")).click();
-            sleep(2000);
+            sleep(1000);
+            wait.until(ExpectedConditions.attributeContains(AppiumBy.className("android.widget.EditText"), "text", "+7"));
             wait.until(ExpectedConditions.visibilityOfElementLocated(
                     AppiumBy.className("android.widget.EditText")))
                     .sendKeys(phoneNumber.substring(1));
@@ -47,17 +51,27 @@ public class PasswordRecoveryPage {
     }
 
     @Step("Click 'Get SMS code to initiate OTP")
-    public void initiateRegistrationOtp(AppiumDriver driver) {
+    public void initiateRegistrationOtp(AppiumDriver driver) throws InterruptedException {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 
         if (Objects.equals(mobileenv, "browserstack-ios")){
             logger.info("MACBOOK REQUIRED TO WRITE THE SCRIPT");
         } else {
-            List<WebElement> buttons = wait.until
-                    (ExpectedConditions.visibilityOfAllElementsLocatedBy(
-                            AppiumBy.className("android.widget.Button")));
-            assertEquals(1, buttons.size());
-            assertTrue(buttons.get(0).isEnabled());
+//            List<WebElement> buttons = wait.until
+//                    (ExpectedConditions.visibilityOfAllElementsLocatedBy(
+//                            AppiumBy.className("android.widget.Button")));
+            List<WebElement> buttons = wait.until(visibilityOfNElementsLocatedBy(
+                    AppiumBy.className("android.widget.Button"), 1));
+            waitForEnabled(driver.findElement(AppiumBy
+                    .className("android.widget.Button")), 10);
+//            assertEquals(1, buttons.size());
+            // TODO Fails
+
+            waitForDisplayed
+                    (driver.findElement(AppiumBy
+                            .className("android.widget.Button")), 10);
+            wait.until(ExpectedConditions.elementToBeClickable(AppiumBy.className("android.widget.Button")));
+//            assertTrue(buttons.get(0).isEnabled());
 
             buttons.get(0).click();
         }

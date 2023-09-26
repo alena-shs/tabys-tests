@@ -15,12 +15,13 @@ import java.util.Objects;
 
 import static mobileapp.tests.TestBaseMobile.mobileenv;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class CardRulePage {
     private final static Logger logger = LoggerFactory.getLogger(CardRulePage.class);
     @Step("Verify that the 'Name card' page (cards rule page) is fully loaded and has all the necessary elements")
     public CardRulePage verifyPageLoaded(AppiumDriver driver) {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(2));
 
         if (Objects.equals(mobileenv, "browserstack-ios")){
             logger.info("MACBOOK REQUIRED TO WRITE THE SCRIPT");
@@ -29,6 +30,12 @@ public class CardRulePage {
                     (ExpectedConditions.visibilityOfAllElementsLocatedBy(
                             AppiumBy.xpath("//*[@text='Name card']")));
             assertEquals(1, header.size());
+
+            List<WebElement> nextButton = wait.until
+                    (ExpectedConditions.visibilityOfAllElementsLocatedBy(
+                            AppiumBy.className("android.widget.Button")));
+            assertEquals(1, nextButton.size());
+            assertTrue(nextButton.get(0).isEnabled());
         }
         return this;
     }

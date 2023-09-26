@@ -9,11 +9,11 @@ import org.aeonbits.owner.Config;
 })
 
 public interface AuthWebConfig extends Config {
-    @Key("login")
-    String login();
+    @Key("loginSelenoid")
+    String loginSelenoid();
 
-    @Key("password")
-    String password();
+    @Key("passwordSelenoid")
+    String passwordSelenoid();
 
     @Key("remoteUrl")
     String remoteUrl();

@@ -38,7 +38,8 @@ public class MobileDriverLocal implements WebDriverProvider {
                 .setPlatformVersion(config.getPlatformVersion())
                 .setApp(getAppPath())
                 .setAppPackage(config.getAppPackage())
-                .setAppActivity(config.getAppActivity());
+                .setAppActivity(config.getAppActivity())
+                .setAutoGrantPermissions(true);
 
         return new AndroidDriver(getAppiumServerUrl(), options);
     }

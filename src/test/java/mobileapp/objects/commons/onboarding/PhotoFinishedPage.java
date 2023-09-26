@@ -14,6 +14,7 @@ import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Objects;
 
+import static java.lang.Thread.sleep;
 import static mobileapp.tests.TestBaseMobile.mobileenv;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -21,7 +22,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class PhotoFinishedPage {
     private final static Logger logger = LoggerFactory.getLogger(PhotoFinishedPage.class);
     @Step("Verify that the 'Identification completed' page is fully loaded and has all the necessary elements")
-    public PhotoFinishedPage verifyPageLoaded(AppiumDriver driver) {
+    public PhotoFinishedPage verifyPageLoaded(AppiumDriver driver) throws InterruptedException {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
         if (Objects.equals(mobileenv, "browserstack-ios")){
@@ -34,21 +35,23 @@ public class PhotoFinishedPage {
 
             List<WebElement> nextButton = wait.until
                     (ExpectedConditions.visibilityOfAllElementsLocatedBy(
-                            AppiumBy.xpath("//android.widget.Button[@text='Start identification']")));
-            assertEquals(1, nextButton.size());
+                            AppiumBy.className("android.widget.Button")));
+            assertEquals(2, nextButton.size());
             assertTrue(nextButton.get(0).isEnabled());
 
         }
         return this;
     }
     @Step("Check if onboarding is stuck. If YES, keep pressing on 'Done' button. WARNING: This is a bug that verification gets stuck sometimes. Please remove this step once the bug is fixed")
-    public void checkOnboardingStuck(AppiumDriver driver) {
+    public PhotoFinishedPage checkOnboardingStuck(AppiumDriver driver) {
         try {
+            sleep(9000);
             while (driver.findElements(AppiumBy.xpath("//android.widget.Button[@text='Done']")).size() != 0) {
                 driver.findElements(AppiumBy.xpath("//android.widget.Button[@text='Done']")).get(0).click();
             }
-        } catch (NoSuchElementException e){
+        } catch (NoSuchElementException | InterruptedException e){
             System.out.println(e.getMessage());
         }
+        return this;
     }
 }

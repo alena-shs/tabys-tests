@@ -1,6 +1,7 @@
 package mobileapp.tests;
 
 import commons.database.config.DatabaseConnectConfig;
+import io.qameta.allure.*;
 import mobileapp.config.AuthBrowserstackConfig;
 import mobileapp.config.BrowserstackConfig;
 import org.aeonbits.owner.ConfigFactory;
@@ -17,11 +18,16 @@ public class Sample extends TestBaseMobile {
     public static AuthBrowserstackConfig authBrowserstackConfig = ConfigFactory.create(AuthBrowserstackConfig.class,
             System.getProperties());
 
-
+    @Test
+    @Epic("Sample CI tests")
+    @Feature("Sample CI tests - mobile")
+    @Story("Checking if CI is working")
+    @Owner("Alena Shomanova")
+    @Severity(SeverityLevel.BLOCKER)
+    @Description("Test that verifies that this CI is working")
     @Tags({
             @Tag("mobile"),
             @Tag("sample_mobile")})
-    @Test
     public void sampleTest(){
         System.out.println("Acs test URL: " + databaseConnectConfig.acsTestUrl());
         System.out.println("Onboarding test URL:" + databaseConnectConfig.onboardingTestUrl());

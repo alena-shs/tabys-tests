@@ -1,5 +1,6 @@
 package mobileapp.tests;
 
+import io.qameta.allure.*;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
@@ -7,16 +8,22 @@ import org.junit.jupiter.api.Test;
 import static commons.OnboardingUtils.getLastUniqueNumber;
 import static mobileapp.data.MobileTestData.*;
 
+@Epic("Onboarding")
+@Feature("Onboarding wih data migration - mobile")
+@Owner("Alena Shomanova")
 public class MobileMigrationTests extends TestBaseMobile{
 
     @Test
+    @Story("Onboarding with data migration from IPO to Tabys(ETN)")
+    @Severity(SeverityLevel.CRITICAL)
+    @Description("Test that verifies that data migration from IPO to Tabys(ETN) can go without errors")
     @Tags({
             @Tag("mobile"),
             @Tag("tabys"),
             @Tag("ipo"),
             @Tag("migration")
     })
-    void migrationIpoToEtn() {
+    void migrationIpoToEtn() throws InterruptedException {
 //        Get a last unique number for the given project
 //        Unique - means that it only exists in the given project
         String phoneNumber = getLastUniqueNumber("TABYS_IPO");
@@ -39,7 +46,9 @@ public class MobileMigrationTests extends TestBaseMobile{
         homeTab
                 .verifyPageLoaded(driver)
                 .etnRegistrationButtonClick(driver);
-        mobileCommonElements.tapOnAvailableButton(driver);
+        onboardingMigrationPage
+                .verifyMigrationPageLoaded(driver)
+                .agreeOpenAccount(driver);
 //        // proceed form "Add bank card"
         cardIntroPage
                 .verifyPageLoaded(driver);
@@ -59,13 +68,16 @@ public class MobileMigrationTests extends TestBaseMobile{
 
 
     @Test
+    @Story("Onboarding with data migration from Tabys(ETN) to IPO")
+    @Severity(SeverityLevel.CRITICAL)
+    @Description("Test that verifies that data migration from Tabys(ETN) to IPO can go without errors")
     @Tags({
             @Tag("mobile"),
             @Tag("tabys"),
             @Tag("ipo"),
             @Tag("migration")
     })
-    void migrationEtnToIpo() {
+    void migrationEtnToIpo() throws InterruptedException {
 //        Get a last unique number for the given project
 //        Unique - means that it only exists in the given project
         String phoneNumber = getLastUniqueNumber("TABYS");
@@ -104,12 +116,15 @@ public class MobileMigrationTests extends TestBaseMobile{
     }
 
     @Test
+    @Story("Onboarding with data migration from Kazpost to Tabys(ETN)")
+    @Severity(SeverityLevel.NORMAL)
+    @Description("Test that verifies that data migration from Kazpost to Tabys(ETN) can go without errors")
     @Tags({
             @Tag("mobile"),
             @Tag("tabys"),
             @Tag("migration")
     })
-    void migrationKazpostToEtn() {
+    void migrationKazpostToEtn() throws InterruptedException {
 //        Get a last unique number for the given project
 //        Unique - means that it only exists in the given project
         String phoneNumber = getLastUniqueNumber("KAZPOST");
@@ -148,12 +163,15 @@ public class MobileMigrationTests extends TestBaseMobile{
     }
 
     @Test
+    @Story("Onboarding with data migration from Kazpost to IPO")
+    @Severity(SeverityLevel.NORMAL)
+    @Description("Test that verifies that data migration from Kazpost to IPO can go without errors")
     @Tags({
             @Tag("mobile"),
             @Tag("ipo"),
             @Tag("migration")
     })
-    void migrationKazpostToIpo() {
+    void migrationKazpostToIpo() throws InterruptedException {
 //        Get a last unique number for the given project
 //        Unique - means that it only exists in the given project
         String phoneNumber = getLastUniqueNumber("KAZPOST");

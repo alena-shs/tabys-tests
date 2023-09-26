@@ -28,19 +28,19 @@ public class PhotoModal {
         } else {
             List<WebElement> startCamera = wait.until
                     (ExpectedConditions.visibilityOfAllElementsLocatedBy(
-                            AppiumBy.xpath("//android.view.View[@text='TURN ON CAMERA']")));
+                            AppiumBy.xpath("//*[@text='TURN ON CAMERA']")));
             assertEquals(1, startCamera.size());
             assertTrue(startCamera.get(0).isEnabled());
 
             List<WebElement> removePhoto = wait.until
                     (ExpectedConditions.visibilityOfAllElementsLocatedBy(
-                            AppiumBy.xpath("//android.view.View[@text='REMOVE THE PHOTO']")));
+                            AppiumBy.xpath("//*[@text='REMOVE THE PHOTO']")));
             assertEquals(1, removePhoto.size());
             assertTrue(removePhoto.get(0).isEnabled());
 
             List<WebElement> close = wait.until
                     (ExpectedConditions.visibilityOfAllElementsLocatedBy(
-                            AppiumBy.xpath("//android.view.View[@text='CLOSE']")));
+                            AppiumBy.xpath("//*[@text='CLOSE']")));
             assertEquals(1, close.size());
             assertTrue(close.get(0).isEnabled());
         }

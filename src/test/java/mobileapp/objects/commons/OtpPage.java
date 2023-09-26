@@ -14,9 +14,9 @@ import java.time.Duration;
 import java.util.List;
 import java.util.Objects;
 
+import static mobileapp.drivers.DriverUtils.*;
 import static commons.database.requests.AcsFetchOtp.userRestorePasswordCode;
 import static mobileapp.tests.TestBaseMobile.mobileenv;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class OtpPage {
@@ -36,11 +36,16 @@ public class OtpPage {
                     (ExpectedConditions.visibilityOfElementLocated(
                             AppiumBy.xpath("//*[contains(@text, 'PIN')]")));
 
-            List<WebElement> otp = wait.until
-                    (ExpectedConditions.visibilityOfAllElementsLocatedBy(
-                            (AppiumBy.className("android.widget.EditText"))));
-            assertEquals(4, otp.size());
-            assertTrue(otp.get(0).isEnabled());
+            List<WebElement> otp = wait.until(visibilityOfNElementsLocatedBy(
+                    AppiumBy.className("android.widget.EditText"), 4));
+//            List<WebElement> otp = wait.until
+//                    (ExpectedConditions.visibilityOfAllElementsLocatedBy(
+//                            (AppiumBy.className("android.widget.EditText"))));
+//            assertEquals(4, otp.size());
+            for(WebElement element : driver.findElements(AppiumBy.className("android.widget.EditText"))){
+                assertTrue(element.isEnabled());
+            }
+//            assertTrue(otp.get(0).isEnabled());
 
             otp.get(0).sendKeys(registrationCode);
         }
@@ -60,11 +65,16 @@ public class OtpPage {
                     (ExpectedConditions.visibilityOfElementLocated(
                             AppiumBy.xpath("//*[contains(@text, 'PIN')]")));
 
-            List<WebElement> otp = wait.until
-                    (ExpectedConditions.visibilityOfAllElementsLocatedBy(
-                            (AppiumBy.className("android.widget.EditText"))));
-            assertEquals(4, otp.size());
-            assertTrue(otp.get(0).isEnabled());
+            List<WebElement> otp = wait.until(visibilityOfNElementsLocatedBy(
+                    AppiumBy.className("android.widget.EditText"), 4));
+//            List<WebElement> otp = wait.until
+//                    (ExpectedConditions.visibilityOfAllElementsLocatedBy(
+//                            (AppiumBy.className("android.widget.EditText"))));
+//            assertEquals(4, otp.size());
+            for(WebElement element : driver.findElements(AppiumBy.className("android.widget.EditText"))){
+                assertTrue(element.isEnabled());
+            }
+//            assertTrue(otp.get(0).isEnabled());
 
             otp.get(0).sendKeys(restorePasswordOtp);
         }

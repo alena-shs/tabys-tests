@@ -12,7 +12,7 @@ import io.appium.java_client.ios.IOSDriver;
 import io.qameta.allure.selenide.AllureSelenide;
 import mobileapp.drivers.MobileDriverLocal;
 import mobileapp.drivers.NewBrowserstackDriver;
-import mobileapp.objects.EmailPage;
+import mobileapp.objects.commons.EmailPage;
 import mobileapp.objects.commons.*;
 import mobileapp.objects.commons.onboarding.InvestorSteps;
 import mobileapp.objects.commons.onboarding.*;
@@ -81,6 +81,7 @@ public class TestBaseMobile {
     ////////////////////// ONBOARDING IPO AND ETN
     //////////////////////////////////////////////////////////////////
     InvestorSteps investorSteps = new InvestorSteps();
+    OnboardingMigrationPage onboardingMigrationPage = new OnboardingMigrationPage();
 
     IinPage iinPage = new IinPage();
     IncomeSourcePage incomePage = new IncomeSourcePage();

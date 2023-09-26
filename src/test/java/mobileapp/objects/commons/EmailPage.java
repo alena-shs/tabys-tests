@@ -1,9 +1,8 @@
-package mobileapp.objects;
+package mobileapp.objects.commons;
 
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.AppiumDriver;
 import io.qameta.allure.Step;
-import mobileapp.objects.commons.MobileCommonElements;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -14,7 +13,7 @@ import java.time.Duration;
 import java.util.List;
 import java.util.Objects;
 
-import static mobileapp.data.MobileTestData.defaultEmail;
+import static mobileapp.drivers.DriverUtils.*;
 import static mobileapp.tests.TestBaseMobile.mobileenv;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -34,11 +33,14 @@ public class EmailPage {
             assertEquals(1, header.size());
 
             List<WebElement> availableInputs = wait.until
-                    (ExpectedConditions.visibilityOfAllElementsLocatedBy(
-                            AppiumBy.className("android.widget.EditText")));
-            assertEquals(2, availableInputs.size());
-            assertTrue(availableInputs.get(0).isEnabled());
-            assertTrue(availableInputs.get(1).isEnabled());
+                    (visibilityOfNElementsLocatedBy(
+                            AppiumBy.className("android.widget.EditText"), 2));
+//            assertEquals(2, availableInputs.size());
+            for(WebElement element : driver.findElements(AppiumBy.className("android.widget.EditText"))){
+                assertTrue(element.isEnabled());
+            }
+//            assertTrue(availableInputs.get(0).isEnabled());
+//            assertTrue(availableInputs.get(1).isEnabled());
         }
         return this;
     }

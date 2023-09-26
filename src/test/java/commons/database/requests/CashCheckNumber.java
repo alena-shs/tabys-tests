@@ -13,7 +13,10 @@ public class CashCheckNumber {
             System.getProperties());
     private static final String SELECT_ALL_NUMBERS_WITH_WITHDRAWAL_ORDERS = "select distinct username from withdraw_request_data where trn_status!='SUCCESS_WDW';",
             SELECT_ALL_NUMBERS_WITH_IPO_ORDERS = "select distinct username from pipo_order_data where status not in ('COMPLETED', 'REJECTED', 'CANCELLED', 'COMPLETED_WITHOUT_KAZPOST_REFUND', 'ERROR');",
+
+    // Selecting all orders that have either IPO or withdrawal orders with not completed statuses (not eligible for update)
             SELECT_ALL_NUMBERS_WITH_CSD_ORDERS = "select distinct pipo.username, withdraw.username from pipo_order_data pipo full join withdraw_request_data withdraw on pipo.username = withdraw.username where pipo.status not in ('COMPLETED', 'REJECTED', 'CANCELLED', 'COMPLETED_WITHOUT_KAZPOST_REFUND', 'ERROR') or withdraw.trn_status !='SUCCESS_WDW';";
+
     @Step("Fetch the last registered phone number")
     public static List<String> allNumbersWithWithdrawalOrders() {
         List<String> numbersWithWithdrawal = new ArrayList<>();
@@ -62,25 +65,28 @@ public class CashCheckNumber {
         List<String> numbersWithCsdOrders = new ArrayList<>();
         try (Connection connection = DriverManager.getConnection(
                 databaseConnectConfig.cashTestUrl(), databaseConnectConfig.user(), databaseConnectConfig.password());
+             // preparing the SQL statement
              PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ALL_NUMBERS_WITH_CSD_ORDERS)) {
             System.out.println(preparedStatement);
             ResultSet rs = preparedStatement.executeQuery();
 
-            // Process the ResultSet object
+
             while (rs.next()) {
+                // Our result set consists of 2 columns: users with PIPO orders and users with withdrawal orders
                 String pipoUsername = rs.getString(1);
                 if (pipoUsername != null) {
+                    // If 1st column value (users with PIPO orders) is not null, then adding it to the list of users with orders
                     numbersWithCsdOrders.add(pipoUsername);
                 }
                 String withdrawUsername = rs.getString(2);
                 if (withdrawUsername != null) {
-                    numbersWithCsdOrders.add(pipoUsername);
+                    // If 2nd column value (users with withdrawal orders) is not null, then adding it to the list of users with orders
+                    numbersWithCsdOrders.add(withdrawUsername);
                 }
             }
         } catch (SQLException e) {
             printSQLException(e);
         }
-        System.out.println(numbersWithCsdOrders);
         return numbersWithCsdOrders;
     }
 

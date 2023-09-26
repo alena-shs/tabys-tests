@@ -14,6 +14,7 @@ import java.util.List;
 import java.util.Objects;
 
 import static com.codeborne.selenide.Selenide.sleep;
+import static mobileapp.drivers.DriverUtils.*;
 import static mobileapp.data.MobileTestData.defaultPassword;
 import static mobileapp.tests.TestBaseMobile.mobileenv;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -28,18 +29,20 @@ public class PasswordSetupPage {
         if (Objects.equals(mobileenv, "browserstack-ios")){
             logger.info("MACBOOK REQUIRED TO WRITE THE SCRIPT");
         } else {
-            sleep(2000);
+            sleep(4000);
             List<WebElement> header = wait.until
                     (ExpectedConditions.visibilityOfAllElementsLocatedBy(
                             AppiumBy.xpath("//*[@text='Password']")));
             assertEquals(1, header.size());
 
-            List<WebElement> passwordFields = wait.until
-                    (ExpectedConditions.visibilityOfAllElementsLocatedBy(
-                            AppiumBy.className("android.widget.EditText")));
+            List<WebElement> passwordFields = wait.until(visibilityOfNElementsLocatedBy(
+                    AppiumBy.className("android.widget.EditText"), 2));
+//            List<WebElement> passwordFields = wait.until
+//                    (ExpectedConditions.visibilityOfAllElementsLocatedBy(
+//                            AppiumBy.className("android.widget.EditText")));
             assertTrue(passwordFields.get(0).isEnabled());
             assertTrue(passwordFields.get(1).isEnabled());
-            assertEquals(2, passwordFields.size());
+//            assertEquals(2, passwordFields.size());
 
             passwordFields.get(0).sendKeys(defaultPassword);
             passwordFields.get(1).sendKeys(defaultPassword);

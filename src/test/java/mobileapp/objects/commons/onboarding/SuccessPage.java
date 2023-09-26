@@ -55,7 +55,7 @@ public class SuccessPage {
         } else {
             List<WebElement> sharingHeader = wait.until
                     (ExpectedConditions.visibilityOfAllElementsLocatedBy(
-                            AppiumBy.xpath("//*[@text[starts-with(., 'Shar')]]")));
+                            AppiumBy.xpath("//android.widget.TextView[@text[starts-with(., 'Shar')]]")));
             assertEquals(1, sharingHeader.size());
 
             List<WebElement> exitButton = wait.until

@@ -13,6 +13,7 @@ import java.time.Duration;
 import java.util.List;
 import java.util.Objects;
 
+import static java.lang.Thread.sleep;
 import static mobileapp.tests.TestBaseMobile.mobileenv;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -20,7 +21,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class PhotoIntroPage {
     private final static Logger logger = LoggerFactory.getLogger(PhotoIntroPage.class);
     @Step("Verify that the photo section introduction page is fully loaded and has all the necessary elements")
-    public void verifyPageLoaded(AppiumDriver driver) {
+    public void verifyPageLoaded(AppiumDriver driver) throws InterruptedException {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 
         if (Objects.equals(mobileenv, "browserstack-ios")){
@@ -36,6 +37,8 @@ public class PhotoIntroPage {
                             AppiumBy.xpath("//android.widget.Button[@text='Start identification']")));
             assertEquals(1, button.size());
             assertTrue(button.get(0).isEnabled());
+
+            sleep(1000);
         }
     }
 }

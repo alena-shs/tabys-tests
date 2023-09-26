@@ -2,6 +2,7 @@ package mobileapp.tests;
 
 import com.codeborne.selenide.Selenide;
 import commons.OnboardingUtils;
+import io.qameta.allure.*;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
@@ -10,14 +11,20 @@ import static mobileapp.data.MobileTestData.*;
 
 public class MobileUpdateDataTest extends TestBaseMobile {
     @Test
+    @Epic("Onboarding")
+    @Feature("Data update - mobile")
+    @Story("Updating data on IPO")
+    @Owner("Alena Shomanova")
+    @Severity(SeverityLevel.NORMAL)
+    @Description("Test that verifies that a fully onboarded IPO user without any IPO/withdrawal orders can update their data (change income source to 'Savings')")
     @Tags({
             @Tag("mobile"),
             @Tag("updatedata"),
             @Tag("ipo")
     })
-    void updateDataIpo() {
+    void updateDataIpo() throws InterruptedException {
 //        Get a last automatically approved phone number
-        String phoneNumber = OnboardingUtils.getCsdNumberWithoutOrders("TABYS_IPO");
+        String phoneNumber = OnboardingUtils.getIpoNumberWithoutOrders("TABYS_IPO");
         startPage
                 .clickImAlreadyRegistered(driver);
         loginNumberPage
@@ -67,7 +74,7 @@ public class MobileUpdateDataTest extends TestBaseMobile {
         mobileCommonElements
                 .proceedOnboarding(driver);
         photoSelfiePage
-                .verifyPageLoaded(driver);
+                .verifyPageLoadedUpdate(driver);
         mobileCommonElements
                 .proceedOnboarding(driver);
         photoIdPage
@@ -77,6 +84,7 @@ public class MobileUpdateDataTest extends TestBaseMobile {
         mobileCommonElements
                 .tapOnAvailableButton(driver);
         photoFinishedPage
+                .checkOnboardingStuck(driver)
                 .verifyPageLoaded(driver)
                 .checkOnboardingStuck(driver);
         mobileCommonElements
@@ -106,8 +114,7 @@ public class MobileUpdateDataTest extends TestBaseMobile {
         ipoConsentPage
                 .verifyPageLoaded(driver).proceed(driver);
         successPage
-                .verifyPageLoaded(driver);
-        mobileCommonElements.proceedOnboarding(driver);
+                .verifyPageLoaded(driver).exit(driver);
         tabysNavigation
                 .verifyNavigationAvailable(driver);
         homeTab
@@ -115,12 +122,18 @@ public class MobileUpdateDataTest extends TestBaseMobile {
     }
 
     @Test
+    @Epic("Onboarding")
+    @Feature("Data update - mobile")
+    @Story("Updating data on Tabys")
+    @Owner("Alena Shomanova")
+    @Severity(SeverityLevel.NORMAL)
+    @Description("Test that verifies that a fully onboarded Tabys user without any ETN orders can update their data (change income source to 'Savings')")
     @Tags({
             @Tag("mobile"),
             @Tag("updatedata"),
             @Tag("tabys")
     })
-    void updateDataEtn() {
+    void updateDataEtn() throws InterruptedException {
 //        Get a last automatically approved phone number
         String phoneNumber = OnboardingUtils.getTabysNumber();
         startPage
@@ -176,7 +189,7 @@ public class MobileUpdateDataTest extends TestBaseMobile {
                 .proceedOnboarding(driver);
         //
         photoSelfiePage
-                .verifyPageLoaded(driver);
+                .verifyPageLoadedUpdate(driver);
         //
         mobileCommonElements
                 .proceedOnboarding(driver);
@@ -188,6 +201,7 @@ public class MobileUpdateDataTest extends TestBaseMobile {
         mobileCommonElements
                 .tapOnAvailableButton(driver);
         photoFinishedPage
+                .checkOnboardingStuck(driver)
                 .verifyPageLoaded(driver)
                 .checkOnboardingStuck(driver);
         mobileCommonElements
@@ -210,7 +224,6 @@ public class MobileUpdateDataTest extends TestBaseMobile {
                 .verifyPageLoaded(driver);
         mobileCommonElements
                 .proceedOnboarding(driver);
-//        // TODO Debug this
         videocheckRulesPage
                 .verifyPageLoaded(driver);
         mobileCommonElements
@@ -226,5 +239,106 @@ public class MobileUpdateDataTest extends TestBaseMobile {
                 .verifyPageLoaded(driver);
     }
 
+
+    @Test
+    @Epic("Onboarding")
+    @Feature("Data update - mobile")
+    @Story("Updating data on IPO")
+    @Owner("Alena Shomanova")
+    @Severity(SeverityLevel.NORMAL)
+    @Description("Test that verifies that the specified user can update their IPO data (change income source to 'Savings')")
+    @Tag("mobile")
+    void updateDataIpoKnownAccount() throws InterruptedException {
+//        Get a last automatically approved phone number
+        startPage
+                .clickImAlreadyRegistered(driver);
+        loginNumberPage
+                // SPECIFY NUMBER HERE
+                .enterCredentials(driver, "+72220000338", defaultPassword);
+        mobileCommonElements
+                .tapOnAvailableButton(driver);
+        pinPage
+                .setUpPinFirst(driver, defaultPinCode);
+        homeTab.verifyPageLoaded(driver);
+        tabysNavigation
+                .verifyNavigationAvailable(driver);
+        homeTab
+                .verifyPageLoaded(driver).ipoBannerClick(driver);
+        myBondsSharesMainPage
+                .verifyPageLoaded(driver)
+                .myProfileTap(driver);
+        myProfileInformation
+                .verifyPageLoaded(driver)
+                .tapUpdateData(driver);
+        iinPage
+                .verifyPageLoaded(driver)
+                .verifyIinFound(driver);
+        mobileCommonElements
+                .proceedOnboarding(driver);
+        incomePage
+                .verifyPageLoaded(driver)
+                .setIncomeSource(driver, "Savings");
+        mobileCommonElements
+                .proceedOnboarding(driver);
+        userConsentPage
+                .verifyPageLoaded(driver);
+        mobileCommonElements
+                .proceedOnboarding(driver);
+        photoIntroPage
+                .verifyPageLoaded(driver);
+        mobileCommonElements
+                .proceedOnboarding(driver);
+        photoSelfieRulePage
+                .verifyPageLoaded(driver);
+        mobileCommonElements
+                .proceedOnboarding(driver);
+        photoSelfiePage
+                .verifyPageLoadedUpdate(driver);
+        mobileCommonElements
+                .proceedOnboarding(driver);
+        photoIdPage
+                .verifyPageLoaded(driver);
+        mobileCommonElements
+                .proceedOnboarding(driver);
+        mobileCommonElements
+                .tapOnAvailableButton(driver);
+        photoFinishedPage
+                .checkOnboardingStuck(driver)
+                .verifyPageLoaded(driver)
+                .checkOnboardingStuck(driver);
+        mobileCommonElements
+                .tapOnAvailableButton(driver);
+        cardIntroPage
+                .verifyPageLoaded(driver);
+        mobileCommonElements
+                .proceedOnboarding(driver);
+        cardRulePage
+                .verifyPageLoaded(driver);
+        mobileCommonElements
+                .proceedOnboarding(driver);
+        cardBasePage
+                .verifyPageLoaded(driver);
+        mobileCommonElements
+                .proceedOnboarding(driver);
+        videocheckIntroPage
+                .verifyPageLoaded(driver);
+        mobileCommonElements
+                .proceedOnboarding(driver);
+        videocheckRulesPage
+                .verifyPageLoaded(driver);
+        mobileCommonElements
+                .proceedOnboarding(driver);
+//        // Give time for videocheck
+        Selenide.sleep(5000);
+        ipoConsentPage
+                .verifyPageLoaded(driver).proceed(driver);
+        successPage
+                .verifyPageLoaded(driver);
+        mobileCommonElements.proceedOnboarding(driver);
+        tabysNavigation
+                .verifyNavigationAvailable(driver);
+        homeTab
+                .verifyPageLoaded(driver);
+    }
 
 }

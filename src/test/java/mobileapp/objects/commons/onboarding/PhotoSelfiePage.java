@@ -20,8 +20,29 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class PhotoSelfiePage {
     private final static Logger logger = LoggerFactory.getLogger(PhotoSelfiePage.class);
 
+    @Step("Verify that the selfie page is fully loaded and has all the necessary elements (for a new onboarding)")
+    public PhotoSelfiePage verifyPageLoadedNew(AppiumDriver driver) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+        if (Objects.equals(mobileenv, "browserstack-ios")){
+            logger.info("MACBOOK REQUIRED TO WRITE THE SCRIPT");
+        } else {
+            List<WebElement> addSelfieButton = wait.until
+                    (ExpectedConditions.visibilityOfAllElementsLocatedBy(
+                            AppiumBy.xpath("//android.widget.Button[@text='Add selfie']")));
+            assertEquals(1, addSelfieButton.size());
+            assertTrue(addSelfieButton.get(0).isEnabled());
+
+            List<WebElement> photoField = wait.until
+                    (ExpectedConditions.visibilityOfAllElementsLocatedBy(
+                            AppiumBy.xpath("//android.view.View[@resource-id='photo-clickable']")));
+            assertEquals(1, photoField.size());
+        }
+        return this;
+    }
+
     @Step("Verify that the selfie page is fully loaded and has all the necessary elements")
-    public PhotoSelfiePage verifyPageLoaded(AppiumDriver driver) {
+    public PhotoSelfiePage verifyPageLoadedUpdate(AppiumDriver driver) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
         if (Objects.equals(mobileenv, "browserstack-ios")){

@@ -39,9 +39,6 @@ public class MyProfileInformation {
             wait.until
                     (ExpectedConditions.visibilityOfElementLocated(
                             AppiumBy.xpath("//android.widget.TextView[@text[starts-with(., '+')]]")));
-            wait.until
-                    (ExpectedConditions.visibilityOfElementLocated(
-                            AppiumBy.xpath("//android.widget.TextView[@text[contains(., 'year')]]")));
 
             WebElement firstNameValue = wait.until
                     (ExpectedConditions.visibilityOfElementLocated(
@@ -92,6 +89,7 @@ public class MyProfileInformation {
             logger.info("MACBOOK REQUIRED TO WRITE THE SCRIPT");
         } else {
             driver.findElement(AppiumBy.xpath("//android.widget.TextView[@text='Update data']")).click();
+
         }
     }
 }

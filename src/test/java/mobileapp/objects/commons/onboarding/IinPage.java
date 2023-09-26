@@ -13,6 +13,7 @@ import java.time.Duration;
 import java.util.List;
 import java.util.Objects;
 
+import static java.lang.Thread.sleep;
 import static mobileapp.tests.TestBaseMobile.mobileenv;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -21,15 +22,18 @@ public class IinPage {
     private final static Logger logger = LoggerFactory.getLogger(IinPage.class);
 
     @Step("Verify that the IIN input page is fully loaded and has all the necessary elements")
-    public IinPage verifyPageLoaded(AppiumDriver driver) {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+    public IinPage verifyPageLoaded(AppiumDriver driver) throws InterruptedException {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 
         if (Objects.equals(mobileenv, "browserstack-ios")){
             logger.info("MACBOOK REQUIRED TO WRITE THE SCRIPT");
         } else {
-            wait.until
-                    (ExpectedConditions.visibilityOfElementLocated(
-                            AppiumBy.xpath("//*[@text='Personal information']")));
+            List<WebElement> header = wait.until
+                (ExpectedConditions.presenceOfAllElementsLocatedBy(
+                        AppiumBy.xpath("//*[@text='Personal information']")));
+            assertEquals(1, header.size());
+            assertTrue(header.get(0).isDisplayed());
+            sleep(2000);
 
             List<WebElement> inputFields = wait.until
                     (ExpectedConditions.visibilityOfAllElementsLocatedBy(

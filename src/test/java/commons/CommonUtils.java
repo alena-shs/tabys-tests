@@ -2,11 +2,19 @@ package commons;
 
 import commons.api.models.PhotoBody;
 import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedCondition;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.Base64;
+import java.util.List;
 import java.util.Objects;
+
+import static java.lang.Thread.sleep;
+import static org.junit.jupiter.api.Assertions.fail;
 
 public class CommonUtils {
     public String formatMonth(String month){
@@ -36,5 +44,6 @@ public class CommonUtils {
         photoBody.setTitle(title);
         photoBody.setType("image/jpeg");
     }
+
 
 }

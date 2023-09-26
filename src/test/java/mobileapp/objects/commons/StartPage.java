@@ -15,9 +15,8 @@ import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Objects;
 
-import static com.codeborne.selenide.Selenide.sleep;
+import static mobileapp.drivers.DriverUtils.*;
 import static mobileapp.tests.TestBaseMobile.mobileenv;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class StartPage {
@@ -29,19 +28,27 @@ public class StartPage {
 
         if (Objects.equals(mobileenv, "browserstack-ios")){
             logger.info("MACBOOK REQUIRED TO WRITE THE SCRIPT");
+            // COPY/PASTE the code under 'else'. BUT change the locators. Use APPIUM Inspector to identify locators.
         } else {
 
-            sleep(10000);
-            wait.until
-                    (ExpectedConditions.visibilityOfElementLocated(
-                            AppiumBy.xpath("//*[@resource-id='background-content']")));
+//            sleep(10000);
+//            wait.until
+//                    (ExpectedConditions.visibilityOfElementLocated(
+//                            AppiumBy.xpath("//*[@resource-id='background-content']")));
+            wait.until(visibilityOfNElementsLocatedBy(
+                    AppiumBy.xpath("//*[@resource-id='background-content']"), 1));
 
-            List<WebElement> availableButtons = wait.until
-                    (ExpectedConditions.visibilityOfAllElementsLocatedBy(
-                            AppiumBy.className("android.widget.Button")));
+            List<WebElement> availableButtons = wait.until(visibilityOfNElementsLocatedBy(
+                    AppiumBy.className("android.widget.Button"), 2));
+//            List<WebElement> availableButtons = wait.until
+//                    (ExpectedConditions.visibilityOfAllElementsLocatedBy(
+//                            AppiumBy.className("android.widget.Button")));
 
-            assertEquals(2, availableButtons.size());
-            assertTrue(availableButtons.get(0).isEnabled());
+//            assertEquals(2, availableButtons.size());
+            for(WebElement element : driver.findElements(AppiumBy.className("android.widget.Button"))){
+                assertTrue(element.isEnabled());
+            }
+//            assertTrue(availableButtons.get(0).isEnabled());
 
             availableButtons.get(0).click();
         }
@@ -55,17 +62,22 @@ public class StartPage {
             logger.info("MACBOOK REQUIRED TO WRITE THE SCRIPT");
         } else {
 
-            sleep(10000);
-            wait.until
-                    (ExpectedConditions.visibilityOfElementLocated(
-                            AppiumBy.xpath("//*[@resource-id='background-content']")));
+//            sleep(10000);
+            wait.until(visibilityOfNElementsLocatedBy(
+                    AppiumBy.xpath("//*[@resource-id='background-content']"), 1));
 
-            List<WebElement> availableButtons = wait.until
-                    (ExpectedConditions.visibilityOfAllElementsLocatedBy(
-                            AppiumBy.className("android.widget.Button")));
 
-            assertEquals(2, availableButtons.size());
-            assertTrue(availableButtons.get(1).isEnabled());
+            List<WebElement> availableButtons = wait.until(visibilityOfNElementsLocatedBy(
+                    AppiumBy.className("android.widget.Button"), 2));
+//            List<WebElement> availableButtons = wait.until
+//                    (ExpectedConditions.visibilityOfAllElementsLocatedBy(
+//                            AppiumBy.className("android.widget.Button")));
+
+//            assertEquals(2, availableButtons.size());
+            for(WebElement element : driver.findElements(AppiumBy.className("android.widget.Button"))){
+                assertTrue(element.isEnabled());
+            }
+//            assertTrue(availableButtons.get(1).isEnabled());
 
             availableButtons.get(1).click();
         }
