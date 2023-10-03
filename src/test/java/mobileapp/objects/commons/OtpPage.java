@@ -23,7 +23,7 @@ public class OtpPage {
     private final static Logger logger = LoggerFactory.getLogger(OtpPage.class);
     AcsFetchOtp acsDatabaseConnections = new AcsFetchOtp();
     @Step("Enter registration OTP Code")
-    public void enterRegistrationOtpCode(AppiumDriver driver, String phoneNumber){
+    public void enterRegistrationOtpCode(AppiumDriver driver, String phoneNumber) throws InterruptedException {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 
         if (Objects.equals(mobileenv, "browserstack-ios")){
@@ -32,27 +32,25 @@ public class OtpPage {
 
             String registrationCode = acsDatabaseConnections.phoneNumberConfirmationCode(phoneNumber);
 
-            wait.until
-                    (ExpectedConditions.visibilityOfElementLocated(
-                            AppiumBy.xpath("//*[contains(@text, 'PIN')]")));
+            waitForDisplayed(driver, AppiumBy
+                    .xpath("//*[contains(@text, 'PIN')]"), 30);
 
-            List<WebElement> otp = wait.until(visibilityOfNElementsLocatedBy(
-                    AppiumBy.className("android.widget.EditText"), 4));
-//            List<WebElement> otp = wait.until
-//                    (ExpectedConditions.visibilityOfAllElementsLocatedBy(
-//                            (AppiumBy.className("android.widget.EditText"))));
-//            assertEquals(4, otp.size());
+            wait.until
+                    (visibilityOfNElementsLocatedBy(AppiumBy
+                            .className("android.widget.EditText"), 4));
             for(WebElement element : driver.findElements(AppiumBy.className("android.widget.EditText"))){
                 assertTrue(element.isEnabled());
             }
 //            assertTrue(otp.get(0).isEnabled());
 
-            otp.get(0).sendKeys(registrationCode);
+            driver.findElements(AppiumBy
+                    .className("android.widget.EditText")).get(0)
+                    .sendKeys(registrationCode);
         }
     }
 
     @Step("Enter password restoring OTP code")
-    public void enterRestorePasswordOtpCode(AppiumDriver driver, String phoneNumber){
+    public void enterRestorePasswordOtpCode(AppiumDriver driver, String phoneNumber) throws InterruptedException {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 
         if (Objects.equals(mobileenv, "browserstack-ios")){
@@ -61,22 +59,19 @@ public class OtpPage {
 
             String restorePasswordOtp = userRestorePasswordCode(phoneNumber);
 
-            wait.until
-                    (ExpectedConditions.visibilityOfElementLocated(
-                            AppiumBy.xpath("//*[contains(@text, 'PIN')]")));
+            waitForDisplayed(driver, AppiumBy
+                    .xpath("//*[contains(@text, 'PIN')]"), 30);
 
-            List<WebElement> otp = wait.until(visibilityOfNElementsLocatedBy(
-                    AppiumBy.className("android.widget.EditText"), 4));
-//            List<WebElement> otp = wait.until
-//                    (ExpectedConditions.visibilityOfAllElementsLocatedBy(
-//                            (AppiumBy.className("android.widget.EditText"))));
-//            assertEquals(4, otp.size());
+            wait.until
+                    (visibilityOfNElementsLocatedBy(AppiumBy
+                            .className("android.widget.EditText"), 4));
             for(WebElement element : driver.findElements(AppiumBy.className("android.widget.EditText"))){
                 assertTrue(element.isEnabled());
             }
-//            assertTrue(otp.get(0).isEnabled());
 
-            otp.get(0).sendKeys(restorePasswordOtp);
+            driver.findElements(AppiumBy
+                    .className("android.widget.EditText")).get(0)
+                    .sendKeys(restorePasswordOtp);
         }
     }
 }

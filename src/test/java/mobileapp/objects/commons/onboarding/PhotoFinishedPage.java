@@ -15,6 +15,7 @@ import java.util.NoSuchElementException;
 import java.util.Objects;
 
 import static java.lang.Thread.sleep;
+import static mobileapp.drivers.DriverUtils.waitForDisplayed;
 import static mobileapp.tests.TestBaseMobile.mobileenv;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -28,10 +29,8 @@ public class PhotoFinishedPage {
         if (Objects.equals(mobileenv, "browserstack-ios")){
             logger.info("MACBOOK REQUIRED TO WRITE THE SCRIPT");
         } else {
-            List<WebElement> header = wait.until
-                    (ExpectedConditions.visibilityOfAllElementsLocatedBy(
-                            AppiumBy.xpath("//*[@text='Identification completed']")));
-            assertEquals(1, header.size());
+            waitForDisplayed(driver, AppiumBy
+                    .xpath("//*[@text='Identification completed']"), 30);
 
             List<WebElement> nextButton = wait.until
                     (ExpectedConditions.visibilityOfAllElementsLocatedBy(
@@ -42,16 +41,16 @@ public class PhotoFinishedPage {
         }
         return this;
     }
-    @Step("Check if onboarding is stuck. If YES, keep pressing on 'Done' button. WARNING: This is a bug that verification gets stuck sometimes. Please remove this step once the bug is fixed")
-    public PhotoFinishedPage checkOnboardingStuck(AppiumDriver driver) {
-        try {
-            sleep(9000);
-            while (driver.findElements(AppiumBy.xpath("//android.widget.Button[@text='Done']")).size() != 0) {
-                driver.findElements(AppiumBy.xpath("//android.widget.Button[@text='Done']")).get(0).click();
-            }
-        } catch (NoSuchElementException | InterruptedException e){
-            System.out.println(e.getMessage());
-        }
-        return this;
-    }
+//    @Step("Check if onboarding is stuck. If YES, keep pressing on 'Done' button. WARNING: This is a bug that verification gets stuck sometimes. Please remove this step once the bug is fixed")
+//    public PhotoFinishedPage checkOnboardingStuck(AppiumDriver driver) {
+//        try {
+//            sleep(9000);
+//            while (driver.findElements(AppiumBy.xpath("//android.widget.Button[@text='Done']")).size() != 0) {
+//                driver.findElements(AppiumBy.xpath("//android.widget.Button[@text='Done']")).get(0).click();
+//            }
+//        } catch (NoSuchElementException | InterruptedException e){
+//            System.out.println(e.getMessage());
+//        }
+//        return this;
+//    }
 }

@@ -22,7 +22,10 @@ public class MobileOnboardingTests extends TestBaseMobile {
             @Tag("onboarding")
     })
     void etnMobileOnboarding() throws InterruptedException {
-        startPage.clickReadyToStart(driver);
+        //        Get a new phone number for registration. All the numbers will be in the format: +74440xxxxxx. Each new number will increment the previous number by on e.
+        String phoneNumber = getNewPhoneNumber(phoneNumberTemplateMobile);
+        startPage
+                .clickReadyToStart(driver);
         tabysNavigation
                 .verifyNavigationAvailable(driver);
         homeTab
@@ -31,8 +34,6 @@ public class MobileOnboardingTests extends TestBaseMobile {
         investorSteps
                 .verifyOnboardingStepsPage(driver)
                 .proceed(driver);
-//        Get a new phone number for registration. All the numbers will be in the format: +74440xxxxxx. Each new number will increment the previous number by on e.
-        String phoneNumber = getNewPhoneNumber(phoneNumberTemplateMobile);
         registerNumberPage
                 .enterPhoneNumber(driver, phoneNumber)
                 .initiateRegistrationOtp(driver);
@@ -93,6 +94,8 @@ public class MobileOnboardingTests extends TestBaseMobile {
             @Tag("onboarding")
     })
     void ipoMobileOnboarding() throws InterruptedException {
+//        Get a new phone number for registration. All the numbers will be in the format: +74440xxxxxx. Each new number will increment the previous number by one.
+        String phoneNumber = getNewPhoneNumber(phoneNumberTemplateMobile);
         startPage
                 .clickReadyToStart(driver);
         tabysNavigation
@@ -103,8 +106,6 @@ public class MobileOnboardingTests extends TestBaseMobile {
         investorSteps
                 .verifyOnboardingStepsPage(driver)
                 .proceed(driver);
-//        Get a new phone number for registration. All the numbers will be in the format: +74440xxxxxx. Each new number will increment the previous number by one.
-        String phoneNumber = getNewPhoneNumber(phoneNumberTemplateMobile);
         registerNumberPage
                 .enterPhoneNumber(driver, phoneNumber)
                 .initiateRegistrationOtp(driver);

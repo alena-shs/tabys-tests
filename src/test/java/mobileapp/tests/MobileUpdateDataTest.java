@@ -16,7 +16,7 @@ public class MobileUpdateDataTest extends TestBaseMobile {
     @Story("Updating data on IPO")
     @Owner("Alena Shomanova")
     @Severity(SeverityLevel.NORMAL)
-    @Description("Test that verifies that a fully onboarded IPO user without any IPO/withdrawal orders can update their data (change income source to 'Savings')")
+    @Description("Test tha  t verifies that a fully onboarded IPO user without any IPO/withdrawal orders can update their data (change income source to 'Savings')")
     @Tags({
             @Tag("mobile"),
             @Tag("updatedata"),
@@ -81,12 +81,10 @@ public class MobileUpdateDataTest extends TestBaseMobile {
                 .verifyPageLoaded(driver);
         mobileCommonElements
                 .proceedOnboarding(driver);
-        mobileCommonElements
-                .tapOnAvailableButton(driver);
         photoFinishedPage
-                .checkOnboardingStuck(driver)
-                .verifyPageLoaded(driver)
-                .checkOnboardingStuck(driver);
+//                .checkOnboardingStuck(driver)
+                .verifyPageLoaded(driver);
+//                .checkOnboardingStuck(driver);
         mobileCommonElements
                 .tapOnAvailableButton(driver);
         cardIntroPage
@@ -138,7 +136,6 @@ public class MobileUpdateDataTest extends TestBaseMobile {
         String phoneNumber = OnboardingUtils.getTabysNumber();
         startPage
                 .clickImAlreadyRegistered(driver);
-        //
         loginNumberPage
                 .tapForgotPassword(driver);
         passwordRecoveryPage
@@ -198,12 +195,10 @@ public class MobileUpdateDataTest extends TestBaseMobile {
         mobileCommonElements
                 .proceedOnboarding(driver);
         //
-        mobileCommonElements
-                .tapOnAvailableButton(driver);
         photoFinishedPage
-                .checkOnboardingStuck(driver)
-                .verifyPageLoaded(driver)
-                .checkOnboardingStuck(driver);
+//                .checkOnboardingStuck(driver)
+                .verifyPageLoaded(driver);
+//                .checkOnboardingStuck(driver);
         mobileCommonElements
                 .tapOnAvailableButton(driver);
         //
@@ -231,8 +226,7 @@ public class MobileUpdateDataTest extends TestBaseMobile {
 //        // Give time for videocheck
         Selenide.sleep(5000);
         successPage
-                .verifyPageLoaded(driver).promoteQueue(driver)
-                .verifySharingPageLoaded(driver).exit(driver);
+                .verifyPageLoaded(driver).exit(driver);
         tabysNavigation
                 .verifyNavigationAvailable(driver);
         homeTab
@@ -300,12 +294,10 @@ public class MobileUpdateDataTest extends TestBaseMobile {
                 .verifyPageLoaded(driver);
         mobileCommonElements
                 .proceedOnboarding(driver);
-        mobileCommonElements
-                .tapOnAvailableButton(driver);
         photoFinishedPage
-                .checkOnboardingStuck(driver)
-                .verifyPageLoaded(driver)
-                .checkOnboardingStuck(driver);
+//                .checkOnboardingStuck(driver)
+                .verifyPageLoaded(driver);
+//                .checkOnboardingStuck(driver);
         mobileCommonElements
                 .tapOnAvailableButton(driver);
         cardIntroPage

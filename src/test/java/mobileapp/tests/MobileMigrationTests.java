@@ -100,7 +100,9 @@ public class MobileMigrationTests extends TestBaseMobile{
         homeTab
                 .verifyPageLoaded(driver)
                 .ipoBannerClick(driver);
-        mobileCommonElements.tapOnAvailableButton(driver);
+        onboardingMigrationPage
+                .verifyMigrationPageLoaded(driver)
+                .agreeOpenAccount(driver);
         cardIntroPage
                 .verifyPageLoaded(driver);
         mobileCommonElements
@@ -147,7 +149,9 @@ public class MobileMigrationTests extends TestBaseMobile{
         homeTab
                 .verifyPageLoaded(driver)
                 .etnRegistrationButtonClick(driver);
-        mobileCommonElements.tapOnAvailableButton(driver);
+        onboardingMigrationPage
+                .verifyMigrationPageLoaded(driver)
+                .agreeOpenAccount(driver);
         cardIntroPage.verifyPageLoaded(driver);
         mobileCommonElements
                 .proceedOnboarding(driver);

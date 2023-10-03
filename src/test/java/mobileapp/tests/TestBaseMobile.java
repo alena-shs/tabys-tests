@@ -152,7 +152,6 @@ public class TestBaseMobile {
                 System.out.println(getAppiumServerUrl());
                 driver = new AppiumDriver(getAppiumServerUrl(), capabilities);
                 sessionId = driver.getSessionId();
-                System.out.println(sessionId.toString());
                 break;
             case "browserstack-ios":
                 capabilities = new DesiredCapabilities();

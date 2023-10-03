@@ -1,5 +1,7 @@
 package mobileapp.drivers;
 
+import com.codeborne.selenide.WebDriverRunner;
+import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -7,19 +9,20 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 
 import java.util.List;
 
-import static java.lang.Thread.sleep;
+import static com.codeborne.selenide.Selenide.sleep;
 import static org.junit.jupiter.api.Assertions.fail;
 
 public class DriverUtils {
 
-    public static void waitForDisplayed(WebElement element, int timeOut) throws InterruptedException {
+    public static void waitForDisplayed(AppiumDriver driver, By locator, int timeOut) throws InterruptedException {
         for (int second = 0; ; second++)
         {
             if (second >= timeOut)
-                fail("timeout");
+                fail("Element display timeout");
             try
             {
-                if (element.isDisplayed()) break;
+                if (driver.findElement(locator).isDisplayed())
+                    break;
             }
             catch (Exception e)
             { }
@@ -27,14 +30,14 @@ public class DriverUtils {
         }
     }
 
-    public static void waitForEnabled(WebElement element, int timeOut) throws InterruptedException {
+    public static void waitForEnabled(AppiumDriver driver, By locator, int timeOut) throws InterruptedException {
         for (int second = 0; ; second++)
         {
             if (second >= timeOut)
-                fail("timeout");
+                fail("Element enabled timeout");
             try
             {
-                if (element.isEnabled()) break;
+                if (driver.findElement(locator).isEnabled()) break;
             }
             catch (Exception e)
             { }
@@ -50,29 +53,12 @@ public class DriverUtils {
                 List<WebElement> elements = driver.findElements(locator);
                 int cycleElementCount = 0;
                 int cycleELementVisibility = 0;
-
-                // KEY is here - we are "failing" the expected condition
-                // if there are less than elementsCount elements
-//                if (elements.size() < elementsCount) {
-////                    return null;
-//                    elements = driver.findElements(locator);
-//                    return null;
-//                }
-//
-//                for(WebElement element : elements){
-//                    if(!element.isDisplayed()){
-//                        return null;
-//                    }
-//                }
+                int elementNumber = 0;
 
                 // If there are less than N elements on the page, we wait for 500 ms and try again
                 // This cycle can be repeated 30 times, which gives the page 15 seconds to be loaded
-                while ((elements.size() < elementsCount) && (cycleElementCount <= 30)) {
-                    try {
-                        sleep(500);
-                    } catch (InterruptedException e) {
-                        throw new RuntimeException(e);
-                    }
+                while ((elements.size() != elementsCount) && (cycleElementCount <= 30)) {
+                    sleep(500);
                     elements = driver.findElements(locator);
                     cycleElementCount++;
                 }
@@ -81,18 +67,25 @@ public class DriverUtils {
                     return null;
                 }
 
-                for(WebElement element : driver.findElements(locator)){
-                    if(!element.isDisplayed() && (cycleELementVisibility <= 30)){
-                        try {
-                            sleep(500);
-                        } catch (InterruptedException e) {
-                            throw new RuntimeException(e);
-                        }
-                        elements = driver.findElements(locator);
+                while (elementNumber < elementsCount) {
+//                    driver.findElements(locator).get(elementNumber);
+                    if(!driver.findElements(locator).get(elementNumber).isDisplayed() && (cycleELementVisibility <= 30)){
+                        sleep(500);
+                        driver.findElements(locator);
                         cycleELementVisibility++;
                         return null;
                     }
+                    elementNumber++;
                 }
+
+//                for(WebElement element : driver.findElements(locator)){
+//                    if(!element.isDisplayed() && (cycleELementVisibility <= 30)){
+//                        sleep(500);
+//                        elements = driver.findElements(locator);
+//                        cycleELementVisibility++;
+//                        return null;
+//                    }
+//                }
 
                 // if the elements are not displayed in 30 tries, we are failing the expected condition
                 if (cycleELementVisibility > 30){

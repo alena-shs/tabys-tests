@@ -13,7 +13,6 @@ import java.time.Duration;
 import java.util.List;
 import java.util.Objects;
 
-import static java.lang.Thread.sleep;
 import static mobileapp.drivers.DriverUtils.*;
 import static mobileapp.tests.TestBaseMobile.mobileenv;
 
@@ -26,23 +25,22 @@ public class PasswordRecoveryPage {
         if (Objects.equals(mobileenv, "browserstack-ios")){
             logger.info("MACBOOK REQUIRED TO WRITE THE SCRIPT");
         } else {
-
-            wait.until(ExpectedConditions.visibilityOfElementLocated(
-                            AppiumBy.xpath("//*[@text='Phone number']")));
+            waitForDisplayed(driver, AppiumBy
+                    .xpath("//*[@text='Phone number']"), 20);
 
             wait.until
                     (visibilityOfNElementsLocatedBy(AppiumBy
                             .className("android.widget.EditText"), 1));
-            waitForDisplayed
-                    (driver.findElement(AppiumBy
-                            .className("android.widget.EditText")), 10);
-            waitForEnabled(driver.findElement(AppiumBy
-                    .className("android.widget.EditText")), 10);
+            waitForDisplayed(driver, AppiumBy
+                    .className("android.widget.EditText"), 10);
+            waitForEnabled(driver, AppiumBy
+                    .className("android.widget.EditText"), 10);
 
-//            assertTrue(driver.findElement(AppiumBy.className("android.widget.EditText")).isEnabled());
             driver.findElement(AppiumBy.className("android.widget.EditText")).click();
-            sleep(1000);
-            wait.until(ExpectedConditions.attributeContains(AppiumBy.className("android.widget.EditText"), "text", "+7"));
+//            sleep(1000);
+            System.out.println(phoneNumber.substring(1));
+//            wait.until(ExpectedConditions.attributeContains(AppiumBy.className("android.widget.EditText"), "text", "+7"));
+            waitForDisplayed(driver, AppiumBy.xpath("//android.widget.EditText[@text='+7']"), 20);
             wait.until(ExpectedConditions.visibilityOfElementLocated(
                     AppiumBy.className("android.widget.EditText")))
                     .sendKeys(phoneNumber.substring(1));
@@ -57,22 +55,18 @@ public class PasswordRecoveryPage {
         if (Objects.equals(mobileenv, "browserstack-ios")){
             logger.info("MACBOOK REQUIRED TO WRITE THE SCRIPT");
         } else {
-//            List<WebElement> buttons = wait.until
-//                    (ExpectedConditions.visibilityOfAllElementsLocatedBy(
-//                            AppiumBy.className("android.widget.Button")));
-            List<WebElement> buttons = wait.until(visibilityOfNElementsLocatedBy(
-                    AppiumBy.className("android.widget.Button"), 1));
-            waitForEnabled(driver.findElement(AppiumBy
-                    .className("android.widget.Button")), 10);
-//            assertEquals(1, buttons.size());
-            // TODO Fails
+            List<WebElement> buttons = wait.until
+                    (visibilityOfNElementsLocatedBy(AppiumBy
+                            .className("android.widget.Button"), 1));
+            waitForEnabled(driver, AppiumBy
+                    .className("android.widget.Button"), 10);
 
-            waitForDisplayed
-                    (driver.findElement(AppiumBy
-                            .className("android.widget.Button")), 10);
+            waitForDisplayed(driver, AppiumBy
+                            .className("android.widget.Button"), 10);
             wait.until(ExpectedConditions.elementToBeClickable(AppiumBy.className("android.widget.Button")));
-//            assertTrue(buttons.get(0).isEnabled());
 
+            buttons.get(0).click();
+            buttons.get(0).click();
             buttons.get(0).click();
         }
     }

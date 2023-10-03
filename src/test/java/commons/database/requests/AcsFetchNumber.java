@@ -22,7 +22,7 @@ public class AcsFetchNumber {
                     "FROM onboarding o join card_name_matching c on o.account = c.username" +
                     "WHERE process_status='SUCCESS' and broker not like '0001%' and c.score>0.8 and account like '+7%' ORDER BY created_at DESC;",
         SELECT_IPO_APPROVED_NUMBER =  "SELECT distinct account, modified_at, process_status, broker " +
-                "FROM onboarding WHERE process_status='SUCCESS' and project_name not in ('CSDC') and broker='D06' and account like '+7%' " +
+                "FROM onboarding WHERE process_status='SUCCESS' and project_name not in ('CSDC') and broker='D06' and account like '+7%' and LENGTH(account)=12 " +
                 "ORDER BY modified_at DESC",
             SELECT_TABYS_APPROVED_NUMBER = "SELECT o.account, o.modified_at, o.process_status, c.username, c.score " +
                     "FROM onboarding o join card_name_matching c on o.account = c.username " +

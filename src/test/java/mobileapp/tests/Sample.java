@@ -28,7 +28,7 @@ public class Sample extends TestBaseMobile {
     @Tags({
             @Tag("mobile"),
             @Tag("sample_mobile")})
-    public void sampleTest(){
+    public void sampleTest() throws InterruptedException {
         System.out.println("Acs test URL: " + databaseConnectConfig.acsTestUrl());
         System.out.println("Onboarding test URL:" + databaseConnectConfig.onboardingTestUrl());
         System.out.println("Cash test URL: " + databaseConnectConfig.cashTestUrl());

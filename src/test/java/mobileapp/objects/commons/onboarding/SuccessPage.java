@@ -13,6 +13,7 @@ import java.time.Duration;
 import java.util.List;
 import java.util.Objects;
 
+import static mobileapp.drivers.DriverUtils.*;
 import static mobileapp.tests.TestBaseMobile.mobileenv;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -27,9 +28,8 @@ public class SuccessPage {
             logger.info("MACBOOK REQUIRED TO WRITE THE SCRIPT");
         } else {
             List<WebElement> promoteButton = wait.until
-                    (ExpectedConditions.visibilityOfAllElementsLocatedBy(
-                            AppiumBy.className("android.widget.Button")));
-            assertEquals(1, promoteButton.size());
+                    (visibilityOfNElementsLocatedBy(AppiumBy
+                            .className("android.widget.Button"), 1));
             assertTrue(promoteButton.get(0).isEnabled());
         }
         return this;
@@ -46,34 +46,37 @@ public class SuccessPage {
         return this;
     }
 
-    @Step("Verify that the 'Share with friends'page is fully loaded and has all the necessary elements")
-    public SuccessPage verifySharingPageLoaded(AppiumDriver driver) {
+    @Step("Verify that the 'Share with friends' page is fully loaded and has all the necessary elements")
+    public SuccessPage verifySharingPageLoaded(AppiumDriver driver) throws InterruptedException {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
 
         if (Objects.equals(mobileenv, "browserstack-ios")){
             logger.info("MACBOOK REQUIRED TO WRITE THE SCRIPT");
         } else {
-            List<WebElement> sharingHeader = wait.until
-                    (ExpectedConditions.visibilityOfAllElementsLocatedBy(
-                            AppiumBy.xpath("//android.widget.TextView[@text[starts-with(., 'Shar')]]")));
-            assertEquals(1, sharingHeader.size());
+            wait.until
+                    (visibilityOfNElementsLocatedBy(AppiumBy
+                            .xpath("//android.widget.TextView[@text[starts-with(., 'Shar')]]"), 1));
 
-            List<WebElement> exitButton = wait.until
-                    (ExpectedConditions.visibilityOfAllElementsLocatedBy(
-                            AppiumBy.xpath("//*[@text='Exit']")));
-            assertEquals(1, exitButton.size());
-            assertTrue(exitButton.get(0).isEnabled());
+            waitForDisplayed(driver, AppiumBy
+                    .xpath("//*[@text='Exit']"), 10);
+            waitForEnabled(driver, AppiumBy
+                    .xpath("//*[@text='Exit']"), 10);
         }
         return this;
     }
 
     @Step("Exit")
-    public void exit(AppiumDriver driver) {
+    public void exit(AppiumDriver driver) throws InterruptedException {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
 
         if (Objects.equals(mobileenv, "browserstack-ios")){
             logger.info("MACBOOK REQUIRED TO WRITE THE SCRIPT");
         } else {
-            driver.findElement(AppiumBy.xpath("//*[@text='Exit']")).click();
+            wait.until
+                    (visibilityOfNElementsLocatedBy(AppiumBy
+                            .xpath("//*[@text='Exit']"), 1)).get(0).click();
+            driver.findElement(AppiumBy
+                    .xpath("//*[@text='Exit']")).click();
         }
     }
 }

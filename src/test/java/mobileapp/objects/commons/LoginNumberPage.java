@@ -14,6 +14,7 @@ import java.util.List;
 import java.util.Objects;
 
 import static com.codeborne.selenide.Selenide.sleep;
+import static mobileapp.drivers.DriverUtils.visibilityOfNElementsLocatedBy;
 import static mobileapp.tests.TestBaseMobile.mobileenv;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -29,41 +30,14 @@ public class LoginNumberPage {
         } else {
 
             List<WebElement> inputFields = wait.until
-                    (ExpectedConditions.visibilityOfAllElementsLocatedBy(
-                            AppiumBy.className("android.widget.EditText")));
-            assertEquals(2, inputFields.size());
+                    (visibilityOfNElementsLocatedBy(
+                            AppiumBy.className("android.widget.EditText"), 2));
 
             inputFields.get(0).sendKeys(phoneNumber.substring(1));
             inputFields.get(1).sendKeys(password);
         }
         return this;
     }
-
-//    @Step("Proceed to the next page with credentials")
-//    public void proceed(AppiumDriver driver) {
-//        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
-//
-//        if (Objects.equals(mobileenv, "browserstack-ios")){
-//            logger.info("MACBOOK REQUIRED TO WRITE THE SCRIPT");
-//        } else {
-//            List<WebElement> buttons = wait.until
-//                    (ExpectedConditions.visibilityOfAllElementsLocatedBy(
-//                            AppiumBy.className("android.widget.Button")));
-//            assertEquals(1, buttons.size());
-//            assertTrue(buttons.get(0).isEnabled());
-//
-//            buttons.get(0).click();
-//
-//            WebElement proceedButton = wait.until(
-//                    ExpectedConditions.visibilityOfElementLocated
-//                            (AppiumBy.className("android.widget.Button")));
-//            assertTrue(proceedButton.isEnabled());
-//
-//            proceedButton.click();
-//
-//            sleep(5000);
-//        }
-//    }
 
     @Step("Tap on Forgot Password")
     public void tapForgotPassword(AppiumDriver driver) {

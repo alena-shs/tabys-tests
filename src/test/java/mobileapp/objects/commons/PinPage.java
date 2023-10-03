@@ -15,6 +15,7 @@ import java.util.Objects;
 
 import static com.codeborne.selenide.Selenide.sleep;
 import static mobileapp.drivers.DriverUtils.visibilityOfNElementsLocatedBy;
+import static mobileapp.drivers.DriverUtils.waitForDisplayed;
 import static mobileapp.tests.TestBaseMobile.mobileenv;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -22,18 +23,18 @@ public class PinPage {
     private final static Logger logger = LoggerFactory.getLogger(PinPage.class);
 
     @Step("Set up a new PIN code")
-    public PinPage setUpPinFirst(AppiumDriver driver, String pin){
+    public PinPage setUpPinFirst(AppiumDriver driver, String pin) throws InterruptedException {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 
         if (Objects.equals(mobileenv, "browserstack-ios")){
             logger.info("MACBOOK REQUIRED TO WRITE THE SCRIPT");
         } else {
-            wait.until
-                    (ExpectedConditions.visibilityOfElementLocated(
-                            AppiumBy.xpath("//*[@text='Come up with 4 digit pin code to log in']")));
+            waitForDisplayed(driver, AppiumBy
+                    .xpath("//*[@text='Come up with 4 digit pin code to log in']"), 15);
 
-            List<WebElement> input = wait.until(visibilityOfNElementsLocatedBy(
+            wait.until(visibilityOfNElementsLocatedBy(
                     AppiumBy.className("android.widget.EditText"), 4));
+
             for(WebElement element : driver.findElements(AppiumBy.className("android.widget.EditText"))){
                 assertTrue(element.isEnabled());
             }

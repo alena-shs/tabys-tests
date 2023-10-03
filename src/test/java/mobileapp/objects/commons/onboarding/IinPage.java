@@ -46,7 +46,7 @@ public class IinPage {
                             AppiumBy.className("android.widget.Button")));
             assertEquals(1, buttons.size());
 
-            buttons.get(0).click();
+//            buttons.get(0).click();
         }
         return this;
     }
