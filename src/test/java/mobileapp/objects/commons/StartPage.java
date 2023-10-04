@@ -14,6 +14,7 @@ import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Objects;
 
+import static java.lang.Thread.sleep;
 import static mobileapp.drivers.DriverUtils.visibilityOfNElementsLocatedBy;
 import static mobileapp.drivers.DriverUtils.waitForDisplayed;
 import static mobileapp.tests.TestBaseMobile.mobileenv;
@@ -30,6 +31,7 @@ public class StartPage {
             logger.info("MACBOOK REQUIRED TO WRITE THE SCRIPT");
             // COPY/PASTE the code under 'else'. BUT change the locators. Use APPIUM Inspector to identify locators.
         } else {
+            sleep(5000);
             wait.until(visibilityOfNElementsLocatedBy(AppiumBy.xpath("//*[@resource-id='splash-message-container']"), 0));
             waitForDisplayed(driver, AppiumBy
                     .xpath("//*[@resource-id='background-content']"), 30);
@@ -51,6 +53,7 @@ public class StartPage {
         if (Objects.equals(mobileenv, "browserstack-ios")){
             logger.info("MACBOOK REQUIRED TO WRITE THE SCRIPT");
         } else {
+            sleep(5000);
             wait.until(
                     visibilityOfNElementsLocatedBy(AppiumBy
                             .xpath("//*[@resource-id='splash-message-container']"), 0));

@@ -22,7 +22,7 @@ public class MobileOnboardingTests extends TestBaseMobile {
             @Tag("onboarding")
     })
     void etnMobileOnboarding() throws InterruptedException {
-        //        Get a new phone number for registration. All the numbers will be in the format: +74440xxxxxx. Each new number will increment the previous number by on e.
+        //        Get a new phone number for registration. All the numbers will be in the format: +74440xxxxxx. Each new number will increment the previous number by one.
         String phoneNumber = getNewPhoneNumber(phoneNumberTemplateMobile);
         startPage
                 .clickReadyToStart(driver);
