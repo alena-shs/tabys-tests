@@ -31,8 +31,8 @@ public class StartPage {
             logger.info("MACBOOK REQUIRED TO WRITE THE SCRIPT");
             // COPY/PASTE the code under 'else'. BUT change the locators. Use APPIUM Inspector to identify locators.
         } else {
-            sleep(5000);
             wait.until(visibilityOfNElementsLocatedBy(AppiumBy.xpath("//*[@resource-id='splash-message-container']"), 0));
+            sleep(5000);
             waitForDisplayed(driver, AppiumBy
                     .xpath("//*[@resource-id='background-content']"), 30);
 
@@ -53,10 +53,10 @@ public class StartPage {
         if (Objects.equals(mobileenv, "browserstack-ios")){
             logger.info("MACBOOK REQUIRED TO WRITE THE SCRIPT");
         } else {
-            sleep(5000);
             wait.until(
                     visibilityOfNElementsLocatedBy(AppiumBy
                             .xpath("//*[@resource-id='splash-message-container']"), 0));
+            sleep(5000);
             waitForDisplayed(driver, AppiumBy
                     .xpath("//*[@resource-id='background-content']"), 30);
 

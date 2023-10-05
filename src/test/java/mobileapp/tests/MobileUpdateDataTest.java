@@ -16,7 +16,7 @@ public class MobileUpdateDataTest extends TestBaseMobile {
     @Story("Updating data on IPO")
     @Owner("Alena Shomanova")
     @Severity(SeverityLevel.NORMAL)
-    @Description("Test tha  t verifies that a fully onboarded IPO user without any IPO/withdrawal orders can update their data (change income source to 'Savings')")
+    @Description("Test that verifies that a fully onboarded IPO user without any IPO/withdrawal orders can update their data (change income source to 'Savings')")
     @Tags({
             @Tag("mobile"),
             @Tag("updatedata"),
