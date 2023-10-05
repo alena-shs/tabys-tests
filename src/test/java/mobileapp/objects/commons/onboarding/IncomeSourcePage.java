@@ -4,7 +4,6 @@ import io.appium.java_client.AppiumBy;
 import io.appium.java_client.AppiumDriver;
 import io.qameta.allure.Step;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,10 +12,8 @@ import java.time.Duration;
 import java.util.List;
 import java.util.Objects;
 
-import static java.lang.Thread.sleep;
 import static mobileapp.drivers.DriverUtils.*;
 import static mobileapp.tests.TestBaseMobile.mobileenv;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class IncomeSourcePage {
@@ -38,8 +35,8 @@ public class IncomeSourcePage {
             List<WebElement> availableButtons = wait.until
                     (visibilityOfNElementsLocatedBy(
                             AppiumBy.className("android.widget.Button"), 5));
-            for (int elementNumber = 0; elementNumber < availableButtons.size(); elementNumber++) {
-                assertTrue(availableButtons.get(elementNumber).isEnabled());
+            for (WebElement availableButton : availableButtons) {
+                assertTrue(availableButton.isEnabled());
             }
 
 
@@ -47,9 +44,7 @@ public class IncomeSourcePage {
         return this;
     }
     @Step("Enter in the income source and get the result")
-    public IncomeSourcePage setIncomeSource(AppiumDriver driver, String incomeSource) throws InterruptedException {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(2));
-
+    public void setIncomeSource(AppiumDriver driver, String incomeSource) throws InterruptedException {
         if (Objects.equals(mobileenv, "browserstack-ios")){
             logger.info("MACBOOK REQUIRED TO WRITE THE SCRIPT");
         } else {
@@ -60,7 +55,6 @@ public class IncomeSourcePage {
             driver.findElement(AppiumBy
                     .xpath("//android.widget.Button[@text='"+ incomeSource +"']")).click();
         }
-        return this;
     }
 
 //    @Step("Enter in the income source and get the result")

@@ -13,16 +13,14 @@ import java.time.Duration;
 import java.util.List;
 import java.util.Objects;
 
-import static com.codeborne.selenide.Selenide.sleep;
 import static mobileapp.drivers.DriverUtils.visibilityOfNElementsLocatedBy;
 import static mobileapp.tests.TestBaseMobile.mobileenv;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class LoginNumberPage {
     private final static Logger logger = LoggerFactory.getLogger(LoginNumberPage.class);
     @Step("Enter credentials")
-    public LoginNumberPage enterCredentials(AppiumDriver driver, String phoneNumber, String password) {
+    public void enterCredentials(AppiumDriver driver, String phoneNumber, String password) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 
         if (Objects.equals(mobileenv, "browserstack-ios")){
@@ -36,7 +34,6 @@ public class LoginNumberPage {
             inputFields.get(0).sendKeys(phoneNumber.substring(1));
             inputFields.get(1).sendKeys(password);
         }
-        return this;
     }
 
     @Step("Tap on Forgot Password")

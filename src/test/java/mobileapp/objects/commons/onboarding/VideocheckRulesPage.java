@@ -15,7 +15,6 @@ import java.util.Objects;
 
 import static mobileapp.tests.TestBaseMobile.mobileenv;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class VideocheckRulesPage {
     private final static Logger logger = LoggerFactory.getLogger(VideocheckRulesPage.class);

@@ -5,17 +5,16 @@ import io.appium.java_client.AppiumBy;
 import io.appium.java_client.AppiumDriver;
 import io.qameta.allure.Step;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.time.Duration;
-import java.util.List;
 import java.util.Objects;
 
-import static mobileapp.drivers.DriverUtils.*;
 import static commons.database.requests.AcsFetchOtp.userRestorePasswordCode;
+import static mobileapp.drivers.DriverUtils.visibilityOfNElementsLocatedBy;
+import static mobileapp.drivers.DriverUtils.waitForDisplayed;
 import static mobileapp.tests.TestBaseMobile.mobileenv;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -41,7 +40,6 @@ public class OtpPage {
             for(WebElement element : driver.findElements(AppiumBy.className("android.widget.EditText"))){
                 assertTrue(element.isEnabled());
             }
-//            assertTrue(otp.get(0).isEnabled());
 
             driver.findElements(AppiumBy
                     .className("android.widget.EditText")).get(0)

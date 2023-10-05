@@ -3,21 +3,17 @@ package mobileapp.objects.commons.onboarding;
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.AppiumDriver;
 import io.qameta.allure.Step;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.time.Duration;
-import java.util.List;
 import java.util.Objects;
 
 import static java.lang.Thread.sleep;
 import static mobileapp.drivers.DriverUtils.visibilityOfNElementsLocatedBy;
 import static mobileapp.drivers.DriverUtils.waitForDisplayed;
 import static mobileapp.tests.TestBaseMobile.mobileenv;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class IpoConsentPage {
     private final static Logger logger = LoggerFactory.getLogger(IpoConsentPage.class);
