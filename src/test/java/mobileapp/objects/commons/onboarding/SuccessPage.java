@@ -12,6 +12,7 @@ import java.time.Duration;
 import java.util.List;
 import java.util.Objects;
 
+import static java.lang.Thread.sleep;
 import static mobileapp.drivers.DriverUtils.*;
 import static mobileapp.tests.TestBaseMobile.mobileenv;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -64,12 +65,13 @@ public class SuccessPage {
     }
 
     @Step("Exit")
-    public void exit(AppiumDriver driver) {
+    public void exit(AppiumDriver driver) throws InterruptedException {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
 
         if (Objects.equals(mobileenv, "browserstack-ios")){
             logger.info("MACBOOK REQUIRED TO WRITE THE SCRIPT");
         } else {
+            sleep(2000);
             wait.until
                     (visibilityOfNElementsLocatedBy(AppiumBy
                             .xpath("//*[@text='Exit']"), 1)).get(0).click();

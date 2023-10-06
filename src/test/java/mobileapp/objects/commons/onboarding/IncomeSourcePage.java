@@ -28,9 +28,6 @@ public class IncomeSourcePage {
         } else {
             waitForDisplayed(driver, AppiumBy
                     .xpath("//android.widget.TextView[contains(@text, 'ncome')]"), 15);
-//            wait.until
-//                    (visibilityOfNElementsLocatedBy(AppiumBy
-//                            .xpath("//android.widget.TextView[contains(@text, 'ncome')]"), 2));
 
             List<WebElement> availableButtons = wait.until
                     (visibilityOfNElementsLocatedBy(
@@ -38,11 +35,10 @@ public class IncomeSourcePage {
             for (WebElement availableButton : availableButtons) {
                 assertTrue(availableButton.isEnabled());
             }
-
-
         }
         return this;
     }
+
     @Step("Enter in the income source and get the result")
     public void setIncomeSource(AppiumDriver driver, String incomeSource) throws InterruptedException {
         if (Objects.equals(mobileenv, "browserstack-ios")){
@@ -56,20 +52,4 @@ public class IncomeSourcePage {
                     .xpath("//android.widget.Button[@text='"+ incomeSource +"']")).click();
         }
     }
-
-//    @Step("Enter in the income source and get the result")
-//    public void confirmIncomeSource(AppiumDriver driver) {
-//        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(2));
-//
-//        if (Objects.equals(mobileenv, "browserstack-ios")){
-//            logger.info("MACBOOK REQUIRED TO WRITE THE SCRIPT");
-//        } else {
-//            List<WebElement> continueButton = wait.until
-//                    (ExpectedConditions.visibilityOfAllElementsLocatedBy(
-//                            AppiumBy.xpath("//android.widget.Button[@text='Continue']")));
-//            assertEquals(1, continueButton.size());
-//            assertTrue(continueButton.get(0).isEnabled());
-//            continueButton.get(0).click();
-//        }
-//    }
 }

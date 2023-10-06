@@ -17,7 +17,7 @@ public class AcsFetchNumber {
             SELECT_LAST_UNIQUE_NUMBER = "SELECT o.account, o.project_name, o.created_at, o.process_status " +
                     "FROM onboarding o JOIN " +
                     "(SELECT account FROM onboarding GROUP BY account HAVING COUNT(*) = 1) " +
-                    "subquery ON o.account = subquery.account WHERE o.project_name=? and o.process_status='SUCCESS' ORDER BY o.created_at DESC limit 1;",
+                    "subquery ON o.account = subquery.account WHERE o.project_name=? and o.process_status='SUCCESS' and LENGTH(o.account)=12 ORDER BY o.created_at DESC limit 1;",
             SELECT_LAST_AUTOAPPROVE_NUMBER = "SELECT o.account, o.modified_at, o.process_status, o.broker, c.username, c.score" +
                     "FROM onboarding o join card_name_matching c on o.account = c.username" +
                     "WHERE process_status='SUCCESS' and broker not like '0001%' and c.score>0.8 and account like '+7%' ORDER BY created_at DESC;",
@@ -150,8 +150,8 @@ public class AcsFetchNumber {
     }
 
     @Step("Fetch the unique phone number IPO without outstanding orders (IPO and withdrawal)")
-    public static String lastCsdPhoneNumberWithoutOrders(List<String> numbersWithCsdOrders, String projectName) {
-        String account = null;
+    public static String lastCsdPhoneNumberWithoutOrders(List<String> numbersWithCsdOrders) {
+        String account;
         try (Connection connection = DriverManager.getConnection(
                 databaseConnectConfig.onboardingTestUrl(), databaseConnectConfig.user(), databaseConnectConfig.password());
              PreparedStatement preparedStatement = connection.prepareStatement(SELECT_LAST_AUTOAPPROVE_NUMBER)) {
@@ -173,8 +173,8 @@ public class AcsFetchNumber {
     }
 
     @Step("Fetch the unique phone number IPO without outstanding orders (IPO and withdrawal)")
-    public static String lastIpoPhoneNumberWithoutOrders(List<String> numbersWithCsdOrders, List<String> numbersWithActiveCnpCard, String projectName) {
-        String account = null;
+    public static String lastIpoPhoneNumberWithoutOrders(List<String> numbersWithCsdOrders, List<String> numbersWithActiveCnpCard) {
+        String account;
         try (Connection connection = DriverManager.getConnection(
                 databaseConnectConfig.onboardingTestUrl(), databaseConnectConfig.user(), databaseConnectConfig.password());
              PreparedStatement preparedStatement = connection.prepareStatement(SELECT_IPO_APPROVED_NUMBER)) {

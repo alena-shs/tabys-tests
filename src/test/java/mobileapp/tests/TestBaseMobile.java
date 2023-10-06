@@ -158,10 +158,6 @@ public class TestBaseMobile {
                 NewBrowserstackDriver.setCapabilities(capabilities);
                 driver = new IOSDriver(getAppiumServerUrl(), capabilities);
                 sessionId = driver.getSessionId();
-
-//                changeDriverContextToNative(driver);
-//                driver.findElement(AppiumBy.name("Allow")).click();
-//                changeDriverContextToWeb(driver);
                 break;
             case "emulator":
             case "physicaldevice":
@@ -169,66 +165,20 @@ public class TestBaseMobile {
                 driver = (AppiumDriver) WebDriverRunner.getWebDriver();
                 capabilities.setCapability("autoGrantPermissions", "true");
                 sessionId = driver.getSessionId();
-//                capabilities.setCapability(AndroidMobileCapabilityType.AUTO_GRANT_PERMISSIONS,true);
                 break;
         }
         driver.setSetting(Setting.WAIT_FOR_IDLE_TIMEOUT, 0);
     }
 
-//    @BeforeAll
-//    public static void setup() throws MalformedURLException {
-//        switch (mobileenv) {
-//            case "emulator":
-//            case "physicaldevice":
-//                Configuration.browser = MobileDriverLocal.class.getName();
-//                cap.setCapability(AndroidMobileCapabilityType.AUTO_GRANT_PERMISSIONS,true);
-//                break;
-//            case "browserstack-ios":
-//            case "browserstack-android":
-//                Configuration.browser = MobileDriverBrowserstack.class.getName();
-//                break;
-//        }
-//        Configuration.browserSize = null;
-////        cap.setCapability(AndroidMobileCapabilityType.DISABLE_WINDOW_ANIMATION, true);
-//    }
-
-//    @BeforeEach
-//    void addListener() {
-//        SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
-//        open();
-//        switch (mobileenv) {
-//            case "browserstack-ios":{
-//                System.out.println("Attention! iOS tests require a MacBook!");
-//            }
-//            case "emulator":
-//            case "physicaldevice":
-//                AppiumDriver driver = (AppiumDriver) WebDriverRunner.getWebDriver();
-//                driver.setSetting(Setting.WAIT_FOR_IDLE_TIMEOUT, 0);
-//                break;
-//
-//        }
-////        AppiumDriver driver = (AppiumDriver) WebDriverRunner.getWebDriver();
-////        driver.setSetting(Setting.WAIT_FOR_IDLE_TIMEOUT, 0);
-////        $(AppiumBy.className("android.widget.TextView")).click();
-//
-//    }
-
     @AfterEach
     void afterEach() {
-//        String sessionId = sessionId().toString();
-//        Attach.pageSource();
-//        closeWebDriver();
         switch (mobileenv) {
             case "browserstack-ios":
                 driver.quit();
                 break;
             case "browserstack-android":
                 sessionIdValue = sessionId.toString();
-//                String sessionId = driver.getSessionId().toString();
-                System.out.println(sessionIdValue);
-//                Attach.pageSourceMobile(driver);
                 driver.quit();
-//                closeWebDriver();
                 Attach.addVideoMobile(sessionIdValue);
                 break;
             case "physicaldevice":

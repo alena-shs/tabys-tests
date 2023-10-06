@@ -38,8 +38,6 @@ public class PinPage {
                 assertTrue(element.isEnabled());
             }
 
-//            assertTrue(input.get(0).isEnabled());
-
             driver.findElement(AppiumBy.className("android.widget.EditText")).sendKeys(pin);
             // Give some time for the pin code to get processed
             sleep(3000);

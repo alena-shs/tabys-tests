@@ -41,8 +41,6 @@ public class MobileOnboardingTests extends TestBaseMobile {
                 .enterRegistrationOtpCode(driver, phoneNumber);
         confirmIdentityPage.verifyPageLoaded(driver);
         mobileCommonElements.tapOnAvailableButton(driver);
-//        mobileCommonElements
-//                .tapOnAvailableButton(driver);
         emailPage.verifyPageLoaded(driver)
                 .enterEmail(driver, defaultEmail)
                 .submitEmail(driver);
@@ -112,8 +110,6 @@ public class MobileOnboardingTests extends TestBaseMobile {
         otpPage.enterRegistrationOtpCode(driver, phoneNumber);
         confirmIdentityPage.verifyPageLoaded(driver);
         mobileCommonElements.tapOnAvailableButton(driver);
-//        mobileCommonElements
-//                .tapOnAvailableButton(driver);
         emailPage.verifyPageLoaded(driver)
                 .enterEmail(driver, defaultEmail)
                 .submitEmail(driver);

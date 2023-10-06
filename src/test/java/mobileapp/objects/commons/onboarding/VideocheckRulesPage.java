@@ -39,12 +39,6 @@ public class VideocheckRulesPage {
                     (ExpectedConditions.visibilityOfAllElementsLocatedBy(
                             AppiumBy.xpath("//*[@text='Prepare your ID card']")));
             assertEquals(1, firstRule.size());
-
-//            List<WebElement> nextButton = wait.until
-//                    (ExpectedConditions.visibilityOfAllElementsLocatedBy(
-//                            AppiumBy.xpath("//*[@text='Make a video']")));
-//            assertEquals(1, nextButton.size());
-//            assertTrue(nextButton.get(0).isEnabled());
         }
         return this;
     }

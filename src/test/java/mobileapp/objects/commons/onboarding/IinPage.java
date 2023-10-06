@@ -45,8 +45,6 @@ public class IinPage {
                     (ExpectedConditions.visibilityOfAllElementsLocatedBy(
                             AppiumBy.className("android.widget.Button")));
             assertEquals(1, buttons.size());
-
-//            buttons.get(0).click();
         }
         return this;
     }

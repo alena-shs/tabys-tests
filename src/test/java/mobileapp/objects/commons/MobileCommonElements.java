@@ -40,14 +40,6 @@ public class MobileCommonElements {
                     .xpath("//*[@resource-id='dynamic-forms-next-button']"), 10);
             waitForEnabled(driver, AppiumBy
                     .xpath("//*[@resource-id='dynamic-forms-next-button']"), 10);
-//            List<WebElement> onboardingNextButton = wait.until
-//                    (visibilityOfNElementsLocatedBy(
-//                            AppiumBy.xpath("//*[@resource-id='dynamic-forms-next-button']"),1));
-//            List<WebElement> onboardingNextButton = wait.until
-//                    (ExpectedConditions.visibilityOfAllElementsLocatedBy(
-//                            AppiumBy.xpath("//*[@resource-id='dynamic-forms-next-button']")));
-//            assertEquals(1, onboardingNextButton.size());
-//            assertTrue(onboardingNextButton.get(0).isEnabled());
             driver.findElement(AppiumBy.xpath("//*[@resource-id='dynamic-forms-next-button']")).click();
             sleep(500);
         }

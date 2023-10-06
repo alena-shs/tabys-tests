@@ -28,19 +28,16 @@ public class EmailPage {
             logger.info("MACBOOK REQUIRED TO WRITE THE SCRIPT");
         } else {
             List<WebElement> header = wait.until
-                    (ExpectedConditions.visibilityOfAllElementsLocatedBy(
-                            AppiumBy.xpath("//*[@text='Email']")));
+                    (ExpectedConditions.visibilityOfAllElementsLocatedBy(AppiumBy
+                            .xpath("//*[@text='Email']")));
             assertEquals(1, header.size());
 
-            List<WebElement> availableInputs = wait.until
-                    (visibilityOfNElementsLocatedBy(
-                            AppiumBy.className("android.widget.EditText"), 2));
-//            assertEquals(2, availableInputs.size());
+            wait.until
+                    (visibilityOfNElementsLocatedBy(AppiumBy
+                            .className("android.widget.EditText"), 2));
             for(WebElement element : driver.findElements(AppiumBy.className("android.widget.EditText"))){
                 assertTrue(element.isEnabled());
             }
-//            assertTrue(availableInputs.get(0).isEnabled());
-//            assertTrue(availableInputs.get(1).isEnabled());
         }
         return this;
     }
@@ -58,20 +55,19 @@ public class EmailPage {
     }
 
     @Step("Submit the email")
-    public EmailPage submitEmail(AppiumDriver driver){
+    public void submitEmail(AppiumDriver driver){
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
         if (Objects.equals(mobileenv, "browserstack-ios")){
             logger.info("MACBOOK REQUIRED TO WRITE THE SCRIPT");
         } else {
             List<WebElement> availableButtons = wait.until
-                    (ExpectedConditions.visibilityOfAllElementsLocatedBy(
-                            AppiumBy.xpath("//*[@text='Continue']")));
+                    (ExpectedConditions.visibilityOfAllElementsLocatedBy(AppiumBy
+                            .xpath("//*[@text='Continue']")));
             assertEquals(1, availableButtons.size());
             assertTrue(availableButtons.get(0).isEnabled());
 
             availableButtons.get(0).click();
         }
-        return this;
     }
 }

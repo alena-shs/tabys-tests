@@ -1,6 +1,5 @@
 package mobileapp.objects.commons.onboarding;
 
-import com.codeborne.selenide.SelenideElement;
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.AppiumDriver;
 import io.qameta.allure.Step;
@@ -14,15 +13,12 @@ import java.time.Duration;
 import java.util.List;
 import java.util.Objects;
 
-import static com.codeborne.selenide.Selenide.$;
 import static mobileapp.tests.TestBaseMobile.mobileenv;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class VideocheckIntroPage {
     private final static Logger logger = LoggerFactory.getLogger(VideocheckIntroPage.class);
-    private final SelenideElement header = $(AppiumBy.xpath("//*[@text='Video verification']")),
-            nextButton = $(AppiumBy.xpath("//android.widget.Button[@text='Start a verification']"));
     @Step("Verify that the video verification intro page is fully loaded and has all the necessary elements")
     public void verifyPageLoaded(AppiumDriver driver) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));

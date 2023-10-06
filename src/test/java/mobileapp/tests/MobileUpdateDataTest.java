@@ -40,7 +40,6 @@ public class MobileUpdateDataTest extends TestBaseMobile {
                 .tapOnAvailableButton(driver);
         pinPage
                 .setUpPinFirst(driver, defaultPinCode);
-        homeTab.verifyPageLoaded(driver);
         tabysNavigation
                 .verifyNavigationAvailable(driver);
         homeTab
@@ -82,9 +81,7 @@ public class MobileUpdateDataTest extends TestBaseMobile {
         mobileCommonElements
                 .proceedOnboarding(driver);
         photoFinishedPage
-//                .checkOnboardingStuck(driver)
                 .verifyPageLoaded(driver);
-//                .checkOnboardingStuck(driver);
         mobileCommonElements
                 .tapOnAvailableButton(driver);
         cardIntroPage
@@ -157,12 +154,10 @@ public class MobileUpdateDataTest extends TestBaseMobile {
         tabysNavigation
                 .verifyNavigationAvailable(driver).clickTabProfile(driver);
         profileTab
-//                .verifyPageLoaded()
                 .clickPersonalInformation(driver);
         etnPersonalInformation
                 .verifyPageLoaded(driver)
                 .tapUpdateData(driver);
-        //
         iinPage
                 .verifyPageLoaded(driver)
                 .verifyIinFound(driver);
@@ -196,9 +191,7 @@ public class MobileUpdateDataTest extends TestBaseMobile {
                 .proceedOnboarding(driver);
         //
         photoFinishedPage
-//                .checkOnboardingStuck(driver)
                 .verifyPageLoaded(driver);
-//                .checkOnboardingStuck(driver);
         mobileCommonElements
                 .tapOnAvailableButton(driver);
         //
@@ -295,9 +288,7 @@ public class MobileUpdateDataTest extends TestBaseMobile {
         mobileCommonElements
                 .proceedOnboarding(driver);
         photoFinishedPage
-//                .checkOnboardingStuck(driver)
                 .verifyPageLoaded(driver);
-//                .checkOnboardingStuck(driver);
         mobileCommonElements
                 .tapOnAvailableButton(driver);
         cardIntroPage

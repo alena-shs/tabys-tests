@@ -39,16 +39,4 @@ public class PhotoFinishedPage {
         }
         return this;
     }
-//    @Step("Check if onboarding is stuck. If YES, keep pressing on 'Done' button. WARNING: This is a bug that verification gets stuck sometimes. Please remove this step once the bug is fixed")
-//    public PhotoFinishedPage checkOnboardingStuck(AppiumDriver driver) {
-//        try {
-//            sleep(9000);
-//            while (driver.findElements(AppiumBy.xpath("//android.widget.Button[@text='Done']")).size() != 0) {
-//                driver.findElements(AppiumBy.xpath("//android.widget.Button[@text='Done']")).get(0).click();
-//            }
-//        } catch (NoSuchElementException | InterruptedException e){
-//            System.out.println(e.getMessage());
-//        }
-//        return this;
-//    }
 }

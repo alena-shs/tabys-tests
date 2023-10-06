@@ -31,7 +31,7 @@ public class MyBondsSharesMainPage {
 
             wait.until
                     (ExpectedConditions.visibilityOfElementLocated(
-                            AppiumBy.xpath("//*[@text='My balance']")));
+                            AppiumBy.xpath("//*[@text='Sum of orders']")));
 
             WebElement cashAccountButton = wait.until
                     (ExpectedConditions.visibilityOfElementLocated(

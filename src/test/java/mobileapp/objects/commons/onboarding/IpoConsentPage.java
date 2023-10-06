@@ -27,10 +27,6 @@ public class IpoConsentPage {
         } else {
             waitForDisplayed(driver, AppiumBy
                     .xpath("//android.widget.Button[@text[starts-with(., 'Open')]]"), 30);
-//            List<WebElement> openButton = wait.until
-//                    (ExpectedConditions.visibilityOfAllElementsLocatedBy(
-//                            AppiumBy.xpath("//android.widget.Button[@text[starts-with(., 'Open')]]")));
-//            assertEquals(1, openButton.size());
             sleep(500);
 
             wait.until
