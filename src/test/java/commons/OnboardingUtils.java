@@ -33,19 +33,17 @@ public class OnboardingUtils {
         return AcsFetchNumber.lastTabysApprovedPhoneNumber();
     }
 
-    public static String getCsdNumberWithoutOrders(String projectName) {
+    public static String getCsdNumberWithoutOrders() {
         List<String> numbersWithCsdOrders = CashCheckNumber.allNumbersWithCsdOrders();
-        String csdNumberWithoutOrders = AcsFetchNumber.lastCsdPhoneNumberWithoutOrders(numbersWithCsdOrders, projectName);
-        return csdNumberWithoutOrders;
+        return AcsFetchNumber.lastCsdPhoneNumberWithoutOrders(numbersWithCsdOrders);
     }
 
-    public static String getIpoNumberWithoutOrders(String projectName) {
+    public static String getIpoNumberWithoutOrders() {
         // First, we make a list of all the numbers that are without any orders (orders for IPO or cash withdrawal), because in these conditions a user can't update their data.
         List<String> numbersWithCsdOrders = CashCheckNumber.allNumbersWithCsdOrders();
         System.out.println(numbersWithCsdOrders);
         List<String> numbersWithActiveCnpCard = AcsFetchNumber.allNumbersWithCnpCard();
         // This method will keep searching for ACS autoapproved IPO numbers with active cards until they find one that is not in the list.
-        String ipoNumberWithoutOrders = AcsFetchNumber.lastIpoPhoneNumberWithoutOrders(numbersWithCsdOrders, numbersWithActiveCnpCard, projectName);
-        return ipoNumberWithoutOrders;
+        return AcsFetchNumber.lastIpoPhoneNumberWithoutOrders(numbersWithCsdOrders, numbersWithActiveCnpCard);
     }
 }

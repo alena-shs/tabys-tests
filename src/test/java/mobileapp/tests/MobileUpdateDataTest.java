@@ -24,7 +24,7 @@ public class MobileUpdateDataTest extends TestBaseMobile {
     })
     void updateDataIpo() throws InterruptedException {
 //        Get a last automatically approved phone number
-        String phoneNumber = OnboardingUtils.getIpoNumberWithoutOrders("TABYS_IPO");
+        String phoneNumber = OnboardingUtils.getIpoNumberWithoutOrders();
         startPage
                 .clickImAlreadyRegistered(driver);
         loginNumberPage
